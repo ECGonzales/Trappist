@@ -9,9 +9,9 @@ from matplotlib.ticker import ScalarFormatter
 
 # ------------ 1256-0224 (Poster in SED)----------------
 # Read in as pandas dataframe
-df = pd.read_csv('2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
+df = pd.read_csv('Data/2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
                  names=["w", "f", "err"])
-df2 = pd.read_csv('2306-0502 (M7.5) phot.txt', sep=" ", comment='#', names=["w", "f", "err"])
+df2 = pd.read_csv('Data/2306-0502 (M7.5) phot.txt', sep=" ", comment='#', names=["w", "f", "err"])
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Plotting --------------------------------------------------
@@ -73,4 +73,4 @@ ax1.annotate('WISE W1', xy=(2.75, 0.7*10**(-15)), color='#7a0177', fontsize=15)
 ax1.annotate('WISE W2', xy=(3.75, 0.27*10**(-15)), color='#7a0177', fontsize=15)
 ax1.annotate('WISE W3', xy=(8.25, 0.2*10**(-16)), color='#7a0177', fontsize=15)
 
-plt.savefig('TrappistFullSED.png')
+plt.savefig('Figures/TrappistFullSED.png')

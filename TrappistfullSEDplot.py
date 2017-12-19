@@ -26,8 +26,10 @@ nir = df[(df['w'] >= 1.03)]
 # ----- Setup plot layout ---------
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
-fig.set_size_inches(10, 8)
+fig.set_size_inches(10, 6.45)
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)  # This makes sure that the labels aren't cut off
+for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
+    ax1.spines[axis].set_linewidth(1.1)
 
 # ----- Plot Spectra -----------
 ax1.loglog(opt['w'], opt['f'], c='#0179FF')
@@ -51,10 +53,9 @@ plt.xlim([0.5, 12.5])
 plt.ylim([10**(-17), 2*10**(-14)])
 ax1.xaxis.set_major_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_formatter(ScalarFormatter())
-ax1.xaxis.set_minor_locator(plt.FixedLocator([0.5, 0.7, 2, 3, 4, 12.5]))
-ax1.tick_params(axis='x', which='major', labelsize=18)
-ax1.tick_params(axis='x', which='minor', labelsize=18)
-plt.yticks(fontsize=18)
+ax1.xaxis.set_minor_locator(plt.FixedLocator([0.5, 0.7, 2, 3, 4]))
+ax1.tick_params(axis='both', which='major', labelsize=20, length=8, width=1.1)
+ax1.tick_params(axis='both', which='minor', labelsize=20, length=4, width=1.1)
 
 # ------ Axes Labels --------
 plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
@@ -73,4 +74,5 @@ ax1.annotate('WISE W1', xy=(2.75, 0.7*10**(-15)), color='#7a0177', fontsize=15)
 ax1.annotate('WISE W2', xy=(3.75, 0.27*10**(-15)), color='#7a0177', fontsize=15)
 ax1.annotate('WISE W3', xy=(8.25, 0.2*10**(-16)), color='#7a0177', fontsize=15)
 
+plt.tight_layout()
 plt.savefig('Figures/TrappistFullSED.png')

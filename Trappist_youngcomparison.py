@@ -40,7 +40,7 @@ df_1245 = pd.read_csv('Data/young_comp/1655-0823 (M7) SED.txt', sep=" ", comment
                        names=["w", "f", "err"])
 df_1245_phot = pd.read_csv('Data/young_comp/1655-0823 (M7) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
-#TODO: Finish updating paths for text files
+#TODO: Finish updating paths for text files, maybe remove ones with large uncertainties
 
 # -------------------------------------------------------------------------------------
 # ------------------- Plotting: Young Comparison of same Teff -------------------------------

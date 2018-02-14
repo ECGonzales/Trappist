@@ -12,7 +12,7 @@ df_trap = pd.read_csv('Data/FIRE2306-0502 (M7.5) SED.txt', sep=" ", comment='#',
 df_trap_phot = pd.read_csv('Data/FIRE2306-0502 (M7.5) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
 
-# -------------- Comparison objects of the same Teff (young) ----------------------------------
+# -------------- Comparison objects of the same Teff (old) ----------------------------------
 df_1013 = pd.read_csv('../Atmospheres_paper/Data/1013-1356 (-) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 df_1013_phot = pd.read_csv('../Atmospheres_paper/Data/1013-1356 (-) phot.txt', sep=" ", comment='#', header=None,

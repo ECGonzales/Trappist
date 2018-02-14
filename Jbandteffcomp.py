@@ -71,7 +71,7 @@ ax1.plot(df_twa28['w'], norm_df_twa28 + 2, c='#E8470F')
 ax1.plot(df_twa26['w'], norm_df_twa26 + 2.5, c='#FF3215')
 ax1.plot(df_twa29['w'], norm_df_twa29 + 3.1, c='#E81011')
 
-#TODO: Add these labels in later
+# TODO: Add these labels in later, and correct size
 # ------- Label Features --------------------------
 NaI = pd.DataFrame()
 NaI['x'] = [1.13656, 1.14269]

@@ -12,16 +12,16 @@ df_trap = pd.read_csv('Data/FIRE2306-0502 (M7.5) SED.txt', sep=" ", comment='#',
 # Comparison objects with same Teff
 # ----Field---
 df_vb8 = pd.read_csv('Data/field_comp/1655-0823 (M7) SED.txt', sep=" ", comment='#', header=None,
-                       names=["w", "f", "err"])
+                     names=["w", "f", "err"])
 # ----Young----
 df_twa27 = pd.read_csv('Data/young_comp/1207-3932A (M8) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+                       names=["w", "f", "err"])
 df_twa28 = pd.read_csv('Data/young_comp/1102-3430 (M8.5gamma) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+                       names=["w", "f", "err"])
 df_twa26 = pd.read_csv('Data/young_comp/FIRE1139-3159 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+                       names=["w", "f", "err"])
 df_twa29 = pd.read_csv('Data/young_comp/FIRE1245-4429 (M9.5) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+                       names=["w", "f", "err"])
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Normalize the spectra -------------------------------------
@@ -91,7 +91,6 @@ ax1.plot(df_twa28['w'], norm_df_twa28 + 1.5, c='#E8470F')
 ax1.plot(df_twa26['w'], norm_df_twa26 + 2, c='#FF3215')
 ax1.plot(df_twa29['w'], norm_df_twa29 + 2.5, c='#E81011')
 
-#TODO: Add these labels in later
 # ------- Label Features --------------------------
 FeH = pd.DataFrame()
 FeH['x'] = [1.581, 1.66]

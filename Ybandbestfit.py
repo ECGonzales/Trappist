@@ -51,7 +51,7 @@ plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
 
 # -------- Add data -----------
 #ax1.plot(df_HD['w'], norm_df_old, c='blue')
-ax1.plot(df_trap['w'], norm_df_trap, c='#7C7D70')
+ax1.plot(df_trap['w'], norm_df_trap, c='k')  #7C7D70
 ax1.plot(df_2154['w'], norm_df_young + 0.75, c='#D01810')
 
 # --- To make line for features ---------

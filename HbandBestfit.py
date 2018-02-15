@@ -26,7 +26,7 @@ norm_df_trap = df_trap['f']/(np.average(norm_region['f']))
 norm_region2 = df_2154[(df_2154['w'] >= 1.5) & (df_2154['w'] <= 1.52)]
 norm_df_young = df_2154['f']/(np.average(norm_region2['f']))
 
-norm_region3 = df_HD[(df_HD['w'] >= 1.29) & (df_HD['w'] <= 1.31)]
+norm_region3 = df_HD[(df_HD['w'] >= 1.5) & (df_HD['w'] <= 1.52)]
 norm_df_old = df_HD['f']/(np.average(norm_region3['f']))
 
 # -------------------------------------------------------------------------------------

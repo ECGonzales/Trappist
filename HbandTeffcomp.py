@@ -13,6 +13,10 @@ df_trap = pd.read_csv('Data/FIRE2306-0502 (M7.5) SED.txt', sep=" ", comment='#',
 # ----Field---
 df_vb8 = pd.read_csv('Data/field_comp/1655-0823 (M7) SED.txt', sep=" ", comment='#', header=None,
                      names=["w", "f", "err"])
+df_vb10 = pd.read_csv('Data/field_comp/1916+0508 (M8) SED.txt', sep=" ", comment='#', header=None,
+                       names=["w", "f", "err"])
+df_0320 = pd.read_csv('Data/field_comp/0320+1854 (M8) SED.txt', sep=" ", comment='#', header=None,
+                       names=["w", "f", "err"])
 # ----Young----
 df_twa27 = pd.read_csv('Data/young_comp/1207-3932A (M8) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
@@ -32,6 +36,12 @@ norm_df_trap = df_trap['f']/(np.average(norm_region['f']))
 
 norm_region2 = df_vb8[(df_vb8['w'] >= 1.5) & (df_vb8['w'] <= 1.52)]
 norm_df_vb8 = df_vb8['f']/(np.average(norm_region2['f']))
+
+norm_region7 = df_vb10[(df_vb10['w'] >= 1.5) & (df_vb10['w'] <= 1.52)]
+norm_df_vb10 = df_vb10['f']/(np.average(norm_region7['f']))
+
+norm_region8 = df_0320[(df_0320['w'] >= 1.5) & (df_0320['w'] <= 1.52)]
+norm_df_0320 = df_0320['f']/(np.average(norm_region8['f']))
 
 norm_region3 = df_twa27[(df_twa27['w'] >= 1.5) & (df_twa27['w'] <= 1.52)]
 norm_df_twa27 = df_twa27['f']/(np.average(norm_region3['f']))
@@ -84,12 +94,14 @@ plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
 plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
 
 # -------- Add data -----------
-ax1.plot(df_vb8['w'], norm_df_vb8, c='#7C7D70')
-ax1.plot(df_trap['w'], norm_df_trap + 0.5, c='k')
-ax1.plot(df_twa27['w'], norm_df_twa27 + 1, c='#FF6C11')
-ax1.plot(df_twa28['w'], norm_df_twa28 + 1.5, c='#E8470F')
-ax1.plot(df_twa26['w'], norm_df_twa26 + 2, c='#FF3215')
-ax1.plot(df_twa29['w'], norm_df_twa29 + 2.5, c='#E81011')
+ax1.plot(df_0320['w'], norm_df_0320, c='#A0B2BF')
+ax1.plot(df_vb10['w'], norm_df_vb10 + 0.3, c='#6A777F')
+ax1.plot(df_vb8['w'], norm_df_vb8 + 0.6, c='#7C7D70')
+ax1.plot(df_trap['w'], norm_df_trap + 0.9, c='k')
+ax1.plot(df_twa27['w'], norm_df_twa27 + 1.3, c='#FF6C11')
+ax1.plot(df_twa28['w'], norm_df_twa28 + 1.6, c='#E8470F')
+ax1.plot(df_twa26['w'], norm_df_twa26 + 1.9, c='#FF3215')
+ax1.plot(df_twa29['w'], norm_df_twa29 + 2.3, c='#E81011')
 
 # ------- Label Features --------------------------
 FeH = pd.DataFrame()

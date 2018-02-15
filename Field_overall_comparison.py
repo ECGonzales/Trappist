@@ -82,6 +82,7 @@ ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2535 \pm 45$ K', xy=(4.1, 10**(-19)), c
 ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2616 \pm 47$ K', xy=(4.1, 10**(-15)), color='#1EE801', fontsize=15)
 
 #TODO: Try a different color scheme maybe shades of grey for field objects?
+# Try this page: https://color.adobe.com/create/color-wheel/?base=2&rule=Shades&selected=1&name=My%20Color%20Theme&mode=rgb&rgbvalues=0.626133907966353,0.697497905064047,0.75,0.41742260531090203,0.4649986033760313,0.5,0.8348452106218041,0.9299972067520627,1,0.20871130265545101,0.23249930168801566,0.25,0.7513606895596237,0.8369974860768564,0.9&swatchOrder=0,1,2,3,4
 
 plt.tight_layout()
 plt.savefig('Figures/comparison_FieldTeff.png')

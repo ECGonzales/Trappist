@@ -1,0 +1,33 @@
+***The medium resolution data is not using the proper indices with splat. Need to use the IDL code to include the medium
+resolution indices.***
+
+grav_FIRE=splat.classifyGravity(sp_SED, allscores=True, verbose=True, spt='M7.5')
+
+Gravity Classification:
+	SpT = M8.0
+	FeH-z: 1.105+/-0.018 => 1.0
+	VO-z: 1.096+/-0.003 => nan
+	KI-J: 1.069+/-0.002 => 1.0
+	H-cont: 0.924+/-0.002 => 0.0
+	Gravity Class = INT-G
+
+grav_SXD=splat.classifyGravity(trap_SXD, allscores=True, verbose=True, spt='M8.0')
+
+Gravity Classification:
+	SpT = M8.0
+	FeH-z: 1.141+/-0.009 => 1.0
+	VO-z: 1.076+/-0.006 => nan
+	KI-J: 1.075+/-0.006 => 1.0
+	H-cont: 0.969+/-0.004 => 1.0
+	Gravity Class = INT-G
+
+
+grav=splat.classifyGravity(sp_prism, allscores=True, verbose=True, spt='M8.0')
+
+Gravity Classification:
+	SpT = M8.0
+	FeH-z: 1.073+/-0.010 => 2.0
+	VO-z: 1.050+/-0.010 => nan
+	KI-J: 1.058+/-0.009 => 1.0
+	H-cont: 0.982+/-0.008 => 1.0
+	Gravity Class = INT-G

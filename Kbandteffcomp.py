@@ -62,7 +62,7 @@ norm_df_twa29 = df_twa29['f']/(np.average(norm_region6['f']))
 # ------ Set up figure layout --------
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
-fig.set_size_inches(8.5, 11)
+fig.set_size_inches(8.5, 11)  # make figure size skinner to get more curvature of K-band 5 x 11 is ok
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
 plt.xlim([2.0, 2.35])
 plt.ylim([0.5, 5.5])

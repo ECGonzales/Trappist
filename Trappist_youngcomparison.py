@@ -23,18 +23,18 @@ df_1102_phot = pd.read_csv('Data/young_comp/1102-3430 (M8.5gamma) phot.txt', sep
                            names=["w", "f", "err"])
 
 # ---- Large Unc -----
-df_0436 = pd.read_csv('Data/young_comp/0436-4114 (M8betagamma) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
-df_0436_phot = pd.read_csv('Data/young_comp/0436-4114 (M8betagamma) phot.txt', sep=" ", comment='#', header=None,
-                           names=["w", "f", "err"])
-df_0032 = pd.read_csv('Data/young_comp/0032-4405 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
-df_0032_phot = pd.read_csv('Data/young_comp/0032-4405 (L0gamma) phot.txt', sep=" ", comment='#', header=None,
-                           names=["w", "f", "err"])
-df_2154 = pd.read_csv('Data/young_comp/2154-7459 (M9.5beta) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
-df_2154_phot = pd.read_csv('Data/young_comp/2154-7459 (M9.5beta) phot.txt', sep=" ", comment='#', header=None,
-                           names=["w", "f", "err"])
+# df_0436 = pd.read_csv('Data/young_comp/0436-4114 (M8betagamma) SED.txt', sep=" ", comment='#', header=None,
+#                       names=["w", "f", "err"])
+# df_0436_phot = pd.read_csv('Data/young_comp/0436-4114 (M8betagamma) phot.txt', sep=" ", comment='#', header=None,
+#                            names=["w", "f", "err"])
+# df_0032 = pd.read_csv('Data/young_comp/0032-4405 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
+#                       names=["w", "f", "err"])
+# df_0032_phot = pd.read_csv('Data/young_comp/0032-4405 (L0gamma) phot.txt', sep=" ", comment='#', header=None,
+#                            names=["w", "f", "err"])
+# df_2154 = pd.read_csv('Data/young_comp/2154-7459 (M9.5beta) SED.txt', sep=" ", comment='#', header=None,
+#                       names=["w", "f", "err"])
+# df_2154_phot = pd.read_csv('Data/young_comp/2154-7459 (M9.5beta) phot.txt', sep=" ", comment='#', header=None,
+#                            names=["w", "f", "err"])
 
 # ----- Fire data -----
 df_1139 = pd.read_csv('Data/young_comp/FIRE1139-3159 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
@@ -92,7 +92,9 @@ plt.yticks(fontsize=20)
 plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
 plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 
-plt.legend([trap, TWA27, TWA28, TWA26, TWA29], ['Trappist-1', "TWA27A", 'TWA28', 'TWA26', 'TWA29'])
+plt.legend([trap, TWA27, TWA28, TWA26, TWA29], ['Trappist-1, $2563\pm47$, M7.5', "TWA27A, $2589\pm38$, M8",
+                                                'TWA28, $2634\pm49$, M8.5 $\gamma$', 'TWA26, $2537\pm161$, M9 $\gamma$',
+                                                'TWA29, $2351\pm 216$, M9.5'])
 plt.tight_layout()
 plt.savefig('Figures/young_comp_small_unc.png', dpi=150)
 

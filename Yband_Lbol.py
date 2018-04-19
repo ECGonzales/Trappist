@@ -16,15 +16,10 @@ df_2235 = pd.read_csv('Data/lbol_comp/Lbol2235-5906 (M8.5beta) SED.txt', sep=" "
                        names=["w", "f", "err"])
 df_2235_phot = pd.read_csv('Data/lbol_comp/Lbol2235-5906 (M8.5beta) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
-df_2154 = pd.read_csv('Data/lbol_comp/LbolFIRE2154-7459_SED_03222018.txt', sep="\t", comment='#', header=1,
+df_2154 = pd.read_csv('Data/lbol_comp/Split2154-7459 (M9.5beta) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_2154_phot = pd.read_csv('Data/lbol_comp/LbolFIRE2154-7459_phot_03222018.txt', sep="\t", comment='#', header=None,
+df_2154_phot = pd.read_csv('Data/lbol_comp/Split2154-7459 (M9.5beta) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
-
-# -------------------------------------------------------------------------------------
-# ---------------------- Remove Tails ------------------------------------------------
-# -------------------------------------------------------------------------------------
-df_2154 = df_2154[(df_2154['w'] > 0.81) & (df_2154['w'] <= 3)]
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Normalize the spectra -------------------------------------

@@ -16,18 +16,13 @@ df_2235 = pd.read_csv('Data/lbol_comp/Lbol2235-5906 (M8.5beta) SED.txt', sep=" "
                        names=["w", "f", "err"])
 df_2235_phot = pd.read_csv('Data/lbol_comp/Lbol2235-5906 (M8.5beta) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
-df_2154 = pd.read_csv('Data/lbol_comp/cleanLbolFIRE2154-7459_SED_03222018.txt', sep="\t", comment='#', header=1,
+df_2154 = pd.read_csv('Data/lbol_comp/Split2154-7459 (M9.5beta) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_2154_phot = pd.read_csv('Data/lbol_comp/LbolFIRE2154-7459_phot_03222018.txt', sep="\t", comment='#', header=None,
+df_2154_phot = pd.read_csv('Data/lbol_comp/Split2154-7459 (M9.5beta) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
 
-# -------------------------------------------------------------------------------------
-# ---------------------- Remove Tails ------------------------------------------------
-# -------------------------------------------------------------------------------------
-df_2154 = df_2154[(df_2154['w'] > 0.81) & (df_2154['w'] <= 3)]
-
 # -------------- Drop bad points --------------
-df_2154 = df_2154[(df_2154['w'] >= 1.42) & (df_2154['w'] <= 1.80)]  # May not need this is we decide to smooth a bit
+df_2154 = df_2154[(df_2154['w'] >= 1.47) & (df_2154['w'] <= 1.80)]  # May not need this is we decide to smooth a bit
 df_2154 = df_2154.drop(df_2154['f'].argmin())
 
 df_2235 = df_2235[(df_2235['w'] >= 1.42) & (df_2235['w'] <= 1.80)]
@@ -72,6 +67,12 @@ ax1.plot(df_2235['w'], norm_df_2235 + 0.6, c='#8E01E8')
 ax1.plot(df_2154['w'], norm_df_2154 + 1.2, c='#E806B7')
 
 # ------- Label Features --------------------------
+H2O1 = pd.DataFrame()
+H2O1['x'] = [1.3, 1.51]
+H2O1['y'] = [2.6, 2.6]
+plt.plot(H2O1['x'], H2O1['y'], color='k')
+ax1.annotate('H$_\mathrm{2}$O', xy=(1.45, 2.65), color='k', fontsize=15)
+
 FeH = pd.DataFrame()
 FeH['x'] = [1.581, 1.66]
 FeH['y'] = [2.75, 2.75]
@@ -82,15 +83,26 @@ FeHd['x'] = [1.581, 1.581]
 FeHd['y'] = [2.6, 2.75]
 plt.plot(FeHd['x'], FeHd['y'], color='k')
 
-CH4 = pd.DataFrame()
-CH4['x'] = [1.67, 1.75]
-CH4['y'] = [2.8, 2.8]
-plt.plot(CH4['x'], CH4['y'], color='k')
-ax1.annotate('CH$_\mathrm{4}$', xy=(1.7, 2.82), color='k', fontsize=15)
-CH4d = pd.DataFrame()
-CH4d['x'] = [1.67, 1.67]
-CH4d['y'] = [2.65, 2.8]
-plt.plot(CH4d['x'], CH4d['y'], color='k')
+H2O = pd.DataFrame()
+H2O['x'] = [1.75, 2.05]
+H2O['y'] = [2.8, 2.8]
+plt.plot(H2O['x'], H2O['y'], color='k')
+ax1.annotate('H$_\mathrm{2}$O', xy=(1.76, 2.82), color='k', fontsize=15)
+H2Od = pd.DataFrame()
+H2Od['x'] = [1.75, 1.75]
+H2Od['y'] = [2.65, 2.8]
+plt.plot(H2Od['x'], H2Od['y'], color='k')
+
+
+# CH4 = pd.DataFrame()
+# CH4['x'] = [1.67, 1.75]
+# CH4['y'] = [2.8, 2.8]
+# plt.plot(CH4['x'], CH4['y'], color='k')
+# ax1.annotate('CH$_\mathrm{4}$', xy=(1.7, 2.82), color='k', fontsize=15)
+# CH4d = pd.DataFrame()
+# CH4d['x'] = [1.67, 1.67]
+# CH4d['y'] = [2.65, 2.8]
+# plt.plot(CH4d['x'], CH4d['y'], color='k')
 
 plt.tight_layout()
 plt.savefig('Figures/HbandLbol.png', dpi=150)

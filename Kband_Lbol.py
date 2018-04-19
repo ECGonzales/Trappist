@@ -16,15 +16,10 @@ df_2235 = pd.read_csv('Data/lbol_comp/Lbol2235-5906 (M8.5beta) SED.txt', sep=" "
                        names=["w", "f", "err"])
 df_2235_phot = pd.read_csv('Data/lbol_comp/Lbol2235-5906 (M8.5beta) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
-df_2154 = pd.read_csv('Data/lbol_comp/cleanLbolFIRE2154-7459_SED_03222018.txt', sep="\t", comment='#', header=1,
+df_2154 = pd.read_csv('Data/lbol_comp/Split2154-7459 (M9.5beta) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_2154_phot = pd.read_csv('Data/lbol_comp/LbolFIRE2154-7459_phot_03222018.txt', sep="\t", comment='#', header=None,
+df_2154_phot = pd.read_csv('Data/lbol_comp/Split2154-7459 (M9.5beta) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
-
-# -------------------------------------------------------------------------------------
-# ---------------------- Remove Tails ------------------------------------------------
-# -------------------------------------------------------------------------------------
-df_2154 = df_2154[(df_2154['w'] > 0.81) & (df_2154['w'] <= 3)]
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Normalize the spectra -------------------------------------
@@ -64,16 +59,31 @@ ax1.plot(df_2154['w'], norm_df_2154 + 1.5, c='#E806B7')
 
 # ------- Label Features --------------------------
 H2O = pd.DataFrame()
-H2O['x'] = [2.00, 2.20]
+H2O['x'] = [2.00, 2.05]
 H2O['y'] = [2.84, 2.84]
 plt.plot(H2O['x'], H2O['y'], color='k')
-ax1.text(0.25, 0.825, 'H$_\mathrm{2} $O', transform=ax1.transAxes, color='k', fontsize=15)
+ax1.annotate('H$_\mathrm{2}$O', xy=(2.02, 2.87), color='k', fontsize=15)
 
 CIA_H2 = pd.DataFrame()
 CIA_H2['x'] = [2.01, 2.34]
 CIA_H2['y'] = [3.2, 3.2]
 plt.plot(CIA_H2['x'], CIA_H2['y'], color='k')
 ax1.text(0.45, 0.925, 'CIA H$_\mathrm{2} $', transform=ax1.transAxes, color='k', fontsize=15)
+
+NaI = pd.DataFrame()
+NaI['x'] = [2.20, 2.211]
+NaI['y'] = [0.7, 0.7]
+plt.plot(NaI['x'], NaI['y'], color='k')
+ax1.annotate('Na$\,$I', xy=(2.195, .55), color='k', fontsize=15)
+# ----- Making each of the vertical lines on each end --------
+NaId = pd.DataFrame()
+NaId['x'] = [2.20, 2.20]
+NaId['y'] = [0.7, 0.8]
+plt.plot(NaId['x'], NaId['y'], color='k')
+NaId2 = pd.DataFrame()
+NaId2['x'] = [2.211, 2.211]
+NaId2['y'] = [0.7, 0.8]
+plt.plot(NaId2['x'], NaId2['y'], color='k')
 
 CO = pd.DataFrame()
 CO['x'] = [2.295, 2.34]

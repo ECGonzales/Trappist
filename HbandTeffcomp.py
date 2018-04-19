@@ -104,6 +104,12 @@ ax1.plot(df_twa26['w'], norm_df_twa26 + 1.9, c='#FF3215')
 ax1.plot(df_twa29['w'], norm_df_twa29 + 2.3, c='#E81011')
 
 # ------- Label Features --------------------------
+H2O1 = pd.DataFrame()
+H2O1['x'] = [1.3, 1.51]
+H2O1['y'] = [3.6, 3.6]
+plt.plot(H2O1['x'], H2O1['y'], color='k')
+ax1.annotate('H$_\mathrm{2}$O', xy=(1.45, 3.65), color='k', fontsize=15)
+
 FeH = pd.DataFrame()
 FeH['x'] = [1.581, 1.66]
 FeH['y'] = [4, 4]
@@ -114,15 +120,25 @@ FeHd['x'] = [1.581, 1.581]
 FeHd['y'] = [3.85, 4]
 plt.plot(FeHd['x'], FeHd['y'], color='k')
 
-CH4 = pd.DataFrame()
-CH4['x'] = [1.67, 1.75]
-CH4['y'] = [4.25, 4.25]
-plt.plot(CH4['x'], CH4['y'], color='k')
-ax1.annotate('CH$_\mathrm{4}$', xy=(1.67, 4.28), color='k', fontsize=15)
-CH4d = pd.DataFrame()
-CH4d['x'] = [1.67, 1.67]
-CH4d['y'] = [4.1, 4.25]
-plt.plot(CH4d['x'], CH4d['y'], color='k')
+H2O = pd.DataFrame()
+H2O['x'] = [1.75, 2.05]
+H2O['y'] = [4.25, 4.25]
+plt.plot(H2O['x'], H2O['y'], color='k')
+ax1.annotate('H$_\mathrm{2}$O', xy=(1.76, 4.28), color='k', fontsize=15)
+H2Od = pd.DataFrame()
+H2Od['x'] = [1.75, 1.75]
+H2Od['y'] = [4.1, 4.25]
+plt.plot(H2Od['x'], H2Od['y'], color='k')
+
+# CH4 = pd.DataFrame()
+# CH4['x'] = [1.67, 1.75]
+# CH4['y'] = [4.25, 4.25]
+# plt.plot(CH4['x'], CH4['y'], color='k')
+# ax1.annotate('CH$_\mathrm{4}$', xy=(1.67, 4.28), color='k', fontsize=15)
+# CH4d = pd.DataFrame()
+# CH4d['x'] = [1.67, 1.67]
+# CH4d['y'] = [4.1, 4.25]
+# plt.plot(CH4d['x'], CH4d['y'], color='k')
 
 plt.tight_layout()
 plt.savefig('Figures/Hbandteffcomp.png', dpi=150)

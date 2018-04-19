@@ -86,10 +86,10 @@ ax1.plot(df_twa29['w'], norm_df_twa29 + 3.5, c='#E81011')
 
 # ------- Label Features --------------------------
 H2O = pd.DataFrame()
-H2O['x'] = [2.00, 2.20]
+H2O['x'] = [2.00, 2.05]
 H2O['y'] = [4.8, 4.8]
 plt.plot(H2O['x'], H2O['y'], color='k')
-ax1.annotate('H$_\mathrm{2} $O', xy=(2.09, 4.85), color='k', fontsize=15)
+ax1.annotate('H$_\mathrm{2} $O', xy=(2.02, 4.85), color='k', fontsize=15)
 
 CIA_H2 = pd.DataFrame()
 CIA_H2['x'] = [2.01, 2.34]
@@ -97,13 +97,28 @@ CIA_H2['y'] = [5.2, 5.2]
 plt.plot(CIA_H2['x'], CIA_H2['y'], color='k')
 ax1.annotate('CIA H$_\mathrm{2} $', xy=(2.15, 5.25), color='k', fontsize=15)
 
+NaI = pd.DataFrame()
+NaI['x'] = [2.20, 2.211]
+NaI['y'] = [0.7, 0.7]
+plt.plot(NaI['x'], NaI['y'], color='k')
+ax1.annotate('Na$\,$I', xy=(2.195, .55), color='k', fontsize=15)
+# ----- Making each of the vertical lines on each end --------
+NaId = pd.DataFrame()
+NaId['x'] = [2.20, 2.20]
+NaId['y'] = [0.7, 0.8]
+plt.plot(NaId['x'], NaId['y'], color='k')
+NaId2 = pd.DataFrame()
+NaId2['x'] = [2.211, 2.211]
+NaId2['y'] = [0.7, 0.8]
+plt.plot(NaId2['x'], NaId2['y'], color='k')
+
 CO = pd.DataFrame()
-CO['x'] = [2.295, 2.34]
+CO['x'] = [2.29352, 2.34]
 CO['y'] = [4.8, 4.8]
 plt.plot(CO['x'], CO['y'], color='k')
 ax1.annotate('CO', xy=(2.31, 4.82), color='k', fontsize=15)
 COd = pd.DataFrame()
-COd['x'] = [2.295, 2.295]
+COd['x'] = [2.29352, 2.29352]
 COd['y'] = [4.65, 4.8]
 plt.plot(COd['x'], COd['y'], color='k')
 

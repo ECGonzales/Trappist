@@ -7,27 +7,27 @@ from matplotlib.ticker import ScalarFormatter
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
 
-df_trap = pd.read_csv('Data/FIRE2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
+df_trap = pd.read_csv('Data/Gaia2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
-df_trap_phot = pd.read_csv('Data/FIRE2306-0502 (M7.5) phot.txt', sep=" ",comment='#', header=None, names=["w", "f", "err"])
+df_trap_phot = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ",comment='#', header=None, names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff ----------------------------------
-df_0102 = pd.read_csv('Data/field_comp/0102-3737 (M8) SED.txt', sep=" ", comment='#', header=None,
+df_0102 = pd.read_csv('Data/field_comp/Gaia0102-3737 (M8) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_0102_phot = pd.read_csv('Data/field_comp/0102-3737 (M8) phot.txt', sep=" ", comment='#', header=None,
+df_0102_phot = pd.read_csv('Data/field_comp/Gaia0102-3737 (M8) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
-df_1655 = pd.read_csv('Data/field_comp/1655-0823 (M7) SED.txt', sep=" ", comment='#', header=None,
+df_1655 = pd.read_csv('Data/field_comp/Gaia1655-0823 (M7) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_1655_phot = pd.read_csv('Data/field_comp/1655-0823 (M7) phot.txt', sep=" ", comment='#', header=None,
+df_1655_phot = pd.read_csv('Data/field_comp/Gaia1655-0823 (M7) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
 
-df_vb10 = pd.read_csv('Data/field_comp/1916+0508 (M8) SED.txt', sep=" ", comment='#', header=None,
+df_vb10 = pd.read_csv('Data/field_comp/Gaia1916+0508 (M8) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_vb10_phot = pd.read_csv('Data/field_comp/1916+0508 (M8) phot.txt', sep=" ", comment='#', header=None,
+df_vb10_phot = pd.read_csv('Data/field_comp/Gaia1916+0508 (M8) phot.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_0320 = pd.read_csv('Data/field_comp/0320+1854 (M8) SED.txt', sep=" ", comment='#', header=None,
+df_0320 = pd.read_csv('Data/field_comp/Gaia0320+1854 (M8) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_0320_phot = pd.read_csv('Data/field_comp/0320+1854 (M8) phot.txt', sep=" ", comment='#', header=None,
+df_0320_phot = pd.read_csv('Data/field_comp/Gaia0320+1854 (M8) phot.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
 
 # -------------------------------------------------------------------------------------
@@ -75,11 +75,11 @@ plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
 plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 
 # ------ Labeling Spectra and Photometric points --------
-ax1.annotate('Trappist-1 (M7.5) $T_\mathrm{eff}: 2563 \pm 47$ K', xy=(2.85, 10**(-14)), color='k', fontsize=15)
-ax1.annotate('vb8 (M7) $T_\mathrm{eff}: 2641 \pm 36$ K', xy=(3.1, 5.2*10**(-15)), color='#04A57F', fontsize=15)
-ax1.annotate('LHS 132 (M8) $T_\mathrm{eff}: 2636 \pm 63$ K', xy=(3.1, 3*10**(-15)), color='#09D5D6', fontsize=15)
-ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2535 \pm 45$ K', xy=(4.1, 10**(-19)), color='green', fontsize=15)
-ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2616 \pm 47$ K', xy=(4.1, 10**(-15)), color='#1EE801', fontsize=15)
+ax1.annotate('Trappist-1 (M7.5) $T_\mathrm{eff}: 2582 \pm 34$ K', xy=(2.85, 10**(-14)), color='k', fontsize=15)
+ax1.annotate('vb8 (M7) $T_\mathrm{eff}: 2642 \pm 34$ K', xy=(3.1, 5.2*10**(-15)), color='#04A57F', fontsize=15)
+ax1.annotate('LHS 132 (M8) $T_\mathrm{eff}: 2579 \pm 34$ K', xy=(3.1, 3*10**(-15)), color='#09D5D6', fontsize=15)
+ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2542 \pm 45$ K', xy=(4.1, 10**(-19)), color='green', fontsize=15)
+ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2615 \pm 34$ K', xy=(4.1, 10**(-15)), color='#1EE801', fontsize=15)
 
 #TODO: Try a different color scheme maybe shades of grey for field objects?
 # Try this page: https://color.adobe.com/create/color-wheel/?base=2&rule=Shades&selected=1&name=My%20Color%20Theme&mode=rgb&rgbvalues=0.626133907966353,0.697497905064047,0.75,0.41742260531090203,0.4649986033760313,0.5,0.8348452106218041,0.9299972067520627,1,0.20871130265545101,0.23249930168801566,0.25,0.7513606895596237,0.8369974860768564,0.9&swatchOrder=0,1,2,3,4

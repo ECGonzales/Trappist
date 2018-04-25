@@ -7,18 +7,18 @@ from matplotlib.ticker import ScalarFormatter
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
 
-df_trap = pd.read_csv('Data/FIRE2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
+df_trap = pd.read_csv('Data/Gaia2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
-df_trap_phot = pd.read_csv('Data/FIRE2306-0502 (M7.5) phot.txt', sep=" ",comment='#', header=None, names=["w", "f", "err"])
+df_trap_phot = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ",comment='#', header=None, names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff ----------------------------------
-df_2235 = pd.read_csv('Data/lbol_comp/Lbol2235-5906 (M8.5beta) SED.txt', sep=" ", comment='#', header=None,
+df_2235 = pd.read_csv('Data/lbol_comp/Gaia2235-5906 (M8.5beta) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_2235_phot = pd.read_csv('Data/lbol_comp/Lbol2235-5906 (M8.5beta) phot.txt', sep=" ", comment='#', header=None,
+df_2235_phot = pd.read_csv('Data/lbol_comp/Gaia2235-5906 (M8.5beta) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
-df_2154 = pd.read_csv('Data/lbol_comp/Split2154-7459 (M9.5beta) SED.txt', sep=" ", comment='#', header=None,
+df_2154 = pd.read_csv('Data/lbol_comp/Gaia2154-7459 (M9.5beta) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_2154_phot = pd.read_csv('Data/lbol_comp/Split2154-7459 (M9.5beta) phot.txt', sep=" ", comment='#', header=None,
+df_2154_phot = pd.read_csv('Data/lbol_comp/Gaia2154-7459 (M9.5beta) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
 
 
@@ -70,15 +70,15 @@ plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 # Trappist-1
 ax1.annotate('Trappist-1 (M7.5) ', xy=(3, 1.95*10**(-14)), color='k', fontsize=15)
 ax1.annotate('Age: 500-10000 Myr', xy=(3, 1.3*10**(-14)), color='k', fontsize=15)
-ax1.annotate('$L_\mathrm{bol}: -3.275 \pm 0.009$', xy=(3, 0.85*10**(-14)), color='k', fontsize=15)
+ax1.annotate('$L_\mathrm{bol}: -3.254 \pm 0.002$', xy=(3, 0.85*10**(-14)), color='k', fontsize=15)
 # J2235
 ax1.annotate('J2235-5906 (M8.5 $\\beta$)', xy=(1.3, 8*10**(-16)), color='#8E01E8', fontsize=15)
 ax1.annotate('Age: 41-49 Myr', xy=(1.3, 5*10**(-16)), color='#8E01E8', fontsize=15)
-ax1.annotate('$L_\mathrm{bol}: -3.27 \pm 0.19$', xy=(1.3, 3.4*10**(-16)), color='#8E01E8', fontsize=15)
+ax1.annotate('$L_\mathrm{bol}: -3.214 \pm 0.014$', xy=(1.3, 3.4*10**(-16)), color='#8E01E8', fontsize=15)
 # J2154
 ax1.annotate('J2154-7459 (M9.5 $\\beta$)', xy=(0.8, 4*10**(-17)), color='#E806B7', fontsize=15)
 ax1.annotate('Age: 41-49 Myr', xy=(0.8, 2.5*10**(-17)), color='#E806B7', fontsize=15)
-ax1.annotate('$L_\mathrm{bol}: -3.20 \pm 0.29$', xy=(0.8, 1.6*10**(-17)), color='#E806B7', fontsize=15)
+ax1.annotate('$L_\mathrm{bol}: -3.196 \pm 0.012$', xy=(0.8, 1.6*10**(-17)), color='#E806B7', fontsize=15)
 
 plt.tight_layout()
-plt.savefig('Figures/Lbol_comparison.png')
+plt.savefig('Figures/Lbol_comparison_new_notwithinUnc.png')

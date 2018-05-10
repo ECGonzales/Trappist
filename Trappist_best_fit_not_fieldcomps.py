@@ -11,9 +11,9 @@ df_trap = pd.read_csv('Data/FIRE2306-0502 (M7.5) SED.txt', sep=" ", comment='#',
                       names=["w", "f", "err"])
 df_trap_phot = pd.read_csv('Data/FIRE2306-0502 (M7.5) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
-df_HD = pd.read_csv('../Atmospheres_paper/Data/HD114762B (M9sd) SED.txt', sep=" ", comment='#', header=None,
+df_HD = pd.read_csv('../Atmospheres_paper/Data/GaiaHD114762B (M9sd) SED.txt', sep=" ", comment='#', header=0,
                     names=["w", "f", "err"])
-df_HD_phot = pd.read_csv('../Atmospheres_paper/Data/HD114762B (M9sd) phot.txt', sep=" ", comment='#', header=None,
+df_HD_phot = pd.read_csv('../Atmospheres_paper/Data/GaiaHD114762B (M9sd) phot.txt', sep=" ", comment='#', header=0,
                          names=["w", "f", "err"])
 
 # -------------------------------------------------------------------------------------
@@ -55,11 +55,11 @@ plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 
 # ------ Labeling Objects --------
 ax1.annotate('Trappist-1 (M7.5) ', xy=(3, 10**(-14)), color='k', fontsize=15)
-ax1.annotate('$T_\mathrm{eff}: 2589 \pm 49$ K', xy=(3, 6.5*10**(-15)), color='k', fontsize=15)
-ax1.annotate('$L_\mathrm{bol}: -3.275 \pm 0.009$', xy=(3, 4.5*10**(-15)), color='k', fontsize=15)
+ax1.annotate('$T_\mathrm{eff}: 2582 \pm 34$ K', xy=(3, 6.5*10**(-15)), color='k', fontsize=15)
+ax1.annotate('$L_\mathrm{bol}: -3.254 \pm 0.002$', xy=(3, 4.5*10**(-15)), color='k', fontsize=15)
 ax1.annotate('HD114762B (d/sdM9)', xy=(1, 10**(-16)), color='blue', fontsize=15)
-ax1.annotate('$T_\mathrm{eff}: 2870 \pm 50$ K', xy=(1, 6.5*10**(-17)), color='blue', fontsize=15)
-ax1.annotate('$L_\mathrm{bol}: -2.998 \pm 0.027$', xy=(1, 4.5*10**(-17)), color='blue', fontsize=15)
+ax1.annotate('$T_\mathrm{eff}: 2894 \pm 24$ K', xy=(1, 6.5*10**(-17)), color='blue', fontsize=15)
+ax1.annotate('$L_\mathrm{bol}: -2.963 \pm 0.012$', xy=(1, 4.5*10**(-17)), color='blue', fontsize=15)
 
 plt.tight_layout()
 plt.savefig('Figures/bestfit_comp.png', dpi=150)

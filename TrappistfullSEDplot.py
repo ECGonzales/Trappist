@@ -9,9 +9,9 @@ from matplotlib.ticker import ScalarFormatter
 
 # ------------ 1256-0224 (Poster in SED)----------------
 # Read in as pandas dataframe
-df = pd.read_csv('Data/FIRE2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
+df = pd.read_csv('Data/Gaia2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
                  names=["w", "f", "err"])
-df2 = pd.read_csv('Data/FIRE2306-0502 (M7.5) phot.txt', sep=" ", comment='#', names=["w", "f", "err"])
+df2 = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ", comment='#', names=["w", "f", "err"])
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Plotting --------------------------------------------------

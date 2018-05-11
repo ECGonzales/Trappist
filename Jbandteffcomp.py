@@ -6,25 +6,24 @@ import matplotlib.pyplot as plt
 # ------------------- Read in Spectra and Photometry files ---------------------------
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
-df_trap = pd.read_csv('Data/FIRE2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
+df_trap = pd.read_csv('Data/Gaia2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 
 # Comparison objects with same Teff
 # ----Field---
-df_vb8 = pd.read_csv('Data/field_comp/1655-0823 (M7) SED.txt', sep=" ", comment='#', header=None,
+df_vb8 = pd.read_csv('Data/field_comp/Gaia1655-0823 (M7) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_vb10 = pd.read_csv('Data/field_comp/1916+0508 (M8) SED.txt', sep=" ", comment='#', header=None,
+df_vb10 = pd.read_csv('Data/field_comp/Gaia1916+0508 (M8) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_0320 = pd.read_csv('Data/field_comp/0320+1854 (M8) SED.txt', sep=" ", comment='#', header=None,
+df_0320 = pd.read_csv('Data/field_comp/Gaia0320+1854 (M8) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-# ----Young----
-df_twa27 = pd.read_csv('Data/young_comp/1207-3932A (M8) SED.txt', sep=" ", comment='#', header=None,
+
+# -------------- Comparison objects of the same Teff (young) ----------------------------------
+df_1247 = pd.read_csv('Data/young_comp/Gaia1247-3816 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
-df_twa28 = pd.read_csv('Data/young_comp/1102-3430 (M8.5gamma) SED.txt', sep=" ", comment='#', header=None,
+df_0436 = pd.read_csv('Data/young_comp/Gaia0436-4114 (M8betagamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
-df_twa26 = pd.read_csv('Data/young_comp/FIRE1139-3159 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
-df_twa29 = pd.read_csv('Data/young_comp/FIRE1245-4429 (M9.5) SED.txt', sep=" ", comment='#', header=None,
+df_0253 = pd.read_csv('Data/young_comp/Gaia0253+3206 (M7beta) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 
 # -------------------------------------------------------------------------------------
@@ -43,17 +42,15 @@ norm_df_vb10 = df_vb10['f']/(np.average(norm_region7['f']))
 norm_region8 = df_0320[(df_0320['w'] >= 1.22) & (df_0320['w'] <= 1.23)]
 norm_df_0320 = df_0320['f']/(np.average(norm_region8['f']))
 
-norm_region3 = df_twa27[(df_twa27['w'] >= 1.22) & (df_twa27['w'] <= 1.23)]
-norm_df_twa27 = df_twa27['f']/(np.average(norm_region3['f']))
+norm_region3 = df_1247[(df_1247['w'] >= 1.22) & (df_1247['w'] <= 1.23)]
+norm_df_1247 = df_1247['f']/(np.average(norm_region3['f']))
 
-norm_region4 = df_twa28[(df_twa28['w'] >= 1.22) & (df_twa28['w'] <= 1.23)]
-norm_df_twa28 = df_twa28['f']/(np.average(norm_region4['f']))
+norm_region4 = df_0436[(df_0436['w'] >= 1.22) & (df_0436['w'] <= 1.23)]
+norm_df_0436 = df_0436['f']/(np.average(norm_region4['f']))
 
-norm_region5 = df_twa26[(df_twa26['w'] >= 1.22) & (df_twa26['w'] <= 1.23)]
-norm_df_twa26 = df_twa26['f']/(np.average(norm_region5['f']))
+norm_region5 = df_0253[(df_0253['w'] >= 1.22) & (df_0253['w'] <= 1.23)]
+norm_df_0253 = df_0253['f']/(np.average(norm_region5['f']))
 
-norm_region6 = df_twa29[(df_twa29['w'] >= 1.22) & (df_twa29['w'] <= 1.23)]
-norm_df_twa29 = df_twa29['f']/(np.average(norm_region6['f']))
 
 # -------------------------------------------------------------------------------------
 # ---------------------- Plotting: J band comparison ----------------------------------
@@ -78,10 +75,10 @@ ax1.plot(df_0320['w'], norm_df_0320, c='#A0B2BF')
 ax1.plot(df_vb10['w'], norm_df_vb10 + 0.6, c='#6A777F')
 ax1.plot(df_vb8['w'], norm_df_vb8 + 1.1, c='#7C7D70')
 ax1.plot(df_trap['w'], norm_df_trap + 1.8, c='k')
-ax1.plot(df_twa27['w'], norm_df_twa27 + 2.3, c='#FF6C11')
-ax1.plot(df_twa28['w'], norm_df_twa28 + 2.75, c='#E8470F')
-ax1.plot(df_twa26['w'], norm_df_twa26 + 3.25, c='#FF3215')
-ax1.plot(df_twa29['w'], norm_df_twa29 + 4, c='#E81011')
+ax1.plot(df_0436['w'], norm_df_0436 + 2.3, c='#FFAA03')
+ax1.plot(df_0253['w'], norm_df_0253 + 2.75, c='#FF6007')
+ax1.plot(df_1247['w'], norm_df_1247 + 3.25, c='#9B1301')
+
 
 # ------- Label Features --------------------------
 NaI = pd.DataFrame()

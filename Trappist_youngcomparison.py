@@ -42,18 +42,17 @@ ax1.loglog(df_trap['w'], df_trap['f'], c='k', zorder=22)
 trap = ax1.scatter(df_trap_phot['w'], df_trap_phot['f'], c='k', s=70, zorder=23)
 
 # Low unc
-ax1.loglog(df_1247['w'], df_1247['f'], c='#FFAA03')
-ax1.scatter(df_1247_phot['w'], df_1247_phot['f'], c='k', s=70)  # The ones with size 70 are to give the circles a
-y1247 = ax1.scatter(df_1247_phot['w'], df_1247_phot['f'], c='#FFAA03', s=50)        # black border
-
-ax1.loglog(df_0436['w'], df_0436['f'], c='#FF6007')
+ax1.loglog(df_0436['w'], df_0436['f'], c='#FFAA03')
 ax1.scatter(df_0436_phot['w'], df_0436_phot['f'], c='k', s=70)
-y0436 = ax1.scatter(df_0436_phot['w'], df_0436_phot['f'], c='#FF6007', s=50)
+y0436 = ax1.scatter(df_0436_phot['w'], df_0436_phot['f'], c='#FFAA03', s=50)
 
-ax1.loglog(df_0253['w'], df_0253['f'], c='#9B1301')
+ax1.loglog(df_0253['w'], df_0253['f'], c='#FF6007')
 ax1.scatter(df_0253_phot['w'], df_0253_phot['f'], c='k', s=70)
-y0253 = ax1.scatter(df_0253_phot['w'], df_0253_phot['f'], c='#9B1301', s=50)  # medium unc
+y0253 = ax1.scatter(df_0253_phot['w'], df_0253_phot['f'], c='#FF6007', s=50)  # medium unc
 
+ax1.loglog(df_1247['w'], df_1247['f'], c='#9B1301')
+ax1.scatter(df_1247_phot['w'], df_1247_phot['f'], c='k', s=70)  # The ones with size 70 are to give the circles a
+y1247 = ax1.scatter(df_1247_phot['w'], df_1247_phot['f'], c='#9B1301', s=50)        # black border
 
 # ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.3, 23])
@@ -72,9 +71,9 @@ plt.ylabel('Flux ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 
 # ------ Labeling Objects --------
 ax1.annotate('Trappist-1 (M7.5), $T_\mathrm{eff}: 2582 \pm 34$ K', xy=(2.9, 3*10**(-14)), color='k', fontsize=15)
-ax1.annotate('J1247-3816 (IR:M9 $\gamma$), $T_\mathrm{eff}: 2627 \pm 291$ K', xy=(2.3, 2*10**(-14)), color='#FFAA03', fontsize=15)
-ax1.annotate('J0436-4114 (M8 $\\beta$), $T_\mathrm{eff}: 2557 \pm 257$ K', xy=(2.6, 1.3*10**(-14)), color='#FF6007', fontsize=15)
-ax1.annotate('J0253+3206 (M9), $T_\mathrm{eff}: 2581 \pm 265$ K', xy=(2.8, 8*10**(-15)), color='#9B1301', fontsize=15)
+ax1.annotate('J0436-4114 (M8 $\\beta$), $T_\mathrm{eff}: 2557 \pm 257$ K', xy=(2.5, 2*10**(-14)), color='#FFAA03', fontsize=15)
+ax1.annotate('J0253+3206 (M9), $T_\mathrm{eff}: 2581 \pm 265$ K', xy=(2.6, 1.3*10**(-14)), color='#FF6007', fontsize=15)
+ax1.annotate('J1247-3816 (M9 $\gamma$), $T_\mathrm{eff}: 2627 \pm 291$ K', xy=(2.5, 8*10**(-15)), color='#9B1301', fontsize=15)
 
 plt.tight_layout()
 plt.savefig('Figures/young_comp.png', dpi=150)

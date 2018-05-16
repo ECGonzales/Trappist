@@ -18,13 +18,11 @@ df_vb10 = pd.read_csv('Data/field_comp/1916+0508 (M8) SED.txt', sep=" ", comment
 df_0320 = pd.read_csv('Data/field_comp/0320+1854 (M8) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
 # ----Young----
-df_twa27 = pd.read_csv('Data/young_comp/1207-3932A (M8) SED.txt', sep=" ", comment='#', header=None,
+df_0253 = pd.read_csv('Data/young_comp/Gaia0253+3206 (M7beta) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
-df_twa28 = pd.read_csv('Data/young_comp/1102-3430 (M8.5gamma) SED.txt', sep=" ", comment='#', header=None,
+df_0953 = pd.read_csv('Data/young_comp/Gaia0953-1014 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
-df_twa26 = pd.read_csv('Data/young_comp/FIRE1139-3159 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
-df_twa29 = pd.read_csv('Data/young_comp/FIRE1245-4429 (M9.5) SED.txt', sep=" ", comment='#', header=None,
+df_0608 = pd.read_csv('Data/young_comp/Gaia0608-2753 (M8.5gamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 
 # -------------------------------------------------------------------------------------
@@ -43,17 +41,15 @@ norm_df_vb10 = df_vb10['f']/(np.average(norm_region7['f']))
 norm_region8 = df_0320[(df_0320['w'] >= 0.98) & (df_0320['w'] <= 0.988)]
 norm_df_0320 = df_0320['f']/(np.average(norm_region8['f']))
 
-norm_region3 = df_twa27[(df_twa27['w'] >= 0.98) & (df_twa27['w'] <= 0.988)]
-norm_df_twa27 = df_twa27['f']/(np.average(norm_region3['f']))
+norm_region3 = df_0253[(df_0253['w'] >= 0.98) & (df_0253['w'] <= 0.988)]
+norm_df_0253 = df_0253['f']/(np.average(norm_region3['f']))
 
-norm_region4 = df_twa28[(df_twa28['w'] >= 0.98) & (df_twa28['w'] <= 0.988)]
-norm_df_twa28 = df_twa28['f']/(np.average(norm_region4['f']))
+norm_region4 = df_0953[(df_0953['w'] >= 0.98) & (df_0953['w'] <= 0.988)]
+norm_df_0953 = df_0953['f']/(np.average(norm_region4['f']))
 
-norm_region5 = df_twa26[(df_twa26['w'] >= 0.98) & (df_twa26['w'] <= 0.988)]
-norm_df_twa26 = df_twa26['f']/(np.average(norm_region5['f']))
+norm_region5 = df_0608[(df_0608['w'] >= 0.98) & (df_0608['w'] <= 0.988)]
+norm_df_0608 = df_0608['f']/(np.average(norm_region5['f']))
 
-norm_region6 = df_twa29[(df_twa29['w'] >= 0.98) & (df_twa29['w'] <= 0.988)]
-norm_df_twa29 = df_twa29['f']/(np.average(norm_region6['f']))
 
 # -------------------------------------------------------------------------------------
 # ------------------- Plotting: Y band comparison -------------------------------
@@ -78,10 +74,10 @@ ax1.plot(df_0320['w'], norm_df_0320, c='#A0B2BF')
 ax1.plot(df_vb10['w'], norm_df_vb10 + 0.5, c='#6A777F')
 ax1.plot(df_vb8['w'], norm_df_vb8 + 1, c='#7C7D70')
 ax1.plot(df_trap['w'], norm_df_trap + 1.5, c='k')
-ax1.plot(df_twa27['w'], norm_df_twa27 + 2, c='#FF6C11')
-ax1.plot(df_twa28['w'], norm_df_twa28 + 2.5, c='#E8470F')
-ax1.plot(df_twa26['w'], norm_df_twa26 + 3, c='#FF3215')
-ax1.plot(df_twa29['w'], norm_df_twa29 + 4.1, c='#E81011')
+ax1.plot(df_0253['w'], norm_df_0253 + 2, c='#E80901')
+ax1.plot(df_0608['w'], norm_df_0608 + 2.5, c='#E84502')
+ax1.plot(df_0953['w'], norm_df_0953 + 3.5, c='#FF6B03')
+
 
 # --- To make lines for features ---------
 FeH1 = pd.DataFrame()

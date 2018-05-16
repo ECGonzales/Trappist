@@ -18,14 +18,22 @@ df_vb10 = pd.read_csv('Data/field_comp/1916+0508 (M8) SED.txt', sep=" ", comment
 df_0320 = pd.read_csv('Data/field_comp/0320+1854 (M8) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
 # ----Young----
-df_twa27 = pd.read_csv('Data/young_comp/1207-3932A (M8) SED.txt', sep=" ", comment='#', header=None,
-                       names=["w", "f", "err"])
-df_twa28 = pd.read_csv('Data/young_comp/1102-3430 (M8.5gamma) SED.txt', sep=" ", comment='#', header=None,
-                       names=["w", "f", "err"])
-df_twa26 = pd.read_csv('Data/young_comp/FIRE1139-3159 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
-                       names=["w", "f", "err"])
-df_twa29 = pd.read_csv('Data/young_comp/FIRE1245-4429 (M9.5) SED.txt', sep=" ", comment='#', header=None,
-                       names=["w", "f", "err"])
+df_0253 = pd.read_csv('Data/young_comp/Gaia0253+3206 (M7beta) SED.txt', sep=" ", comment='#', header=None,
+                      names=["w", "f", "err"])
+df_0953 = pd.read_csv('Data/young_comp/Gaia0953-1014 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
+                      names=["w", "f", "err"])
+df_0608 = pd.read_csv('Data/young_comp/Gaia0608-2753 (M8.5gamma) SED.txt', sep=" ", comment='#', header=None,
+                      names=["w", "f", "err"])
+
+# -------- Drop a few spikes aka bad points (may not need with smoothing)----------------
+df_0253 = df_0253[(df_0253['w'] >= 1.42) & (df_0253['w'] <= 1.80)]
+df_0953 = df_0953[(df_0953['w'] >= 1.42) & (df_0953['w'] <= 1.80)]
+df_0253 = df_0253.drop(df_0253['f'].argmax())
+# Four bad points
+df_0953 = df_0953.drop(df_0953['f'].argmax())
+df_0953 = df_0953.drop(df_0953['f'].argmax())
+df_0953 = df_0953.drop(df_0953['f'].argmax())
+df_0953 = df_0953.drop(df_0953['f'].argmax())
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Normalize the spectra -------------------------------------
@@ -43,17 +51,14 @@ norm_df_vb10 = df_vb10['f']/(np.average(norm_region7['f']))
 norm_region8 = df_0320[(df_0320['w'] >= 1.5) & (df_0320['w'] <= 1.52)]
 norm_df_0320 = df_0320['f']/(np.average(norm_region8['f']))
 
-norm_region3 = df_twa27[(df_twa27['w'] >= 1.5) & (df_twa27['w'] <= 1.52)]
-norm_df_twa27 = df_twa27['f']/(np.average(norm_region3['f']))
+norm_region3 = df_0253[(df_0253['w'] >= 1.5) & (df_0253['w'] <= 1.52)]
+norm_df_0253 = df_0253['f']/(np.average(norm_region3['f']))
 
-norm_region4 = df_twa28[(df_twa28['w'] >= 1.5) & (df_twa28['w'] <= 1.52)]
-norm_df_twa28 = df_twa28['f']/(np.average(norm_region4['f']))
+norm_region4 = df_0953[(df_0953['w'] >= 1.5) & (df_0953['w'] <= 1.52)]
+norm_df_0953 = df_0953['f']/(np.average(norm_region4['f']))
 
-norm_region5 = df_twa26[(df_twa26['w'] >= 1.5) & (df_twa26['w'] <= 1.52)]
-norm_df_twa26 = df_twa26['f']/(np.average(norm_region5['f']))
-
-norm_region6 = df_twa29[(df_twa29['w'] >= 1.5) & (df_twa29['w'] <= 1.52)]
-norm_df_twa29 = df_twa29['f']/(np.average(norm_region6['f']))
+norm_region5 = df_0608[(df_0608['w'] >= 1.5) & (df_0608['w'] <= 1.52)]
+norm_df_0608 = df_0608['f']/(np.average(norm_region5['f']))
 
 # Try normalizing the peak of the H-band, It didn't make things stand out more. Keep with original
 # h_bandtrap = df_trap[(df_trap['w'] >= 1.42) & (df_trap['w'] <= 1.8)]
@@ -73,7 +78,6 @@ norm_df_twa29 = df_twa29['f']/(np.average(norm_region6['f']))
 #
 # h_bandtwa29 = df_twa29[(df_twa29['w'] >= 1.42) & (df_twa29['w'] <= 1.8)]
 # norm_df_twa29 = df_twa29['f']/(np.max(h_bandtwa29['f']))
-
 
 # -------------------------------------------------------------------------------------
 # ------------------- Plotting: H band comparison -------------------------------
@@ -98,10 +102,9 @@ ax1.plot(df_0320['w'], norm_df_0320, c='#A0B2BF')
 ax1.plot(df_vb10['w'], norm_df_vb10 + 0.3, c='#6A777F')
 ax1.plot(df_vb8['w'], norm_df_vb8 + 0.6, c='#7C7D70')
 ax1.plot(df_trap['w'], norm_df_trap + 0.9, c='k')
-ax1.plot(df_twa27['w'], norm_df_twa27 + 1.3, c='#FF6C11')
-ax1.plot(df_twa28['w'], norm_df_twa28 + 1.6, c='#E8470F')
-ax1.plot(df_twa26['w'], norm_df_twa26 + 1.9, c='#FF3215')
-ax1.plot(df_twa29['w'], norm_df_twa29 + 2.3, c='#E81011')
+ax1.plot(df_0253['w'], norm_df_0253 + 1.3, c='#E80901')
+ax1.plot(df_0608['w'], norm_df_0608 + 1.7, c='#E84502')
+ax1.plot(df_0953['w'], norm_df_0953 + 2.1, c='#FF6B03')
 
 # ------- Label Features --------------------------
 H2O1 = pd.DataFrame()

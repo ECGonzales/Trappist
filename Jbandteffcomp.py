@@ -19,11 +19,11 @@ df_0320 = pd.read_csv('Data/field_comp/Gaia0320+1854 (M8) SED.txt', sep=" ", com
                        names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff (young) ----------------------------------
-df_1247 = pd.read_csv('Data/young_comp/Gaia1247-3816 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
-df_0436 = pd.read_csv('Data/young_comp/Gaia0436-4114 (M8betagamma) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
 df_0253 = pd.read_csv('Data/young_comp/Gaia0253+3206 (M7beta) SED.txt', sep=" ", comment='#', header=None,
+                      names=["w", "f", "err"])
+df_0953 = pd.read_csv('Data/young_comp/Gaia0953-1014 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
+                      names=["w", "f", "err"])
+df_0608 = pd.read_csv('Data/young_comp/Gaia0608-2753 (M8.5gamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 
 # -------------------------------------------------------------------------------------
@@ -42,14 +42,14 @@ norm_df_vb10 = df_vb10['f']/(np.average(norm_region7['f']))
 norm_region8 = df_0320[(df_0320['w'] >= 1.22) & (df_0320['w'] <= 1.23)]
 norm_df_0320 = df_0320['f']/(np.average(norm_region8['f']))
 
-norm_region3 = df_1247[(df_1247['w'] >= 1.22) & (df_1247['w'] <= 1.23)]
-norm_df_1247 = df_1247['f']/(np.average(norm_region3['f']))
-
-norm_region4 = df_0436[(df_0436['w'] >= 1.22) & (df_0436['w'] <= 1.23)]
-norm_df_0436 = df_0436['f']/(np.average(norm_region4['f']))
-
 norm_region5 = df_0253[(df_0253['w'] >= 1.22) & (df_0253['w'] <= 1.23)]
 norm_df_0253 = df_0253['f']/(np.average(norm_region5['f']))
+
+norm_region3 = df_0953[(df_0953['w'] >= 1.22) & (df_0953['w'] <= 1.23)]
+norm_df_0953 = df_0953['f']/(np.average(norm_region3['f']))
+
+norm_region4 = df_0608[(df_0608['w'] >= 1.22) & (df_0608['w'] <= 1.23)]
+norm_df_0608 = df_0608['f']/(np.average(norm_region4['f']))
 
 
 # -------------------------------------------------------------------------------------
@@ -75,9 +75,9 @@ ax1.plot(df_0320['w'], norm_df_0320, c='#A0B2BF')
 ax1.plot(df_vb10['w'], norm_df_vb10 + 0.6, c='#6A777F')
 ax1.plot(df_vb8['w'], norm_df_vb8 + 1.1, c='#7C7D70')
 ax1.plot(df_trap['w'], norm_df_trap + 1.8, c='k')
-ax1.plot(df_0436['w'], norm_df_0436 + 2.3, c='#FFAA03')
-ax1.plot(df_0253['w'], norm_df_0253 + 2.75, c='#FF6007')
-ax1.plot(df_1247['w'], norm_df_1247 + 3.25, c='#9B1301')
+ax1.plot(df_0253['w'], norm_df_0253 + 2.3, c='#E80901')  # M7 beta
+ax1.plot(df_0608['w'], norm_df_0608 + 2.75, c='#E84502')  # M8.5 gamma
+ax1.plot(df_0953['w'], norm_df_0953 + 3.25, c='#FF6B03')   # M9 gamma
 
 
 # ------- Label Features --------------------------

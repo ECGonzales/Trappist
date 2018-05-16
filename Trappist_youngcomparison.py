@@ -49,25 +49,25 @@ ax1.loglog(df_trap['w'], df_trap['f'], c='k', zorder=22)
 trap = ax1.scatter(df_trap_phot['w'], df_trap_phot['f'], c='k', s=70, zorder=23)
 
 # Comparisons (Hot-->cool)
-ax1.loglog(df_1247['w'], df_1247['f'], c='#BD0F00',zorder=20)
+ax1.loglog(df_1247['w'], df_1247['f'], c='#9B0132',zorder=20)
 ax1.scatter(df_1247_phot['w'], df_1247_phot['f'], c='k', s=70)  # The ones with size 70 are to give the circles a
-y1247 = ax1.scatter(df_1247_phot['w'], df_1247_phot['f'], c='#BD0F00', s=50)        # black border
+y1247 = ax1.scatter(df_1247_phot['w'], df_1247_phot['f'], c='#9B0132', s=50)        # black border
 
-ax1.loglog(df_0253['w'], df_0253['f'], c='#E83210')
+ax1.loglog(df_0253['w'], df_0253['f'], c='#E80901')
 ax1.scatter(df_0253_phot['w'], df_0253_phot['f'], c='k', s=70)
-y0253 = ax1.scatter(df_0253_phot['w'], df_0253_phot['f'], c='#E83210', s=50)
+y0253 = ax1.scatter(df_0253_phot['w'], df_0253_phot['f'], c='#E80901', s=50)
 
-ax1.loglog(df_0436['w'], df_0436['f'], c='#FF3B00')
+ax1.loglog(df_0436['w'], df_0436['f'], c='#FF2E06')
 ax1.scatter(df_0436_phot['w'], df_0436_phot['f'], c='k', s=70)
-y0436 = ax1.scatter(df_0436_phot['w'], df_0436_phot['f'], c='#FF3B00', s=50)
+y0436 = ax1.scatter(df_0436_phot['w'], df_0436_phot['f'], c='#FF2E06', s=50)
 
-ax1.loglog(df_0608['w'], df_0608['f'], c='#E85413')
+ax1.loglog(df_0608['w'], df_0608['f'], c='#E84502')
 ax1.scatter(df_0608_phot['w'], df_0608_phot['f'], c='k', s=70)  # The ones with size 70 are to give the circles a
-ax1.scatter(df_0608_phot['w'], df_0608_phot['f'], c='#E85413', s=50)
+ax1.scatter(df_0608_phot['w'], df_0608_phot['f'], c='#E84502', s=50)
 
-ax1.loglog(df_0953['w'], df_0953['f'], c='#FF6C11')
+ax1.loglog(df_0953['w'], df_0953['f'], c='#FF6B03')
 ax1.scatter(df_0953_phot['w'], df_0953_phot['f'], c='k', s=70)  # The ones with size 70 are to give the circles a
-ax1.scatter(df_0953_phot['w'], df_0953_phot['f'], c='#FF6C11', s=50)
+ax1.scatter(df_0953_phot['w'], df_0953_phot['f'], c='#FF6B03', s=50)
 
 # ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.3, 23])
@@ -86,13 +86,13 @@ plt.ylabel('Flux ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 
 # ------ Labeling Objects --------
 ax1.annotate('Trappist-1 (M7.5), $T_\mathrm{eff}: 2582 \pm 34$ K', xy=(2.9, 8*10**(-18)), color='k', fontsize=15)
-ax1.annotate('J1247-3816 (M9 $\gamma$), $T_\mathrm{eff}: 2627 \pm 291$ K', xy=(2.5, 8*10**(-15)), color='#BD0F00', fontsize=15)
-ax1.annotate('J0253+3206 (M9), $T_\mathrm{eff}: 2581 \pm 265$ K', xy=(2.6, 1.3*10**(-14)), color='#E83210', fontsize=15)
-ax1.annotate('J0436-4114 (M8 $\\beta$), $T_\mathrm{eff}: 2557 \pm 257$ K', xy=(2.5,  10**(-16)), color='#FF3B00', fontsize=15)
-ax1.annotate('J0608-2753 (M8.5 $\gamma$), $T_\mathrm{eff}: 2471 \pm 255$ K', xy=(2.5, 10**(-15)), color='#E85413', fontsize=15)
-ax1.annotate('J0953-1014 (M9 $\gamma$), $T_\mathrm{eff}: 2427 \pm 254$ K', xy=(2.5, 4*10**(-16)), color='#FF6C11', fontsize=15)
+ax1.annotate('J1247-3816 (M9 $\gamma$), $T_\mathrm{eff}: 2627 \pm 291$ K', xy=(2.65, 4*10**(-15)), color='#9B0132', fontsize=15)
+ax1.annotate('J0253+3206 (M9), $T_\mathrm{eff}: 2581 \pm 265$ K', xy=(2.75, 3*10**(-14)), color='#E80901', fontsize=15)
+ax1.annotate('J0436-4114 (M8 $\\beta$), $T_\mathrm{eff}: 2557 \pm 257$ K', xy=(2.64,  7*10**(-15)), color='#FF2E06', fontsize=15)
+ax1.annotate('J0608-2753 (M8.5 $\gamma$), $T_\mathrm{eff}: 2471 \pm 255$ K', xy=(2.35, 1.8*10**(-14)), color='#E84502', fontsize=15)
+ax1.annotate('J0953-1014 (M9 $\gamma$), $T_\mathrm{eff}: 2427 \pm 254$ K', xy=(2.64, 1.2*10**(-14)), color='#FF6B03', fontsize=15)
 
 
 plt.tight_layout()
-plt.savefig('Figures/young_comp.png', dpi=150)
+plt.savefig('Figures/young_comp_new.png', dpi=150)
 

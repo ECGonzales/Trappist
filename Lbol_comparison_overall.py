@@ -20,6 +20,10 @@ df_2154 = pd.read_csv('Data/lbol_comp/Gaia2154-7459 (M9.5beta) SED.txt', sep=" "
                        names=["w", "f", "err"])
 df_2154_phot = pd.read_csv('Data/lbol_comp/Gaia2154-7459 (M9.5beta) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
+df_0714 = pd.read_csv('Data/lbol_comp/Gaia0714+3702 (M8) SED.txt', sep=" ", comment='#', header=None,
+                       names=["w", "f", "err"])
+df_0714_phot = pd.read_csv('Data/lbol_comp/Gaia0714+3702 (M8) phot.txt', sep=" ", comment='#', header=None,
+                            names=["w", "f", "err"])
 
 
 # df_2154o = pd.read_csv('Data/lbol_comp/LbolFIRE2154-7459_SED_03222018.txt', sep="\t", comment='#', header=1,
@@ -51,6 +55,9 @@ ax1.scatter(df_2235_phot['w'], df_2235_phot['f'], c='#8E01E8', s=50, zorder=5)
 ax1.loglog(df_2154['w'], df_2154['f'], c='#E806B7', zorder=2)
 ax1.scatter(df_2154_phot['w'], df_2154_phot['f'], c='k', s=70, zorder=4)
 ax1.scatter(df_2154_phot['w'], df_2154_phot['f'], c='#E806B7', s=50,zorder=5)
+ax1.loglog(df_0714['w'], df_0714['f'], c='#0E0084', zorder=7)
+ax1.scatter(df_0714_phot['w'], df_0714_phot['f'], c='k', s=70, zorder=4)
+ax1.scatter(df_0714_phot['w'], df_0714_phot['f'], c='#0E0084', s=50,zorder=5)
 
 # ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.5, 12])
@@ -76,9 +83,13 @@ ax1.annotate('J2235-5906 (M8.5 $\\beta$)', xy=(1.3, 8*10**(-16)), color='#8E01E8
 ax1.annotate('Age: 41-49 Myr', xy=(1.3, 5*10**(-16)), color='#8E01E8', fontsize=15)
 ax1.annotate('$L_\mathrm{bol}: -3.214 \pm 0.014$', xy=(1.3, 3.4*10**(-16)), color='#8E01E8', fontsize=15)
 # J2154
-ax1.annotate('J2154-7459 (M9.5 $\\beta$)', xy=(0.8, 4*10**(-17)), color='#E806B7', fontsize=15)
-ax1.annotate('Age: 41-49 Myr', xy=(0.8, 2.5*10**(-17)), color='#E806B7', fontsize=15)
-ax1.annotate('$L_\mathrm{bol}: -3.196 \pm 0.012$', xy=(0.8, 1.6*10**(-17)), color='#E806B7', fontsize=15)
+ax1.annotate('J2154-7459 (M9.5 $\\beta$)', xy=(5, 1.1*10**(-15)), color='#E806B7', fontsize=15)
+ax1.annotate('Age: 41-49 Myr', xy=(5, 7*10**(-16)), color='#E806B7', fontsize=15)
+ax1.annotate('$L_\mathrm{bol}: -3.196 \pm 0.012$', xy=(5, 4.5*10**(-16)), color='#E806B7', fontsize=15)
+#0714
+ax1.annotate('J0714+3702 (M8)', xy=(0.8, 4*10**(-17)), color='#0E0084', fontsize=15)
+ax1.annotate('Age: <500 Myr', xy=(0.8, 2.5*10**(-17)), color='#0E0084', fontsize=15)
+ax1.annotate('$L_\mathrm{bol}: -3.254 \pm 0.004$', xy=(0.8, 1.6*10**(-17)), color='#0E0084', fontsize=15)
 
 plt.tight_layout()
 plt.savefig('Figures/Lbol_comparison_new_notwithinUnc.png')

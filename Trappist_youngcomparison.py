@@ -87,7 +87,7 @@ plt.ylabel('Flux ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 # ------ Labeling Objects --------
 ax1.annotate('Trappist-1 (M7.5), $T_\mathrm{eff}: 2582 \pm 34$ K', xy=(2.9, 8*10**(-18)), color='k', fontsize=15)
 ax1.annotate('J1247-3816 (M9 $\gamma$), $T_\mathrm{eff}: 2627 \pm 291$ K', xy=(2.65, 4*10**(-15)), color='#9B0132', fontsize=15)
-ax1.annotate('J0253+3206 (M9), $T_\mathrm{eff}: 2581 \pm 265$ K', xy=(2.75, 3*10**(-14)), color='#E80901', fontsize=15)
+ax1.annotate('J0253+3206 (M7$\\beta$), $T_\mathrm{eff}: 2581 \pm 265$ K', xy=(2.58, 3*10**(-14)), color='#E80901', fontsize=15)
 ax1.annotate('J0436-4114 (M8 $\\beta$), $T_\mathrm{eff}: 2557 \pm 257$ K', xy=(2.64,  7*10**(-15)), color='#FF2E06', fontsize=15)
 ax1.annotate('J0608-2753 (M8.5 $\gamma$), $T_\mathrm{eff}: 2471 \pm 255$ K', xy=(2.35, 1.8*10**(-14)), color='#E84502', fontsize=15)
 ax1.annotate('J0953-1014 (M9 $\gamma$), $T_\mathrm{eff}: 2427 \pm 254$ K', xy=(2.64, 1.2*10**(-14)), color='#FF6B03', fontsize=15)

@@ -69,15 +69,21 @@ ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
 plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
 plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
 
-# -------- Add data -----------
+# -------- Add data and Label Sources-----------
 ax1.plot(df_0320['w'], norm_df_0320, c='#A0B2BF')
+ax1.annotate('J0320+1854 (M8)', xy=(0.951, 1.1), color='#A0B2BF', fontsize=13)
 ax1.plot(df_vb10['w'], norm_df_vb10 + 0.5, c='#6A777F')
+ax1.annotate('vb10 (M8)', xy=(0.951, 1.57), color='#6A777F', fontsize=13)
 ax1.plot(df_vb8['w'], norm_df_vb8 + 1, c='#7C7D70')
-ax1.plot(df_trap['w'], norm_df_trap + 1.5, c='k')
-ax1.plot(df_0253['w'], norm_df_0253 + 2, c='#E80901')
-ax1.plot(df_0608['w'], norm_df_0608 + 2.5, c='#E84502')
-ax1.plot(df_0953['w'], norm_df_0953 + 3.5, c='#FF6B03')
-
+ax1.annotate('vb8 (M7)', xy=(0.951, 2.1), color='#7C7D70', fontsize=13)
+ax1.plot(df_trap['w'], norm_df_trap + 1.65, c='k')
+ax1.annotate('Trappist-1 (M7.5)', xy=(0.951, 2.8), color='k', fontsize=13)
+ax1.plot(df_0253['w'], norm_df_0253 + 2.2, c='#E80901')
+ax1.annotate('J0253+3206 (M7 $\\beta$)', xy=(0.951, 3.35), color='#E80901', fontsize=13)
+ax1.plot(df_0608['w'], norm_df_0608 + 3, c='#E84502')
+ax1.annotate('J0608-2753 (M8.5 $\gamma$)', xy=(0.951, 4.2), color='#E84502', fontsize=13)
+ax1.plot(df_0953['w'], norm_df_0953 + 4, c='#FF6B03')
+ax1.annotate('J0953-1014 (M9 $\gamma$)', xy=(0.951, 5.15), color='#FF6B03', fontsize=13)
 
 # --- To make lines for features ---------
 FeH1 = pd.DataFrame()

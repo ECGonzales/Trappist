@@ -12,17 +12,17 @@ df_trap = pd.read_csv('Data/Gaia2306-0502 (M7.5) SED.txt', sep=" ", comment='#',
 df_trap_phot = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ",comment='#', header=None, names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff ----------------------------------
-df_2235 = pd.read_csv('Data/lbol_comp/Gaia2235-5906 (M8.5beta) SED.txt', sep=" ", comment='#', header=None,
+df_2235 = pd.read_csv('Data/beta_comp/Gaia2235-5906 (M8.5beta) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_2235_phot = pd.read_csv('Data/lbol_comp/Gaia2235-5906 (M8.5beta) phot.txt', sep=" ", comment='#', header=None,
+df_2235_phot = pd.read_csv('Data/beta_comp/Gaia2235-5906 (M8.5beta) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
-df_2154 = pd.read_csv('Data/lbol_comp/Gaia2154-7459 (M9.5beta) SED.txt', sep=" ", comment='#', header=None,
+df_2154 = pd.read_csv('Data/beta_comp/Gaia2154-7459 (M9.5beta) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_2154_phot = pd.read_csv('Data/lbol_comp/Gaia2154-7459 (M9.5beta) phot.txt', sep=" ", comment='#', header=None,
+df_2154_phot = pd.read_csv('Data/beta_comp/Gaia2154-7459 (M9.5beta) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
-df_0714 = pd.read_csv('Data/lbol_comp/Gaia0714+3702 (M8) SED.txt', sep=" ", comment='#', header=None,
+df_0714 = pd.read_csv('Data/beta_comp/Gaia0714+3702 (M8) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_0714_phot = pd.read_csv('Data/lbol_comp/Gaia0714+3702 (M8) phot.txt', sep=" ", comment='#', header=None,
+df_0714_phot = pd.read_csv('Data/beta_comp/Gaia0714+3702 (M8) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
 
 
@@ -92,4 +92,4 @@ ax1.annotate('Age: <500 Myr', xy=(0.8, 2.5*10**(-17)), color='#0E0084', fontsize
 ax1.annotate('$L_\mathrm{bol}: -3.254 \pm 0.004$', xy=(0.8, 1.6*10**(-17)), color='#0E0084', fontsize=15)
 
 plt.tight_layout()
-plt.savefig('Figures/Lbol_comparison_new_notwithinUnc.png')
+plt.savefig('Figures/Lbol_beta.png')

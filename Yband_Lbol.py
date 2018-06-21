@@ -11,15 +11,26 @@ df_trap = pd.read_csv('Data/FIRE2306-0502 (M7.5) SED.txt', sep=" ", comment='#',
                       names=["w", "f", "err"])
 df_trap_phot = pd.read_csv('Data/FIRE2306-0502 (M7.5) phot.txt', sep=" ",comment='#', header=None, names=["w", "f", "err"])
 
-# -------------- Comparison objects of the same Teff ----------------------------------
-df_2235 = pd.read_csv('Data/lbol_comp/Lbol2235-5906 (M8.5beta) SED.txt', sep=" ", comment='#', header=None,
+# ---- Field ----
+df_vb8 = pd.read_csv('Data/field_comp/1655-0823 (M7) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_2235_phot = pd.read_csv('Data/lbol_comp/Lbol2235-5906 (M8.5beta) phot.txt', sep=" ", comment='#', header=None,
-                            names=["w", "f", "err"])
-df_2154 = pd.read_csv('Data/lbol_comp/Split2154-7459 (M9.5beta) SED.txt', sep=" ", comment='#', header=None,
+df_vb10 = pd.read_csv('Data/field_comp/1916+0508 (M8) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_2154_phot = pd.read_csv('Data/lbol_comp/Split2154-7459 (M9.5beta) phot.txt', sep=" ", comment='#', header=None,
-                            names=["w", "f", "err"])
+df_0320 = pd.read_csv('Data/field_comp/0320+1854 (M8) SED.txt', sep=" ", comment='#', header=None,
+                       names=["w", "f", "err"])
+# --- Young ------
+df_1207 = pd.read_csv('Data/young_comp/1207-3900 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
+                      names=["w", "f", "err"])
+df_1207_phot = pd.read_csv('Data/young_comp/1207-3900 (L0gamma) phot.txt', sep=" ", comment='#', header=None,
+                           names=["w", "f", "err"])
+df_0443 = pd.read_csv('Data/young_comp/0443+0002 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
+                      names=["w", "f", "err"])
+df_0443_phot = pd.read_csv('Data/young_comp/0443+0002 (M9gamma) phot.txt', sep=" ", comment='#', header=None,
+                           names=["w", "f", "err"])
+df_0518 = pd.read_csv('Data/young_comp/0518-2756 (L1gamma) SED.txt', sep=" ", comment='#', header=None,
+                      names=["w", "f", "err"])
+df_0518_phot = pd.read_csv('Data/young_comp/0518-2756 (L1gamma) phot.txt', sep=" ", comment='#', header=None,
+                           names=["w", "f", "err"])
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Normalize the spectra -------------------------------------
@@ -28,11 +39,24 @@ df_2154_phot = pd.read_csv('Data/lbol_comp/Split2154-7459 (M9.5beta) phot.txt', 
 norm_region = df_trap[(df_trap['w'] >= 0.98) & (df_trap['w'] <= 0.988)]
 norm_df_trap = df_trap['f']/(np.average(norm_region['f']))
 
-norm_region2 = df_2235[(df_2235['w'] >= 0.98) & (df_2235['w'] <= 0.988)]
-norm_df_2235 = df_2235['f']/(np.average(norm_region2['f']))
+norm_region2 = df_vb8[(df_vb8['w'] >= 0.98) & (df_vb8['w'] <= 0.988)]
+norm_df_vb8 = df_vb8['f']/(np.average(norm_region2['f']))
 
-norm_region7 = df_2154[(df_2154['w'] >= 0.98) & (df_2154['w'] <= 0.988)]
-norm_df_2154 = df_2154['f']/(np.average(norm_region7['f']))
+norm_region3 = df_vb10[(df_vb10['w'] >= 0.98) & (df_vb10['w'] <= 0.988)]
+norm_df_vb10 = df_vb10['f']/(np.average(norm_region3['f']))
+
+norm_region4 = df_0320[(df_0320['w'] >= 0.98) & (df_0320['w'] <= 0.988)]
+norm_df_0320 = df_0320['f']/(np.average(norm_region4['f']))
+
+norm_region5 = df_1207[(df_1207['w'] >= 0.98) & (df_1207['w'] <= 0.988)]
+norm_df_1207 = df_1207['f']/(np.average(norm_region5['f']))
+
+norm_region6 = df_0443[(df_0443['w'] >= 0.98) & (df_0443['w'] <= 0.988)]
+norm_df_0443 = df_0443['f']/(np.average(norm_region6['f']))
+
+norm_region7 = df_0518[(df_0518['w'] >= 0.98) & (df_0518['w'] <= 0.988)]
+norm_df_0518 = df_0518['f']/(np.average(norm_region7['f']))
+
 
 # -------------------------------------------------------------------------------------
 # ------------------- Plotting: Y band comparison -------------------------------
@@ -53,9 +77,28 @@ plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
 plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
 
 # -------- Add data -----------
+ax1.plot(df_0320['w'], norm_df_0320 + 3.5, c='#6A777F')
+ax1.annotate('J0320+1854 (M8) $L_\mathrm{bol}: -3.337 \pm 0.053$', xy=(0.951, 4.65), color='#6A777F', fontsize=13)
+
+ax1.plot(df_vb8['w'], norm_df_vb8 + 4.3, c='#7C7D70')
+ax1.annotate('vb8 (M7) $L_\mathrm{bol}: -3.337 \pm 0.053$', xy=(0.951, 5.4), color='#7C7D70', fontsize=13)
+
+
+ax1.plot(df_0320['w'], norm_df_0320 + 3.5, c='#6A777F')
+ax1.annotate('J0320+1854 (M8) $L_\mathrm{bol}: -3.337 \pm 0.053$', xy=(0.951, 4.65), color='#6A777F', fontsize=13)
+
+
 ax1.plot(df_trap['w'], norm_df_trap, c='k')
-ax1.plot(df_2235['w'], norm_df_2235 + 0.75, c='#8E01E8')
-ax1.plot(df_2154['w'], norm_df_2154 + 1.5, c='#E806B7')
+ax1.annotate('Trappist-1 (M7.5) $L_\mathrm{bol}: -3.337 \pm 0.053$', xy=(0.951, 3.7), color='k', fontsize=13)
+
+ax1.plot(df_vb10['w'], norm_df_vb10 + 1.8, c='#A0B2BF')
+ax1.annotate('vb10 (M8) $L_\mathrm{bol}: -3.301 \pm 0.002$', xy=(0.951, 2.9), color='#A0B2BF', fontsize=13)
+
+ax1.plot(df_0518['w'], norm_df_0518 + 4.3, c='#7C7D70')
+ax1.annotate('J0518-2756 (L1 $\gamma$) $L_\mathrm{bol}: -3.328 \pm 0.041$', xy=(0.951, 5.4), color='#7C7D70', fontsize=13)
+
+ax1.plot(df_1207['w'], norm_df_1207 + 1.8, c='#A0B2BF')
+ax1.annotate('J1207-3900 (L0 $\gamma$) $L_\mathrm{bol}: -3.337 \pm 0.053$', xy=(0.951, 2.9), color='#A0B2BF', fontsize=13)
 
 # --- To make lines for features ---------
 FeH1 = pd.DataFrame()

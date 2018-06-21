@@ -20,7 +20,6 @@ df_vb8 = pd.read_csv('Data/field_comp/Gaia1655-0823 (M7) SED.txt', sep=" ", comm
                        names=["w", "f", "err"])
 df_vb8_phot = pd.read_csv('Data/field_comp/Gaia1655-0823 (M7) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
-
 df_vb10 = pd.read_csv('Data/field_comp/Gaia1916+0508 (M8) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 df_vb10_phot = pd.read_csv('Data/field_comp/Gaia1916+0508 (M8) phot.txt', sep=" ", comment='#', header=None,

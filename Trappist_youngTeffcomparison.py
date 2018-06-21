@@ -75,3 +75,10 @@ ax1.annotate('J0953-1014 (M9 $\gamma$), $T_\mathrm{eff}: 2427 \pm 254$ K', xy=(3
 ax1.annotate('Trappist-1 (M7.5), $T_\mathrm{eff}: 2582 \pm 34$ K', xy=(3, 6*10**(-15)), color='k', fontsize=15)
 
 plt.savefig('Figures/young_comp_teff.png', dpi=150)
+
+# Create the red optical zoom in
+plt.xlim([0.65, 1])
+plt.ylim([10**(-16), 5*10**(-14)])
+ax1.xaxis.set_minor_locator(plt.FixedLocator([0.65, 0.7, 0.8, 0.9]))
+fig.set_size_inches(11.32, 8.59)
+plt.savefig('Figures/Young _teff_zoom.png', dpi=150)

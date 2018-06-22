@@ -14,13 +14,10 @@ df_trap = pd.read_csv('Data/Gaia2306-0502 (M7.5) SED.txt', sep=" ", comment='#',
 df_vb8 = pd.read_csv('Data/field_comp/Gaia1655-0823 (M7) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
 df_vb10 = pd.read_csv('Data/field_comp/Gaia1916+0508 (M8) SED.txt', sep=" ", comment='#', header=None,
-                       names=["w", "f", "err"])
-df_0320 = pd.read_csv('Data/field_comp/Gaia0320+1854 (M8) SED.txt', sep=" ", comment='#', header=None,
-                       names=["w", "f", "err"])
-
-# -------------- Comparison objects of the same Teff (young) ----------------------------------
-df_0253 = pd.read_csv('Data/young_comp/Gaia0253+3206 (M7beta) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
+df_0320 = pd.read_csv('Data/field_comp/Gaia0320+1854 (M8) SED.txt', sep=" ", comment='#', header=None,
+                      names=["w", "f", "err"])
+# ----Young----
 df_0953 = pd.read_csv('Data/young_comp/Gaia0953-1014 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 df_0608 = pd.read_csv('Data/young_comp/Gaia0608-2753 (M8.5gamma) SED.txt', sep=" ", comment='#', header=None,
@@ -42,9 +39,6 @@ norm_df_vb10 = df_vb10['f']/(np.average(norm_region7['f']))
 norm_region8 = df_0320[(df_0320['w'] >= 1.22) & (df_0320['w'] <= 1.23)]
 norm_df_0320 = df_0320['f']/(np.average(norm_region8['f']))
 
-norm_region5 = df_0253[(df_0253['w'] >= 1.22) & (df_0253['w'] <= 1.23)]
-norm_df_0253 = df_0253['f']/(np.average(norm_region5['f']))
-
 norm_region3 = df_0953[(df_0953['w'] >= 1.22) & (df_0953['w'] <= 1.23)]
 norm_df_0953 = df_0953['f']/(np.average(norm_region3['f']))
 
@@ -61,89 +55,92 @@ ax1 = fig.add_subplot(111)
 fig.set_size_inches(8.5, 11)
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
 plt.xlim([1.12, 1.35])
-plt.ylim([0.25, 6])
+plt.ylim([0.25, 7])
 for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
     ax1.spines[axis].set_linewidth(1.1)
 
-# ------Tick size and Axes Labels --------
+# ------Tick size, Axes Labels, and layout --------
 ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
 plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
 plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
+plt.tight_layout()
 
-# -------- Add data -----------
-ax1.plot(df_0320['w'], norm_df_0320, c='#A0B2BF')
-ax1.plot(df_vb10['w'], norm_df_vb10 + 0.6, c='#6A777F')
-ax1.plot(df_vb8['w'], norm_df_vb8 + 1.1, c='#7C7D70')
-ax1.plot(df_trap['w'], norm_df_trap + 1.8, c='k')
-ax1.plot(df_0253['w'], norm_df_0253 + 2.3, c='#E80901')  # M7 beta
-ax1.plot(df_0608['w'], norm_df_0608 + 2.75, c='#E84502')  # M8.5 gamma
-ax1.plot(df_0953['w'], norm_df_0953 + 3.25, c='#FF6B03')   # M9 gamma
+# -------- Add data and Label Sources-----------
+ax1.plot(df_0953['w'], norm_df_0953, c='#9B0132')
+ax1.annotate('J0953-1014 (M9 $\gamma$) $T_\mathrm{eff}: 2427 \pm 254$ K', xy=(1.121, 1.4), color='#9B0132', fontsize=13)
+ax1.plot(df_0608['w'], norm_df_0608 + 1, c='#FF6B03')
+ax1.annotate('J0608-2753 (M8.5 $\gamma$) $T_\mathrm{eff}: 2471 \pm 255$ K', xy=(1.121, 2.2), color='#FF6B03', fontsize=13)
+ax1.plot(df_vb10['w'], norm_df_vb10 + 2, c='#A0B2BF')
+ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2542 \pm 45$ K', xy=(1.121, 3.2), color='#A0B2BF', fontsize=13)
+ax1.plot(df_trap['w'], norm_df_trap + 3, c='k')
+ax1.annotate('Trappist-1 (M7.5) $T_\mathrm{eff}: 2582 \pm 34$ K', xy=(1.121, 4.3), color='k', fontsize=13)
+ax1.plot(df_0320['w'], norm_df_0320 + 4, c='#6A777F')
+ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2615 \pm 34$ K', xy=(1.121, 5.2), color='#6A777F', fontsize=13)
+ax1.plot(df_vb8['w'], norm_df_vb8 + 5, c='#7C7D70')
+ax1.annotate('vb8 (M7) $T_\mathrm{eff}: 2642 \pm 34$ K', xy=(1.121, 6.2), color='#7C7D70', fontsize=13)
 
 
 # ------- Label Features --------------------------
 NaI = pd.DataFrame()
-NaI['x'] = [1.13656, 1.14269]
-NaI['y'] = [0.43, 0.43]
+NaI['x'] = [1.1383850, 1.1383850]
+NaI['y'] = [6.5, 6.7]
 plt.plot(NaI['x'], NaI['y'], color='k')
-ax1.annotate('Na$\,$I', xy=(1.133, .265), color='k', fontsize=15)
-# ----- Making each of the vertical lines on each end --------
+ax1.annotate('Na$\,$I', xy=(1.133, 6.75), color='k', fontsize=15)
 NaId = pd.DataFrame()
-NaId['x'] = [1.13656, 1.13656]
-NaId['y'] = [0.43, 0.53]
+NaId['x'] = [1.1408517, 1.1408517]
+NaId['y'] = [6.5, 6.7]
 plt.plot(NaId['x'], NaId['y'], color='k')
-NaId2 = pd.DataFrame()
-NaId2['x'] = [1.14269, 1.14269]
-NaId2['y'] = [0.43, 0.53]
-plt.plot(NaId2['x'], NaId2['y'], color='k')
+NaIhor = pd.DataFrame()
+NaIhor['x'] = [1.1383850, 1.1408517]
+NaIhor['y'] = [6.7, 6.7]
+plt.plot(NaIhor['x'], NaIhor['y'], color='k')
 
 KI1 = pd.DataFrame()
-KI1['x'] = [1.16569, 1.18225]
-KI1['y'] = [0.4, 0.4]
+KI1['x'] = [1.1692427, 1.1692427]
+KI1['y'] = [6.5, 6.7]
 plt.plot(KI1['x'], KI1['y'], color='k')
-ax1.annotate('K$\,$I', xy=(1.17, .265), color='k', fontsize=15)
-# ----- Making each of the vertical lines on each end --------
+ax1.annotate('K$\,$I', xy=(1.17, 6.75), color='k', fontsize=15)
 KI1up1 = pd.DataFrame()
-KI1up1['x'] = [1.16569, 1.16569]
-KI1up1['y'] = [0.4, 0.53]
+KI1up1['x'] = [1.1778406, 1.1778406]
+KI1up1['y'] = [6.5, 6.7]
 plt.plot(KI1up1['x'], KI1up1['y'], color='k')
-KI1up2 = pd.DataFrame()
-KI1up2['x'] = [1.18225, 1.18225]
-KI1up2['y'] = [0.4, 0.53]
-plt.plot(KI1up2['x'], KI1up2['y'], color='k')
+KI1hor = pd.DataFrame()
+KI1hor['x'] = [1.1692427, 1.1778406]
+KI1hor['y'] = [6.7, 6.7]
+plt.plot(KI1hor['x'], KI1hor['y'], color='k')
 
 FeH = pd.DataFrame()
 FeH['x'] = [1.19, 1.24]
-FeH['y'] = [5.25, 5.25]
+FeH['y'] = [6.7, 6.7]
 plt.plot(FeH['x'], FeH['y'], color='k')
-ax1.annotate('FeH', xy=(1.2, 5.3), color='k', fontsize=15)
+ax1.annotate('FeH', xy=(1.2, 6.75), color='k', fontsize=15)
 FeHd = pd.DataFrame()
 FeHd['x'] = [1.19, 1.19]
-FeHd['y'] = [5.25, 5.1]
+FeHd['y'] = [6.5, 6.7]
 plt.plot(FeHd['x'], FeHd['y'], color='k')
 
 KI2 = pd.DataFrame()
-KI2['x'] = [1.24175, 1.25616]
-KI2['y'] = [0.5, 0.5]
+KI2['x'] = [1.2436839, 1.2528860]
+KI2['y'] = [6.5, 6.5]
 plt.plot(KI2['x'], KI2['y'], color='k')
-ax1.annotate('K$\,$I', xy=(1.245, 0.35), color='k', fontsize=15)
+ax1.annotate('K$\,$I', xy=(1.245, 6.55), color='k', fontsize=15)
 KI2up1 = pd.DataFrame()
-KI2up1['x'] = [1.24175, 1.24175]
-KI2up1['y'] = [0.5, 0.6]
+KI2up1['x'] = [1.2436839, 1.2436839]
+KI2up1['y'] = [6.3, 6.5]
 plt.plot(KI2up1['x'], KI2up1['y'], color='k')
 KI2up2 = pd.DataFrame()
-KI2up2['x'] = [1.25616, 1.25616]
-KI2up2['y'] = [0.5, 0.6]
+KI2up2['x'] = [1.2528860, 1.2528860]
+KI2up2['y'] = [6.3, 6.5]
 plt.plot(KI2up2['x'], KI2up2['y'], color='k')
 
 H2O = pd.DataFrame()
 H2O['x'] = [1.32, 1.35]
-H2O['y'] = [5.35, 5.35]
+H2O['y'] = [6.35, 6.35]
 plt.plot(H2O['x'], H2O['y'], color='k')
-ax1.annotate('H$_\mathrm{2} $O', xy=(1.33, 5.4), color='k', fontsize=15)
+ax1.annotate('H$_\mathrm{2} $O', xy=(1.33, 6.4), color='k', fontsize=15)
 H2Od = pd.DataFrame()
 H2Od['x'] = [1.32, 1.32]
-H2Od['y'] = [5.2, 5.35]
+H2Od['y'] = [6.2, 6.35]
 plt.plot(H2Od['x'], H2Od['y'], color='k')
 
-plt.tight_layout()
 plt.savefig('Figures/Jbandteffcomp.png', dpi=150)

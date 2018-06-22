@@ -1,0 +1,111 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# ------------------------------------------------------------------------------------
+# ------------------- Read in Spectra and Photometry files ---------------------------
+# ------------------------------------------------------------------------------------
+# Read  all in as pandas dataframes
+df_trap = pd.read_csv('Data/Gaia2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
+                      names=["w", "f", "err"])
+# ---- Teff ----
+df_0253 = pd.read_csv('Data/beta_comp/Gaia0253+3206 (M7beta) SED.txt', sep=" ", comment='#', header=None,
+                      names=["w", "f", "err"])
+# ---- Lbol -----
+df_2235 = pd.read_csv('Data/beta_comp/Gaia2235-5906 (M8.5beta) SED.txt', sep=" ", comment='#', header=None,
+                      names=["w", "f", "err"])
+df_2235_phot = pd.read_csv('Data/beta_comp/Gaia2235-5906 (M8.5beta) phot.txt', sep=" ", comment='#', header=None,
+                           names=["w", "f", "err"])
+df_2154 = pd.read_csv('Data/beta_comp/Gaia2154-7459 (M9.5beta) SED.txt', sep=" ", comment='#', header=None,
+                      names=["w", "f", "err"])
+df_2154_phot = pd.read_csv('Data/beta_comp/Gaia2154-7459 (M9.5beta) phot.txt', sep=" ", comment='#', header=None,
+                           names=["w", "f", "err"])
+
+# -------------------------------------------------------------------------------------
+# ------------------------- Normalize the spectra -------------------------------------
+# -------------------------------------------------------------------------------------
+# Determine region good for all spectra to take the average flux over
+norm_region = df_trap[(df_trap['w'] >= 2.16) & (df_trap['w'] <= 2.20)]
+norm_df_trap = df_trap['f']/(np.average(norm_region['f']))
+
+norm_region3 = df_0253[(df_0253['w'] >= 2.16) & (df_0253['w'] <= 2.20)]
+norm_df_0253 = df_0253['f']/(np.average(norm_region3['f']))
+
+norm_region2 = df_2235[(df_2235['w'] >= 2.16) & (df_2235['w'] <= 2.20)]
+norm_df_2235 = df_2235['f']/(np.average(norm_region2['f']))
+
+norm_region7 = df_2154[(df_2154['w'] >= 2.16) & (df_2154['w'] <= 2.20)]
+norm_df_2154 = df_2154['f']/(np.average(norm_region7['f']))
+
+# -------------------------------------------------------------------------------------
+# ------------------- Plotting: Y band comparison -------------------------------
+# -------------------------------------------------------------------------------------
+# ------ Set up figure layout --------
+fig = plt.figure()
+ax1 = fig.add_subplot(111)
+fig.set_size_inches(10, 6.45)
+plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
+plt.xlim([2.0, 2.35])
+plt.ylim([0.5, 4.5])
+for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
+    ax1.spines[axis].set_linewidth(1.1)
+
+# ------Tick size and Axes Labels --------
+ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
+plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
+plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
+plt.tight_layout()
+
+# -------- Add data and Label Sources-----------
+# 0253 Teff
+ax1.plot(df_0253['w'], norm_df_0253, c='#D01810')
+ax1.annotate('J0253+3206 (M7 $\\beta$)', xy=(2.001, 0.7), color='#D01810', fontsize=13)
+# Trappist
+ax1.plot(df_trap['w'], norm_df_trap + 0.75, c='k')
+ax1.annotate('Trappist-1 (M7.5)', xy=(2.001, 2), color='k', fontsize=13)
+# 2235 Lbol
+ax1.plot(df_2235['w'], norm_df_2235 + 1.5, c='#8E01E8')
+ax1.annotate('J2235-5906 (M8.5 $\\beta$)', xy=(2.001, 2.8), color='#8E01E8', fontsize=15)
+# 2154 Lbol
+ax1.plot(df_2154['w'], norm_df_2154 + 2.3, c='#E806B7')
+ax1.annotate('J2154-7459 (M9.5 $\\beta$)', xy=(2.001, 3.55), color='#E806B7', fontsize=15)
+
+# ------- Label Features --------------------------
+H2O = pd.DataFrame()
+H2O['x'] = [2.00, 2.05]
+H2O['y'] = [3.8, 3.8]
+plt.plot(H2O['x'], H2O['y'], color='k')
+ax1.annotate('H$_\mathrm{2} $O', xy=(2.02, 3.85), color='k', fontsize=15)
+
+CIA_H2 = pd.DataFrame()
+CIA_H2['x'] = [2.01, 2.34]
+CIA_H2['y'] = [4.2, 4.2]
+plt.plot(CIA_H2['x'], CIA_H2['y'], color='k')
+ax1.annotate('CIA H$_\mathrm{2} $', xy=(2.15, 4.25), color='k', fontsize=15)
+
+NaI = pd.DataFrame()
+NaI['x'] = [2.20, 2.211]
+NaI['y'] = [1.43, 1.43]
+plt.plot(NaI['x'], NaI['y'], color='k')
+ax1.annotate('Na$\,$I', xy=(2.197, 1.25), color='k', fontsize=15)
+# ----- Making each of the vertical lines on each end --------
+NaId = pd.DataFrame()
+NaId['x'] = [2.20, 2.20]
+NaId['y'] = [1.43, 1.55]
+plt.plot(NaId['x'], NaId['y'], color='k')
+NaId2 = pd.DataFrame()
+NaId2['x'] = [2.211, 2.211]
+NaId2['y'] = [1.43, 1.55]
+plt.plot(NaId2['x'], NaId2['y'], color='k')
+
+CO = pd.DataFrame()
+CO['x'] = [2.29352, 2.34]
+CO['y'] = [4, 4]
+plt.plot(CO['x'], CO['y'], color='k')
+ax1.annotate('CO', xy=(2.31, 4.02), color='k', fontsize=15)
+COd = pd.DataFrame()
+COd['x'] = [2.29352, 2.29352]
+COd['y'] = [3.8, 4]
+plt.plot(COd['x'], COd['y'], color='k')
+
+plt.savefig('Figures/Beta_Kband.png', dpi=150)

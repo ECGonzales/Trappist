@@ -77,7 +77,7 @@ plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 # Trappist-1
 ax1.annotate('Trappist-1 (M7.5) ', xy=(3, 1.95*10**(-14)), color='k', fontsize=15)
 ax1.annotate('Age: 500-10000 Myr', xy=(3, 1.3*10**(-14)), color='k', fontsize=15)
-ax1.annotate('$L_\mathrm{bol}: -3.254 \pm 0.002$', xy=(3, 0.85*10**(-14)), color='k', fontsize=15)
+ax1.annotate('$L_\mathrm{bol}: -3.255 \pm 0.002$', xy=(3, 0.85*10**(-14)), color='k', fontsize=15)
 # J2235
 ax1.annotate('J2235-5906 (M8.5 $\\beta$)', xy=(1.3, 8*10**(-16)), color='#8E01E8', fontsize=15)
 ax1.annotate('Age: 41-49 Myr', xy=(1.3, 5*10**(-16)), color='#8E01E8', fontsize=15)

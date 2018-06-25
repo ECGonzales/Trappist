@@ -61,7 +61,7 @@ plt.ylabel('Flux ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 plt.tight_layout()
 
 # ------ Labeling Objects --------
-ax1.annotate('Trappist-1 (M7.5), $T_\mathrm{eff}: 2582 \pm 34$ K', xy=(2, 3*10**(-14)), color='k', fontsize=15)
+ax1.annotate('Trappist-1 (M7.5), $T_\mathrm{eff}: 2581 \pm 34$ K', xy=(2, 3*10**(-14)), color='k', fontsize=15)
 ax1.annotate('J0253+3206 (M7$\\beta$), $T_\mathrm{eff}: 2581 \pm 265$ K', xy=(2, 2*10**(-14)), color='#D01810', fontsize=15)
 ax1.annotate('J0436-4114 (M8 $\\beta$), $T_\mathrm{eff}: 2557 \pm 257$ K', xy=(2, 1.3*10**(-14)), color='#F58404', fontsize=15)
 

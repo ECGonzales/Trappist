@@ -73,7 +73,7 @@ ax1.annotate('J0608-2753 (M8.5 $\gamma$) $T_\mathrm{eff}: 2471 \pm 255$ K', xy=(
 ax1.plot(df_vb10['w'], norm_df_vb10 + 2, c='#A0B2BF')
 ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2542 \pm 45$ K', xy=(1.121, 3.2), color='#A0B2BF', fontsize=13)
 ax1.plot(df_trap['w'], norm_df_trap + 3, c='k')
-ax1.annotate('Trappist-1 (M7.5) $T_\mathrm{eff}: 2582 \pm 34$ K', xy=(1.121, 4.3), color='k', fontsize=13)
+ax1.annotate('Trappist-1 (M7.5) $T_\mathrm{eff}: 2581 \pm 34$ K', xy=(1.121, 4.3), color='k', fontsize=13)
 ax1.plot(df_0320['w'], norm_df_0320 + 4, c='#6A777F')
 ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2615 \pm 34$ K', xy=(1.121, 5.2), color='#6A777F', fontsize=13)
 ax1.plot(df_vb8['w'], norm_df_vb8 + 5, c='#7C7D70')

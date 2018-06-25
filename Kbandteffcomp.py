@@ -65,7 +65,7 @@ plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
 
 # -------- Add data and Label Sources-----------
 ax1.plot(df_0953['w'], norm_df_0953, c='#9B0132')
-ax1.annotate('J0953-1014 (M9 $\gamma$) $T_\mathrm{eff}: 2427 \pm 254$ K', xy=(2.001, 1.15), color='#9B0132', fontsize=13)
+ax1.annotate('J0953-1014 (M9 $\gamma$) $T_\mathrm{eff}: 2430 \pm 255$ K', xy=(2.001, 1.15), color='#9B0132', fontsize=13)
 ax1.plot(df_0608['w'], norm_df_0608 + 0.6, c='#FF6B03')
 ax1.annotate('J0608-2753 (M8.5 $\gamma$) $T_\mathrm{eff}: 2471 \pm 255$ K', xy=(2.001, 1.67), color='#FF6B03', fontsize=13)
 ax1.plot(df_vb10['w'], norm_df_vb10 + 1, c='#A0B2BF')

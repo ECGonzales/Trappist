@@ -71,7 +71,7 @@ plt.tight_layout()
 # ------ Labeling Objects --------
 ax1.annotate('J1247-3816 (M9 $\gamma$)     $T_\mathrm{eff}: 2627 \pm 291$ K', xy=(3, 3*10**(-14)), color='#E80901', fontsize=15)
 ax1.annotate('J0608-2753 (M8.5 $\gamma$)  $T_\mathrm{eff}: 2471 \pm 255$ K', xy=(3, 1.8*10**(-14)), color='#FF6B03', fontsize=15)
-ax1.annotate('J0953-1014 (M9 $\gamma$)     $T_\mathrm{eff}: 2427 \pm 254$ K', xy=(3, 1.05*10**(-14)), color='#9B0132', fontsize=15)
+ax1.annotate('J0953-1014 (M9 $\gamma$)     $T_\mathrm{eff}: 2430 \pm 255$ K', xy=(3, 1.05*10**(-14)), color='#9B0132', fontsize=15)
 ax1.annotate('Trappist-1 (M7.5)       $T_\mathrm{eff}: 2582 \pm 34$ K', xy=(3, 6*10**(-15)), color='k', fontsize=15)
 
 plt.savefig('Figures/young_comp_teff.png', dpi=150)

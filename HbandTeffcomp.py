@@ -144,4 +144,4 @@ plt.plot(H2Od['x'], H2Od['y'], color='k')
 # plt.plot(CH4d['x'], CH4d['y'], color='k')
 
 plt.tight_layout()
-plt.savefig('Figures/Hbandteffcomp.png', dpi=150)
+plt.savefig('Figures/Hbandteffcomp.pdf', dpi=150)

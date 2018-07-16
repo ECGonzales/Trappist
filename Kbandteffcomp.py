@@ -116,4 +116,4 @@ COd['y'] = [3.8, 4]
 plt.plot(COd['x'], COd['y'], color='k')
 
 plt.tight_layout()
-plt.savefig('Figures/KbandTeffcomp.png', dpi=150)
+plt.savefig('Figures/KbandTeffcomp.pdf', dpi=150)

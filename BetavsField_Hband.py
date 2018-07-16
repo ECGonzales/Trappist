@@ -23,37 +23,45 @@ df_vb10 = pd.read_csv('Data/field_comp/Gaia1916+0508 (M8) SED.txt', sep=" ", com
 df_0320 = pd.read_csv('Data/field_comp/Gaia0320+1854 (M8) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 
+# -------------- Drop bad points --------------
+df_2154 = df_2154[(df_2154['w'] >= 1.47) & (df_2154['w'] <= 1.80)]  # May not need this is we decide to smooth a bit
+df_2154 = df_2154.drop(df_2154['f'].argmin())
+
+df_2235 = df_2235[(df_2235['w'] >= 1.47) & (df_2235['w'] <= 1.80)]
+df_2235 = df_2235.drop(df_2235['f'].argmax())
+df_2235 = df_2235.drop(df_2235['f'].argmin())
+df_2235 = df_2235.drop(df_2235['f'].argmin())
+df_0253 = df_0253[(df_0253['w'] >= 1.42) & (df_0253['w'] <= 1.8)]
+df_0253 = df_0253.drop(df_0253['f'].argmax())
+
 # -------------------------------------------------------------------------------------
 # ------------------------- Normalize the spectra -------------------------------------
 # -------------------------------------------------------------------------------------
-# Kband
-norm_region = df_trap[(df_trap['w'] >= 2.16) & (df_trap['w'] <= 2.20)]
+# Hband
+norm_region = df_trap[(df_trap['w'] >= 1.5) & (df_trap['w'] <= 1.52)]
 norm_df_trap = df_trap['f']/(np.average(norm_region['f']))
-norm_region2 = df_vb8[(df_vb8['w'] >= 2.16) & (df_vb8['w'] <= 2.20)]
+norm_region2 = df_vb8[(df_vb8['w'] >= 1.5) & (df_vb8['w'] <= 1.52)]
 norm_df_vb8 = df_vb8['f']/(np.average(norm_region2['f']))
-norm_region7 = df_vb10[(df_vb10['w'] >= 2.16) & (df_vb10['w'] <= 2.20)]
+norm_region7 = df_vb10[(df_vb10['w'] >= 1.5) & (df_vb10['w'] <= 1.52)]
 norm_df_vb10 = df_vb10['f']/(np.average(norm_region7['f']))
-norm_region8 = df_0320[(df_0320['w'] >= 2.16) & (df_0320['w'] <= 2.20)]
+norm_region8 = df_0320[(df_0320['w'] >= 1.5) & (df_0320['w'] <= 1.52)]
 norm_df_0320 = df_0320['f']/(np.average(norm_region8['f']))
-norm_region3 = df_0253[(df_0253['w'] >= 2.16) & (df_0253['w'] <= 2.20)]
+norm_region3 = df_0253[(df_0253['w'] >= 1.5) & (df_0253['w'] <= 1.52)]
 norm_df_0253 = df_0253['f']/(np.average(norm_region3['f']))
-norm_region2 = df_2235[(df_2235['w'] >= 2.16) & (df_2235['w'] <= 2.20)]
+norm_region2 = df_2235[(df_2235['w'] >= 1.5) & (df_2235['w'] <= 1.52)]
 norm_df_2235 = df_2235['f']/(np.average(norm_region2['f']))
-norm_region7 = df_2154[(df_2154['w'] >= 2.16) & (df_2154['w'] <= 2.20)]
+norm_region7 = df_2154[(df_2154['w'] >= 1.5) & (df_2154['w'] <= 1.52)]
 norm_df_2154 = df_2154['f']/(np.average(norm_region7['f']))
 
 # -------------------------------------------------------------------------------------
-# ------------------------- Plotting: K band comparison -------------------------------
+# ------------------------- Plotting: H band comparison -------------------------------
 # -------------------------------------------------------------------------------------
 # ------ Set up figure layout --------
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
 fig.set_size_inches(8.5, 11)
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
-# plt.xlim([0.95, 1.10])
-# plt.xlim([1.12, 1.35])
-# plt.xlim([1.42, 1.80])
-plt.xlim([2.0, 2.35])
+plt.xlim([1.42, 1.80])
 plt.ylim([0.25, 6.6])
 for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
     ax1.spines[axis].set_linewidth(1.1)
@@ -75,14 +83,14 @@ ax1.plot(df_2235['w'], norm_df_2235 +1, c='#8E01E8', alpha=0.75)
 ax1.plot(df_2154['w'], norm_df_2154 +2, c='#E806B7', alpha=0.75)
 ax1.plot(df_0320['w'], norm_df_0320 +3, c='#1EE801', alpha=0.75)
 ax1.plot(df_vb8['w'], norm_df_vb8 +4, c='#04A57F', alpha=0.75)
-ax1.plot(df_vb10['w'], norm_df_vb10 +5, c='#275202', alpha=0.75)
+ax1.plot(df_vb10['w'], norm_df_vb10 +5, c='#275202', alpha=0.8)
 
 # Add labels
-ax1.annotate('J0253+3206 (M7 $\\beta$)', xy=(2.001, 1.2), color='#D01810', fontsize=15)
-ax1.annotate('J2235-5906 (M8.5 $\\beta$)', xy=(2.001, 2.25), color='#8E01E8', fontsize=15)
-ax1.annotate('J2154-7459 (M9.5 $\\beta$)', xy=(2.001, 3.2), color='#E806B7', fontsize=15)
-ax1.annotate('J0320+1854 (M8)', xy=(2.001, 4.2), color='#1EE801', fontsize=15)
-ax1.annotate('vb8 (M7)', xy=(2.001, 5.2), color='#04A57F', fontsize=15)
-ax1.annotate('vb10 (M8)', xy=(2.001, 6.2), color='#275202', fontsize=15)
+ax1.annotate('J0253+3206 (M7 $\\beta$)', xy=(1.421, 1.2), color='#D01810', fontsize=15)
+ax1.annotate('J2235-5906 (M8.5 $\\beta$)', xy=(1.421, 2.25), color='#8E01E8', fontsize=15)
+ax1.annotate('J2154-7459 (M9.5 $\\beta$)', xy=(1.421, 3.25), color='#E806B7', fontsize=15)
+ax1.annotate('J0320+1854 (M8)', xy=(1.421, 4.2), color='#1EE801', fontsize=15)
+ax1.annotate('vb8 (M7)', xy=(1.421, 5.2), color='#04A57F', fontsize=15)
+ax1.annotate('vb10 (M8)', xy=(1.421, 6.2), color='#275202', fontsize=15)
 
-plt.savefig('Figures/Stack_Kband.pdf', dpi=150)
+plt.savefig('Figures/Stack_Hband.pdf', dpi=150)

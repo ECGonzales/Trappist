@@ -149,4 +149,4 @@ H2Od['x'] = [1.32, 1.32]
 H2Od['y'] = [5, 5.25]
 plt.plot(H2Od['x'], H2Od['y'], color='k')
 
-plt.savefig('Figures/Beta_Jband.png', dpi=150)
+plt.savefig('Figures/Beta_Jband.pdf', dpi=150)

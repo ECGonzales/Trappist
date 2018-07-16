@@ -65,4 +65,4 @@ ax1.annotate('Trappist-1 (M7.5), $T_\mathrm{eff}: 2581 \pm 34$ K', xy=(2, 3*10**
 ax1.annotate('J0253+3206 (M7$\\beta$), $T_\mathrm{eff}: 2581 \pm 265$ K', xy=(2, 2*10**(-14)), color='#D01810', fontsize=15)
 ax1.annotate('J0436-4114 (M8 $\\beta$), $T_\mathrm{eff}: 2557 \pm 257$ K', xy=(2, 1.3*10**(-14)), color='#F58404', fontsize=15)
 
-plt.savefig('Figures/beta_teff.png', dpi=150)
+plt.savefig('Figures/beta_teff.pdf', dpi=150)

@@ -119,4 +119,4 @@ plt.plot(H2Od['x'], H2Od['y'], color='k')
 # CH4d['y'] = [4.1, 4.25]
 # plt.plot(CH4d['x'], CH4d['y'], color='k')
 
-plt.savefig('Figures/Beta_Hband.png', dpi=150)
+plt.savefig('Figures/Beta_Hband.pdf', dpi=150)

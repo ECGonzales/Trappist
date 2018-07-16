@@ -92,4 +92,4 @@ ax1.annotate('Age: <500 Myr', xy=(0.8, 2.5*10**(-17)), color='#0E0084', fontsize
 ax1.annotate('$L_\mathrm{bol}: -3.254 \pm 0.004$', xy=(0.8, 1.6*10**(-17)), color='#0E0084', fontsize=15)
 
 plt.tight_layout()
-plt.savefig('Figures/Lbol_beta.png')
+plt.savefig('Figures/Lbol_beta.pdf')

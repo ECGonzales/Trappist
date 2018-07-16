@@ -108,4 +108,4 @@ COd['x'] = [2.29352, 2.29352]
 COd['y'] = [3.8, 4]
 plt.plot(COd['x'], COd['y'], color='k')
 
-plt.savefig('Figures/Beta_Kband.png', dpi=150)
+plt.savefig('Figures/Beta_Kband.pdf', dpi=150)

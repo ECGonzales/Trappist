@@ -162,95 +162,95 @@ H2Od['y'] = [7.8, 8]
 plt.plot(H2Od['x'], H2Od['y'], color='k')
 
 plt.tight_layout()
-plt.savefig('Figures/Jbandlbolcomp.png', dpi=150)
+plt.savefig('Figures/Jbandlbolcomp.pdf', dpi=150)
 
 # -------------------------------------------------------------------------------------
 # ------------------- Plotting: J band stack comparison -------------------------------
 # -------------------------------------------------------------------------------------
 # ------ Set up figure layout --------
-fig = plt.figure()
-ax1 = fig.add_subplot(111)
-fig.set_size_inches(10, 8)
-plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
-plt.xlim([1.12, 1.35])
-plt.ylim([0, 1.75])
-for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
-    ax1.spines[axis].set_linewidth(1.1)
-
-# ------Tick size and Axes Labels --------
-ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
-plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
-plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
-
-# -------- Add data -----------
-ax1.plot(df_2235['w'], norm_df_2235, c='#8E01E8')
-ax1.plot(df_2154['w'], norm_df_2154, c='#E806B7')
-ax1.plot(df_trap['w'], norm_df_trap, c='k')
-
-# ------- Label Features --------------------------
-NaI = pd.DataFrame()
-NaI['x'] = [1.13656, 1.14269]
-NaI['y'] = [0.3, 0.3]
-plt.plot(NaI['x'], NaI['y'], color='k')
-ax1.text(0.0625, 0.13, 'Na$\,$I', transform=ax1.transAxes, color='k', fontsize=15)
-# ----- Making each of the vertical lines on each end --------
-NaId = pd.DataFrame()
-NaId['x'] = [1.13656, 1.13656]
-NaId['y'] = [0.3, 0.4]
-plt.plot(NaId['x'], NaId['y'], color='k')
-NaId2 = pd.DataFrame()
-NaId2['x'] = [1.14269, 1.14269]
-NaId2['y'] = [0.3, 0.4]
-plt.plot(NaId2['x'], NaId2['y'], color='k')
-
-KI1 = pd.DataFrame()
-KI1['x'] = [1.16569, 1.18225]
-KI1['y'] = [0.25, 0.25]
-plt.plot(KI1['x'], KI1['y'], color='k')
-ax1.text(0.22, 0.11, 'K$\,$I', transform=ax1.transAxes, color='k', fontsize=15)
-# ----- Making each of the vertical lines on each end --------
-KI1up1 = pd.DataFrame()
-KI1up1['x'] = [1.16569, 1.16569]
-KI1up1['y'] = [0.25, 0.4]
-plt.plot(KI1up1['x'], KI1up1['y'], color='k')
-KI1up2 = pd.DataFrame()
-KI1up2['x'] = [1.18225, 1.18225]
-KI1up2['y'] = [0.25, 0.4]
-plt.plot(KI1up2['x'], KI1up2['y'], color='k')
-
-FeH = pd.DataFrame()
-FeH['x'] = [1.19, 1.24]
-FeH['y'] = [1.3, 1.3]
-plt.plot(FeH['x'], FeH['y'], color='k')
-ax1.text(0.38, 0.75, 'FeH', transform=ax1.transAxes, color='k', fontsize=15)
-FeHd = pd.DataFrame()
-FeHd['x'] = [1.19, 1.19]
-FeHd['y'] = [1.15, 1.3]
-plt.plot(FeHd['x'], FeHd['y'], color='k')
-
-KI2 = pd.DataFrame()
-KI2['x'] = [1.24175, 1.25616]
-KI2['y'] = [0.3, 0.3]
-plt.plot(KI2['x'], KI2['y'], color='k')
-ax1.text(0.54, 0.13, 'K$\,$I', transform=ax1.transAxes, color='k', fontsize=15)
-KI2up1 = pd.DataFrame()
-KI2up1['x'] = [1.24175, 1.24175]
-KI2up1['y'] = [0.3, 0.4]
-plt.plot(KI2up1['x'], KI2up1['y'], color='k')
-KI2up2 = pd.DataFrame()
-KI2up2['x'] = [1.25616, 1.25616]
-KI2up2['y'] = [0.3, 0.4]
-plt.plot(KI2up2['x'], KI2up2['y'], color='k')
-
-H2O = pd.DataFrame()
-H2O['x'] = [1.32, 1.35]
-H2O['y'] = [1.55, 1.55]
-plt.plot(H2O['x'], H2O['y'], color='k')
-ax1.text(0.9, 0.9, 'H$_\mathrm{2} $O', transform=ax1.transAxes, color='k', fontsize=15)
-H2Od = pd.DataFrame()
-H2Od['x'] = [1.32, 1.32]
-H2Od['y'] = [1.48, 1.55]
-plt.plot(H2Od['x'], H2Od['y'], color='k')
-
-plt.tight_layout()
-plt.savefig('Figures/Jbandlbolstackcomp.png', dpi=150)
+# fig = plt.figure()
+# ax1 = fig.add_subplot(111)
+# fig.set_size_inches(10, 8)
+# plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
+# plt.xlim([1.12, 1.35])
+# plt.ylim([0, 1.75])
+# for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
+#     ax1.spines[axis].set_linewidth(1.1)
+#
+# # ------Tick size and Axes Labels --------
+# ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
+# plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
+# plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
+#
+# # -------- Add data -----------
+# ax1.plot(df_2235['w'], norm_df_2235, c='#8E01E8')
+# ax1.plot(df_2154['w'], norm_df_2154, c='#E806B7')
+# ax1.plot(df_trap['w'], norm_df_trap, c='k')
+#
+# # ------- Label Features --------------------------
+# NaI = pd.DataFrame()
+# NaI['x'] = [1.13656, 1.14269]
+# NaI['y'] = [0.3, 0.3]
+# plt.plot(NaI['x'], NaI['y'], color='k')
+# ax1.text(0.0625, 0.13, 'Na$\,$I', transform=ax1.transAxes, color='k', fontsize=15)
+# # ----- Making each of the vertical lines on each end --------
+# NaId = pd.DataFrame()
+# NaId['x'] = [1.13656, 1.13656]
+# NaId['y'] = [0.3, 0.4]
+# plt.plot(NaId['x'], NaId['y'], color='k')
+# NaId2 = pd.DataFrame()
+# NaId2['x'] = [1.14269, 1.14269]
+# NaId2['y'] = [0.3, 0.4]
+# plt.plot(NaId2['x'], NaId2['y'], color='k')
+#
+# KI1 = pd.DataFrame()
+# KI1['x'] = [1.16569, 1.18225]
+# KI1['y'] = [0.25, 0.25]
+# plt.plot(KI1['x'], KI1['y'], color='k')
+# ax1.text(0.22, 0.11, 'K$\,$I', transform=ax1.transAxes, color='k', fontsize=15)
+# # ----- Making each of the vertical lines on each end --------
+# KI1up1 = pd.DataFrame()
+# KI1up1['x'] = [1.16569, 1.16569]
+# KI1up1['y'] = [0.25, 0.4]
+# plt.plot(KI1up1['x'], KI1up1['y'], color='k')
+# KI1up2 = pd.DataFrame()
+# KI1up2['x'] = [1.18225, 1.18225]
+# KI1up2['y'] = [0.25, 0.4]
+# plt.plot(KI1up2['x'], KI1up2['y'], color='k')
+#
+# FeH = pd.DataFrame()
+# FeH['x'] = [1.19, 1.24]
+# FeH['y'] = [1.3, 1.3]
+# plt.plot(FeH['x'], FeH['y'], color='k')
+# ax1.text(0.38, 0.75, 'FeH', transform=ax1.transAxes, color='k', fontsize=15)
+# FeHd = pd.DataFrame()
+# FeHd['x'] = [1.19, 1.19]
+# FeHd['y'] = [1.15, 1.3]
+# plt.plot(FeHd['x'], FeHd['y'], color='k')
+#
+# KI2 = pd.DataFrame()
+# KI2['x'] = [1.24175, 1.25616]
+# KI2['y'] = [0.3, 0.3]
+# plt.plot(KI2['x'], KI2['y'], color='k')
+# ax1.text(0.54, 0.13, 'K$\,$I', transform=ax1.transAxes, color='k', fontsize=15)
+# KI2up1 = pd.DataFrame()
+# KI2up1['x'] = [1.24175, 1.24175]
+# KI2up1['y'] = [0.3, 0.4]
+# plt.plot(KI2up1['x'], KI2up1['y'], color='k')
+# KI2up2 = pd.DataFrame()
+# KI2up2['x'] = [1.25616, 1.25616]
+# KI2up2['y'] = [0.3, 0.4]
+# plt.plot(KI2up2['x'], KI2up2['y'], color='k')
+#
+# H2O = pd.DataFrame()
+# H2O['x'] = [1.32, 1.35]
+# H2O['y'] = [1.55, 1.55]
+# plt.plot(H2O['x'], H2O['y'], color='k')
+# ax1.text(0.9, 0.9, 'H$_\mathrm{2} $O', transform=ax1.transAxes, color='k', fontsize=15)
+# H2Od = pd.DataFrame()
+# H2Od['x'] = [1.32, 1.32]
+# H2Od['y'] = [1.48, 1.55]
+# plt.plot(H2Od['x'], H2Od['y'], color='k')
+#
+# plt.tight_layout()
+# plt.savefig('Figures/Jbandlbolstackcomp.pdf', dpi=150)

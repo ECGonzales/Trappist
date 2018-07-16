@@ -138,51 +138,51 @@ plt.plot(H2Od['x'], H2Od['y'], color='k')
 # plt.plot(CH4d['x'], CH4d['y'], color='k')
 
 plt.tight_layout()
-plt.savefig('Figures/HbandLbol.png', dpi=150)
+plt.savefig('Figures/HbandLbol.pdf', dpi=150)
 
 # -------------------------------------------------------------------------------------
 # ------------------- Plotting: H band Stack comparison -------------------------------
 # -------------------------------------------------------------------------------------
 # ------ Set up figure layout --------
-fig = plt.figure()
-ax1 = fig.add_subplot(111)
-fig.set_size_inches(10, 8)
-plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
-plt.xlim([1.42, 1.80])
-plt.ylim([0.5, 1.6])
-for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
-    ax1.spines[axis].set_linewidth(1.1)
-
-# ------Tick size and Axes Labels --------
-ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
-plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
-plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
-
-# -------- Add data -----------
-ax1.plot(df_2235['w'], norm_df_2235, c='#8E01E8')
-ax1.plot(df_2154['w'], norm_df_2154, c='#E806B7')
-ax1.plot(df_trap['w'], norm_df_trap, c='k')
-
-# ------- Label Features --------------------------
-# FeH = pd.DataFrame()
-# FeH['x'] = [1.581, 1.66]
-# FeH['y'] = [2.75, 2.75]
-# plt.plot(FeH['x'], FeH['y'], color='k')
-# ax1.annotate('FeH', xy=(1.61, 2.76), color='k', fontsize=15)
-# FeHd = pd.DataFrame()
-# FeHd['x'] = [1.581, 1.581]
-# FeHd['y'] = [2.6, 2.75]
-# plt.plot(FeHd['x'], FeHd['y'], color='k')
+# fig = plt.figure()
+# ax1 = fig.add_subplot(111)
+# fig.set_size_inches(10, 8)
+# plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
+# plt.xlim([1.42, 1.80])
+# plt.ylim([0.5, 1.6])
+# for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
+#     ax1.spines[axis].set_linewidth(1.1)
 #
-# CH4 = pd.DataFrame()
-# CH4['x'] = [1.67, 1.75]
-# CH4['y'] = [2.8, 2.8]
-# plt.plot(CH4['x'], CH4['y'], color='k')
-# ax1.annotate('CH$_\mathrm{4}$', xy=(1.7, 2.82), color='k', fontsize=15)
-# CH4d = pd.DataFrame()
-# CH4d['x'] = [1.67, 1.67]
-# CH4d['y'] = [2.65, 2.8]
-# plt.plot(CH4d['x'], CH4d['y'], color='k')
-
-plt.tight_layout()
-plt.savefig('Figures/HbandLbolstack.png', dpi=150)
+# # ------Tick size and Axes Labels --------
+# ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
+# plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
+# plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
+#
+# # -------- Add data -----------
+# ax1.plot(df_2235['w'], norm_df_2235, c='#8E01E8')
+# ax1.plot(df_2154['w'], norm_df_2154, c='#E806B7')
+# ax1.plot(df_trap['w'], norm_df_trap, c='k')
+#
+# # ------- Label Features --------------------------
+# # FeH = pd.DataFrame()
+# # FeH['x'] = [1.581, 1.66]
+# # FeH['y'] = [2.75, 2.75]
+# # plt.plot(FeH['x'], FeH['y'], color='k')
+# # ax1.annotate('FeH', xy=(1.61, 2.76), color='k', fontsize=15)
+# # FeHd = pd.DataFrame()
+# # FeHd['x'] = [1.581, 1.581]
+# # FeHd['y'] = [2.6, 2.75]
+# # plt.plot(FeHd['x'], FeHd['y'], color='k')
+# #
+# # CH4 = pd.DataFrame()
+# # CH4['x'] = [1.67, 1.75]
+# # CH4['y'] = [2.8, 2.8]
+# # plt.plot(CH4['x'], CH4['y'], color='k')
+# # ax1.annotate('CH$_\mathrm{4}$', xy=(1.7, 2.82), color='k', fontsize=15)
+# # CH4d = pd.DataFrame()
+# # CH4d['x'] = [1.67, 1.67]
+# # CH4d['y'] = [2.65, 2.8]
+# # plt.plot(CH4d['x'], CH4d['y'], color='k')
+#
+# plt.tight_layout()
+# plt.savefig('Figures/HbandLbolstack.pdf', dpi=150)

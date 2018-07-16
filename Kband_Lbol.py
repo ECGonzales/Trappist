@@ -137,30 +137,30 @@ COd['y'] = [7.4, 7.6]
 plt.plot(COd['x'], COd['y'], color='k')
 
 plt.tight_layout()
-plt.savefig('Figures/KbandLbol.png', dpi=150)
+plt.savefig('Figures/KbandLbol.pdf', dpi=150)
 
 # -------------------------------------------------------------------------------------
 # ------------------- Plotting: K band stack comparison -------------------------------
 # -------------------------------------------------------------------------------------
 # ------ Set up figure layout --------
-fig = plt.figure()
-ax1 = fig.add_subplot(111)
-fig.set_size_inches(10, 8)
-plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
-plt.xlim([2.0, 2.35])
-plt.ylim([0.4, 1.5])
-for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
-    ax1.spines[axis].set_linewidth(1.1)
-
-# ------Tick size and Axes Labels --------
-ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
-plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
-plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
-
-# -------- Add data -----------
-ax1.plot(df_2235['w'], norm_df_2235, c='#8E01E8')
-ax1.plot(df_2154['w'], norm_df_2154, c='#E806B7')
-ax1.plot(df_trap['w'], norm_df_trap, c='k')
-
-plt.tight_layout()
-plt.savefig('Figures/KbandLbolstack.png', dpi=150)
+# fig = plt.figure()
+# ax1 = fig.add_subplot(111)
+# fig.set_size_inches(10, 8)
+# plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
+# plt.xlim([2.0, 2.35])
+# plt.ylim([0.4, 1.5])
+# for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
+#     ax1.spines[axis].set_linewidth(1.1)
+#
+# # ------Tick size and Axes Labels --------
+# ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
+# plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
+# plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
+#
+# # -------- Add data -----------
+# ax1.plot(df_2235['w'], norm_df_2235, c='#8E01E8')
+# ax1.plot(df_2154['w'], norm_df_2154, c='#E806B7')
+# ax1.plot(df_trap['w'], norm_df_trap, c='k')
+#
+# plt.tight_layout()
+# plt.savefig('Figures/KbandLbolstack.png', dpi=150)

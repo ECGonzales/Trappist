@@ -96,11 +96,11 @@ ax1.annotate('LHS 132 (M8)        $T_\mathrm{eff}: 2579 \pm 34$ K, $L_\mathrm{bo
 ax1.annotate('vb10 (M8)             $T_\mathrm{eff}: 2542 \pm 45$ K, $L_\mathrm{bol}: -3.297 \pm 0.002$',
              xy=(0.32, 10**(-19)), color='#275202', fontsize=15)
 
-plt.savefig('Figures/comparison_FieldTeff.png')
+plt.savefig('Figures/comparison_FieldTeff.pdf')
 
 # To Make the zoom in
 plt.xlim([0.65, 1])
 plt.ylim([10**(-16), 3*10**(-14)])
 ax1.xaxis.set_minor_locator(plt.FixedLocator([0.65, 0.7, 0.8, 0.9]))
 fig.set_size_inches(11.32, 8.59)
-plt.savefig('Figures/comparison_FieldTeff_zoom.png')
+plt.savefig('Figures/comparison_FieldTeff_zoom.pdf')

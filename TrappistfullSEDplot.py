@@ -19,7 +19,7 @@ df2 = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ", comment='#', na
 
 # -------- Generate spectral regime SED plot ---------------------------
 # Make subarrays for color coding
-opt = df[(df['w'] <= 0.8305)]
+opt = df[(df['w'] <= 0.8306)]
 overlap = df[(df['w'] >= 0.8305) & (df['w'] <= 1.0286)]
 nir = df[(df['w'] >= 0.8305)]
 
@@ -75,4 +75,4 @@ ax1.annotate('WISE W2', xy=(3.75, 0.27*10**(-15)), color='#7a0177', fontsize=15)
 ax1.annotate('WISE W3', xy=(8.25, 0.2*10**(-16)), color='#7a0177', fontsize=15)
 
 plt.tight_layout()
-plt.savefig('Figures/TrappistFullSED.png')
+plt.savefig('Figures/TrappistFullSED.pdf')

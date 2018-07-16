@@ -88,4 +88,4 @@ ax1.annotate('$L_\mathrm{bol}: -3.286 \pm 0.063$', xy=(1, 2*10**(-16)), color='#
 
 
 plt.tight_layout()
-plt.savefig('Figures/old_comp.png', dpi=150)
+plt.savefig('Figures/old_comp.pdf', dpi=150)

@@ -84,12 +84,12 @@ plt.plot(FeH1d['x'], FeH1d['y'], color='k')
 
 FeH2 = pd.DataFrame()
 FeH2['x'] = [0.998, 1.085]
-FeH2['y'] = [4.15, 4.15]
+FeH2['y'] = [4.25, 4.25]
 plt.plot(FeH2['x'], FeH2['y'], color='k')
-ax1.annotate('FeH', xy=(1.03, 4.17), color='k', fontsize=15)
+ax1.annotate('FeH', xy=(1.03, 4.27), color='k', fontsize=15)
 FeH2d = pd.DataFrame()
 FeH2d['x'] = [0.998, 0.998]
-FeH2d['y'] = [4, 4.15]
+FeH2d['y'] = [4, 4.25]
 plt.plot(FeH2d['x'], FeH2d['y'], color='k')
 
 VO = pd.DataFrame()

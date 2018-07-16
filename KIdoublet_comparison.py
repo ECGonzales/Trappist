@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 # ------------------- Read in Spectra and Photometry files ---------------------------
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
-df_trap = pd.read_csv('Data/FIRE2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
+df_trap = pd.read_csv('Data/Gaia2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 
 # -------------- Subdwarfs ----------------------------------
@@ -88,7 +88,7 @@ ax1.annotate('J1610-0040 T$_\mathrm{eff}: 2890 \pm 20$ K', xy=(1.220, 5.2), colo
 ax1.annotate('J2036+5059 T$_\mathrm{eff}: 2983 \pm 22$ K', xy=(1.220, 6.2), color='#F7BE0F', fontsize=12)
 
 plt.tight_layout()
-plt.savefig('Figures/KIdoublet_compwithsub.png', dpi=150)
+plt.savefig('Figures/KIdoublet_compwithsub.pdf', dpi=150)
 
 
 # Plot up the Na I lines
@@ -121,5 +121,5 @@ ax1.annotate('J1610-0040 T$_\mathrm{eff}: 2890 \pm 20$ K', xy=(1.144, 3.2), colo
 ax1.annotate('J2036+5059 T$_\mathrm{eff}: 2983 \pm 22$ K', xy=(1.144, 4.2), color='#F7BE0F', fontsize=12)
 
 plt.tight_layout()
-plt.savefig('Figures/NaIdoublet_compwithsub.png', dpi=150)
+plt.savefig('Figures/NaIdoublet_compwithsub.pdf', dpi=150)
 

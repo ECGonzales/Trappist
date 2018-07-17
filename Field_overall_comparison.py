@@ -98,9 +98,18 @@ ax1.annotate('vb10 (M8)             $T_\mathrm{eff}: 2542 \pm 45$ K, $L_\mathrm{
 
 plt.savefig('Figures/comparison_FieldTeff.pdf')
 
-# To Make the zoom in
+# To Make the zoom in red optical
 plt.xlim([0.65, 1])
 plt.ylim([10**(-16), 3*10**(-14)])
 ax1.xaxis.set_minor_locator(plt.FixedLocator([0.65, 0.7, 0.8, 0.9]))
 fig.set_size_inches(11.32, 8.59)
 plt.savefig('Figures/comparison_FieldTeff_zoom.pdf')
+
+
+# To Make the temp dependent region zoom in
+plt.xlim([1.27, 1.8])
+plt.ylim([4.75*10**(-15), 2*10**(-14)])
+ax1.xaxis.set_minor_locator(plt.FixedLocator([1.27,1.42,1.70,1.80]))
+fig.set_size_inches(11.32, 8.59)
+plt.tight_layout()
+plt.savefig('Figures/comparison_FieldTeffdepregion_zoom.pdf')

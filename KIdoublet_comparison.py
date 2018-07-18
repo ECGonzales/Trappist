@@ -82,7 +82,7 @@ ax1.plot(df_2036['w'], norm_df_2036 + 5, c='#F7BE0F')                           
 # ------- Label Sources -------------
 ax1.annotate('J0532+8246 T$_\mathrm{eff}: 1664 \pm 24$ K ', xy=(1.220, 1.2), color='indigo', fontsize=12)
 ax1.annotate('J1256-0224 T$_\mathrm{eff}: 2307 \pm 71$ K', xy=(1.220, 2.2), color='blue', fontsize=12)
-ax1.annotate('Trappist-1 T$_\mathrm{eff}: 2582 \pm 34$ K', xy=(1.220, 3.2), color='k', fontsize=12)
+ax1.annotate('Trappist-1 T$_\mathrm{eff}: 2581 \pm 34$ K', xy=(1.220, 3.2), color='k', fontsize=12)
 ax1.annotate('LHS 377 T$_\mathrm{eff}: 2739 \pm 6$ K', xy=(1.220, 4.2), color='#01A1D6', fontsize=12)
 ax1.annotate('J1610-0040 T$_\mathrm{eff}: 2890 \pm 20$ K', xy=(1.220, 5.2), color='#04A57F', fontsize=12)
 ax1.annotate('J2036+5059 T$_\mathrm{eff}: 2983 \pm 22$ K', xy=(1.220, 6.2), color='#F7BE0F', fontsize=12)
@@ -115,7 +115,7 @@ ax1.plot(df_2036['w'], norm_df_2036 + 3, c='#F7BE0F')                           
 
 
 # ------- Label Sources -------------
-ax1.annotate('Trappist-1 T$_\mathrm{eff}: 2582 \pm 34$ K', xy=(1.144, 1.2), color='k', fontsize=12)
+ax1.annotate('Trappist-1 T$_\mathrm{eff}: 2581 \pm 34$ K', xy=(1.144, 1.2), color='k', fontsize=12)
 ax1.annotate('LHS 377 T$_\mathrm{eff}: 2739 \pm 6$ K', xy=(1.144, 2.2), color='#01A1D6', fontsize=12)
 ax1.annotate('J1610-0040 T$_\mathrm{eff}: 2890 \pm 20$ K', xy=(1.144, 3.2), color='#04A57F', fontsize=12)
 ax1.annotate('J2036+5059 T$_\mathrm{eff}: 2983 \pm 22$ K', xy=(1.144, 4.2), color='#F7BE0F', fontsize=12)

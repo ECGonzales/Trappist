@@ -91,7 +91,7 @@ ax1.plot(df_trap['w'], norm_df_trap + 3.5, c='k')
 ax1.annotate('Trappist-1 (M7.5) $L_\mathrm{bol}: -3.255 \pm 0.002$', xy=(0.951, 4.8), color='k', fontsize=13)
 # 320
 ax1.plot(df_0320['w'], norm_df_0320 + 4.5, c='#6A777F')
-ax1.annotate('J0320+1854 (M8) $L_\mathrm{bol}: -3.225 \pm 0.009$', xy=(0.951, 5.7), color='#6A777F', fontsize=13)
+ax1.annotate('J0320+1854 (M8) $L_\mathrm{bol}: -3.225 \pm 0.002$', xy=(0.951, 5.7), color='#6A777F', fontsize=13)
 # 0443
 ax1.plot(df_0443['w'], norm_df_0443 + 5.5, c='#8E01E8')
 ax1.annotate('J0443+0002 (M9 $\gamma$) $L_\mathrm{bol}: -3.207 \pm 0.019$', xy=(0.951, 6.9), color='#8E01E8', fontsize=13)

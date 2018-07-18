@@ -80,12 +80,12 @@ ax1.annotate('Age: 500-10000 Myr', xy=(3, 1.3*10**(-14)), color='k', fontsize=15
 ax1.annotate('$L_\mathrm{bol}: -3.255 \pm 0.002$', xy=(3, 0.85*10**(-14)), color='k', fontsize=15)
 # J2235
 ax1.annotate('J2235-5906 (M8.5 $\\beta$)', xy=(1.3, 8*10**(-16)), color='#8E01E8', fontsize=15)
-ax1.annotate('Age: 41-49 Myr', xy=(1.3, 5*10**(-16)), color='#8E01E8', fontsize=15)
+ax1.annotate('Age: 41-49 Myr (Tuc-Hor)', xy=(1.3, 5*10**(-16)), color='#8E01E8', fontsize=15)
 ax1.annotate('$L_\mathrm{bol}: -3.214 \pm 0.014$', xy=(1.3, 3.4*10**(-16)), color='#8E01E8', fontsize=15)
 # J2154
-ax1.annotate('J2154-7459 (M9.5 $\\beta$)', xy=(5, 1.1*10**(-15)), color='#E806B7', fontsize=15)
-ax1.annotate('Age: 41-49 Myr', xy=(5, 7*10**(-16)), color='#E806B7', fontsize=15)
-ax1.annotate('$L_\mathrm{bol}: -3.196 \pm 0.012$', xy=(5, 4.5*10**(-16)), color='#E806B7', fontsize=15)
+ax1.annotate('J2154-7459 (M9.5 $\\beta$)', xy=(4, 2.3*10**(-15)), color='#E806B7', fontsize=15)
+ax1.annotate('Age: 41-49 Myr (Tuc-Hor)', xy=(4, 1.5*10**(-15)), color='#E806B7', fontsize=15)
+ax1.annotate('$L_\mathrm{bol}: -3.196 \pm 0.012$', xy=(4, 10**(-15)), color='#E806B7', fontsize=15)
 #0714
 ax1.annotate('J0714+3702 (M8)', xy=(0.8, 4*10**(-17)), color='#0E0084', fontsize=15)
 ax1.annotate('Age: <500 Myr', xy=(0.8, 2.5*10**(-17)), color='#0E0084', fontsize=15)

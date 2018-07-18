@@ -20,6 +20,8 @@ df_1610 = pd.read_csv('../Atmospheres_paper/Data/Smoothed_data/Subdwarfs_KI_smoo
                       comment='#', header=None, names=["w", "f", "err"])
 df_2036 = pd.read_csv('../Atmospheres_paper/Data/Smoothed_data/Subdwarfs_KI_smoothed/2036+5059 (M7.5sd) SED_smoothed.txt', sep=",",
                       comment='#', header=None, names=["w", "f", "err"])
+#df_0616 = pd.read_csv('../Atmospheres_paper/Data/X-shooter0616-6407 (L5sd) SED.txt', sep=" ", comment='#', header=None,
+#                      names=["w", "f", "err"])
 
 # ------------------------------------------------------------------------------------
 # ------------------- Fix files to read all columns as Floats-------------------------
@@ -52,6 +54,9 @@ norm_df_1610 = df_1610['f']/(np.average(norm_region_1610['f']))
 norm_region_2036 = df_2036[(df_2036['w'] >= 1.29) & (df_2036['w'] <= 1.31)]
 norm_df_2036 = df_2036['f']/(np.average(norm_region_2036['f']))
 
+#norm_region_0616 = df_0616[(df_0616['w'] >= 1.29) & (df_0616['w'] <= 1.31)]
+#norm_df_0616 = df_0616['f']/(np.average(norm_region_0616['f']))
+
 # -------------------------------------------------------------------------------------
 # --------- Plotting: Comparison of in order of decreasing Teff/ Spt Type -------------
 # -------------------------------------------------------------------------------------
@@ -72,6 +77,7 @@ plt.ylabel('Normalized Flux  ($F_\lambda$)', fontsize=25)
 
 # -------- Add data -----------
 ax1.plot(df_0532['w'], norm_df_0532, c='indigo')                                # sdL7 1647
+#ax1.plot(df_0616['w'], norm_df_0616 +1, c='blueviolet') Resolution too low with the X-shooter still.
 ax1.plot(df_1256['w'], norm_df_1256 + 1, c='blue')                                 # sdL4 2158
 ax1.plot(df_trap['w'], norm_df_trap + 2, c="k")
 ax1.plot(df_LHS['w'], norm_df_LHS + 3, c='#01A1D6')                                 # sdM7 2775

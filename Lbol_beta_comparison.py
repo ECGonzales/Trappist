@@ -7,33 +7,24 @@ from matplotlib.ticker import ScalarFormatter
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
 
-df_trap = pd.read_csv('Data/Gaia2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+df_trap = pd.read_csv('Data/paper1_trappist/Lbol_comp/Gaia2306-0502 (M7.5) SED_spexified.txt', sep=" ", comment='#',
+                      header=None, names=["w", "f", "err"])
 df_trap_phot = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ",comment='#', header=None, names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff ----------------------------------
-df_2235 = pd.read_csv('Data/beta_comp/Gaia2235-5906 (M8.5beta) SED.txt', sep=" ", comment='#', header=None,
-                       names=["w", "f", "err"])
+df_2235 = pd.read_csv('Data/paper1_trappist/Lbol_comp/Gaia2235-5906 (M8.5beta) SED_spexified.txt', sep=" ", comment='#',
+                      header=None, names=["w", "f", "err"])
 df_2235_phot = pd.read_csv('Data/beta_comp/Gaia2235-5906 (M8.5beta) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
-df_2154 = pd.read_csv('Data/beta_comp/Gaia2154-7459 (M9.5beta) SED.txt', sep=" ", comment='#', header=None,
-                       names=["w", "f", "err"])
+df_2154 = pd.read_csv('Data/paper1_trappist/Lbol_comp/Gaia2154-7459 (M9.5beta) SED_spexified.txt', sep=" ", comment='#',
+                      header=None, names=["w", "f", "err"])
 df_2154_phot = pd.read_csv('Data/beta_comp/Gaia2154-7459 (M9.5beta) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
-df_0714 = pd.read_csv('Data/beta_comp/Gaia0714+3702 (M8) SED.txt', sep=" ", comment='#', header=None,
-                       names=["w", "f", "err"])
+df_0714 = pd.read_csv('Data/paper1_trappist/Lbol_comp/Gaia0714+3702 (M8) SED_spexified.txt', sep=" ", comment='#',
+                      header=None, names=["w", "f", "err"])
 df_0714_phot = pd.read_csv('Data/beta_comp/Gaia0714+3702 (M8) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
 
-
-# df_2154o = pd.read_csv('Data/lbol_comp/LbolFIRE2154-7459_SED_03222018.txt', sep="\t", comment='#', header=1,
-#                        names=["w", "f", "err"])
-# df_2154o_phot = pd.read_csv('Data/lbol_comp/LbolFIRE2154-7459_phot_03222018.txt', sep="\t", comment='#', header=None,
-#                             names=["w", "f", "err"])
-# # -------------------------------------------------------------------------------------
-# # ---------------------- Remove Tails ------------------------------------------------
-# # -------------------------------------------------------------------------------------
-# df_2154o = df_2154o[(df_2154o['w'] > 0.81) & (df_2154o['w'] <= 3)]
 
 # -------------------------------------------------------------------------------------
 # ------------------- Plotting: Field Comparison of similar Lbol ----------------------

@@ -23,9 +23,14 @@ df_1207 = pd.read_csv('Data/young_comp/1207-3900 (L0gamma) SED.txt', sep=" ", co
                       names=["w", "f", "err"])
 df_1207_phot = pd.read_csv('Data/young_comp/1207-3900 (L0gamma) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
-df_0443 = pd.read_csv('Data/young_comp/0443+0002 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
+# df_0443 = pd.read_csv('Data/young_comp/0443+0002 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
+#                       names=["w", "f", "err"])
+# df_0443_phot = pd.read_csv('Data/young_comp/0443+0002 (M9gamma) phot.txt', sep=" ", comment='#', header=None,
+#                            names=["w", "f", "err"])
+# Checking with the SXD to see differences
+df_0443 = pd.read_csv('Data/young_comp/Jonathan0443+0002 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
-df_0443_phot = pd.read_csv('Data/young_comp/0443+0002 (M9gamma) phot.txt', sep=" ", comment='#', header=None,
+df_0443_phot = pd.read_csv('Data/young_comp/Jonathan0443+0002 (M9gamma) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
 df_0518 = pd.read_csv('Data/young_comp/0518-2756 (L1gamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
@@ -78,26 +83,32 @@ plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
 
 # -------- Add data -----------
 # 1207
-ax1.plot(df_1207['w'], norm_df_1207, c='#0E0084')
-ax1.annotate('J1207-3900 (L0 $\gamma$) $L_\mathrm{bol}: -3.337 \pm 0.053$', xy=(0.951, 1.5), color='#0E0084', fontsize=13)
+ax1.plot(df_trap['w'], norm_df_trap, c='k')
+ax1.plot(df_1207['w'], norm_df_1207, c='#1036CF', alpha=0.75)
+ax1.annotate('J1207-3900 (L0 $\gamma$) $L_\mathrm{bol}: -3.337 \pm 0.053$', xy=(0.951, 1.5), color='#1036CF', fontsize=13)
 # 0518
-ax1.plot(df_0518['w'], norm_df_0518 + 1.2, c='#E806B7')
-ax1.annotate('J0518-2756 (L1 $\gamma$) $L_\mathrm{bol}: -3.328 \pm 0.041$', xy=(0.951, 2.9), color='#E806B7', fontsize=13)
+ax1.plot(df_trap['w'], norm_df_trap + 1.2, c='k')
+ax1.plot(df_0518['w'], norm_df_0518 + 1.2, c='#5518C2', alpha=0.75)
+ax1.annotate('J0518-2756 (L1 $\gamma$) $L_\mathrm{bol}: -3.328 \pm 0.041$', xy=(0.951, 2.9), color='#5518C2', fontsize=13)
 # vb10
-ax1.plot(df_vb10['w'], norm_df_vb10 + 2.6, c='#A0B2BF')
-ax1.annotate('vb10 (M8) $L_\mathrm{bol}: -3.301 \pm 0.002$', xy=(0.951, 3.8), color='#A0B2BF', fontsize=13)
+ax1.plot(df_trap['w'], norm_df_trap + 2.6, c='k')
+ax1.plot(df_vb10['w'], norm_df_vb10 + 2.6, c='#275202', alpha=0.8)
+ax1.annotate('vb10 (M8) $L_\mathrm{bol}: -3.301 \pm 0.002$', xy=(0.951, 3.8), color='#275202', fontsize=13)
 # Trappist
 ax1.plot(df_trap['w'], norm_df_trap + 3.5, c='k')
 ax1.annotate('Trappist-1 (M7.5) $L_\mathrm{bol}: -3.255 \pm 0.002$', xy=(0.951, 4.8), color='k', fontsize=13)
 # 320
-ax1.plot(df_0320['w'], norm_df_0320 + 4.5, c='#6A777F')
-ax1.annotate('J0320+1854 (M8) $L_\mathrm{bol}: -3.225 \pm 0.002$', xy=(0.951, 5.7), color='#6A777F', fontsize=13)
+ax1.plot(df_trap['w'], norm_df_trap + 4.5, c='k')
+ax1.plot(df_0320['w'], norm_df_0320 + 4.5, c='#1EE801', alpha=0.75)
+ax1.annotate('J0320+1854 (M8) $L_\mathrm{bol}: -3.225 \pm 0.002$', xy=(0.951, 5.7), color='#1EE801', fontsize=13)
 # 0443
-ax1.plot(df_0443['w'], norm_df_0443 + 5.5, c='#8E01E8')
-ax1.annotate('J0443+0002 (M9 $\gamma$) $L_\mathrm{bol}: -3.207 \pm 0.019$', xy=(0.951, 6.9), color='#8E01E8', fontsize=13)
+ax1.plot(df_trap['w'], norm_df_trap + 5.5, c='k')
+ax1.plot(df_0443['w'], norm_df_0443 + 5.5, c='#E71BF8', alpha=0.75)
+ax1.annotate('J0443+0002 (M9 $\gamma$) $L_\mathrm{bol}: -3.207 \pm 0.019$', xy=(0.951, 6.9), color='#E71BF8', fontsize=13)
 # vb8
-ax1.plot(df_vb8['w'], norm_df_vb8 + 6.5, c='#7C7D70')
-ax1.annotate('vb8 (M7) $L_\mathrm{bol}: -3.2 \pm 0.007$', xy=(0.951, 7.7), color='#7C7D70', fontsize=13)
+ax1.plot(df_trap['w'], norm_df_trap + 6.5, c='k')
+ax1.plot(df_vb8['w'], norm_df_vb8 + 6.5, c='#04A57F', alpha=0.75)
+ax1.annotate('vb8 (M7) $L_\mathrm{bol}: -3.2 \pm 0.007$', xy=(0.951, 7.7), color='#04A57F', fontsize=13)
 
 # --- To make lines for features ---------
 FeH1 = pd.DataFrame()

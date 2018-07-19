@@ -74,16 +74,19 @@ plt.tight_layout()
 
 # -------- Add data and Label Sources-----------
 # 0253 Teff
-ax1.plot(df_0253['w'], norm_df_0253, c='#D01810')
+ax1.plot(df_trap['w'], norm_df_trap, c='k')
+ax1.plot(df_0253['w'], norm_df_0253, c='#D01810', alpha=0.75)
 ax1.annotate('J0253+3206 (M7 $\\beta$)', xy=(1.121, 1.2), color='#D01810', fontsize=15)
 # Trappist
 ax1.plot(df_trap['w'], norm_df_trap + 1.1, c='k')
 ax1.annotate('Trappist-1 (M7.5)', xy=(1.121, 2.45), color='k', fontsize=15)
 # 2235 Lbol
-ax1.plot(df_2235['w'], norm_df_2235 + 2.2, c='#8E01E8')
+ax1.plot(df_trap['w'], norm_df_trap + 2.2, c='k')
+ax1.plot(df_2235['w'], norm_df_2235 + 2.2, c='#8E01E8', alpha=0.75)
 ax1.annotate('J2235-5906 (M8.5 $\\beta$)', xy=(1.121, 3.55), color='#8E01E8', fontsize=15)
 # 2154 Lbol
-ax1.plot(df_2154['w'], norm_df_2154 + 3.4, c='#E806B7')
+ax1.plot(df_trap['w'], norm_df_trap + 3.4, c='k')
+ax1.plot(df_2154['w'], norm_df_2154 + 3.4, c='#E806B7', alpha=0.75)
 ax1.annotate('J2154-7459 (M9.5 $\\beta$)', xy=(1.121, 5), color='#E806B7', fontsize=15)
 
 # ------- Label Features --------------------------

@@ -7,30 +7,25 @@ from matplotlib.ticker import ScalarFormatter
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
 
-df_trap = pd.read_csv('Data/Gaia2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+df_trap = pd.read_csv('Data/paper1_trappist/Subdwarfs_fig5/Gaia2306-0502 (M7.5) SED_spexified.txt', sep=" ",
+                      comment='#', header=None, names=["w", "f", "err"])
 df_trap_phot = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ",comment='#', header=None,
                            names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff (old) ----------------------------------
-df_1013 = pd.read_csv('../Atmospheres_paper/Data/Gaia1013-1356 (M9.5sd) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
-df_1013_phot = pd.read_csv('../Atmospheres_paper/Data/Gaia1013-1356 (M9.5sd) phot.txt', sep=" ", comment='#', header=None,
-                           names=["w", "f", "err"])
-df_GJ660 = pd.read_csv('Data/old_comp/spectra_gj6601b.txt', sep="\t", comment='#', header=0,
-                       names=["w", "f", "err"])
+df_1013 = pd.read_csv('Data/paper1_trappist/Subdwarfs_fig5/Gaia1013-1356 (M9.5sd) SED_spexified.txt', sep=" ",
+                      comment='#', header=None, names=["w", "f", "err"])
+df_1013_phot = pd.read_csv('../Atmospheres_paper/Data/Gaia1013-1356 (M9.5sd) phot.txt', sep=" ", comment='#',
+                           header=None, names=["w", "f", "err"])
+df_GJ660 = pd.read_csv('Data/paper1_trappist/Subdwarfs_fig5/spectra_gj6601b_spexified.txt', sep=" ", comment='#',
+                       header=0,names=["w", "f", "err"])
 df_GJ660_phot = pd.read_csv('Data/old_comp/phot_gj6601b.txt', sep="\t", comment='#', header=0,
                             names=["w", "f", "err"])
-df_HD = pd.read_csv('../Atmospheres_paper/Data/GaiaHD114762B (M9sd) SED.txt', sep=" ", comment='#', header=0,
-                    names=["w", "f", "err"])
-df_HD_phot = pd.read_csv('../Atmospheres_paper/Data/GaiaHD114762B (M9sd) phot.txt', sep=" ", comment='#', header=0,
-                         names=["w", "f", "err"])
 
 # -------------------------------------------------------------------------------------
 # ---------------------- Remove Tails ------------------------------------------------
 # -------------------------------------------------------------------------------------
 df_GJ660 = df_GJ660[(df_GJ660['w'] > 0.7) & (df_GJ660['w'] <= 3)]
-df_HD = df_HD[(df_HD['w'] > 0.91) & (df_HD['w'] <= 3)]
 
 # -------------------------------------------------------------------------------------
 # ------------------- Plotting: Old Comparison of same Teff -------------------------------
@@ -54,10 +49,6 @@ ax1.scatter(df_1013_phot['w'], df_1013_phot['f'], c='#0822FF', s=50)        # bl
 ax1.loglog(df_GJ660['w'], df_GJ660['f'], c='#07D1E8')
 ax1.scatter(df_GJ660_phot['w'], df_GJ660_phot['f'], c='k', s=70)
 ax1.scatter(df_GJ660_phot['w'], df_GJ660_phot['f'], c='#07D1E8', s=50)
-
-# ax1.loglog(df_HD['w'], df_HD['f'], c='#05A3FF')     # 200K warmer,but strangle fits very well
-# ax1.scatter(df_HD_phot['w'], df_HD_phot['f'], c='k', s=70)
-# ax1.scatter(df_HD_phot['w'], df_HD_phot['f'], c='#05A3FF', s=50)
 
 # ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.5, 13])

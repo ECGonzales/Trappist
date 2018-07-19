@@ -80,7 +80,7 @@ ax1.annotate('$L_\mathrm{bol}: -3.255 \pm 0.002$', xy=(5, 0.75*10**(-14)), color
 # J0443
 ax1.annotate('J0443+0002 (M9 $\\gamma$)', xy=(5, 3*10**(-15)), color='#E71BF8', fontsize=15)
 ax1.annotate('Age: 21-27 Myr ($\\beta$ Pic)', xy=(5, 1.7*10**(-15)), color='#E71BF8', fontsize=15)
-ax1.annotate('$L_\mathrm{bol}: -3.207 \pm 0.019$', xy=(5, 1*10**(-15)), color='#E71BF8', fontsize=15)
+ax1.annotate('$L_\mathrm{bol}: -3.194\pm 0.003$', xy=(5, 1*10**(-15)), color='#E71BF8', fontsize=15)
 # J0518
 ax1.annotate('J0518-2756 (L1 $\\gamma$)', xy=(3, 3.5*10**(-17)), color='#5518C2', fontsize=15)
 ax1.annotate('Age: 38-48 Myr (Columba)', xy=(3, 2*10**(-17)), color='#5518C2', fontsize=15)

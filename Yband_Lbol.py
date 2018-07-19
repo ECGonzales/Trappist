@@ -104,7 +104,7 @@ ax1.annotate('J0320+1854 (M8) $L_\mathrm{bol}: -3.225 \pm 0.002$', xy=(0.951, 5.
 # 0443
 ax1.plot(df_trap['w'], norm_df_trap + 5.5, c='k')
 ax1.plot(df_0443['w'], norm_df_0443 + 5.5, c='#E71BF8', alpha=0.75)
-ax1.annotate('J0443+0002 (M9 $\gamma$) $L_\mathrm{bol}: -3.207 \pm 0.019$', xy=(0.951, 6.9), color='#E71BF8', fontsize=13)
+ax1.annotate('J0443+0002 (M9 $\gamma$) $L_\mathrm{bol}: -3.194\pm 0.003$', xy=(0.951, 6.9), color='#E71BF8', fontsize=13)
 # vb8
 ax1.plot(df_trap['w'], norm_df_trap + 6.5, c='k')
 ax1.plot(df_vb8['w'], norm_df_vb8 + 6.5, c='#04A57F', alpha=0.75)

@@ -93,18 +93,29 @@ plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
 plt.tight_layout()
 
 # -------- Add data and Label Sources-----------
-ax1.plot(df_0953['w'], norm_df_0953, c='#9B0132')
+# 0953
+ax1.plot(df_trap['w'], norm_df_trap , c='k')
+ax1.plot(df_0953['w'], norm_df_0953, c='#9B0132', alpha=0.75)
 ax1.annotate('J0953-1014 (M9 $\gamma$) $T_\mathrm{eff}: 2430 \pm 255$ K', xy=(1.421, 0.7), color='#9B0132', fontsize=13)
-ax1.plot(df_0608['w'], norm_df_0608 + 0.5, c='#FF6B03')
+# 0608
+ax1.plot(df_trap['w'], norm_df_trap + 0.5, c='k')
+ax1.plot(df_0608['w'], norm_df_0608 + 0.5, c='#FF6B03', alpha=0.75)
 ax1.annotate('J0608-2753 (M8.5 $\gamma$) $T_\mathrm{eff}: 2471 \pm 255$ K', xy=(1.421, 1.9), color='#FF6B03', fontsize=13)
-ax1.plot(df_vb10['w'], norm_df_vb10 + 1.2, c='#A0B2BF')
-ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2542 \pm 45$ K', xy=(1.421, 2.35), color='#A0B2BF', fontsize=13)
+# vb10
+ax1.plot(df_trap['w'], norm_df_trap + 1.2, c='k')
+ax1.plot(df_vb10['w'], norm_df_vb10 + 1.2, c='#275202', alpha=0.75)
+ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2542 \pm 45$ K', xy=(1.421, 2.35), color='#275202', fontsize=13)
+# Trappist
 ax1.plot(df_trap['w'], norm_df_trap + 1.7, c='k')
 ax1.annotate('Trappist-1 (M7.5) $T_\mathrm{eff}: 2581 \pm 34$ K', xy=(1.421, 2.95), color='k', fontsize=13)
-ax1.plot(df_0320['w'], norm_df_0320 + 2.2, c='#6A777F')
-ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2615 \pm 34$ K', xy=(1.421, 3.4), color='#6A777F', fontsize=13)
-ax1.plot(df_vb8['w'], norm_df_vb8 + 2.7, c='#7C7D70')
-ax1.annotate('vb8 (M7) $T_\mathrm{eff}: 2642 \pm 34$ K', xy=(1.421, 3.9), color='#7C7D70', fontsize=13)
+# 0320
+ax1.plot(df_trap['w'], norm_df_trap + 2.2, c='k')
+ax1.plot(df_0320['w'], norm_df_0320 + 2.2, c='#1EE801', alpha=0.75)
+ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2615 \pm 34$ K', xy=(1.421, 3.4), color='#1EE801', fontsize=13)
+# vb8
+ax1.plot(df_trap['w'], norm_df_trap + 2.7, c='k')
+ax1.plot(df_vb8['w'], norm_df_vb8 + 2.7, c='#04A57F', alpha=0.8)
+ax1.annotate('vb8 (M7) $T_\mathrm{eff}: 2642 \pm 34$ K', xy=(1.421, 3.9), color='#04A57F', fontsize=13)
 
 # ------- Label Features --------------------------
 H2O1 = pd.DataFrame()

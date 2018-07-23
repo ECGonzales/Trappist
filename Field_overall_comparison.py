@@ -93,10 +93,10 @@ ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2615 \pm 34$ K, $L_\mathrm{bol}: 
              xy=(0.32, 5*10**(-19)), color='#1EE801', fontsize=15)
 ax1.annotate('LHS 132 (M8)        $T_\mathrm{eff}: 2579 \pm 34$ K, $L_\mathrm{bol}: -3.264 \pm 0.002$',
              xy=(0.32, 2.5*10**(-19)), color='green', fontsize=15)
-ax1.annotate('vb10 (M8)             $T_\mathrm{eff}: 2542 \pm 45$ K, $L_\mathrm{bol}: -3.297 \pm 0.002$',
+ax1.annotate('vb10 (M8)             $T_\mathrm{eff}: 2541 \pm 45$ K, $L_\mathrm{bol}: -3.298 \pm 0.002$',
              xy=(0.32, 10**(-19)), color='#275202', fontsize=15)
 
-plt.savefig('Figures/comparison_FieldTeff.pdf')
+plt.savefig('Figures/comparison_FieldTeff.pdf',dpi=150)
 
 # To Make the zoom in red optical
 plt.xlim([0.65, 1])

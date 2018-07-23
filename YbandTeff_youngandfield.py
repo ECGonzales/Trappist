@@ -93,7 +93,7 @@ ax1.annotate('J0608-2753 (M8.5 $\gamma$) $T_\mathrm{eff}: 2471 \pm 255$ K', xy=(
 ax1.plot(trap_bin[0], trap_bin[1] + 1.8, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 1.8, c='k')
 ax1.plot(df_vb10['w'], norm_df_vb10 + 1.8, c='#275202', alpha=0.75)
-ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2542 \pm 45$ K', xy=(0.951, 2.9), color='#275202', fontsize=13)
+ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2541 \pm 45$ K', xy=(0.951, 2.9), color='#275202', fontsize=13)
 # Trappist
 ax1.plot(trap_bin[0], trap_bin[1] + 2.5, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 2.5, c='k')

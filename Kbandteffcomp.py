@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from SEDkit.utilities import rebin_spec as rebin
 
 # ------------------------------------------------------------------------------------
 # ------------------- Read in Spectra and Photometry files ---------------------------
@@ -46,6 +47,18 @@ norm_region5 = df_0608[(df_0608['w'] >= 2.16) & (df_0608['w'] <= 2.20)]
 norm_df_0608 = df_0608['f']/(np.average(norm_region5['f']))
 
 # -------------------------------------------------------------------------------------
+# ------------- Bin to same resolution as vb10 for non spex SXD data ------------------
+# -------------------------------------------------------------------------------------
+speck_trap = [df_trap['w'].values, norm_df_trap.values, df_trap['err'].values]
+trap_bin = rebin(speck_trap, df_vb10['w'].values)
+
+speck_0953 = [df_0953['w'].values, norm_df_0953.values, df_0953['err'].values]
+J0953_bin = rebin(speck_0953, df_vb10['w'].values)
+
+speck_0608 = [df_0608['w'].values, norm_df_0608.values, df_0608['err'].values]
+J0608_bin = rebin(speck_0608, df_vb10['w'].values)
+
+# -------------------------------------------------------------------------------------
 # ------------------- Plotting: K band comparison -------------------------------
 # -------------------------------------------------------------------------------------
 # ------ Set up figure layout --------
@@ -64,28 +77,36 @@ plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
 
 # -------- Add data and Label Sources-----------
 # 0953
-ax1.plot(df_trap['w'], norm_df_trap , c='k')
-ax1.plot(df_0953['w'], norm_df_0953, c='#9B0132', alpha=0.75)
+ax1.plot(trap_bin[0], trap_bin[1], c='k')
+ax1.plot(J0953_bin[0], J0953_bin[1], c='#9B0132', alpha=0.75)
+# ax1.plot(df_trap['w'], norm_df_trap , c='k')
+# ax1.plot(df_0953['w'], norm_df_0953, c='#9B0132', alpha=0.75)
 ax1.annotate('J0953-1014 (M9 $\gamma$) $T_\mathrm{eff}: 2430 \pm 255$ K', xy=(2.001, 1.15), color='#9B0132', fontsize=13)
 # 0608
-ax1.plot(df_trap['w'], norm_df_trap + 0.6, c='k')
-ax1.plot(df_0608['w'], norm_df_0608 + 0.6, c='#FF6B03', alpha=0.75)
+ax1.plot(trap_bin[0], trap_bin[1] + 0.6, c='k')
+ax1.plot(J0608_bin[0], J0608_bin[1] +0.6, c='#FF6B03', alpha=0.75)
+# ax1.plot(df_trap['w'], norm_df_trap + 0.6, c='k')
+# ax1.plot(df_0608['w'], norm_df_0608 + 0.6, c='#FF6B03', alpha=0.75)
 ax1.annotate('J0608-2753 (M8.5 $\gamma$) $T_\mathrm{eff}: 2471 \pm 255$ K', xy=(2.001, 1.67), color='#FF6B03', fontsize=13)
 # vb10
-ax1.plot(df_trap['w'], norm_df_trap + 1, c='k')
-ax1.plot(df_vb10['w'], norm_df_vb10 + 1, c='#275202', alpha=0.75)
-ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2542 \pm 45$ K', xy=(2.001, 2.1), color='#275202', fontsize=13)
+ax1.plot(trap_bin[0], trap_bin[1] + 1.1, c='k')
+# ax1.plot(df_trap['w'], norm_df_trap + 1, c='k')
+ax1.plot(df_vb10['w'], norm_df_vb10 + 1.1, c='#275202', alpha=0.75)
+ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2542 \pm 45$ K', xy=(2.001, 2.2), color='#275202', fontsize=13)
 # Trappist
-ax1.plot(df_trap['w'], norm_df_trap + 1.7, c='k')
-ax1.annotate('Trappist-1 (M7.5) $T_\mathrm{eff}: 2581 \pm 34$ K', xy=(2.001, 2.95), color='k', fontsize=13)
+ax1.plot(trap_bin[0], trap_bin[1] + 1.7, c='k')
+# ax1.plot(df_trap['w'], norm_df_trap + 1.7, c='k')
+ax1.annotate('Trappist-1 (M7.5) $T_\mathrm{eff}: 2581 \pm 34$ K', xy=(2.001, 2.8), color='k', fontsize=13)
 # 0320
-ax1.plot(df_trap['w'], norm_df_trap + 2.25, c='k')
+ax1.plot(trap_bin[0], trap_bin[1] + 2.25, c='k')
+# ax1.plot(df_trap['w'], norm_df_trap + 2.25, c='k')
 ax1.plot(df_0320['w'], norm_df_0320 + 2.25, c='#1EE801', alpha=0.75)
 ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2615 \pm 34$ K', xy=(2.001, 3.4), color='#1EE801', fontsize=13)
 # vb8
-ax1.plot(df_trap['w'], norm_df_trap + 2.7, c='k')
-ax1.plot(df_vb8['w'], norm_df_vb8 + 2.7, c='#04A57F', alpha=0.8)
-ax1.annotate('vb8 (M7) $T_\mathrm{eff}: 2642 \pm 34$ K', xy=(2.001, 3.9), color='#04A57F', fontsize=13)
+ax1.plot(trap_bin[0], trap_bin[1] + 2.8, c='k')
+# ax1.plot(df_trap['w'], norm_df_trap + 2.7, c='k')
+ax1.plot(df_vb8['w'], norm_df_vb8 + 2.8, c='#04A57F', alpha=0.8)
+ax1.annotate('vb8 (M7) $T_\mathrm{eff}: 2642 \pm 34$ K', xy=(2.001, 3.95), color='#04A57F', fontsize=13)
 
 # ------- Label Features --------------------------
 H2O = pd.DataFrame()

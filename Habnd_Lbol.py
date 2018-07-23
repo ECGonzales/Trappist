@@ -92,7 +92,7 @@ ax1.annotate('J0518-2756 (L1 $\gamma$) $L_\mathrm{bol}: -3.328 \pm 0.041$', xy=(
 # vb10
 ax1.plot(df_trap['w'], norm_df_trap + 2.5, c='k')
 ax1.plot(df_vb10['w'], norm_df_vb10 + 2.5, c='#275202', alpha=0.8)
-ax1.annotate('vb10 (M8) $L_\mathrm{bol}: -3.301 \pm 0.002$', xy=(1.421, 3.8), color='#275202', fontsize=13)
+ax1.annotate('vb10 (M8) $L_\mathrm{bol}: -3.298 \pm 0.002$', xy=(1.421, 3.8), color='#275202', fontsize=13)
 # Trappist
 ax1.plot(df_trap['w'], norm_df_trap + 3.3, c='k')
 ax1.annotate('Trappist-1 (M7.5) $L_\mathrm{bol}: -3.255 \pm 0.002$', xy=(1.421, 4.7), color='k', fontsize=13)
@@ -107,7 +107,7 @@ ax1.annotate('J0443+0002 (M9 $\gamma$) $L_\mathrm{bol}: -3.194\pm 0.003$', xy=(1
 # vb8
 ax1.plot(df_trap['w'], norm_df_trap + 6.2, c='k')
 ax1.plot(df_vb8['w'], norm_df_vb8 + 6.2, c='#04A57F', alpha=0.75)
-ax1.annotate('vb8 (M7) $L_\mathrm{bol}: -3.2 \pm 0.007$', xy=(1.421, 7.5), color='#04A57F', fontsize=13)
+ax1.annotate('vb8 (M7) $L_\mathrm{bol}: -3.192 \pm 0.007$', xy=(1.421, 7.5), color='#04A57F', fontsize=13)
 
 
 # ------- Label Features --------------------------

@@ -52,7 +52,6 @@ norm_df_0608 = df_0608['f']/(np.average(norm_region5['f']))
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
 fig.set_size_inches(8.5, 11)  # make figure size skinner to get more curvature of K-band 5 x 11 is ok
-plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
 plt.xlim([2.0, 2.35])
 plt.ylim([0.5, 4.5])
 for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame

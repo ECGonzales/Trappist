@@ -103,7 +103,7 @@ plt.xlim([0.65, 1])
 plt.ylim([10**(-16), 3*10**(-14)])
 ax1.xaxis.set_minor_locator(plt.FixedLocator([0.65, 0.7, 0.8, 0.9]))
 fig.set_size_inches(11.32, 8.59)
-plt.savefig('Figures/comparison_FieldTeff_zoom.pdf')
+plt.savefig('Figures/comparison_FieldTeff_zoom.pdf', dpi=150)
 
 
 # To Make the temp dependent region zoom in
@@ -112,4 +112,4 @@ plt.ylim([4.75*10**(-15), 2*10**(-14)])
 ax1.xaxis.set_minor_locator(plt.FixedLocator([1.27,1.42,1.70,1.80]))
 fig.set_size_inches(11.32, 8.59)
 plt.tight_layout()
-plt.savefig('Figures/comparison_FieldTeffdepregion_zoom.pdf')
+plt.savefig('Figures/comparison_FieldTeffdepregion_zoom.pdf', dpi=150)

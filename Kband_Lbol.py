@@ -19,7 +19,7 @@ df_vb10 = pd.read_csv('Data/field_comp/Gaia1916+0508 (M8) SED.txt', sep=" ", com
 df_0320 = pd.read_csv('Data/field_comp/Gaia0320+1854 (M8) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 # --- Young ------
-df_1207 = pd.read_csv('Data/young_comp/1207-3900 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
+df_1207 = pd.read_csv('Data/young_comp/Gaia1207-3900 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 df_1207_phot = pd.read_csv('Data/young_comp/1207-3900 (L0gamma) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
@@ -28,13 +28,13 @@ df_1207_phot = pd.read_csv('Data/young_comp/1207-3900 (L0gamma) phot.txt', sep="
 # df_0443_phot = pd.read_csv('Data/young_comp/0443+0002 (M9gamma) phot.txt', sep=" ", comment='#', header=None,
 #                            names=["w", "f", "err"])
 # Checking with the SXD to see differences
-df_0443 = pd.read_csv('Data/young_comp/Jonathan0443+0002 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
+df_0443 = pd.read_csv('Data/young_comp/Gaia0443+0002 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
-df_0443_phot = pd.read_csv('Data/young_comp/Jonathan0443+0002 (M9gamma) phot.txt', sep=" ", comment='#', header=None,
+df_0443_phot = pd.read_csv('Data/young_comp/Gaia0443+0002 (M9gamma) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
-df_0518 = pd.read_csv('Data/young_comp/0518-2756 (L1gamma) SED.txt', sep=" ", comment='#', header=None,
+df_0518 = pd.read_csv('Data/young_comp/Gaia0518-2756 (L1gamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
-df_0518_phot = pd.read_csv('Data/young_comp/0518-2756 (L1gamma) phot.txt', sep=" ", comment='#', header=None,
+df_0518_phot = pd.read_csv('Data/young_comp/Gaia0518-2756 (L1gamma) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
 
 # -------------------------------------------------------------------------------------

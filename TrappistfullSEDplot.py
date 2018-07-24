@@ -20,7 +20,7 @@ df2 = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ", comment='#', na
 # -------- Generate spectral regime SED plot ---------------------------
 # Make subarrays for color coding
 opt = df[(df['w'] <= 0.8306)]
-overlap = df[(df['w'] >= 0.8305) & (df['w'] <= 1.0286)]
+overlap = df[(df['w'] >= 0.8305) & (df['w'] <= 0.95)]
 nir = df[(df['w'] >= 0.8305)]
 
 # ----- Setup plot layout ---------
@@ -73,6 +73,52 @@ ax1.annotate('2MASS K', xy=(2.25, 0.55*10**(-14)), color='#ae017e', fontsize=15)
 ax1.annotate('WISE W1', xy=(2.75, 0.7*10**(-15)), color='#7a0177', fontsize=15)
 ax1.annotate('WISE W2', xy=(3.75, 0.27*10**(-15)), color='#7a0177', fontsize=15)
 ax1.annotate('WISE W3', xy=(8.25, 0.2*10**(-16)), color='#7a0177', fontsize=15)
+
+# ---------- Add Bandpasses for the photometry: From utilities file -------------
+Johnson_V = pd.DataFrame()
+Johnson_V['x'] = [0.473333, 0.687500]
+Johnson_V['y'] = [1.2*10**(-17), 1.2*10**(-17)]
+plt.plot(Johnson_V['x'], Johnson_V['y'], color='#f768a1', linestyle='solid')
+
+Cousins_R = pd.DataFrame()
+Cousins_R['x'] = [0.550435, 0.883333]
+Cousins_R['y'] = [1.5*10**(-17), 1.5*10**(-17)]
+plt.plot(Cousins_R['x'], Cousins_R['y'], color='#dd3497', linestyle='solid')
+
+Cousins_I = pd.DataFrame()
+Cousins_I['x'] = [0.704167, 0.916667]
+Cousins_I['y'] = [1.9*10**(-17), 1.9*10**(-17)]
+plt.plot(Cousins_I['x'], Cousins_I['y'], color='#dd3497', linestyle='solid')
+
+twomass_j = pd.DataFrame()
+twomass_j['x'] = [1.080647, 1.406797]
+twomass_j['y'] = [1.2*10**(-17), 1.2*10**(-17)]
+plt.plot(twomass_j['x'], twomass_j['y'], color='#ae017e', linestyle='solid')
+
+twomass_h = pd.DataFrame()
+twomass_h['x'] = [1.478738, 1.823102]
+twomass_h['y'] = [1.5*10**(-17), 1.5*10**(-17)]
+plt.plot(twomass_h['x'], twomass_h['y'], color='#ae017e', linestyle='solid')
+
+twomass_k = pd.DataFrame()
+twomass_k['x'] = [1.954369, 2.355240]
+twomass_k['y'] = [1.2*10**(-17), 1.2*10**(-17)]
+plt.plot(twomass_k['x'], twomass_k['y'], color='#ae017e', linestyle='solid')
+
+W1 = pd.DataFrame()
+W1['x'] = [2.754097, 3.872388]
+W1['y'] = [1.5*10**(-17), 1.5*10**(-17)]
+plt.plot(W1['x'], W1['y'], color='#7a0177', linestyle='solid')
+
+W2 = pd.DataFrame()
+W2['x'] = [3.963326, 5.341360]
+W2['y'] = [1.2*10**(-17), 1.2*10**(-17)]
+plt.plot(W2['x'], W2['y'], color='#7a0177', linestyle='solid')
+
+W3 = pd.DataFrame()
+W3['x'] = [7.443044, 17.26134]
+W3['y'] = [1.2*10**(-17), 1.2*10**(-17)]
+plt.plot(W3['x'], W3['y'], color='#7a0177', linestyle='solid')
 
 plt.tight_layout()
 plt.savefig('Figures/TrappistFullSED.pdf', dpi=150)

@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from SEDkit.utilities import rebin_spec as rebin
 
 # ------------------------------------------------------------------------------------
 # ------------------- Read in Spectra and Photometry files ---------------------------
@@ -63,6 +64,21 @@ norm_region7 = df_0518[(df_0518['w'] >= 1.22) & (df_0518['w'] <= 1.23)]
 norm_df_0518 = df_0518['f']/(np.average(norm_region7['f']))
 
 # -------------------------------------------------------------------------------------
+# ------------- Bin to same resolution as vb10 for non spex SXD data ------------------
+# -------------------------------------------------------------------------------------
+speck_trap = [df_trap['w'].values, norm_df_trap.values, df_trap['err'].values]
+trap_bin = rebin(speck_trap, df_vb10['w'].values)
+
+speck_1207 = [df_1207['w'].values, norm_df_1207.values, df_1207['err'].values]
+J1207_bin = rebin(speck_1207, df_vb10['w'].values)
+
+speck_0443 = [df_0443['w'].values, norm_df_0443.values, df_0443['err'].values]
+J0443_bin = rebin(speck_0443, df_vb10['w'].values)
+
+speck_0518 = [df_0518['w'].values, norm_df_0518.values, df_0518['err'].values]
+J0518_bin = rebin(speck_0518, df_vb10['w'].values)
+
+# -------------------------------------------------------------------------------------
 # ------------------- Plotting: J band comparison -------------------------------
 # -------------------------------------------------------------------------------------
 # ------ Set up figure layout --------
@@ -82,32 +98,42 @@ plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
 
 # -------- Add data -----------
 # 1207
-ax1.plot(df_trap['w'], norm_df_trap, c='k')
-ax1.plot(df_1207['w'], norm_df_1207, c='#1036CF', alpha=0.75)
-ax1.annotate('J1207-3900 (L0 $\gamma$) $L_\mathrm{bol}: -3.337 \pm 0.053$', xy=(1.121, 1.3), color='#1036CF', fontsize=13)
+ax1.plot(trap_bin[0], trap_bin[1], c='k')
+ax1.plot(J1207_bin[0], J1207_bin[1], c='#1036CF', alpha=0.75)
+# ax1.plot(df_trap['w'], norm_df_trap, c='k')
+# ax1.plot(df_1207['w'], norm_df_1207, c='#1036CF', alpha=0.75)
+ax1.annotate('J1207-3900 (L0 $\gamma$) $L_\mathrm{bol}: -3.336 \pm 0.053$', xy=(1.121, 1.3), color='#1036CF', fontsize=13)
 # 0518
-ax1.plot(df_trap['w'], norm_df_trap + 1, c='k')
-ax1.plot(df_0518['w'], norm_df_0518 + 1.1, c='#5518C2', alpha=0.75)
+ax1.plot(trap_bin[0], trap_bin[1] + 1.1, c='k')
+ax1.plot(J0518_bin[0], J0518_bin[1] + 1.1, c='#5518C2', alpha=0.75)
+# ax1.plot(df_trap['w'], norm_df_trap + 1, c='k')
+# ax1.plot(df_0518['w'], norm_df_0518 + 1.1, c='#5518C2', alpha=0.75)
 ax1.annotate('J0518-2756 (L1 $\gamma$) $L_\mathrm{bol}: -3.328 \pm 0.041$', xy=(1.121, 2.3), color='#5518C2', fontsize=13)
 # vb10
-ax1.plot(df_trap['w'], norm_df_trap + 2.1, c='k')
+ax1.plot(trap_bin[0], trap_bin[1] + 2.1, c='k')
+# ax1.plot(df_trap['w'], norm_df_trap + 2.1, c='k')
 ax1.plot(df_vb10['w'], norm_df_vb10 + 2.1, c='#275202', alpha=0.8)
 ax1.annotate('vb10 (M8) $L_\mathrm{bol}: -3.298 \pm 0.002$', xy=(1.121, 3.3), color='#275202', fontsize=13)
 # Trappist
-ax1.plot(df_trap['w'], norm_df_trap + 3.1, c='k')
-ax1.annotate('Trappist-1 (M7.5) $L_\mathrm{bol}: -3.255 \pm 0.002$', xy=(1.121, 4.4), color='k', fontsize=13)
+ax1.plot(trap_bin[0], trap_bin[1] + 3.1, c='k')
+# ax1.plot(df_trap['w'], norm_df_trap + 3.1, c='k')
+ax1.annotate('Trappist-1 (M7.5) $L_\mathrm{bol}: -3.255 \pm 0.002$', xy=(1.121, 4.3), color='k', fontsize=13)
 # 320
-ax1.plot(df_trap['w'], norm_df_trap + 4.1, c='k')
+ax1.plot(trap_bin[0], trap_bin[1] + 4.1, c='k')
+# ax1.plot(df_trap['w'], norm_df_trap + 4.1, c='k')
 ax1.plot(df_0320['w'], norm_df_0320 + 4.1, c='#1EE801', alpha=0.75)
 ax1.annotate('J0320+1854 (M8) $L_\mathrm{bol}: -3.225 \pm 0.002$', xy=(1.121, 5.3), color='#1EE801', fontsize=13)
 # 0443
-ax1.plot(df_trap['w'], norm_df_trap + 5.1, c='k')
-ax1.plot(df_0443['w'], norm_df_0443 + 5.1, c='#E71BF8', alpha=0.75)
-ax1.annotate('J0443+0002 (M9 $\gamma$) $L_\mathrm{bol}: -3.194\pm 0.003$', xy=(1.121, 6.6), color='#E71BF8', fontsize=13)
+ax1.plot(trap_bin[0], trap_bin[1] + 5.1, c='k')
+ax1.plot(J0443_bin[0], J0443_bin[1] + 5.1, c='#E71BF8', alpha=0.75)
+# ax1.plot(df_trap['w'], norm_df_trap + 5.1, c='k')
+# ax1.plot(df_0443['w'], norm_df_0443 + 5.1, c='#E71BF8', alpha=0.75)
+ax1.annotate('J0443+0002 (M9 $\gamma$) $L_\mathrm{bol}: -3.194\pm 0.003$', xy=(1.121, 6.3), color='#E71BF8', fontsize=13)
 # vb8
-ax1.plot(df_trap['w'], norm_df_trap + 6.5, c='k')
-ax1.plot(df_vb8['w'], norm_df_vb8 + 6.5, c='#04A57F', alpha=0.75)
-ax1.annotate('vb8 (M7) $L_\mathrm{bol}: -3.192 \pm 0.002$', xy=(1.121, 7.7), color='#04A57F', fontsize=13)
+ax1.plot(trap_bin[0], trap_bin[1] + 6.2, c='k')
+# ax1.plot(df_trap['w'], norm_df_trap + 6.5, c='k')
+ax1.plot(df_vb8['w'], norm_df_vb8 + 6.2, c='#04A57F', alpha=0.75)
+ax1.annotate('vb8 (M7) $L_\mathrm{bol}: -3.192 \pm 0.002$', xy=(1.121, 7.5), color='#04A57F', fontsize=13)
 
 # ------- Label Features --------------------------
 NaI = pd.DataFrame()

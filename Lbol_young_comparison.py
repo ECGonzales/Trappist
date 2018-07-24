@@ -76,7 +76,7 @@ plt.tight_layout()
 # ------ Labeling Objects --------
 ax1.annotate('Trappist-1 (M7.5)', xy=(5, 2*10**(-14)), color='k', fontsize=15)
 ax1.annotate('Age: 500-10000 Myr', xy=(5, 1.3*10**(-14)), color='k', fontsize=15)
-ax1.annotate('$L_\mathrm{bol}: -3.255 \pm 0.002$', xy=(5, 0.75*10**(-14)), color='k', fontsize=15)
+ax1.annotate('$L_\mathrm{bol}: -3.253 \pm 0.002$', xy=(5, 0.75*10**(-14)), color='k', fontsize=15)
 # J0443
 ax1.annotate('J0443+0002 (M9 $\\gamma$)', xy=(5, 3*10**(-15)), color='#E71BF8', fontsize=15)
 ax1.annotate('Age: 21-27 Myr ($\\beta$ Pic)', xy=(5, 1.7*10**(-15)), color='#E71BF8', fontsize=15)
@@ -88,6 +88,6 @@ ax1.annotate('$L_\mathrm{bol}: -3.328 \pm 0.041$', xy=(3, 1.2*10**(-17)), color=
 #1207
 ax1.annotate('J1207-3900 (L0 $\\gamma$)', xy=(0.8, 10**(-17)), color='#1036CF', fontsize=15)
 ax1.annotate('Age: 7-13 Myr (TW Hydra)', xy=(0.8, 6*10**(-18)), color='#1036CF', fontsize=15)
-ax1.annotate('$L_\mathrm{bol}: -3.337 \pm 0.053$', xy=(0.8, 3.5*10**(-18)), color='#1036CF', fontsize=15)
+ax1.annotate('$L_\mathrm{bol}: -3.336 \pm 0.053$', xy=(0.8, 3.5*10**(-18)), color='#1036CF', fontsize=15)
 
 plt.savefig('Figures/young_comp_lbol.pdf', dpi=150)

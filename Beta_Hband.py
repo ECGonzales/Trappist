@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from SEDkit.utilities import rebin_spec as rebin
 
 # ------------------------------------------------------------------------------------
 # ------------------- Read in Spectra and Photometry files ---------------------------
@@ -8,18 +9,17 @@ import matplotlib.pyplot as plt
 # Read  all in as pandas dataframes
 df_trap = pd.read_csv('Data/Gaia2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
+# for smoothing purposes
+df_vb10 = pd.read_csv('Data/field_comp/Gaia1916+0508 (M8) SED.txt', sep=" ", comment='#', header=None,
+                      names=["w", "f", "err"])
 # ---- Teff ----
 df_0253 = pd.read_csv('Data/beta_comp/Gaia0253+3206 (M7beta) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 # ---- Lbol -----
 df_2235 = pd.read_csv('Data/beta_comp/Gaia2235-5906 (M8.5beta) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
-df_2235_phot = pd.read_csv('Data/beta_comp/Gaia2235-5906 (M8.5beta) phot.txt', sep=" ", comment='#', header=None,
-                           names=["w", "f", "err"])
 df_2154 = pd.read_csv('Data/beta_comp/Gaia2154-7459 (M9.5beta) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
-df_2154_phot = pd.read_csv('Data/beta_comp/Gaia2154-7459 (M9.5beta) phot.txt', sep=" ", comment='#', header=None,
-                           names=["w", "f", "err"])
 
 # -------------- Drop bad points --------------
 df_2154 = df_2154[(df_2154['w'] >= 1.47) & (df_2154['w'] <= 1.80)]  # May not need this is we decide to smooth a bit
@@ -50,6 +50,29 @@ norm_region7 = df_2154[(df_2154['w'] >= 1.5) & (df_2154['w'] <= 1.52)]
 norm_df_2154 = df_2154['f']/(np.average(norm_region7['f']))
 
 # -------------------------------------------------------------------------------------
+# ------------- Bin to same resolution as vb10 for non spex SXD data ------------------
+# -------------------------------------------------------------------------------------
+speck_trap = [df_trap['w'].values, norm_df_trap.values, df_trap['err'].values]
+trap_bin = rebin(speck_trap, df_vb10['w'].values)
+
+speck_2235 = [df_2235['w'].values, norm_df_2235.values, df_2235['err'].values]
+J2235_bin = rebin(speck_2235, df_vb10['w'].values)
+
+speck_2154 = [df_2154['w'].values, norm_df_2154.values, df_2154['err'].values]
+J2154_bin = rebin(speck_2154, df_vb10['w'].values)
+
+# remove lines from nans for plotting
+df_J2235_bin = pd.DataFrame()
+df_J2235_bin['w'] = J2235_bin[0]
+df_J2235_bin['f'] = J2235_bin[1]
+df_J2235_bin = df_J2235_bin[(df_J2235_bin['w'] >= 1.4703) & (df_J2235_bin['w'] <= 1.8)]
+
+df_J2154_bin = pd.DataFrame()
+df_J2154_bin['w'] = J2154_bin[0]
+df_J2154_bin['f'] = J2154_bin[1]
+df_J2154_bin = df_J2154_bin[(df_J2154_bin['w'] >= 1.4703) & (df_J2154_bin['w'] <= 1.8)]
+
+# -------------------------------------------------------------------------------------
 # ------------------- Plotting: Y band comparison -------------------------------
 # -------------------------------------------------------------------------------------
 # ------ Set up figure layout --------
@@ -70,19 +93,25 @@ plt.tight_layout()
 
 # -------- Add data and Label Sources-----------
 # 0253 Teff
-ax1.plot(df_trap['w'], norm_df_trap, c='k')
+ax1.plot(trap_bin[0], trap_bin[1], c='k')
+# ax1.plot(df_trap['w'], norm_df_trap, c='k')
 ax1.plot(df_0253['w'], norm_df_0253, c='#D01810', alpha=0.75)
 ax1.annotate('J0253+3206 (M7 $\\beta$)', xy=(1.421, 1.2), color='#D01810', fontsize=15)
 # Trappist
-ax1.plot(df_trap['w'], norm_df_trap + 0.75, c='k')
+ax1.plot(trap_bin[0], trap_bin[1] + 0.75, c='k')
+# ax1.plot(df_trap['w'], norm_df_trap + 0.75, c='k')
 ax1.annotate('Trappist-1 (M7.5)', xy=(1.421, 2), color='k', fontsize=15)
 # 2235 Lbol
-ax1.plot(df_trap['w'], norm_df_trap + 1.5, c='k')
-ax1.plot(df_2235['w'], norm_df_2235 + 1.5, c='#8E01E8', alpha=0.75)
+ax1.plot(trap_bin[0], trap_bin[1] + 1.5, c='k')
+ax1.plot(df_J2235_bin['w'], df_J2235_bin['f'] + 1.5, c='#8E01E8', alpha=0.75)
+# ax1.plot(df_trap['w'], norm_df_trap + 1.5, c='k')
+# ax1.plot(df_2235['w'], norm_df_2235 + 1.5, c='#8E01E8', alpha=0.75)
 ax1.annotate('J2235-5906 (M8.5 $\\beta$)', xy=(1.421, 2.8), color='#8E01E8', fontsize=15)
 # 2154 Lbol
-ax1.plot(df_trap['w'], norm_df_trap + 2.3, c='k')
-ax1.plot(df_2154['w'], norm_df_2154 + 2.3, c='#E806B7', alpha=0.75)
+ax1.plot(trap_bin[0], trap_bin[1] + 2.3, c='k')
+ax1.plot(df_J2154_bin['w'], df_J2154_bin['f'] + 2.3, c='#E806B7', alpha=0.75)
+# ax1.plot(df_trap['w'], norm_df_trap + 2.3, c='k')
+# ax1.plot(df_2154['w'], norm_df_2154 + 2.3, c='#E806B7', alpha=0.75)
 ax1.annotate('J2154-7459 (M9.5 $\\beta$)', xy=(1.421, 3.55), color='#E806B7', fontsize=15)
 
 # ------- Label Features --------------------------

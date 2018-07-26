@@ -97,7 +97,7 @@ ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2541 \pm 45$ K', xy=(0.951, 2.9), color
 # Trappist
 ax1.plot(trap_bin[0], trap_bin[1] + 2.5, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 2.5, c='k')
-ax1.annotate('Trappist-1 (M7.5) $T_\mathrm{eff}: 2584 \pm 34$ K', xy=(0.951, 3.7), color='k', fontsize=13)
+ax1.annotate('TRAPPIST-1 (M7.5) $T_\mathrm{eff}: 2584 \pm 34$ K', xy=(0.951, 3.7), color='k', fontsize=13)
 # 0320
 ax1.plot(trap_bin[0], trap_bin[1] + 3.5, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 3.5, c='k')

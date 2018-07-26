@@ -83,7 +83,7 @@ plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 plt.tight_layout()
 
 # ------ Labeling Spectra and Photometric points --------
-ax1.annotate('Trappist-1 (M7.5) $T_\mathrm{eff}: 2584 \pm 34$ K', xy=(2.7, 10**(-14)), color='k', fontsize=15)
+ax1.annotate('TRAPPIST-1 (M7.5) $T_\mathrm{eff}: 2584 \pm 34$ K', xy=(2.5, 10**(-14)), color='k', fontsize=15)
 ax1.annotate('$L_\mathrm{bol}: -3.253 \pm 0.002$', xy=(8, 5.2*10**(-15)), color='k', fontsize=15)
 ax1.annotate('vb8 (M7)               $T_\mathrm{eff}: 2642 \pm 34$ K, $L_\mathrm{bol}: -3.192 \pm 0.002$',
              xy=(0.32, 2*10**(-18)), color='#04A57F', fontsize=15)

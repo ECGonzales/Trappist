@@ -66,7 +66,7 @@ plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 
 # ------ Labeling Spectra and Photometric points --------
 # Trappist-1
-ax1.annotate('Trappist-1 (M7.5) ', xy=(3, 1.95*10**(-14)), color='k', fontsize=15)
+ax1.annotate('TRAPPIST-1 (M7.5) ', xy=(3, 1.95*10**(-14)), color='k', fontsize=15)
 ax1.annotate('Age: 500-10000 Myr', xy=(3, 1.3*10**(-14)), color='k', fontsize=15)
 ax1.annotate('$L_\mathrm{bol}: -3.255 \pm 0.002$', xy=(3, 0.85*10**(-14)), color='k', fontsize=15)
 # J2235

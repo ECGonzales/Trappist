@@ -65,7 +65,7 @@ plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
 plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 
 # ------ Labeling Objects --------
-ax1.annotate('Trappist-1 (M7.5) ', xy=(3, 10**(-14)), color='k', fontsize=15)
+ax1.annotate('TRAPPIST-1 (M7.5) ', xy=(3, 10**(-14)), color='k', fontsize=15)
 ax1.annotate('$T_\mathrm{eff}: 2581 \pm 34$ K', xy=(3, 6*10**(-15)), color='k', fontsize=15)
 ax1.annotate('$L_\mathrm{bol}: -3.255 \pm 0.002$', xy=(3, 4*10**(-15)), color='k', fontsize=15)
 

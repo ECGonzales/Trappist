@@ -84,7 +84,7 @@ ax1.annotate('J0253+3206 (M7 $\\beta$)', xy=(2.001, 1.25), color='#D01810', font
 # Trappist
 ax1.plot(trap_bin[0], trap_bin[1] + 0.75, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 0.75, c='k')
-ax1.annotate('Trappist-1 (M7.5)', xy=(2.001, 2), color='k', fontsize=15)
+ax1.annotate('TRAPPIST-1 (M7.5)', xy=(2.001, 2), color='k', fontsize=15)
 # 2235 Lbol
 ax1.plot(J2235_bin[0], J2235_bin[1] + 1.5, c='#8E01E8', alpha=0.75)
 ax1.plot(trap_bin[0], trap_bin[1] + 1.5, c='k')

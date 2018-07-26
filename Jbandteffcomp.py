@@ -83,7 +83,7 @@ ax1.plot(trap_bin[0], trap_bin[1], c='k')
 ax1.plot(J0953_bin[0], J0953_bin[1], c='#9B0132', alpha=0.75)
 # ax1.plot(df_trap['w'], norm_df_trap, c='k')
 # ax1.plot(df_0953['w'], norm_df_0953, c='#9B0132', alpha=0.75)
-ax1.annotate('J0953-1014 (M9 $\gamma$) $T_\mathrm{eff}: 2430 \pm 255$ K', xy=(1.121, 1.4), color='#9B0132', fontsize=13)
+ax1.annotate('J0953-1014 (M9 $\gamma$) $T_\mathrm{eff}: 2430 \pm 255$ K', xy=(1.121, 1.2), color='#9B0132', fontsize=13)
 # 0608
 ax1.plot(trap_bin[0], trap_bin[1] + 1, c='k')
 ax1.plot(J0608_bin[0], J0608_bin[1] + 1 , c='#FF6B03', alpha=0.75)
@@ -98,7 +98,7 @@ ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2541 \pm 45$ K', xy=(1.121, 3.2), color
 # Trappist
 ax1.plot(trap_bin[0], trap_bin[1] + 3, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 3, c='k')
-ax1.annotate('Trappist-1 (M7.5) $T_\mathrm{eff}: 2584 \pm 34$ K', xy=(1.121, 4.3), color='k', fontsize=13)
+ax1.annotate('TRAPPIST-1 (M7.5) $T_\mathrm{eff}: 2584 \pm 34$ K', xy=(1.121, 4.2), color='k', fontsize=13)
 # 0320
 ax1.plot(trap_bin[0], trap_bin[1] + 4, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 4, c='k')

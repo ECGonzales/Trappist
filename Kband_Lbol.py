@@ -117,7 +117,7 @@ ax1.annotate('vb10 (M8) $L_\mathrm{bol}: -3.298 \pm 0.002$', xy=(2.001, 3.2), co
 # Trappist
 ax1.plot(trap_bin[0], trap_bin[1] + 3, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 3, c='k')
-ax1.annotate('Trappist-1 (M7.5) $L_\mathrm{bol}: -3.255 \pm 0.002$', xy=(2.001, 4.2), color='k', fontsize=13)
+ax1.annotate('TRAPPIST-1 (M7.5) $L_\mathrm{bol}: -3.255 \pm 0.002$', xy=(2.001, 4.2), color='k', fontsize=13)
 # 320
 ax1.plot(trap_bin[0], trap_bin[1] + 4, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 4, c='k')

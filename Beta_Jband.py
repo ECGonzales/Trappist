@@ -101,11 +101,11 @@ plt.tight_layout()
 ax1.plot(trap_bin[0], trap_bin[1], c='k')
 # ax1.plot(df_trap['w'], norm_df_trap, c='k')
 ax1.plot(df_0253['w'], norm_df_0253, c='#D01810', alpha=0.75)
-ax1.annotate('J0253+3206 (M7 $\\beta$)', xy=(1.121, 1.2), color='#D01810', fontsize=15)
+ax1.annotate('J0253+3206 (M7 $\\beta$)', xy=(1.121, 1.22), color='#D01810', fontsize=15)
 # Trappist
 ax1.plot(trap_bin[0], trap_bin[1] + 1.1, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 1.1, c='k')
-ax1.annotate('TRAPPIST-1 (M7.5)', xy=(1.121, 2.45), color='k', fontsize=15)
+ax1.annotate('TRAPPIST-1 (M7.5)', xy=(1.121, 2.3), color='k', fontsize=15)
 # 2235 Lbol
 ax1.plot(trap_bin[0], trap_bin[1] + 2.2, c='k')
 ax1.plot(df_J2235_bin['w'], df_J2235_bin['f'] + 2.2, c='#8E01E8', alpha=0.75)
@@ -117,7 +117,7 @@ ax1.plot(trap_bin[0], trap_bin[1] + 3.4, c='k')
 ax1.plot(J2154_bin[0], J2154_bin[1] + 3.4, c='#E806B7', alpha=0.75)
 # ax1.plot(df_trap['w'], norm_df_trap + 3.4, c='k')
 # ax1.plot(df_2154['w'], norm_df_2154 + 3.4, c='#E806B7', alpha=0.75)
-ax1.annotate('J2154-7459 (M9.5 $\\beta$)', xy=(1.121, 5), color='#E806B7', fontsize=15)
+ax1.annotate('J2154-7459 (M9.5 $\\beta$)', xy=(1.121, 4.7), color='#E806B7', fontsize=15)
 
 # ------- Label Features --------------------------
 NaI = pd.DataFrame()

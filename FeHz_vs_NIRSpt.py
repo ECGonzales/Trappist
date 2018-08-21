@@ -1,7 +1,6 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-import scipy.io as sci
+# import scipy.io as sci
 
 # ------------------------------------------------------------------------------------
 # ------------------- Read in Indices and polynomials ---------------------------
@@ -63,32 +62,41 @@ plt.ylabel('FeH$_Z$ index', fontsize=25)
 plt.xlabel('NIR Spectral Type', fontsize=25)
 ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
 plt.xticks([6,7, 8, 9, 10,11, 12], ['M6', "M7", 'M8','M9', 'L0','L1', 'L2'], fontsize=20)
-plt.xlim([5.5, 12])
+plt.xlim([5.8, 12])
 plt.ylim([0.999, 1.26])
-
-# plot data
-gamma = plt.scatter(df_gamma['SpT_used'], df_gamma['FEH_Z'], color='#9B0132', s=70)
-ax1.errorbar(df_gamma['SpT_used'], df_gamma['FEH_Z'], yerr=df_gamma['E_FEH_Z'], c='#9B0132', fmt='o')
-
-beta = plt.scatter(df_beta['SpT_used'], df_beta['FEH_Z'], color='#D01810', s=70)
-ax1.errorbar(df_beta['SpT_used'], df_beta['FEH_Z'], yerr=df_beta['E_FEH_Z'], c='#D01810', fmt='o')
-
-fld = plt.scatter(df_field['SpT_used'], df_field['FEH_Z'], color='#7C7D70', s=70)
-ax1.errorbar(df_field['SpT_used'], df_field['FEH_Z'], yerr=df_field['E_FEH_Z'], c='#7C7D70', fmt='o')
-
-fld_opt = plt.scatter(df_field2['SpT_used'], df_field2['FEH_Z'], color='#ABBDC4', s=70)
-ax1.errorbar(df_field2['SpT_used'], df_field2['FEH_Z'], yerr=df_field2['E_FEH_Z'], c='#ABBDC4', fmt='o')
-
-# --- Designate Trappist-1 -----
-trap_p = plt.scatter(df_field2['SpT_used'][25], df_field2['FEH_Z'][25], color='k', s=700, zorder=1, marker="*")
-trap_f = plt.scatter(df_field2['SpT_used'][26], df_field2['FEH_Z'][26], color='k', s=200, zorder=1, marker="s")
-trap_s = plt.scatter(df_field2['SpT_used'][27], df_field2['FEH_Z'][27], color='k', s=200, zorder=1, marker="o")
 
 # plot polynomials
 plt.plot(df_poly['spts'], df_poly['zfeh'])
-# plt.plot(df_poly['spts'], zfeh_up)
-# plt.plot(df_poly['spts'], zfeh_down)
 ax1.fill_between(df_poly['spts'], zfeh_up, zfeh_down, alpha=.25, color='#17becf')
+
+# plot data
+gamma = plt.scatter(df_gamma['SpT_used'], df_gamma['FEH_Z'], color='#9B0132', s=70, zorder=3)
+ax1.errorbar(df_gamma['SpT_used'], df_gamma['FEH_Z'], yerr=df_gamma['E_FEH_Z'], c='#9B0132', fmt='o', zorder=2)
+
+beta = plt.scatter(df_beta['SpT_used'], df_beta['FEH_Z'], color='#D01810', s=70, zorder=3)
+ax1.errorbar(df_beta['SpT_used'], df_beta['FEH_Z'], yerr=df_beta['E_FEH_Z'], c='#D01810', fmt='o', zorder=2)
+
+fld = plt.scatter(df_field['SpT_used'], df_field['FEH_Z'], color='#7C7D70', s=70, zorder=3)
+ax1.errorbar(df_field['SpT_used'], df_field['FEH_Z'], yerr=df_field['E_FEH_Z'], c='#7C7D70', fmt='o', zorder=2)
+
+fld_opt = plt.scatter(df_field2['SpT_used'], df_field2['FEH_Z'], color='#ABBDC4', s=70, zorder=3)
+ax1.errorbar(df_field2['SpT_used'], df_field2['FEH_Z'], yerr=df_field2['E_FEH_Z'], c='#ABBDC4', fmt='o', zorder=2)
+
+# sd = plt.scatter(df_subd['SpT_used'], df_subd['FEH_Z'], color='blue', s=70)
+# ax1.errorbar(df_subd['SpT_used'], df_subd['FEH_Z'], yerr=df_subd['E_FEH_Z'], c='blue', fmt='o')
+
+# --- Designate Trappist-1, error bars smaller than point size -----
+# Prism
+trap_p = plt.scatter(df_field2['SpT_used'][25], df_field2['FEH_Z'][25], color='k', s=700, zorder=1, marker="*")
+ax1.errorbar(df_field2['SpT_used'][25], df_field2['FEH_Z'][25], yerr=df_field2['E_FEH_Z'][25], c='k', zorder=1, fmt='o')
+# FIRE
+trap_f = plt.scatter(df_field2['SpT_used'][26], df_field2['FEH_Z'][26], color='k', s=200, zorder=1, marker="s")
+ax1.errorbar(df_field2['SpT_used'][26], df_field2['FEH_Z'][26], yerr=df_field2['E_FEH_Z'][26], c='k', zorder=1, fmt='o')
+# SXD
+trap_s = plt.scatter(df_field2['SpT_used'][27], df_field2['FEH_Z'][27], color='k', s=200, zorder=1, marker="o")
+ax1.errorbar(df_field2['SpT_used'][27], df_field2['FEH_Z'][27], yerr=df_field2['E_FEH_Z'][27], c='k', zorder=1, fmt='o')
+
+
 
 # ---- Add Legend ----
 plt.legend([fld, fld_opt, gamma, beta, trap_p], ["Field", "Field (opt Spt)", "$\gamma$", '$\\beta$', 'TRAPPIST-1'],

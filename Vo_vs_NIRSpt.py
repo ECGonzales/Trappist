@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 
 # ------------------------------------------------------------------------------------
@@ -37,38 +36,43 @@ plt.ylabel('VO$_Z$ index', fontsize=25)
 plt.xlabel('NIR Spectral Type', fontsize=25)
 ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
 plt.xticks([6,7, 8, 9, 10,11, 12], ['M6', "M7", 'M8','M9', 'L0','L1', 'L2'], fontsize=20)
-plt.xlim([5.5, 12])
+plt.xlim([5.8, 12])
 plt.ylim([0.999, 1.55])
-
-# plot data
-gamma = plt.scatter(df_gamma['SpT_used'], df_gamma['VO_Z'], color='#9B0132', s=70)
-ax1.errorbar(df_gamma['SpT_used'], df_gamma['VO_Z'], yerr=df_gamma['E_VO_Z'], c='#9B0132', fmt='o')
-
-beta = plt.scatter(df_beta['SpT_used'], df_beta['VO_Z'], color='#D01810', s=70)
-ax1.errorbar(df_beta['SpT_used'], df_beta['VO_Z'], yerr=df_beta['E_VO_Z'], c='#D01810', fmt='o')
-
-fld = plt.scatter(df_field['SpT_used'], df_field['VO_Z'], color='#7C7D70', s=70)
-ax1.errorbar(df_field['SpT_used'], df_field['VO_Z'], yerr=df_field['E_VO_Z'], c='#7C7D70', fmt='o')
-
-fld_opt = plt.scatter(df_field2['SpT_used'], df_field2['VO_Z'], color='#ABBDC4', s=70)
-ax1.errorbar(df_field2['SpT_used'], df_field2['VO_Z'], yerr=df_field2['E_VO_Z'], c='#ABBDC4', fmt='o')
-
-# --- Designate Trappist-1 -----
-trap_p = plt.scatter(df_field2['SpT_used'][25], df_field2['VO_Z'][25], color='k', s=700, zorder=1, marker="*")
-trap_f = plt.scatter(df_field2['SpT_used'][26], df_field2['VO_Z'][26], color='k', s=200, zorder=1, marker="s")
-trap_s = plt.scatter(df_field2['SpT_used'][27], df_field2['VO_Z'][27], color='k', s=200, zorder=1, marker="o")
 
 # plot polynomials
 plt.plot(df_poly['spts'], df_poly['vo'])
-# plt.plot(df_poly['spts'], vo_up)
-# plt.plot(df_poly['spts'], vo_down)
 ax1.fill_between(df_poly['spts'], vo_up, vo_down, alpha=.25, color='#17becf')
+
+
+# plot data
+gamma = plt.scatter(df_gamma['SpT_used'], df_gamma['VO_Z'], color='#9B0132', s=70, zorder=4)
+ax1.errorbar(df_gamma['SpT_used'], df_gamma['VO_Z'], yerr=df_gamma['E_VO_Z'], c='#9B0132', fmt='o', zorder=3)
+
+beta = plt.scatter(df_beta['SpT_used'], df_beta['VO_Z'], color='#D01810', s=70, zorder=4)
+ax1.errorbar(df_beta['SpT_used'], df_beta['VO_Z'], yerr=df_beta['E_VO_Z'], c='#D01810', fmt='o', zorder=3)
+
+fld = plt.scatter(df_field['SpT_used'], df_field['VO_Z'], color='#7C7D70', s=70, zorder=4)
+ax1.errorbar(df_field['SpT_used'], df_field['VO_Z'], yerr=df_field['E_VO_Z'], c='#7C7D70', fmt='o', zorder=3)
+
+fld_opt = plt.scatter(df_field2['SpT_used'], df_field2['VO_Z'], color='#ABBDC4', s=70, zorder=4)
+ax1.errorbar(df_field2['SpT_used'], df_field2['VO_Z'], yerr=df_field2['E_VO_Z'], c='#ABBDC4', fmt='o', zorder=3)
+
+# --- Designate Trappist-1 -----
+# Prism
+trap_p = plt.scatter(df_field2['SpT_used'][25], df_field2['VO_Z'][25], color='k', s=700, zorder=2, marker="*")
+ax1.errorbar(df_field2['SpT_used'][25], df_field2['VO_Z'][25], yerr=df_field2['E_VO_Z'][25], c='k', zorder=2, fmt='o')
+# FIRE
+trap_f = plt.scatter(df_field2['SpT_used'][26], df_field2['VO_Z'][26], color='k', s=200, zorder=2, marker="s")
+ax1.errorbar(df_field2['SpT_used'][26], df_field2['VO_Z'][26], yerr=df_field2['E_VO_Z'][26], c='k', zorder=2, fmt='o')
+# SXD
+trap_s = plt.scatter(df_field2['SpT_used'][27], df_field2['VO_Z'][27], color='k', s=200, zorder=2, marker="o")
+ax1.errorbar(df_field2['SpT_used'][27], df_field2['VO_Z'][27], yerr=df_field2['E_VO_Z'][27], c='k', zorder=2, fmt='o')
+
 
 # ---- Add Legend ----
 plt.legend([fld, fld_opt, gamma, beta, trap_p], ["Field", "Field (opt Spt)", "$\gamma$", '$\\beta$', 'TRAPPIST-1'],
            frameon=False, fontsize=12)
 
 plt.tight_layout()
-
 plt.savefig('Figures/Vo_vs_NIRSpt.pdf', dpi=150)
 

@@ -24,11 +24,58 @@ df_subd = df[(df['opt grav'] == 'sd')]
 KiJ_up = df_poly['KiJ']+df_poly['KiJe']
 KiJ_down = df_poly['KiJ']-df_poly['KiJe']
 
-
-
+# --------------------------------------------------------------------------------------
+# -----------------------------Plot up the indices -------------------------------------
+# --------------------------------------------------------------------------------------
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
+fig.set_size_inches(10, 6.45)
+
+# ------Tick size and Axes Labels --------
+ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
+plt.ylabel('K I$_J$ index', fontsize=25)
+plt.xlabel('NIR Spectral Type', fontsize=25)
+ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
+plt.xticks([6,7, 8, 9, 10,11, 12], ['M6', "M7", 'M8','M9', 'L0','L1', 'L2'], fontsize=20)
+plt.xlim([5.8, 12])
+plt.ylim([1.03, 1.13])
+
+# plot polynomials
 plt.plot(df_poly['spts'], df_poly['KiJ'])
-# plt.plot(df_poly['spts'], KiJ_up)
-# plt.plot(df_poly['spts'], KiJ_down)
 ax1.fill_between(df_poly['spts'], KiJ_up, KiJ_down, alpha=.25, color='#17becf')
+
+# plot data
+gamma = plt.scatter(df_gamma['SpT_used'], df_gamma['KI_J'], color='#9B0132', s=70, zorder=4)
+ax1.errorbar(df_gamma['SpT_used'], df_gamma['KI_J'], yerr=df_gamma['E_KI_J'], c='#9B0132', fmt='o', zorder=3)
+
+beta = plt.scatter(df_beta['SpT_used'], df_beta['KI_J'], color='#D01810', s=70, zorder=4)
+ax1.errorbar(df_beta['SpT_used'], df_beta['KI_J'], yerr=df_beta['E_KI_J'], c='#D01810', fmt='o', zorder=3)
+
+fld = plt.scatter(df_field['SpT_used'], df_field['KI_J'], color='#7C7D70', s=70, zorder=4)
+ax1.errorbar(df_field['SpT_used'], df_field['KI_J'], yerr=df_field['E_KI_J'], c='#7C7D70', fmt='o', zorder=3)
+
+fld_opt = plt.scatter(df_field2['SpT_used'], df_field2['KI_J'], color='#ABBDC4', s=70, zorder=4)
+ax1.errorbar(df_field2['SpT_used'], df_field2['KI_J'], yerr=df_field2['E_KI_J'], c='#ABBDC4', fmt='o', zorder=3)
+
+# sd = plt.scatter(df_subd['SpT_used'], df_subd['FEH_Z'], color='blue', s=70)
+# ax1.errorbar(df_subd['SpT_used'], df_subd['FEH_Z'], yerr=df_subd['E_FEH_Z'], c='blue', fmt='o')
+
+# --- Designate Trappist-1 -----
+# Prism
+trap_p = plt.scatter(df_field2['SpT_used'][25], df_field2['KI_J'][25], color='k', s=700, zorder=2, marker="*")
+ax1.errorbar(df_field2['SpT_used'][25], df_field2['KI_J'][25], yerr=df_field2['E_KI_J'][25], c='k', zorder=2, fmt='o')
+# FIRE
+trap_f = plt.scatter(df_field2['SpT_used'][26], df_field2['KI_J'][26], color='k', s=200, zorder=2, marker="s")
+ax1.errorbar(df_field2['SpT_used'][26], df_field2['KI_J'][26], yerr=df_field2['E_KI_J'][26], c='k', zorder=2, fmt='o')
+# SXD
+trap_s = plt.scatter(df_field2['SpT_used'][27], df_field2['KI_J'][27], color='k', s=200, zorder=2, marker="o")
+ax1.errorbar(df_field2['SpT_used'][27], df_field2['KI_J'][27], yerr=df_field2['E_KI_J'][27], c='k', zorder=2, fmt='o')
+
+# ---- Add Legend ----
+plt.legend([fld, fld_opt, gamma, beta, trap_p], ["Field", "Field (opt Spt)", "$\gamma$", '$\\beta$', 'TRAPPIST-1'],
+           frameon=False, fontsize=12)
+
+plt.tight_layout()
+plt.savefig('Figures/KIJ_vs_NIRSpt.pdf', dpi=150)
+
+

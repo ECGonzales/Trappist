@@ -18,6 +18,7 @@ df_gamma = df[(df['nir grav'] == 'g')]
 df_beta = df[(df['nir grav'] == 'b')]
 df_field = df[(df['nir grav'] == 'f')]
 df_field2 = df[(df['opt grav'] == 'f') & (df['nir grav'].isnull())]
+df_field_opt = df_field2[df_field2['Shortname'] != '2306-0502']
 df_subd = df[(df['opt grav'] == 'sd')]
 
 # Create the polynomial shaded zones
@@ -48,31 +49,31 @@ ax1.fill_between(df_poly['spts'], KiJ_up, KiJ_down, alpha=.25, color='#17becf')
 gamma = plt.scatter(df_gamma['SpT_used'], df_gamma['KI_J'], color='#9B0132', s=70, zorder=4)
 ax1.errorbar(df_gamma['SpT_used'], df_gamma['KI_J'], yerr=df_gamma['E_KI_J'], c='#9B0132', fmt='o', zorder=3)
 
-beta = plt.scatter(df_beta['SpT_used'], df_beta['KI_J'], color='#D01810', s=70, zorder=4)
-ax1.errorbar(df_beta['SpT_used'], df_beta['KI_J'], yerr=df_beta['E_KI_J'], c='#D01810', fmt='o', zorder=3)
+beta = plt.scatter(df_beta['SpT_used'], df_beta['KI_J'], color='#FF6B03', s=70, zorder=4)
+ax1.errorbar(df_beta['SpT_used'], df_beta['KI_J'], yerr=df_beta['E_KI_J'], c='#FF6B03', fmt='o', zorder=3)
 
 fld = plt.scatter(df_field['SpT_used'], df_field['KI_J'], color='#7C7D70', s=70, zorder=4)
 ax1.errorbar(df_field['SpT_used'], df_field['KI_J'], yerr=df_field['E_KI_J'], c='#7C7D70', fmt='o', zorder=3)
 
-fld_opt = plt.scatter(df_field2['SpT_used'], df_field2['KI_J'], color='#ABBDC4', s=70, zorder=4)
-ax1.errorbar(df_field2['SpT_used'], df_field2['KI_J'], yerr=df_field2['E_KI_J'], c='#ABBDC4', fmt='o', zorder=3)
+fld_opt = plt.scatter(df_field_opt['SpT_used'], df_field_opt['KI_J'], color='#ABBDC4', s=70, zorder=4)
+ax1.errorbar(df_field_opt['SpT_used'], df_field_opt['KI_J'], yerr=df_field_opt['E_KI_J'], c='#ABBDC4', fmt='o', zorder=3)
 
 # sd = plt.scatter(df_subd['SpT_used'], df_subd['FEH_Z'], color='blue', s=70)
 # ax1.errorbar(df_subd['SpT_used'], df_subd['FEH_Z'], yerr=df_subd['E_FEH_Z'], c='blue', fmt='o')
 
 # --- Designate Trappist-1 -----
 # Prism
-trap_p = plt.scatter(df_field2['SpT_used'][25], df_field2['KI_J'][25], color='k', s=700, zorder=2, marker="*")
+trap_p = plt.scatter(df_field2['SpT_used'][25], df_field2['KI_J'][25], color='k', s=200, zorder=2, marker="s")
 ax1.errorbar(df_field2['SpT_used'][25], df_field2['KI_J'][25], yerr=df_field2['E_KI_J'][25], c='k', zorder=2, fmt='o')
 # FIRE
-trap_f = plt.scatter(df_field2['SpT_used'][26], df_field2['KI_J'][26], color='k', s=200, zorder=2, marker="s")
+trap_f = plt.scatter(df_field2['SpT_used'][26], df_field2['KI_J'][26], color='k', s=700, zorder=2, marker="*")
 ax1.errorbar(df_field2['SpT_used'][26], df_field2['KI_J'][26], yerr=df_field2['E_KI_J'][26], c='k', zorder=2, fmt='o')
 # SXD
 trap_s = plt.scatter(df_field2['SpT_used'][27], df_field2['KI_J'][27], color='k', s=200, zorder=2, marker="o")
 ax1.errorbar(df_field2['SpT_used'][27], df_field2['KI_J'][27], yerr=df_field2['E_KI_J'][27], c='k', zorder=2, fmt='o')
 
 # ---- Add Legend ----
-plt.legend([fld, fld_opt, gamma, beta, trap_p], ["Field", "Field (opt Spt)", "$\gamma$", '$\\beta$', 'TRAPPIST-1'],
+plt.legend([fld, fld_opt, gamma, beta, trap_s], ["Field", "Field (opt Spt)", "$\gamma$", '$\\beta$', 'TRAPPIST-1'],
            frameon=False, fontsize=12)
 
 plt.tight_layout()

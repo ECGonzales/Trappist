@@ -19,6 +19,7 @@ df_gamma = df[(df['nir grav'] == 'g')]
 df_beta = df[(df['nir grav'] == 'b')]
 df_field = df[(df['nir grav'] == 'f')]
 df_field2 = df[(df['opt grav'] == 'f') & (df['nir grav'].isnull())]
+df_field_opt = df_field2[df_field2['Shortname'] != '2306-0502']
 df_subd = df[(df['opt grav'] == 'sd')]
 
 
@@ -50,31 +51,31 @@ ax1.fill_between(df_poly['spts'], hcont_up, hcont_down, alpha=.25, color='#17bec
 gamma = plt.scatter(df_gamma['SpT_used'], df_gamma['HCONT'], color='#9B0132', s=70, zorder=4)
 ax1.errorbar(df_gamma['SpT_used'], df_gamma['HCONT'], yerr=df_gamma['E_HCONT'], c='#9B0132', fmt='o', zorder=3)
 
-beta = plt.scatter(df_beta['SpT_used'], df_beta['HCONT'], color='#D01810', s=70, zorder=4)
-ax1.errorbar(df_beta['SpT_used'], df_beta['HCONT'], yerr=df_beta['E_HCONT'], c='#D01810', fmt='o', zorder=3)
+beta = plt.scatter(df_beta['SpT_used'], df_beta['HCONT'], color='#FF6B03', s=70, zorder=4)
+ax1.errorbar(df_beta['SpT_used'], df_beta['HCONT'], yerr=df_beta['E_HCONT'], c='#FF6B03', fmt='o', zorder=3)
 
 fld = plt.scatter(df_field['SpT_used'], df_field['HCONT'], color='#7C7D70', s=70, zorder=4)
 ax1.errorbar(df_field['SpT_used'], df_field['HCONT'], yerr=df_field['E_HCONT'], c='#7C7D70', fmt='o', zorder=3)
 
-fld_opt = plt.scatter(df_field2['SpT_used'], df_field2['HCONT'], color='#ABBDC4', s=70, zorder=4)
-ax1.errorbar(df_field2['SpT_used'], df_field2['HCONT'], yerr=df_field2['E_HCONT'], c='#ABBDC4', fmt='o', zorder=3)
+fld_opt = plt.scatter(df_field_opt['SpT_used'], df_field_opt['HCONT'], color='#ABBDC4', s=70, zorder=4)
+ax1.errorbar(df_field_opt['SpT_used'], df_field_opt['HCONT'], yerr=df_field_opt['E_HCONT'], c='#ABBDC4', fmt='o', zorder=3)
 
 # sd = plt.scatter(df_subd['SpT_used'], df_subd['FEH_Z'], color='blue', s=70)
 # ax1.errorbar(df_subd['SpT_used'], df_subd['FEH_Z'], yerr=df_subd['E_FEH_Z'], c='blue', fmt='o')
 
 # --- Designate Trappist-1 -----
 # Prism
-trap_p = plt.scatter(df_field2['SpT_used'][25], df_field2['HCONT'][25], color='k', s=700, zorder=2, marker="*")
+trap_p = plt.scatter(df_field2['SpT_used'][25], df_field2['HCONT'][25], color='k', s=200, zorder=2, marker="s")
 ax1.errorbar(df_field2['SpT_used'][25], df_field2['HCONT'][25], yerr=df_field2['E_HCONT'][25], c='k', zorder=2, fmt='o')
 # FIRE
-trap_f = plt.scatter(df_field2['SpT_used'][26], df_field2['HCONT'][26], color='k', s=200, zorder=2, marker="s")
+trap_f = plt.scatter(df_field2['SpT_used'][26], df_field2['HCONT'][26], color='k', s=700, zorder=2, marker="*")
 ax1.errorbar(df_field2['SpT_used'][26], df_field2['HCONT'][26], yerr=df_field2['E_HCONT'][26], c='k', zorder=2, fmt='o')
 # SXD
 trap_s = plt.scatter(df_field2['SpT_used'][27], df_field2['HCONT'][27], color='k', s=200, zorder=2, marker="o")
 ax1.errorbar(df_field2['SpT_used'][27], df_field2['HCONT'][27], yerr=df_field2['E_HCONT'][27], c='k', zorder=2, fmt='o')
 
 # ---- Add Legend ----
-plt.legend([fld, fld_opt, gamma, beta, trap_p], ["Field", "Field (opt Spt)", "$\gamma$", '$\\beta$', 'TRAPPIST-1'],
+plt.legend([fld, fld_opt, gamma, beta, trap_s], ["Field", "Field (opt Spt)", "$\gamma$", '$\\beta$', 'TRAPPIST-1'],
            frameon=False, fontsize=12)
 
 plt.tight_layout()

@@ -63,14 +63,14 @@ ax1.errorbar(df_field_opt['SpT_used'], df_field_opt['KI_J'], yerr=df_field_opt['
 
 # --- Designate Trappist-1 -----
 # Prism
-trap_p = plt.scatter(df_field2['SpT_used'][25], df_field2['KI_J'][25], color='k', s=200, zorder=2, marker="s")
-ax1.errorbar(df_field2['SpT_used'][25], df_field2['KI_J'][25], yerr=df_field2['E_KI_J'][25], c='k', zorder=2, fmt='o')
+trap_p = plt.scatter(df_field2['SpT_used'][23], df_field2['KI_J'][23], color='k', s=200, zorder=2, marker="s")
+ax1.errorbar(df_field2['SpT_used'][23], df_field2['KI_J'][23], yerr=df_field2['E_KI_J'][23], c='k', zorder=2, fmt='o')
 # FIRE
-trap_f = plt.scatter(df_field2['SpT_used'][26], df_field2['KI_J'][26], color='k', s=700, zorder=2, marker="*")
-ax1.errorbar(df_field2['SpT_used'][26], df_field2['KI_J'][26], yerr=df_field2['E_KI_J'][26], c='k', zorder=2, fmt='o')
+trap_f = plt.scatter(df_field2['SpT_used'][24], df_field2['KI_J'][24], color='k', s=700, zorder=2, marker="*")
+ax1.errorbar(df_field2['SpT_used'][24], df_field2['KI_J'][24], yerr=df_field2['E_KI_J'][24], c='k', zorder=2, fmt='o')
 # SXD
-trap_s = plt.scatter(df_field2['SpT_used'][27], df_field2['KI_J'][27], color='k', s=200, zorder=2, marker="o")
-ax1.errorbar(df_field2['SpT_used'][27], df_field2['KI_J'][27], yerr=df_field2['E_KI_J'][27], c='k', zorder=2, fmt='o')
+trap_s = plt.scatter(df_field2['SpT_used'][25], df_field2['KI_J'][25], color='k', s=200, zorder=2, marker="s")
+ax1.errorbar(df_field2['SpT_used'][25], df_field2['KI_J'][25], yerr=df_field2['E_KI_J'][25], c='k', zorder=2, fmt='o')
 
 # ---- Add Legend ----
 plt.legend([fld, fld_opt, gamma, beta, trap_s], ["Field", "Field (opt Spt)", "$\gamma$", '$\\beta$', 'TRAPPIST-1'],

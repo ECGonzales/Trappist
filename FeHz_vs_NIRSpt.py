@@ -88,14 +88,14 @@ ax1.errorbar(df_field_opt['SpT_used'], df_field_opt['FEH_Z'], yerr=df_field_opt[
 
 # --- Designate Trappist-1, error bars smaller than point size -----
 # Prism
-trap_p = plt.scatter(df_field2['SpT_used'][25], df_field2['FEH_Z'][25], color='k', s=200, zorder=1, marker="s")
-ax1.errorbar(df_field2['SpT_used'][25], df_field2['FEH_Z'][25], yerr=df_field2['E_FEH_Z'][25], c='k', zorder=1, fmt='o')
+trap_p = plt.scatter(df_field2['SpT_used'][23], df_field2['FEH_Z'][23], color='k', s=200, zorder=1, marker="s")
+ax1.errorbar(df_field2['SpT_used'][23], df_field2['FEH_Z'][23], yerr=df_field2['E_FEH_Z'][23], c='k', zorder=1, fmt='o')
 # FIRE
-trap_f = plt.scatter(df_field2['SpT_used'][26], df_field2['FEH_Z'][26], color='k', s=700, zorder=1, marker="*")
-ax1.errorbar(df_field2['SpT_used'][26], df_field2['FEH_Z'][26], yerr=df_field2['E_FEH_Z'][26], c='k', zorder=1, fmt='o')
+trap_f = plt.scatter(df_field2['SpT_used'][24], df_field2['FEH_Z'][24], color='k', s=700, zorder=1, marker="*")
+ax1.errorbar(df_field2['SpT_used'][24], df_field2['FEH_Z'][24], yerr=df_field2['E_FEH_Z'][24], c='k', zorder=1, fmt='o')
 # SXD
-trap_s = plt.scatter(df_field2['SpT_used'][27], df_field2['FEH_Z'][27], color='k', s=200, zorder=1, marker="o")
-ax1.errorbar(df_field2['SpT_used'][27], df_field2['FEH_Z'][27], yerr=df_field2['E_FEH_Z'][27], c='k', zorder=1, fmt='o')
+trap_s = plt.scatter(df_field2['SpT_used'][25], df_field2['FEH_Z'][25], color='k', s=200, zorder=1, marker="o")
+ax1.errorbar(df_field2['SpT_used'][25], df_field2['FEH_Z'][25], yerr=df_field2['E_FEH_Z'][25], c='k', zorder=1, fmt='o')
 
 
 

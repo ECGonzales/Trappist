@@ -11,6 +11,9 @@ df = pd.read_csv('Data/Indices/indices.tsv', sep="\t", comment='#', header=0)
 # E_KI_177, KI_244, E_KI_244, KI_253,	E_KI_253]
 
 df_comp = pd.read_csv('Data/Martin_EW_tab.txt', sep='\t', comment='#', header=0)
+# Calculate error for EW line and drop greater than 20%
+df['EW_KI_177err'] = df['E_KI_177']/df['KI_177']
+df = df[(df['EW_KI_177err'] <= .2)]
 
 # Separate the data into field, gamma, and beta, and medium res.
 df_gamma = df[(df['nir grav'] == 'g') & (df['Spectra'] != 'prism')]
@@ -45,16 +48,16 @@ plt.xlim([5.8, 12.5])
 plt.ylim([-2, 16])
 
 # plot data
-gamma = plt.scatter(df_gamma['SpT_used'], df_gamma['KI_177'], color='#9B0132', s=70, zorder=4)
+gamma = plt.scatter(df_gamma['SpT_used'], df_gamma['KI_177'], color='#9B0132', s=200, zorder=4, edgecolors='k')
 ax1.errorbar(df_gamma['SpT_used'], df_gamma['KI_177'], yerr=df_gamma['E_KI_177'], c='#9B0132', fmt='o', zorder=3)
 
-beta = plt.scatter(df_beta['SpT_used'], df_beta['KI_177'], color='#FF6B03', s=70, zorder=4)
+beta = plt.scatter(df_beta['SpT_used'], df_beta['KI_177'], color='#FF6B03', s=200, zorder=4, edgecolors='k')
 ax1.errorbar(df_beta['SpT_used'], df_beta['KI_177'], yerr=df_beta['E_KI_177'], c='#FF6B03', fmt='o', zorder=3)
 
-fld = plt.scatter(df_field['SpT_used'], df_field['KI_177'], color='#7C7D70', s=70, zorder=4)
+fld = plt.scatter(df_field['SpT_used'], df_field['KI_177'], color='#7C7D70', s=200, zorder=4, edgecolors='k')
 ax1.errorbar(df_field['SpT_used'], df_field['KI_177'], yerr=df_field['E_KI_177'], c='#7C7D70', fmt='o', zorder=3)
 
-fld_opt = plt.scatter(df_field_opt['SpT_used'], df_field_opt['KI_177'], color='#ABBDC4', s=70, zorder=4)
+fld_opt = plt.scatter(df_field_opt['SpT_used'], df_field_opt['KI_177'], color='#ABBDC4', s=200, zorder=4, edgecolors='k')
 ax1.errorbar(df_field_opt['SpT_used'], df_field_opt['KI_177'], yerr=df_field_opt['E_KI_177'], c='#ABBDC4', fmt='o',
              zorder=3)
 
@@ -63,30 +66,33 @@ ax1.errorbar(df_field_opt['SpT_used'], df_field_opt['KI_177'], yerr=df_field_opt
 
 # --- Designate Trappist-1 -----
 # FIRE
-trap_f = plt.scatter(df_field2['SpT_used'][26], df_field2['KI_177'][26], color='k', s=400, zorder=2, marker="*")
-ax1.errorbar(df_field2['SpT_used'][26], df_field2['KI_177'][26], yerr=df_field2['E_KI_177'][26], c='k', zorder=2,
+trap_f = plt.scatter(df_field2['SpT_used'][24], df_field2['KI_177'][24], color='k', s=400, zorder=2, marker="*")
+ax1.errorbar(df_field2['SpT_used'][24], df_field2['KI_177'][24], yerr=df_field2['E_KI_177'][24], c='k', zorder=2,
              fmt='o')
 # SXD
-trap_s = plt.scatter(df_field2['SpT_used'][27], df_field2['KI_177'][27], color='k', s=200, zorder=2, marker="o")
-ax1.errorbar(df_field2['SpT_used'][27], df_field2['KI_177'][27], yerr=df_field2['E_KI_177'][27], c='k', zorder=2,
+trap_s = plt.scatter(df_field2['SpT_used'][25], df_field2['KI_177'][25], color='k', s=200, zorder=2, marker="o")
+ax1.errorbar(df_field2['SpT_used'][25], df_field2['KI_177'][25], yerr=df_field2['E_KI_177'][25], c='k', zorder=2,
              fmt='o')
 
 #  ----- Plot comparisons -----
-# gamma_m = plt.scatter(df_comp_gamma['SpT_num'], df_comp_gamma['K1.1778'], color='#9B0132', s=30, zorder=4, marker="s")
-# ax1.errorbar(df_comp_gamma['SpT_num'], df_comp_gamma['K1.1778'], yerr=df_comp_gamma['e_K1.1778'], c='#9B0132', fmt='o', zorder=3)
-#
-# beta_m = plt.scatter(df_comp_beta['SpT_num'], df_comp_beta['K1.1778'], color='#FF6B03', s=30, zorder=4, marker="s")
-# ax1.errorbar(df_comp_beta['SpT_num'], df_comp_beta['K1.1778'], yerr=df_comp_beta['e_K1.1778'], c='#FF6B03', fmt='o', zorder=3)
-#
-# fld_m = plt.scatter(df_comp_field['SpT_num'], df_comp_field['K1.1778'], color='#7C7D70', s=30, zorder=4, marker="s")
-# ax1.errorbar(df_comp_field['SpT_used'], df_comp_field['K1.1778'], yerr=df_comp_field['e_K1.1778'], c='#7C7D70', fmt='o', zorder=3)
+gamma_m = plt.scatter(df_comp_gamma['SpT_num'], df_comp_gamma['K1.1778'], color='#9B0132', s=20, zorder=4, marker="s")
+ax1.errorbar(df_comp_gamma['SpT_num'], df_comp_gamma['K1.1778'], yerr=df_comp_gamma['e_K1.1778'], c='#9B0132', fmt='s', zorder=3)
+
+beta_m = plt.scatter(df_comp_beta['SpT_num'], df_comp_beta['K1.1778'], color='#FF6B03', s=20, zorder=4, marker="s")
+ax1.errorbar(df_comp_beta['SpT_num'], df_comp_beta['K1.1778'], yerr=df_comp_beta['e_K1.1778'], c='#FF6B03', fmt='s', zorder=3)
+
+fld_m = plt.scatter(df_comp_field['SpT_num'], df_comp_field['K1.1778'], color='#7C7D70', s=20, zorder=4, marker="s")
+ax1.errorbar(df_comp_field['SpT_num'], df_comp_field['K1.1778'], yerr=df_comp_field['e_K1.1778'], c='#7C7D70', fmt='s', zorder=3)
 
 
-Martin = plt.scatter(df_comp['SpT_num'], df_comp['K1.1778'], color='#E2D2E8', s=30, zorder=1, marker="s")
-ax1.errorbar(df_comp['SpT_num'], df_comp['K1.1778'], yerr=df_comp['e_K1.1778'], c='#E2D2E8', fmt='o', zorder=1)
+# Martin = plt.scatter(df_comp['SpT_num'], df_comp['K1.1778'], color='#E2D2E8', s=30, zorder=1, marker="s")
+# ax1.errorbar(df_comp['SpT_num'], df_comp['K1.1778'], yerr=df_comp['e_K1.1778'], c='#E2D2E8', fmt='o', zorder=1)
 
 # ---- Add Legend ----
-plt.legend([fld, fld_opt, gamma, beta, trap_s, Martin], ["Field", "Field (opt Spt)", "$\gamma$", '$\\beta$',
+# plt.legend([fld, fld_opt, gamma, beta, trap_s, Martin], ["Field", "Field (opt Spt)", "$\gamma$", '$\\beta$',
+#                                                          'TRAPPIST-1', "Martin 2017"], frameon=False, fontsize=12)
+
+plt.legend([fld, fld_opt, gamma, beta, trap_s, fld_m], ["Field", "Field (opt Spt)", "$\gamma$", '$\\beta$',
                                                          'TRAPPIST-1', "Martin 2017"], frameon=False, fontsize=12)
 
 plt.tight_layout()

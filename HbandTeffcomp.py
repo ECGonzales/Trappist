@@ -19,19 +19,19 @@ df_vb10 = pd.read_csv('Data/field_comp/Gaia1916+0508 (M8) SED.txt', sep=" ", com
 df_0320 = pd.read_csv('Data/field_comp/Gaia0320+1854 (M8) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 # ----Young----
-df_0953 = pd.read_csv('Data/young_comp/Gaia0953-1014 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
+df_0436 = pd.read_csv('Data/young_comp/0436-4114 (M8betagamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 df_0608 = pd.read_csv('Data/young_comp/Gaia0608-2753 (M8.5gamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 
 
 # -------- Drop a few spikes aka bad points (may not need with smoothing)----------------
-df_0953 = df_0953[(df_0953['w'] >= 1.42) & (df_0953['w'] <= 1.80)]
+df_0436 = df_0436[(df_0436['w'] >= 1.42) & (df_0436['w'] <= 1.80)]
 # Four bad points
-df_0953 = df_0953.drop(df_0953['f'].argmax())
-df_0953 = df_0953.drop(df_0953['f'].argmax())
-df_0953 = df_0953.drop(df_0953['f'].argmax())
-df_0953 = df_0953.drop(df_0953['f'].argmax())
+df_0436 = df_0436.drop(df_0436['f'].argmax())
+df_0436 = df_0436.drop(df_0436['f'].argmax())
+df_0436 = df_0436.drop(df_0436['f'].argmax())
+df_0436 = df_0436.drop(df_0436['f'].argmax())
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Normalize the spectra -------------------------------------
@@ -49,8 +49,8 @@ norm_df_vb10 = df_vb10['f']/(np.average(norm_region7['f']))
 norm_region8 = df_0320[(df_0320['w'] >= 1.5) & (df_0320['w'] <= 1.52)]
 norm_df_0320 = df_0320['f']/(np.average(norm_region8['f']))
 
-norm_region4 = df_0953[(df_0953['w'] >= 1.5) & (df_0953['w'] <= 1.52)]
-norm_df_0953 = df_0953['f']/(np.average(norm_region4['f']))
+norm_region4 = df_0436[(df_0436['w'] >= 1.5) & (df_0436['w'] <= 1.52)]
+norm_df_0436 = df_0436['f']/(np.average(norm_region4['f']))
 
 norm_region5 = df_0608[(df_0608['w'] >= 1.5) & (df_0608['w'] <= 1.52)]
 norm_df_0608 = df_0608['f']/(np.average(norm_region5['f']))
@@ -80,8 +80,8 @@ norm_df_0608 = df_0608['f']/(np.average(norm_region5['f']))
 speck_trap = [df_trap['w'].values, norm_df_trap.values, df_trap['err'].values]
 trap_bin = rebin(speck_trap, df_vb10['w'].values)
 
-speck_0953 = [df_0953['w'].values, norm_df_0953.values, df_0953['err'].values]
-J0953_bin = rebin(speck_0953, df_vb10['w'].values)
+speck_0436 = [df_0436['w'].values, norm_df_0436.values, df_0436['err'].values]
+J0436_bin = rebin(speck_0436, df_vb10['w'].values)
 
 speck_0608 = [df_0608['w'].values, norm_df_0608.values, df_0608['err'].values]
 J0608_bin = rebin(speck_0608, df_vb10['w'].values)
@@ -106,18 +106,18 @@ plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
 plt.tight_layout()
 
 # -------- Add data and Label Sources-----------
-# 0953
+# 0436
 ax1.plot(trap_bin[0], trap_bin[1], c='k')
-ax1.plot(J0953_bin[0], J0953_bin[1], c='#9B0132', alpha=0.75)
+ax1.plot(J0436_bin[0], J0436_bin[1], c='#9B0132', alpha=0.75)
 # ax1.plot(df_trap['w'], norm_df_trap , c='k')
-# ax1.plot(df_0953['w'], norm_df_0953, c='#9B0132', alpha=0.75)
-ax1.annotate('J0953-1014 (M9 $\gamma$) $T_\mathrm{eff}: 2430 \pm 255$ K', xy=(1.421, 0.7), color='#9B0132', fontsize=13)
+# ax1.plot(df_0436['w'], norm_df_0436, c='#9B0132', alpha=0.75)
+ax1.annotate('J0436-4114 (M9 VL-G) $T_\mathrm{eff}: 2430 \pm 255$ K', xy=(1.421, 0.7), color='#9B0132', fontsize=13)
 # 0608
 ax1.plot(trap_bin[0], trap_bin[1] + 0.5, c='k')
 ax1.plot(J0608_bin[0], J0608_bin[1] +0.5, c='#FF6B03', alpha=0.75)
 # ax1.plot(df_trap['w'], norm_df_trap + 0.5, c='k')
 # ax1.plot(df_0608['w'], norm_df_0608 + 0.5, c='#FF6B03', alpha=0.75)
-ax1.annotate('J0608-2753 (M8.5 $\gamma$) $T_\mathrm{eff}: 2493 \pm 253$ K', xy=(1.421, 1.9), color='#FF6B03', fontsize=13)
+ax1.annotate('J0608-2753 (L0 VL-G) $T_\mathrm{eff}: 2493 \pm 253$ K', xy=(1.421, 1.9), color='#FF6B03', fontsize=13)
 # vb10
 ax1.plot(trap_bin[0], trap_bin[1] + 1.2, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 1.2, c='k')

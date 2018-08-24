@@ -17,9 +17,9 @@ df_1247 = pd.read_csv('Data/young_comp/Gaia1247-3816 (M9gamma) SED.txt', sep=" "
                       names=["w", "f", "err"])
 df_1247_phot = pd.read_csv('Data/young_comp/Gaia1247-3816 (M9gamma) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
-df_0953 = pd.read_csv('Data/young_comp/Gaia0953-1014 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
+df_0436 = pd.read_csv('Data/young_comp/0436-4114 (M8betagamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
-df_0953_phot = pd.read_csv('Data/young_comp/Gaia0953-1014 (L0gamma) phot.txt', sep=" ", comment='#', header=None,
+df_0436_phot = pd.read_csv('Data/young_comp/0436-4114 (M8betagamma) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
 df_0608 = pd.read_csv('Data/young_comp/Gaia0608-2753 (M8.5gamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
@@ -45,13 +45,13 @@ ax1.loglog(df_1247['w'], df_1247['f'], c='#E80901', zorder=20)
 ax1.scatter(df_1247_phot['w'], df_1247_phot['f'], c='k', s=70)  # The ones with size 70 are to give the circles a
 y1247 = ax1.scatter(df_1247_phot['w'], df_1247_phot['f'], c='#E80901', s=50)        # black border
 
+ax1.loglog(df_0436['w'], df_0436['f'], c='#9B0132', zorder=19)
+ax1.scatter(df_0436_phot['w'], df_0436_phot['f'], c='k', s=70, zorder=19)  # The ones with size 70 are to give the circles a
+ax1.scatter(df_0436_phot['w'], df_0436_phot['f'], c='#9B0132', s=50, zorder=19)
+
 ax1.loglog(df_0608['w'], df_0608['f'], c='#FF6B03')
 ax1.scatter(df_0608_phot['w'], df_0608_phot['f'], c='k', s=70)  # The ones with size 70 are to give the circles a
 ax1.scatter(df_0608_phot['w'], df_0608_phot['f'], c='#FF6B03', s=50)
-
-ax1.loglog(df_0953['w'], df_0953['f'], c='#9B0132')
-ax1.scatter(df_0953_phot['w'], df_0953_phot['f'], c='k', s=70)  # The ones with size 70 are to give the circles a
-ax1.scatter(df_0953_phot['w'], df_0953_phot['f'], c='#9B0132', s=50)
 
 # ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.5, 23])
@@ -69,10 +69,18 @@ plt.ylabel('Flux ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 plt.tight_layout()
 
 # ------ Labeling Objects --------
-ax1.annotate('J1247-3816 (M9 $\gamma$)     $T_\mathrm{eff}: 2627 \pm 291$ K', xy=(3, 3*10**(-14)), color='#E80901', fontsize=15)
-ax1.annotate('J0608-2753 (M8.5 $\gamma$)  $T_\mathrm{eff}: 2493 \pm 253$ K', xy=(3, 1.8*10**(-14)), color='#FF6B03', fontsize=15)
-ax1.annotate('J0953-1014 (M9 $\gamma$)     $T_\mathrm{eff}: 2430 \pm 255$ K', xy=(3, 1.05*10**(-14)), color='#9B0132', fontsize=15)
-ax1.annotate('TRAPPIST-1 (M7.5)     $T_\mathrm{eff}: 2584 \pm 34$ K', xy=(3, 6*10**(-15)), color='k', fontsize=15)
+# OPT SpT
+# ax1.annotate('J1247-3816 (M9 $\gamma$)     $T_\mathrm{eff}: 2627 \pm 291$ K', xy=(3, 3*10**(-14)), color='#E80901', fontsize=15)
+# ax1.annotate('J0436-4114 (M8 $\\beta$)     $T_\mathrm{eff}: 2565 \pm 257$ K', xy=(3, 1.8*10**(-14)), color='#9B0132', fontsize=15)
+# ax1.annotate('J0608-2753 (M8.5 $\gamma$)  $T_\mathrm{eff}: 2493 \pm 253$ K', xy=(3, 1.05*10**(-14)), color='#FF6B03', fontsize=15)
+# NIR SpT
+ax1.annotate('J1247-3816 (M9 VL-G) $T_\mathrm{eff}: 2627 \pm 291$ K', xy=(3, 3*10**(-14)), color='#E80901', fontsize=15)
+ax1.annotate('J0436-4114 (M9 VL-G) $T_\mathrm{eff}: 2565 \pm 257$ K', xy=(3, 1.8*10**(-14)), color='#9B0132', fontsize=15)
+ax1.annotate('J0608-2753 (L0 VL-G)  $T_\mathrm{eff}: 2493 \pm 253$ K', xy=(3, 1.05*10**(-14)), color='#FF6B03', fontsize=15)
+
+
+
+ax1.annotate('TRAPPIST-1 (M7.5)       $T_\mathrm{eff}: 2584 \pm 34$ K', xy=(3, 6*10**(-15)), color='k', fontsize=15)
 
 plt.savefig('Figures/young_comp_teff.pdf', dpi=150)
 

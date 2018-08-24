@@ -19,7 +19,7 @@ df_vb10 = pd.read_csv('Data/field_comp/Gaia1916+0508 (M8) SED.txt', sep=" ", com
 df_0320 = pd.read_csv('Data/field_comp/Gaia0320+1854 (M8) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 # ----Young----
-df_0953 = pd.read_csv('Data/young_comp/Gaia0953-1014 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
+df_0436 = pd.read_csv('Data/young_comp/0436-4114 (M8betagamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 df_0608 = pd.read_csv('Data/young_comp/Gaia0608-2753 (M8.5gamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
@@ -40,8 +40,8 @@ norm_df_vb10 = df_vb10['f']/(np.average(norm_region7['f']))
 norm_region8 = df_0320[(df_0320['w'] >= 0.98) & (df_0320['w'] <= 0.988)]
 norm_df_0320 = df_0320['f']/(np.average(norm_region8['f']))
 
-norm_region4 = df_0953[(df_0953['w'] >= 0.98) & (df_0953['w'] <= 0.988)]
-norm_df_0953 = df_0953['f']/(np.average(norm_region4['f']))
+norm_region4 = df_0436[(df_0436['w'] >= 0.98) & (df_0436['w'] <= 0.988)]
+norm_df_0436 = df_0436['f']/(np.average(norm_region4['f']))
 
 norm_region5 = df_0608[(df_0608['w'] >= 0.98) & (df_0608['w'] <= 0.988)]
 norm_df_0608 = df_0608['f']/(np.average(norm_region5['f']))
@@ -52,8 +52,8 @@ norm_df_0608 = df_0608['f']/(np.average(norm_region5['f']))
 speck_trap = [df_trap['w'].values, norm_df_trap.values, df_trap['err'].values]
 trap_bin = rebin(speck_trap, df_vb10['w'].values)
 
-speck_0953 = [df_0953['w'].values, norm_df_0953.values, df_0953['err'].values]
-J0953_bin = rebin(speck_0953, df_vb10['w'].values)
+# speck_0436 = [df_0436['w'].values, norm_df_0436.values, df_0436['err'].values]
+# J0436_bin = rebin(speck_0436, df_vb10['w'].values)
 
 speck_0608 = [df_0608['w'].values, norm_df_0608.values, df_0608['err'].values]
 J0608_bin = rebin(speck_0608, df_vb10['w'].values)
@@ -77,23 +77,23 @@ plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
 plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
 
 # -------- Add data and Label Sources-----------
-# 0953
-ax1.plot(trap_bin[0], trap_bin[1], c='k')
-ax1.plot(J0953_bin[0], J0953_bin[1], c='#9B0132', alpha=0.75)
-# ax1.plot(df_trap['w'], norm_df_trap, c='k')
-# ax1.plot(df_0953['w'], norm_df_0953, c='#9B0132', alpha=0.75)
-ax1.annotate('J0953-1014 (M9 $\gamma$) $T_\mathrm{eff}: 2430 \pm 255$ K', xy=(0.951, 1.25), color='#9B0132', fontsize=13)
 # 0608
-ax1.plot(trap_bin[0], trap_bin[1] + 0.8, c='k')
-ax1.plot(J0608_bin[0], J0608_bin[1] +0.8, c='#FF6B03', alpha=0.75)
+ax1.plot(trap_bin[0], trap_bin[1], c='k')
+ax1.plot(J0608_bin[0], J0608_bin[1], c='#FF6B03', alpha=0.75)
 # ax1.plot(df_trap['w'], norm_df_trap + 0.8, c='k')
 # ax1.plot(df_0608['w'], norm_df_0608 + 0.8, c='#FF6B03', alpha=0.75)
-ax1.annotate('J0608-2753 (M8.5 $\gamma$) $T_\mathrm{eff}: 2493 \pm 253$ K', xy=(0.951, 2.2), color='#FF6B03', fontsize=13)
+ax1.annotate('J0608-2753 (L0 VL-G) $T_\mathrm{eff}: 2493 \pm 253$ K', xy=(0.951, 1.27), color='#FF6B03', fontsize=13)
+# 0436
+ax1.plot(trap_bin[0], trap_bin[1] + 0.8, c='k')
+ax1.plot(df_0436, norm_df_0436 + 0.8, c='#9B0132', alpha=0.75)
+# ax1.plot(df_trap['w'], norm_df_trap, c='k')
+# ax1.plot(df_0436['w'], norm_df_0436, c='#9B0132', alpha=0.75)
+ax1.annotate('J0436-4114 (M9 VL-G) $T_\mathrm{eff}: 2565 \pm 257$ K', xy=(0.951, 2.1), color='#9B0132', fontsize=13)
 # vb10
 ax1.plot(trap_bin[0], trap_bin[1] + 1.8, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 1.8, c='k')
 ax1.plot(df_vb10['w'], norm_df_vb10 + 1.8, c='#275202', alpha=0.75)
-ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2541 \pm 45$ K', xy=(0.951, 2.9), color='#275202', fontsize=13)
+ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2541 \pm 45$ K', xy=(0.951, 2.95), color='#275202', fontsize=13)
 # Trappist
 ax1.plot(trap_bin[0], trap_bin[1] + 2.5, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 2.5, c='k')
@@ -133,12 +133,12 @@ plt.plot(FeH2d['x'], FeH2d['y'], color='k')
 
 VO = pd.DataFrame()
 VO['x'] = [1.0456, 1.08]
-VO['y'] = [5.7, 5.7]
+VO['y'] = [5.85, 5.85]
 plt.plot(VO['x'], VO['y'], color='k')
-ax1.annotate('VO', xy=(1.06, 5.71), color='k', fontsize=15)
+ax1.annotate('VO', xy=(1.06, 5.86), color='k', fontsize=15)
 VOd = pd.DataFrame()
 VOd['x'] = [1.0456, 1.0456]
-VOd['y'] = [5.7, 5.55]
+VOd['y'] = [5.7, 5.85]
 plt.plot(VOd['x'], VOd['y'], color='k')
 
 H2O = pd.DataFrame()

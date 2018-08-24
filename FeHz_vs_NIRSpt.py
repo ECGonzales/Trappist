@@ -55,6 +55,8 @@ zfeh_down = df_poly['zfeh']-df_poly['zfehe']
 # --------------------------------------------------------------------------------------
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
+for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
+    ax1.spines[axis].set_linewidth(1.1)
 fig.set_size_inches(10, 6.45)
 
 # ------Tick size and Axes Labels --------

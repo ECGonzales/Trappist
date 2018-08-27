@@ -71,7 +71,7 @@ ax1.errorbar(df_field2['SpT_used'][23], df_field2['KI_J'][23], yerr=df_field2['E
 trap_f = plt.scatter(df_field2['SpT_used'][24], df_field2['KI_J'][24], color='k', s=700, zorder=2, marker="*")
 ax1.errorbar(df_field2['SpT_used'][24], df_field2['KI_J'][24], yerr=df_field2['E_KI_J'][24], c='k', zorder=2, fmt='o')
 # SXD
-trap_s = plt.scatter(df_field2['SpT_used'][25], df_field2['KI_J'][25], color='k', s=200, zorder=2, marker="s")
+trap_s = plt.scatter(df_field2['SpT_used'][25], df_field2['KI_J'][25], color='k', s=200, zorder=2, marker="o")
 ax1.errorbar(df_field2['SpT_used'][25], df_field2['KI_J'][25], yerr=df_field2['E_KI_J'][25], c='k', zorder=2, fmt='o')
 
 # ---- Add Legend ----

@@ -77,12 +77,12 @@ fld = plt.scatter(df_field['spt'], df_field['AbsJ'], color='#7C7D70', s=70)
 ax1.errorbar(df_field['spt'], df_field['AbsJ'], yerr=df_field['AbsJ_err'], c='#7C7D70', fmt='o')
 gamma = plt.scatter(df_gamma['SpT'], df_gamma['AbsJ'], color='#9B0132', s=70)
 ax1.errorbar(df_gamma['SpT'], df_gamma['AbsJ'], yerr=df_gamma['AbsJ_err'], c='#9B0132', fmt='o')
-beta = plt.scatter(df_beta['SpT'], df_beta['AbsJ'], color='#D01810', s=70, marker='s')
-ax1.errorbar(df_beta['SpT'], df_beta['AbsJ'], yerr=df_beta['AbsJ_err'], c='#D01810', fmt='s')
+beta = plt.scatter(df_beta['SpT'], df_beta['AbsJ'], color='#FF6B03', s=70, marker='o')
+ax1.errorbar(df_beta['SpT'], df_beta['AbsJ'], yerr=df_beta['AbsJ_err'], c='#FF6B03', fmt='o')
 sub = plt.scatter(df_sub['SpT'], df_sub['MJ'], color='blue', s=70, zorder=5)
 ax1.errorbar(df_sub['SpT'], df_sub['MJ'], yerr=df_sub['MJ_unc'], c='blue', fmt='o', zorder=6)
 trap = plt.scatter(df_trappist['SpT'], df_trappist['MJ'], color='k', s=700, zorder=7, marker="*")
-ax1.errorbar(df_trappist['SpT'], df_trappist['MJ'], yerr=df_trappist['M_unc'], c='k', fmt='*', zorder=6)
+ax1.errorbar(df_trappist['SpT'], df_trappist['MJ'], yerr=df_trappist['MJ_unc'], c='k', fmt='*', zorder=6)
 
 # ---- Add Legend ----
 plt.legend([fld, gamma, beta, sub, trap], ["Field", "$\gamma$", "$\\beta$", 'Subdwarf', "TRAPPIST-1"], frameon=False,

@@ -29,7 +29,7 @@ for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
 
 # ------Tick size and Axes Labels --------
 plt.ylabel('Number', fontsize=25)
-plt.xlabel('V$_\mathrm{tan}$', fontsize=25)
+plt.xlabel('V$_\mathrm{tan}$ (km/s)', fontsize=25)
 ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
 plt.xlim([-10,40])
 bins = [-10,-5,0,5,10,15,20,25,30,35,40]
@@ -52,7 +52,7 @@ for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
 
 # ------Tick size and Axes Labels --------
 plt.ylabel('Number', fontsize=25)
-plt.xlabel('V$_\mathrm{tan}$', fontsize=25)
+plt.xlabel('V$_\mathrm{tan}$ (km/s)', fontsize=25)
 ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
 plt.xlim([-10,40])
 

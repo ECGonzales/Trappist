@@ -95,6 +95,7 @@ for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
 ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
 plt.xlabel('Wavelength ($\mu$m)', fontsize=25)
 plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
+plt.tight_layout()
 
 # -------- Add data -----------
 # 1207

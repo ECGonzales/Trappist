@@ -54,8 +54,8 @@ ax1.errorbar(df_gamma['SpT_used'], df_gamma['VO_Z'], yerr=df_gamma['E_VO_Z'], c=
 beta = plt.scatter(df_beta['SpT_used'], df_beta['VO_Z'], color='#FF6B03', s=70, zorder=4)
 ax1.errorbar(df_beta['SpT_used'], df_beta['VO_Z'], yerr=df_beta['E_VO_Z'], c='#FF6B03', fmt='o', zorder=3)
 
-fld = plt.scatter(df_field['SpT_used'], df_field['VO_Z'], color='#7C7D70', s=70, zorder=4)
-ax1.errorbar(df_field['SpT_used'], df_field['VO_Z'], yerr=df_field['E_VO_Z'], c='#7C7D70', fmt='o', zorder=3)
+fld = plt.scatter(df_field['SpT_used'], df_field['VO_Z'], color='#7C7D70', s=70, zorder=5)
+ax1.errorbar(df_field['SpT_used'], df_field['VO_Z'], yerr=df_field['E_VO_Z'], c='#7C7D70', fmt='o', zorder=6)
 
 fld_opt = plt.scatter(df_field_opt['SpT_used'], df_field_opt['VO_Z'], color='#ABBDC4', s=70, zorder=4)
 ax1.errorbar(df_field_opt['SpT_used'], df_field_opt['VO_Z'], yerr=df_field_opt['E_VO_Z'], c='#ABBDC4', fmt='o', zorder=3)

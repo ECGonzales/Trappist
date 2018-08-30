@@ -12,6 +12,7 @@ df = pd.read_csv('Data/Indices/indices.tsv', sep="\t", comment='#', header=0)
 # KI_244, E_KI_244, KI_253,	E_KI_253]
 
 df_poly = pd.read_csv('Data/Indices/indexfits.txt', sep="\t", comment='#', header=0)
+df_line = pd.read_csv('Data/Indices/AL13_dottedlines_indices_EW.txt', sep='\t', comment='#', header=0)
 
 # Separate the data into field, gamma, and beta
 df_gamma = df[(df['nir grav'] == 'g')]
@@ -46,6 +47,9 @@ plt.ylim([1.03, 1.13])
 # plot polynomials
 plt.plot(df_poly['spts'], df_poly['KiJ'])
 ax1.fill_between(df_poly['spts'], KiJ_up, KiJ_down, alpha=.25, color='#17becf')
+
+# Create the dashed line seperating betas and gammas
+plt.plot(df_line['SpT'], df_line['KIJ'], color='k', linestyle='dashed', linewidth=0.65)
 
 # plot data
 gamma = plt.scatter(df_gamma['SpT_used'], df_gamma['KI_J'], color='#9B0132', s=70, zorder=4)

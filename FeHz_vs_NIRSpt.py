@@ -12,6 +12,7 @@ df = pd.read_csv('Data/Indices/indices.tsv', sep="\t", comment='#', header=0)
 # KI_244, E_KI_244, KI_253,	E_KI_253]
 
 df_poly = pd.read_csv('Data/Indices/indexfits.txt', sep="\t", comment='#', header=0)
+df_line = pd.read_csv('Data/Indices/AL13_dottedlines_indices_EW.txt', sep='\t', comment='#', header=0)
 
 # -------------- How to Deal with reading in an idl .sav file and converting to a dataframe -----------------
 # polys = sci.readsav('Data/Indices/indexfits.sav')
@@ -49,7 +50,6 @@ df_subd = df[(df['opt grav'] == 'sd')]
 zfeh_up = df_poly['zfeh']+df_poly['zfehe']
 zfeh_down = df_poly['zfeh']-df_poly['zfehe']
 
-
 # --------------------------------------------------------------------------------------
 # -----------------------------Plot up the indices -------------------------------------
 # --------------------------------------------------------------------------------------
@@ -72,6 +72,8 @@ plt.ylim([0.999, 1.26])
 plt.plot(df_poly['spts'], df_poly['zfeh'])
 ax1.fill_between(df_poly['spts'], zfeh_up, zfeh_down, alpha=.25, color='#17becf')
 
+# Create the dashed line seperating betas and gammas
+plt.plot(df_line['SpT'], df_line['FeHz'], color='k', linestyle='dashed', linewidth=0.65)
 # plot data
 gamma = plt.scatter(df_gamma['SpT_used'], df_gamma['FEH_Z'], color='#9B0132', s=70, zorder=3)
 ax1.errorbar(df_gamma['SpT_used'], df_gamma['FEH_Z'], yerr=df_gamma['E_FEH_Z'], c='#9B0132', fmt='o', zorder=2)

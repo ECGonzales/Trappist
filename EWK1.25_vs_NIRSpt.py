@@ -69,7 +69,7 @@ ax1.errorbar(df_field_opt['SpT_used'], df_field_opt['KI_253'], yerr=df_field_opt
 
 # --- Designate Trappist-1 -----
 # FIRE
-trap_f = plt.scatter(df_field2['SpT_used'][24], df_field2['KI_253'][24], color='k', s=200, zorder=2, marker="s")
+trap_f = plt.scatter(df_field2['SpT_used'][24], df_field2['KI_253'][24], color='k', s=400, zorder=2, marker="*")
 ax1.errorbar(df_field2['SpT_used'][24], df_field2['KI_253'][24], yerr=df_field2['E_KI_169'][24], c='k', zorder=2,
              fmt='o')
 # SXD

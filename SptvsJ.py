@@ -69,7 +69,7 @@ plt.ylim([17, 7.5])
 # ------ Axes Labels --------
 ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
 plt.xticks([6, 8, 10, 12, 14, 16, 18], ['M6', 'M8', 'L0', 'L2', 'L4', 'L6', 'L8'], fontsize=20)
-plt.xlabel('Spectral Type', fontsize=25)
+plt.xlabel('Optical Spectral Type', fontsize=25)
 plt.ylabel('$M_J$ (2MASS)', fontsize=25)
 
 # ----- Add data -----

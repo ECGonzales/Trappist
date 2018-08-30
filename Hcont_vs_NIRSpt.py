@@ -65,8 +65,8 @@ ax1.errorbar(df_field['SpT_used'], df_field['HCONT'], yerr=df_field['E_HCONT'], 
 fld_opt = plt.scatter(df_field_opt['SpT_used'], df_field_opt['HCONT'], color='#ABBDC4', s=70, zorder=4)
 ax1.errorbar(df_field_opt['SpT_used'], df_field_opt['HCONT'], yerr=df_field_opt['E_HCONT'], c='#ABBDC4', fmt='o', zorder=3)
 
-# sd = plt.scatter(df_subd['SpT_used'], df_subd['FEH_Z'], color='blue', s=70)
-# ax1.errorbar(df_subd['SpT_used'], df_subd['FEH_Z'], yerr=df_subd['E_FEH_Z'], c='blue', fmt='o')
+# sd = plt.scatter(df_subd['SpT_used'], df_subd['HCONT'], color='blue', s=70)
+# ax1.errorbar(df_subd['SpT_used'], df_subd['HCONT'], yerr=df_subd['E_FEH_Z'], c='blue', fmt='o')
 
 # --- Designate Trappist-1 -----
 # Prism

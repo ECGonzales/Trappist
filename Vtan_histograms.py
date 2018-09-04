@@ -56,8 +56,8 @@ plt.ylim([0, 10.5])
 
 plt.hist(df_beta_out['Vtan'], bins=bins, color='#FC1301', edgecolor='k', alpha=0.75, label="$\\beta$ not in Group")
 
-ax1.legend()
-ax2.legend()
+ax1.legend(fontsize=15)
+ax2.legend(fontsize=15)
 plt.tight_layout()
 plt.savefig('Figures/Vtan_beta.pdf', dpi=150)
 
@@ -93,10 +93,10 @@ ax2.tick_params(axis='both', labelsize=20, length=8, width=1.1)
 plt.xlim([0, 40])
 plt.ylim([0, 8.5])
 
-plt.hist(df_gamma_out['Vtan'], bins=bins, color='#BD250E', edgecolor='k', alpha=0.75, label="$\gamma$ not in Group")
+plt.hist(df_gamma_out['Vtan'], bins=bins, color='#BD250E', edgecolor='k', alpha=0.75, label="$\gamma$ not \n in Group")
 
 # legends and such
-ax1.legend()
-ax2.legend()
+ax1.legend(loc=2,fontsize=14)
+ax2.legend(loc=2,fontsize=14)
 plt.tight_layout()
 plt.savefig('Figures/Vtan_gamma.pdf', dpi=150)

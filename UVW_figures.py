@@ -175,7 +175,7 @@ ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
 bins=np.linspace(10,100,10)
 
 plt.hist(df_gamma_group['Total'], bins=bins, color='#9B0132', edgecolor='k', label="$\gamma$ in Group")
-plt.legend()
+plt.legend(fontsize=15)
 plt.tight_layout()
 plt.savefig('Figures/Total_UVW_velocity_hist_gammaIn.pdf', dpi=150)
 
@@ -194,7 +194,7 @@ bins=np.linspace(10,100,10)
 
 
 plt.hist(df_gamma_nogroup['Total'], bins=bins, color='#BD250E', edgecolor='k', label="$\gamma$ not in Group")
-plt.legend()
+plt.legend(fontsize=15)
 plt.tight_layout()
 plt.savefig('Figures/Total_UVW_velocity_hist_gammaOut.pdf', dpi=150)
 
@@ -212,6 +212,6 @@ ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
 bins=np.linspace(10,100,10)
 
 plt.hist(df_beta_nogroup['Total'], bins=bins, color='#FF6B03', edgecolor='k', alpha=0.75, label="$\gamma$ not in Group")
-plt.legend()
+plt.legend(fontsize=15)
 plt.tight_layout()
 plt.savefig('Figures/Total_UVW_velocity_hist_betaOut.pdf', dpi=150)

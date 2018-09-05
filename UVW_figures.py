@@ -73,10 +73,10 @@ trappist = plt.scatter(trap_U, trap_V, color='k', s=700, marker='*')
 ax1.errorbar(trap_U, trap_V, xerr=trap_dU,yerr=trap_dV, c='k', fmt='o')
 
 # Add eagan good box line
-plt.hlines(-50, -30, 0)
-plt.hlines(20, -30, 0)
-plt.vlines(-30, -50, 20)
-plt.vlines(0, -50, 20)
+plt.hlines(-50, -30, 0, linestyles='dashed', linewidth=1)
+plt.hlines(20, -30, 0, linestyles='dashed', linewidth=1)
+plt.vlines(-30, -50, 20, linestyles='dashed', linewidth=1)
+plt.vlines(0, -50, 20, linestyles='dashed', linewidth=1)
 
 plt.legend([gamma_in, gamma_out, beta_out, trappist], ['$\gamma$ in group', '$\gamma$ not in group',
                                                        '$\\beta$ not in group', 'TRAPPIST-1'], frameon=False, fontsize=12)

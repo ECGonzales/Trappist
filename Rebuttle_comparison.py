@@ -71,7 +71,7 @@ ax1.annotate('LHS 132 (M8) $T_\mathrm{eff}: 2579 \pm 34$ K, $L_\mathrm{bol}: -3.
              xy=(0.7, 1.1*10**(-17)), color='#E08B11', fontsize=15)
 ax1.annotate('J2341-1133 (M8) $T_\mathrm{eff}: 2878 \pm 37$ K, $L_\mathrm{bol}: -2.946 \pm 0.011$',
              xy=(0.7, 1.8*10**(-17)), color='#E05714', fontsize=15)
-ax1.annotate('J2352-1100 (M8 $\\beta$) $T_\mathrm{eff}: 2910 \pm 56$ K, $L_\mathrm{bol}: -2.793 \pm 0.018$',
+ax1.annotate('J2352-1100 (M8 $\\beta$) $T_\mathrm{eff}: 2901 \pm 56$ K, $L_\mathrm{bol}: -2.81 \pm 0.018$',
              xy=(0.7, 2.9*10**(-17)), color='#CC2015', fontsize=15)
 
 ax1.annotate('TRAPPIST-1 (M7.5) $T_\mathrm{eff}: 2584 \pm 34$ K ', xy=(1.7, 3.5*10**(-14)), color='k', fontsize=15)

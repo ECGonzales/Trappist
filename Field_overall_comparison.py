@@ -9,7 +9,7 @@ from matplotlib.ticker import ScalarFormatter
 
 df_trap = pd.read_csv('Data/Smooth_output/Fieldoverall/Gaia2306-0502_(M7.5)_SED_spexify_spexified.txt', sep=" ",
                       comment='#', header=None, names=["w", "f", "err"])
-df_trap_phot = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ",comment='#', header=None,
+df_trap_phot = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff ----------------------------------
@@ -21,7 +21,7 @@ df_trap_phot = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ",comment
 df_vb8 = pd.read_csv('Data/Smooth_output/Fieldoverall/Gaia1655-0823_(M7)_SED_spexify_spexified.txt', sep=" ",
                      comment='#', header=None, names=["w", "f", "err"])
 df_vb8_phot = pd.read_csv('Data/field_comp/Gaia1655-0823 (M7) phot.txt', sep=" ", comment='#', header=None,
-                            names=["w", "f", "err"])
+                          names=["w", "f", "err"])
 # vb10
 df_vb10 = pd.read_csv('Data/Smooth_output/Fieldoverall/Gaia1916+0508_(M8)_SED_spexify_spexified.txt', sep=" ",
                       comment='#', header=None, names=["w", "f", "err"])
@@ -36,7 +36,7 @@ df_0320_phot = pd.read_csv('Data/field_comp/Gaia0320+1854 (M8) phot.txt', sep=" 
 df_LHS3003 = pd.read_csv('Data/Smooth_output/Fieldoverall/1456-2809_(M7)_SED_spexify_spexified.txt', sep=" ",
                          comment='#', header=None, names=["w", "f", "err"])
 df_LHS3003_phot = pd.read_csv('Data/field_comp/1456-2809 (M7) phot.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+                              names=["w", "f", "err"])
 
 # -------------------------------------------------------------------------------------
 # ------------------- Plotting: Field Comparison of same Teff -------------------------------
@@ -68,7 +68,7 @@ ax1.loglog(df_LHS3003['w'], df_LHS3003['f'], c='#09D5D6')  # Greys: #D5EDFF Gree
 ax1.scatter(df_LHS3003_phot['w'], df_LHS3003_phot['f'], c='k', s=70)
 ax1.scatter(df_LHS3003_phot['w'], df_LHS3003_phot['f'], c='#09D5D6', s=50)  # Greys: #D5EDFF Greens: #09D5D6
 
-#ax1.scatter(df_trap_phot['w'], df_trap_phot['f'], c='#7C7D70', s=50, zorder=10)
+# ax1.scatter(df_trap_phot['w'], df_trap_phot['f'], c='#7C7D70', s=50, zorder=10)
 
 
 # ----- Set axes limits, reformat ticks -----------
@@ -121,7 +121,7 @@ plt.savefig('Figures/comparison_FieldTeff_zoom.pdf', dpi=150)
 # To Make the temp dependent region zoom in
 plt.xlim([1.27, 1.8])
 plt.ylim([5*10**(-15), 2*10**(-14)])
-ax1.xaxis.set_minor_locator(plt.FixedLocator([1.27,1.42,1.70,1.80]))
+ax1.xaxis.set_minor_locator(plt.FixedLocator([1.27, 1.42, 1.70, 1.80]))
 fig.set_size_inches(11.32, 8.59)
 ax1.annotate('TRAPPIST-1 (M7.5)', xy=(1.65, 1.9*10**(-14)), color='k', fontsize=15)
 ax1.annotate('vb8 (M7)', xy=(1.65, 1.8*10**(-14)), color='#04A57F', fontsize=15)

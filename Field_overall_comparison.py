@@ -7,29 +7,34 @@ from matplotlib.ticker import ScalarFormatter
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
 
-df_trap = pd.read_csv('Data/Gaia2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
-df_trap_phot = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ",comment='#', header=None, names=["w", "f", "err"])
+df_trap = pd.read_csv('Data/Smooth_output/Fieldoverall/Gaia2306-0502_(M7.5)_SED_spexify_spexified.txt', sep=" ",
+                      comment='#', header=None, names=["w", "f", "err"])
+df_trap_phot = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ",comment='#', header=None,
+                           names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff ----------------------------------
 # df_0102 = pd.read_csv('Data/field_comp/Gaia0102-3737 (M8) SED.txt', sep=" ", comment='#', header=None,  # LHS 132
 #                        names=["w", "f", "err"])
 # df_0102_phot = pd.read_csv('Data/field_comp/Gaia0102-3737 (M8) phot.txt', sep=" ", comment='#', header=None,
 #                             names=["w", "f", "err"])
-df_vb8 = pd.read_csv('Data/field_comp/Gaia1655-0823 (M7) SED.txt', sep=" ", comment='#', header=None,  # vb8
-                       names=["w", "f", "err"])
+# vb8
+df_vb8 = pd.read_csv('Data/Smooth_output/Fieldoverall/Gaia1655-0823_(M7)_SED_spexify_spexified.txt', sep=" ",
+                     comment='#', header=None, names=["w", "f", "err"])
 df_vb8_phot = pd.read_csv('Data/field_comp/Gaia1655-0823 (M7) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
-df_vb10 = pd.read_csv('Data/field_comp/Gaia1916+0508 (M8) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+# vb10
+df_vb10 = pd.read_csv('Data/Smooth_output/Fieldoverall/Gaia1916+0508_(M8)_SED_spexify_spexified.txt', sep=" ",
+                      comment='#', header=None, names=["w", "f", "err"])
 df_vb10_phot = pd.read_csv('Data/field_comp/Gaia1916+0508 (M8) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
-df_0320 = pd.read_csv('Data/field_comp/Gaia0320+1854 (M8) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+# 0320
+df_0320 = pd.read_csv('Data/Smooth_output/Fieldoverall/Gaia0320+1854_(M8)_SED_spexify_spexified.txt', sep=" ",
+                      comment='#', header=None, names=["w", "f", "err"])
 df_0320_phot = pd.read_csv('Data/field_comp/Gaia0320+1854 (M8) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
-df_LHS3003 = pd.read_csv('Data/field_comp/1456-2809 (M7) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+# LHS 3003
+df_LHS3003 = pd.read_csv('Data/Smooth_output/Fieldoverall/1456-2809_(M7)_SED_spexify_spexified.txt', sep=" ",
+                         comment='#', header=None, names=["w", "f", "err"])
 df_LHS3003_phot = pd.read_csv('Data/field_comp/1456-2809 (M7) phot.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 
@@ -68,7 +73,7 @@ ax1.scatter(df_LHS3003_phot['w'], df_LHS3003_phot['f'], c='#09D5D6', s=50)  # Gr
 
 # ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.3, 31])
-plt.ylim([4*10**(-20), 3*10**(-14)])
+plt.ylim([6*10**(-20), 3*10**(-14)])
 ax1.xaxis.set_major_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_locator(plt.FixedLocator([0.3, 0.6, 2, 3, 7.5, 31]))
@@ -102,16 +107,26 @@ plt.savefig('Figures/comparison_FieldTeff.pdf', dpi=150)
 
 # To Make the zoom in red optical
 plt.xlim([0.65, 1])
-plt.ylim([10**(-16), 3*10**(-14)])
+plt.ylim([10**(-16), 2*10**(-14)])
 ax1.xaxis.set_minor_locator(plt.FixedLocator([0.65, 0.7, 0.8, 0.9]))
 fig.set_size_inches(11.32, 8.59)
+ax1.annotate('TRAPPIST-1 (M7.5)', xy=(0.9, 2.3*10**(-16)), color='k', fontsize=15)
+ax1.annotate('vb8 (M7)', xy=(0.9, 1.9*10**(-16)), color='#04A57F', fontsize=15)
+ax1.annotate('LHS 3003 (M7)', xy=(0.9, 1.6*10**(-16)), color='#09D5D6', fontsize=15)
+ax1.annotate('J0320+1854 (M8)', xy=(0.9, 1.3*10**(-16)), color='#1EE801', fontsize=15)
+ax1.annotate('vb10 (M8)', xy=(0.9, 1.1*10**(-16)), color='#275202', fontsize=15)
 plt.savefig('Figures/comparison_FieldTeff_zoom.pdf', dpi=150)
 
 
 # To Make the temp dependent region zoom in
 plt.xlim([1.27, 1.8])
-plt.ylim([4.75*10**(-15), 2*10**(-14)])
+plt.ylim([5*10**(-15), 2*10**(-14)])
 ax1.xaxis.set_minor_locator(plt.FixedLocator([1.27,1.42,1.70,1.80]))
 fig.set_size_inches(11.32, 8.59)
+ax1.annotate('TRAPPIST-1 (M7.5)', xy=(1.65, 1.9*10**(-14)), color='k', fontsize=15)
+ax1.annotate('vb8 (M7)', xy=(1.65, 1.8*10**(-14)), color='#04A57F', fontsize=15)
+ax1.annotate('LHS 3003 (M7)', xy=(1.65, 1.7*10**(-14)), color='#09D5D6', fontsize=15)
+ax1.annotate('J0320+1854 (M8)', xy=(1.65, 1.6*10**(-14)), color='#1EE801', fontsize=15)
+ax1.annotate('vb10 (M8)', xy=(1.65, 1.52*10**(-14)), color='#275202', fontsize=15)
 plt.tight_layout()
 plt.savefig('Figures/comparison_FieldTeffdepregion_zoom.pdf', dpi=150)

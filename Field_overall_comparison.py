@@ -121,7 +121,7 @@ plt.savefig('Figures/comparison_FieldTeff_zoom.pdf', dpi=150)
 # To Make the temp dependent region zoom in
 plt.xlim([1.27, 1.8])
 plt.ylim([5*10**(-15), 2*10**(-14)])
-ax1.xaxis.set_minor_locator(plt.FixedLocator([1.27, 1.42, 1.70, 1.80]))
+ax1.xaxis.set_minor_locator(plt.FixedLocator([1.27, 1.42,1.70,1.80]))
 fig.set_size_inches(11.32, 8.59)
 ax1.annotate('TRAPPIST-1 (M7.5)', xy=(1.65, 1.9*10**(-14)), color='k', fontsize=15)
 ax1.annotate('vb8 (M7)', xy=(1.65, 1.8*10**(-14)), color='#04A57F', fontsize=15)

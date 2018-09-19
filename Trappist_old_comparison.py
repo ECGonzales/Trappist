@@ -52,7 +52,7 @@ ax1.scatter(df_GJ660_phot['w'], df_GJ660_phot['f'], c='#07D1E8', s=50)
 
 # ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.5, 13])
-plt.ylim([6*10**(-18), 2*10**(-14)])
+plt.ylim([10**(-17), 2*10**(-14)])
 ax1.xaxis.set_major_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_locator(plt.FixedLocator([0.5, 0.7, 2, 3, 13]))
@@ -65,17 +65,12 @@ plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
 plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 
 # ------ Labeling Objects --------
-ax1.annotate('TRAPPIST-1 (M7.5) ', xy=(3, 10**(-14)), color='k', fontsize=15)
-ax1.annotate('$T_\mathrm{eff}: 2581 \pm 34$ K', xy=(3, 6*10**(-15)), color='k', fontsize=15)
-ax1.annotate('$L_\mathrm{bol}: -3.255 \pm 0.002$', xy=(3, 4*10**(-15)), color='k', fontsize=15)
+ax1.annotate('TRAPPIST-1 (M7.5)     $T_\mathrm{eff}: 2581 \pm 34$ K,  $L_\mathrm{bol}: -3.255 \pm 0.002$', xy=(0.52, 2.3*10**(-17)), color='k', fontsize=15)
 
-ax1.annotate('J1013-1356 (sdM9.5)', xy=(3, 3*10**(-17)), color='#0822FF', fontsize=15)
-ax1.annotate('$T_\mathrm{eff}: 2621 \pm 32$ K', xy=(3, 1.7*10**(-17)), color='#0822FF', fontsize=15)
-ax1.annotate('$L_\mathrm{bol}: -3.334 \pm 0.019$', xy=(3, 10**(-17)), color='#0822FF', fontsize=15)
+ax1.annotate('J1013-1356 (sdM9.5) $T_\mathrm{eff}: 2621 \pm 32$ K,  $L_\mathrm{bol}: -3.334 \pm 0.019$', xy=(0.52, 1.6*10**(-17)), color='#0822FF', fontsize=15)
 
-ax1.annotate('GJ660.1B (d/sdM7)', xy=(1, 6*10**(-16)), color='#07D1E8', fontsize=15)
-ax1.annotate('$T_\mathrm{eff}: 2642 \pm 102$ K', xy=(1, 3.5*10**(-16)), color='#07D1E8', fontsize=15)
-ax1.annotate('$L_\mathrm{bol}: -3.286 \pm 0.063$', xy=(1, 2*10**(-16)), color='#07D1E8', fontsize=15)
+ax1.annotate('GJ660.1B (d/sdM7)    $T_\mathrm{eff}: 2642 \pm 102$ K, $L_\mathrm{bol}: -3.286 \pm 0.063$', xy=(0.52, 1.1*10**(-17)), color='#07D1E8', fontsize=15)
+
 
 
 plt.tight_layout()

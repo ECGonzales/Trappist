@@ -67,7 +67,7 @@ ax1 = fig.add_subplot(111)
 fig.set_size_inches(8.5, 11)
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
 plt.xlim([0.95, 1.10])
-plt.ylim([0.25, 6.6])
+plt.ylim([0.25, 7.6])
 for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
     ax1.spines[axis].set_linewidth(1.1)
 
@@ -82,73 +82,73 @@ ax1.plot(trap_bin[0], trap_bin[1], c='k')
 ax1.plot(J0608_bin[0], J0608_bin[1], c='#FF6B03', alpha=0.75)
 # ax1.plot(df_trap['w'], norm_df_trap + 0.8, c='k')
 # ax1.plot(df_0608['w'], norm_df_0608 + 0.8, c='#FF6B03', alpha=0.75)
-ax1.annotate('J0608-2753 (L0 VL-G) $T_\mathrm{eff}: 2493 \pm 253$ K', xy=(0.951, 1.27), color='#FF6B03', fontsize=13)
+ax1.annotate('J0608-2753 (L0 VL-G) $T_\mathrm{eff}: 2471 \pm 255$ K', xy=(0.951, 1.5), color='#FF6B03', fontsize=15)
+# vb10
+ax1.plot(trap_bin[0], trap_bin[1] + 1.2, c='k')
+# ax1.plot(df_trap['w'], norm_df_trap + 1.8, c='k')
+ax1.plot(df_vb10['w'], norm_df_vb10 + 1.2, c='#275202', alpha=0.75)
+ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2541 \pm 45$ K', xy=(0.951, 2.4), color='#275202', fontsize=15)
 # 0436
-ax1.plot(trap_bin[0], trap_bin[1] + 0.8, c='k')
-ax1.plot(df_0436, norm_df_0436 + 0.8, c='#9B0132', alpha=0.75)
+ax1.plot(trap_bin[0], trap_bin[1] + 2.2, c='k')
+ax1.plot(df_0436, norm_df_0436 + 2.2, c='#9B0132', alpha=0.75)
 # ax1.plot(df_trap['w'], norm_df_trap, c='k')
 # ax1.plot(df_0436['w'], norm_df_0436, c='#9B0132', alpha=0.75)
-ax1.annotate('J0436-4114 (M9 VL-G) $T_\mathrm{eff}: 2565 \pm 257$ K', xy=(0.951, 2.1), color='#9B0132', fontsize=13)
-# vb10
-ax1.plot(trap_bin[0], trap_bin[1] + 1.8, c='k')
-# ax1.plot(df_trap['w'], norm_df_trap + 1.8, c='k')
-ax1.plot(df_vb10['w'], norm_df_vb10 + 1.8, c='#275202', alpha=0.75)
-ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2541 \pm 45$ K', xy=(0.951, 2.95), color='#275202', fontsize=13)
+ax1.annotate('J0436-4114 (M9 VL-G) $T_\mathrm{eff}: 2565 \pm 257$ K', xy=(0.951, 3.5), color='#9B0132', fontsize=15)
 # Trappist
-ax1.plot(trap_bin[0], trap_bin[1] + 2.5, c='k')
+ax1.plot(trap_bin[0], trap_bin[1] + 3.2, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 2.5, c='k')
-ax1.annotate('TRAPPIST-1 (M7.5) $T_\mathrm{eff}: 2584 \pm 34$ K', xy=(0.951, 3.7), color='k', fontsize=13)
+ax1.annotate('TRAPPIST-1 (M7.5) $T_\mathrm{eff}: 2584 \pm 34$ K', xy=(0.951, 4.45), color='k', fontsize=15)
 # 0320
-ax1.plot(trap_bin[0], trap_bin[1] + 3.5, c='k')
+ax1.plot(trap_bin[0], trap_bin[1] + 4.2, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 3.5, c='k')
-ax1.plot(df_0320['w'], norm_df_0320 + 3.5, c='#1EE801', alpha=0.75)
-ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2615 \pm 34$ K', xy=(0.951, 4.65), color='#1EE801', fontsize=13)
+ax1.plot(df_0320['w'], norm_df_0320 + 4.2, c='#1EE801', alpha=0.75)
+ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2615 \pm 34$ K', xy=(0.951, 5.5), color='#1EE801', fontsize=15)
 # vb8
-ax1.plot(trap_bin[0], trap_bin[1] + 4.3, c='k')
+ax1.plot(trap_bin[0], trap_bin[1] + 5.2, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 4.3, c='k')
-ax1.plot(df_vb8['w'], norm_df_vb8 + 4.3, c='#04A57F', alpha=0.8)
-ax1.annotate('vb8 (M7) $T_\mathrm{eff}: 2642 \pm 34$ K', xy=(0.951, 5.4), color='#04A57F', fontsize=13)
+ax1.plot(df_vb8['w'], norm_df_vb8 + 5.2, c='#04A57F', alpha=0.8)
+ax1.annotate('vb8 (M7) $T_\mathrm{eff}: 2642 \pm 34$ K', xy=(0.951, 6.4), color='#04A57F', fontsize=15)
 
 # --- To make lines for features ---------
 FeH1 = pd.DataFrame()
 FeH1['x'] = [0.9896, 1.0]
-FeH1['y'] = [5.8, 5.8]
+FeH1['y'] = [6.8, 6.8]
 plt.plot(FeH1['x'], FeH1['y'], color='k')
-ax1.annotate('FeH', xy=(0.9896, 5.81), color='k', fontsize=15)
+ax1.annotate('FeH', xy=(0.9896, 6.81), color='k', fontsize=15)
 # -- To make a vertical line
 FeH1d = pd.DataFrame()
 FeH1d['x'] = [0.9896, 0.9896]
-FeH1d['y'] = [5.6, 5.8]
+FeH1d['y'] = [6.6, 6.8]
 plt.plot(FeH1d['x'], FeH1d['y'], color='k')
 
 FeH2 = pd.DataFrame()
 FeH2['x'] = [0.998, 1.085]
-FeH2['y'] = [6.15, 6.15]
+FeH2['y'] = [7.15, 7.15]
 plt.plot(FeH2['x'], FeH2['y'], color='k')
-ax1.annotate('FeH', xy=(1.03, 6.16), color='k', fontsize=15)
+ax1.annotate('FeH', xy=(1.03, 7.16), color='k', fontsize=15)
 FeH2d = pd.DataFrame()
 FeH2d['x'] = [0.998, 0.998]
-FeH2d['y'] = [6, 6.15]
+FeH2d['y'] = [7, 7.15]
 plt.plot(FeH2d['x'], FeH2d['y'], color='k')
 
 VO = pd.DataFrame()
 VO['x'] = [1.0456, 1.08]
-VO['y'] = [5.85, 5.85]
+VO['y'] = [6.85, 6.85]
 plt.plot(VO['x'], VO['y'], color='k')
-ax1.annotate('VO', xy=(1.06, 5.86), color='k', fontsize=15)
+ax1.annotate('VO', xy=(1.06, 6.86), color='k', fontsize=15)
 VOd = pd.DataFrame()
 VOd['x'] = [1.0456, 1.0456]
-VOd['y'] = [5.7, 5.85]
+VOd['y'] = [6.7, 6.85]
 plt.plot(VOd['x'], VOd['y'], color='k')
 
 H2O = pd.DataFrame()
 H2O['x'] = [1.08, 1.099]
-H2O['y'] = [6.35, 6.35]
+H2O['y'] = [7.35, 7.35]
 plt.plot(H2O['x'], H2O['y'], color='k')
-ax1.annotate('H$_\mathrm{2} $O', xy=(1.08, 6.38), color='k', fontsize=15)
+ax1.annotate('H$_\mathrm{2} $O', xy=(1.08, 7.385), color='k', fontsize=15)
 H2Od = pd.DataFrame()
 H2Od['x'] = [1.08, 1.08]
-H2Od['y'] = [6.2, 6.35]
+H2Od['y'] = [7.2, 7.35]
 plt.plot(H2Od['x'], H2Od['y'], color='k')
 
 plt.tight_layout()

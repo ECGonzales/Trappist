@@ -81,7 +81,7 @@ ax1.annotate('J1247-3816 (M9 VL-G) $T_\mathrm{eff}: 2627 \pm 291$ K', xy=(2.9, 3
              fontsize=15)
 ax1.annotate('J0436-4114 (M9 VL-G) $T_\mathrm{eff}: 2565 \pm 257$ K', xy=(2.9, 2*10**(-14)), color='#9B0132',
              fontsize=15)
-ax1.annotate('J0608-2753 (L0 VL-G)  $T_\mathrm{eff}: 2493 \pm 253$ K', xy=(2.9, 1.3*10**(-14)), color='#FF6B03',
+ax1.annotate('J0608-2753 (L0 VL-G)  $T_\mathrm{eff}: 2471 \pm 255$ K', xy=(2.9, 1.3*10**(-14)), color='#FF6B03',
              fontsize=15)
 ax1.annotate('TRAPPIST-1 (M7.5)       $T_\mathrm{eff}: 2584 \pm 34$ K', xy=(2.9, 8.5*10**(-15)), color='k', fontsize=15)
 

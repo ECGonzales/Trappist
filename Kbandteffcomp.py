@@ -77,37 +77,37 @@ plt.ylabel('Normalized Flux ($F_\lambda$)', fontsize=25)
 plt.tight_layout()
 
 # -------- Add data and Label Sources-----------
-# 0436
-ax1.plot(trap_bin[0], trap_bin[1], c='k')
-ax1.plot(J0436_bin[0], J0436_bin[1], c='#9B0132', alpha=0.75)
-# ax1.plot(df_trap['w'], norm_df_trap , c='k')
-# ax1.plot(df_0436['w'], norm_df_0436, c='#9B0132', alpha=0.75)
-ax1.annotate('J0436-4114 (M9 VL-G) $T_\mathrm{eff}: 2430 \pm 255$ K', xy=(2.001, 1.15), color='#9B0132', fontsize=13)
 # 0608
-ax1.plot(trap_bin[0], trap_bin[1] + 0.6, c='k')
-ax1.plot(J0608_bin[0], J0608_bin[1] +0.6, c='#FF6B03', alpha=0.75)
+ax1.plot(trap_bin[0], trap_bin[1], c='k')
+ax1.plot(J0608_bin[0], J0608_bin[1], c='#FF6B03', alpha=0.75)
 # ax1.plot(df_trap['w'], norm_df_trap + 0.6, c='k')
 # ax1.plot(df_0608['w'], norm_df_0608 + 0.6, c='#FF6B03', alpha=0.75)
-ax1.annotate('J0608-2753 (L0 VL-G) $T_\mathrm{eff}: 2493 \pm 253$ K', xy=(2.001, 1.67), color='#FF6B03', fontsize=13)
+ax1.annotate('J0608-2753 (L0 VL-G) $T_\mathrm{eff}: 2471 \pm 255$ K', xy=(2.001, 1.15), color='#FF6B03', fontsize=15)
 # vb10
-ax1.plot(trap_bin[0], trap_bin[1] + 1.1, c='k')
+ax1.plot(trap_bin[0], trap_bin[1] + 0.6, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 1, c='k')
-ax1.plot(df_vb10['w'], norm_df_vb10 + 1.1, c='#275202', alpha=0.75)
-ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2541 \pm 45$ K', xy=(2.001, 2.2), color='#275202', fontsize=13)
+ax1.plot(df_vb10['w'], norm_df_vb10 + 0.6, c='#275202', alpha=0.75)
+ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2541 \pm 45$ K', xy=(2.001, 1.67), color='#275202', fontsize=15)
+# 0436
+ax1.plot(trap_bin[0], trap_bin[1] + 1.1, c='k')
+ax1.plot(J0436_bin[0], J0436_bin[1] + 1.1, c='#9B0132', alpha=0.75)
+# ax1.plot(df_trap['w'], norm_df_trap , c='k')
+# ax1.plot(df_0436['w'], norm_df_0436, c='#9B0132', alpha=0.75)
+ax1.annotate('J0436-4114 (M9 VL-G) $T_\mathrm{eff}: 2565 \pm 257$ K', xy=(2.001, 2.2), color='#9B0132', fontsize=15)
 # Trappist
 ax1.plot(trap_bin[0], trap_bin[1] + 1.7, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 1.7, c='k')
-ax1.annotate('TRAPPIST-1 (M7.5) $T_\mathrm{eff}: 2584 \pm 34$ K', xy=(2.001, 2.8), color='k', fontsize=13)
+ax1.annotate('TRAPPIST-1 (M7.5) $T_\mathrm{eff}: 2584 \pm 34$ K', xy=(2.001, 2.8), color='k', fontsize=15)
 # 0320
 ax1.plot(trap_bin[0], trap_bin[1] + 2.25, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 2.25, c='k')
 ax1.plot(df_0320['w'], norm_df_0320 + 2.25, c='#1EE801', alpha=0.75)
-ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2615 \pm 34$ K', xy=(2.001, 3.4), color='#1EE801', fontsize=13)
+ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2615 \pm 34$ K', xy=(2.001, 3.4), color='#1EE801', fontsize=15)
 # vb8
 ax1.plot(trap_bin[0], trap_bin[1] + 2.8, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 2.7, c='k')
 ax1.plot(df_vb8['w'], norm_df_vb8 + 2.8, c='#04A57F', alpha=0.8)
-ax1.annotate('vb8 (M7) $T_\mathrm{eff}: 2642 \pm 34$ K', xy=(2.001, 3.95), color='#04A57F', fontsize=13)
+ax1.annotate('vb8 (M7) $T_\mathrm{eff}: 2642 \pm 34$ K', xy=(2.001, 3.95), color='#04A57F', fontsize=15)
 
 # ------- Label Features --------------------------
 H2O = pd.DataFrame()
@@ -124,17 +124,17 @@ ax1.annotate('CIA H$_\mathrm{2} $', xy=(2.15, 4.22), color='k', fontsize=15)
 
 NaI = pd.DataFrame()
 NaI['x'] = [2.20, 2.211]
-NaI['y'] = [2.34, 2.34]
+NaI['y'] = [2.4, 2.4]
 plt.plot(NaI['x'], NaI['y'], color='k')
-ax1.annotate('Na$\,$I', xy=(2.195, 2.25), color='k', fontsize=15)
+ax1.annotate('Na$\,$I', xy=(2.195, 2.3), color='k', fontsize=15)
 # ----- Making each of the vertical lines on each end --------
 NaId = pd.DataFrame()
 NaId['x'] = [2.20, 2.20]
-NaId['y'] = [2.34, 2.45]
+NaId['y'] = [2.4, 2.5]
 plt.plot(NaId['x'], NaId['y'], color='k')
 NaId2 = pd.DataFrame()
 NaId2['x'] = [2.211, 2.211]
-NaId2['y'] = [2.34, 02.45]
+NaId2['y'] = [2.4, 2.5]
 plt.plot(NaId2['x'], NaId2['y'], color='k')
 
 CO = pd.DataFrame()

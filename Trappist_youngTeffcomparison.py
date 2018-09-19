@@ -7,22 +7,22 @@ from matplotlib.ticker import ScalarFormatter
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
 
-df_trap = pd.read_csv('Data/Gaia2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+df_trap = pd.read_csv('Data/Smooth_output/Fieldoverall/Gaia2306-0502_(M7.5)_SED_spexify_spexified.txt', sep=" ",
+                      comment='#', header=None, names=["w", "f", "err"])
 df_trap_phot = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff (young) ----------------------------------
-df_1247 = pd.read_csv('Data/young_comp/Gaia1247-3816 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+df_1247 = pd.read_csv('Data/Smooth_output/Tefflowgoverall/Gaia1247-3816 (M9gamma) SED_spexified.txt', sep=" ",
+                      comment='#', header=None, names=["w", "f", "err"])
 df_1247_phot = pd.read_csv('Data/young_comp/Gaia1247-3816 (M9gamma) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
-df_0436 = pd.read_csv('Data/young_comp/0436-4114 (M8betagamma) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+df_0436 = pd.read_csv('Data/Smooth_output/Tefflowgoverall/0436-4114 (M8betagamma) SED_spexified.txt', sep=" ",
+                      comment='#', header=None, names=["w", "f", "err"])
 df_0436_phot = pd.read_csv('Data/young_comp/0436-4114 (M8betagamma) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
-df_0608 = pd.read_csv('Data/young_comp/Gaia0608-2753 (M8.5gamma) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+df_0608 = pd.read_csv('Data/Smooth_output/Tefflowgoverall/Gaia0608-2753 (M8.5gamma) SED_spexified.txt', sep=" ",
+                      comment='#', header=None, names=["w", "f", "err"])
 df_0608_phot = pd.read_csv('Data/young_comp/Gaia0608-2753 (M8.5gamma) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
 # -------------------------------------------------------------------------------------
@@ -55,7 +55,7 @@ ax1.scatter(df_0608_phot['w'], df_0608_phot['f'], c='#FF6B03', s=50)
 
 # ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.5, 23])
-plt.ylim([10**(-18), 5*10**(-14)])
+plt.ylim([10**(-17), 5*10**(-14)])
 ax1.xaxis.set_major_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_locator(plt.FixedLocator([0.5, 0.7, 2, 3, 7.5, 23]))
@@ -74,19 +74,16 @@ plt.tight_layout()
 # ax1.annotate('J0436-4114 (M8 $\\beta$)     $T_\mathrm{eff}: 2565 \pm 257$ K', xy=(3, 1.8*10**(-14)), color='#9B0132', fontsize=15)
 # ax1.annotate('J0608-2753 (M8.5 $\gamma$)  $T_\mathrm{eff}: 2493 \pm 253$ K', xy=(3, 1.05*10**(-14)), color='#FF6B03', fontsize=15)
 # NIR SpT
-ax1.annotate('J1247-3816 (M9 VL-G) $T_\mathrm{eff}: 2627 \pm 291$ K', xy=(3, 3*10**(-14)), color='#E80901', fontsize=15)
-ax1.annotate('J0436-4114 (M9 VL-G) $T_\mathrm{eff}: 2565 \pm 257$ K', xy=(3, 1.8*10**(-14)), color='#9B0132', fontsize=15)
-ax1.annotate('J0608-2753 (L0 VL-G)  $T_\mathrm{eff}: 2493 \pm 253$ K', xy=(3, 1.05*10**(-14)), color='#FF6B03', fontsize=15)
-
-
-
-ax1.annotate('TRAPPIST-1 (M7.5)       $T_\mathrm{eff}: 2584 \pm 34$ K', xy=(3, 6*10**(-15)), color='k', fontsize=15)
+ax1.annotate('J1247-3816 (M9 VL-G) $T_\mathrm{eff}: 2627 \pm 291$ K', xy=(2.9, 3*10**(-14)), color='#E80901', fontsize=15)
+ax1.annotate('J0436-4114 (M9 VL-G) $T_\mathrm{eff}: 2565 \pm 257$ K', xy=(2.9, 1.8*10**(-14)), color='#9B0132', fontsize=15)
+ax1.annotate('J0608-2753 (L0 VL-G)  $T_\mathrm{eff}: 2493 \pm 253$ K', xy=(2.9, 1.05*10**(-14)), color='#FF6B03', fontsize=15)
+ax1.annotate('TRAPPIST-1 (M7.5)       $T_\mathrm{eff}: 2584 \pm 34$ K', xy=(2.9, 6*10**(-15)), color='k', fontsize=15)
 
 plt.savefig('Figures/young_comp_teff.pdf', dpi=150)
 
 # Create the red optical zoom in
-plt.xlim([0.65, 1])
-plt.ylim([10**(-16), 5*10**(-14)])
-ax1.xaxis.set_minor_locator(plt.FixedLocator([0.65, 0.7, 0.8, 0.9]))
-fig.set_size_inches(11.32, 8.59)
-plt.savefig('Figures/Young _teff_zoom.pdf', dpi=150)
+# plt.xlim([0.65, 1])
+# plt.ylim([10**(-16), 5*10**(-14)])
+# ax1.xaxis.set_minor_locator(plt.FixedLocator([0.65, 0.7, 0.8, 0.9]))
+# fig.set_size_inches(11.32, 8.59)
+# plt.savefig('Figures/Young _teff_zoom.pdf', dpi=150)

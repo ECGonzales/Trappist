@@ -7,14 +7,14 @@ from matplotlib.ticker import ScalarFormatter
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
 
-df_trap = pd.read_csv('Data/Gaia2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+df_trap = pd.read_csv('Data/Smooth_output/Lbollowgoverall/Gaia2306-0502 (M7.5) SED_spexified.txt', sep=" ", comment='#',
+                      header=None, names=["w", "f", "err"])
 df_trap_phot = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff (young) ----------------------------------
-df_1207 = pd.read_csv('Data/young_comp/1207-3900 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+df_1207 = pd.read_csv('Data/Smooth_output/Lbollowgoverall/1207-3900 (L0gamma) SED_spexified.txt', sep=" ", comment='#',
+                      header=None, names=["w", "f", "err"])
 df_1207_phot = pd.read_csv('Data/young_comp/1207-3900 (L0gamma) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
 # df_0443 = pd.read_csv('Data/young_comp/0443+0002 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
@@ -22,12 +22,12 @@ df_1207_phot = pd.read_csv('Data/young_comp/1207-3900 (L0gamma) phot.txt', sep="
 # df_0443_phot = pd.read_csv('Data/young_comp/0443+0002 (M9gamma) phot.txt', sep=" ", comment='#', header=None,
 #                            names=["w", "f", "err"])
 # Checking with the SXD to see differences
-df_0443 = pd.read_csv('Data/young_comp/Jonathan0443+0002 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+df_0443 = pd.read_csv('Data/Smooth_output/Lbollowgoverall/Jonathan0443+0002 (M9gamma) SED_spexified.txt', sep=" ",
+                      comment='#', header=None, names=["w", "f", "err"])
 df_0443_phot = pd.read_csv('Data/young_comp/Jonathan0443+0002 (M9gamma) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
-df_0518 = pd.read_csv('Data/young_comp/0518-2756 (L1gamma) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+df_0518 = pd.read_csv('Data/Smooth_output/Lbollowgoverall/0518-2756 (L1gamma) SED_spexified.txt', sep=" ", comment='#',
+                      header=None, names=["w", "f", "err"])
 df_0518_phot = pd.read_csv('Data/young_comp/0518-2756 (L1gamma) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
 # -------------------------------------------------------------------------------------
@@ -60,7 +60,7 @@ ax1.scatter(df_1207_phot['w'], df_1207_phot['f'], c='#1036CF', s=50)        # bl
 
 # ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.5, 14])
-plt.ylim([10**(-18), 5*10**(-14)])
+plt.ylim([10**(-17), 2*10**(-14)])
 ax1.xaxis.set_major_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_formatter(ScalarFormatter())
 ax1.xaxis.set_minor_locator(plt.FixedLocator([0.5, 0.7, 2, 3, 4, 14]))
@@ -74,20 +74,17 @@ plt.ylabel('Flux ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 plt.tight_layout()
 
 # ------ Labeling Objects --------
-ax1.annotate('TRAPPIST-1 (M7.5)', xy=(5, 2*10**(-14)), color='k', fontsize=15)
-ax1.annotate('Age: 500-10000 Myr', xy=(5, 1.3*10**(-14)), color='k', fontsize=15)
-ax1.annotate('$L_\mathrm{bol}: -3.253 \pm 0.002$', xy=(5, 0.75*10**(-14)), color='k', fontsize=15)
-# J0443
-ax1.annotate('J0443+0002 (L0 VL-G)', xy=(5, 3*10**(-15)), color='#E71BF8', fontsize=15)
-ax1.annotate('Age: 21-27 Myr ($\\beta$ Pic)', xy=(5, 1.7*10**(-15)), color='#E71BF8', fontsize=15)
-ax1.annotate('$L_\mathrm{bol}: -3.194\pm 0.003$', xy=(5, 1*10**(-15)), color='#E71BF8', fontsize=15)
-# J0518
-ax1.annotate('J0518-2756 (L1 VL-G)', xy=(3, 3.5*10**(-17)), color='#5518C2', fontsize=15)
-ax1.annotate('Age: 38-48 Myr (Columba)', xy=(3, 2*10**(-17)), color='#5518C2', fontsize=15)
-ax1.annotate('$L_\mathrm{bol}: -3.328 \pm 0.041$', xy=(3, 1.2*10**(-17)), color='#5518C2', fontsize=15)
-#1207
-ax1.annotate('J1207-3900 (L1 VL-G)', xy=(0.8, 10**(-17)), color='#1036CF', fontsize=15)
-ax1.annotate('Age: 7-13 Myr (TW Hydra)', xy=(0.8, 6*10**(-18)), color='#1036CF', fontsize=15)
-ax1.annotate('$L_\mathrm{bol}: -3.336 \pm 0.053$', xy=(0.8, 3.5*10**(-18)), color='#1036CF', fontsize=15)
+# Trappist  Age:500-10000 Myr
+ax1.annotate('TRAPPIST-1 (M7.5)        $L_\mathrm{bol}: -3.253 \pm 0.002$ ', xy=(0.63, 3.1*10**(-17)), color='k',
+             fontsize=15)
+# J0443 Age:21-27 Myr ($\\beta$ Pic)
+ax1.annotate('J0443+0002 (L0 VL-G)  $L_\mathrm{bol}: -3.194\pm 0.003$ ', xy=(0.63, 2.3*10**(-17)), color='#E71BF8',
+             fontsize=15)
+# J0518 Age:38-48 Myr (Columba)
+ax1.annotate('J0518-2756 (L1 VL-G)    $L_\mathrm{bol}: -3.328 \pm 0.041$', xy=(0.63, 1.6*10**(-17)), color='#5518C2',
+             fontsize=15)
+# 1207 Age:7-13 Myr (TW Hydra)
+ax1.annotate('J1207-3900 (L1 VL-G)    $L_\mathrm{bol}: -3.336 \pm 0.053$', xy=(0.63, 1.1*10**(-17)), color='#1036CF',
+             fontsize=15)
 
 plt.savefig('Figures/young_comp_lbol.pdf', dpi=150)

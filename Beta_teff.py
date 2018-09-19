@@ -64,7 +64,7 @@ plt.tight_layout()
 ax1.annotate('TRAPPIST-1 (M7.5), $T_\mathrm{eff}: 2581 \pm 34$ K', xy=(2.5, 2*10**(-14)), color='k', fontsize=15)
 # ax1.annotate('J0253+3206 (M7$\\beta$), $T_\mathrm{eff}: 2581 \pm 265$ K', xy=(2, 2*10**(-14)), color='#D01810',
 # fontsize=15)
-ax1.annotate('J0953-1014 (M9 $\\beta$), $T_\mathrm{eff}: 24247 \pm 254$ K', xy=(2.5, 1.4*10**(-14)), color='#D01810',
+ax1.annotate('J0953-1014 (M9 $\\beta$), $T_\mathrm{eff}: 2427 \pm 254$ K', xy=(2.5, 1.4*10**(-14)), color='#D01810',
              fontsize=15)
 
 plt.savefig('Figures/beta_teff.pdf', dpi=150)

@@ -116,7 +116,7 @@ ax1.annotate('J0608-2753 (L0 VL-G) $T_\mathrm{eff}: 2471 \pm 255$ K', xy=(1.421,
 ax1.plot(trap_bin[0], trap_bin[1] + 0.75, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 1.2, c='k')
 ax1.plot(df_vb10['w'], norm_df_vb10 + 0.75, c='#275202', alpha=0.75)
-ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2541 \pm 45$ K', xy=(1.421, 2), color='#275202', fontsize=15)
+ax1.annotate('vB 10 (M8) $T_\mathrm{eff}: 2541 \pm 45$ K', xy=(1.421, 2), color='#275202', fontsize=15)
 # 0436
 ax1.plot(trap_bin[0], trap_bin[1] + 1.3, c='k')
 ax1.plot(J0436_bin[0], J0436_bin[1] +1.3, c='#9B0132', alpha=0.75)
@@ -136,7 +136,7 @@ ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2615 \pm 34$ K', xy=(1.421, 3.55)
 ax1.plot(trap_bin[0], trap_bin[1] + 2.8, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 2.7, c='k')
 ax1.plot(df_vb8['w'], norm_df_vb8 + 2.8, c='#04A57F', alpha=0.8)
-ax1.annotate('vb8 (M7) $T_\mathrm{eff}: 2642 \pm 34$ K', xy=(1.421, 4), color='#04A57F', fontsize=15)
+ax1.annotate('vB 8 (M7) $T_\mathrm{eff}: 2642 \pm 34$ K', xy=(1.421, 4), color='#04A57F', fontsize=15)
 
 # ------- Label Features --------------------------
 H2O1 = pd.DataFrame()

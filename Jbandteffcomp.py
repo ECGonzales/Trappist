@@ -88,7 +88,7 @@ ax1.annotate('J0608-2753 (L0 VL-G) $T_\mathrm{eff}: 2471 \pm 255$ K', xy=(1.121,
 ax1.plot(trap_bin[0], trap_bin[1] +1, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 2, c='k')
 ax1.plot(df_vb10['w'], norm_df_vb10 + 1, c='#275202', alpha=0.75)
-ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2541 \pm 45$ K', xy=(1.121, 2.2), color='#275202', fontsize=15)
+ax1.annotate('vB 10 (M8) $T_\mathrm{eff}: 2541 \pm 45$ K', xy=(1.121, 2.2), color='#275202', fontsize=15)
 # 0436
 ax1.plot(trap_bin[0], trap_bin[1] + 2, c='k')
 ax1.plot(J0436_bin[0], J0436_bin[1] + 2, c='#9B0132', alpha=0.75)
@@ -108,7 +108,7 @@ ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2615 \pm 34$ K', xy=(1.121, 5.2),
 ax1.plot(trap_bin[0], trap_bin[1] + 5, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 5, c='k')
 ax1.plot(df_vb8['w'], norm_df_vb8 + 5, c='#04A57F', alpha=0.8)
-ax1.annotate('vb8 (M7) $T_\mathrm{eff}: 2642 \pm 34$ K', xy=(1.121, 6.2), color='#04A57F', fontsize=15)
+ax1.annotate('vB 8 (M7) $T_\mathrm{eff}: 2642 \pm 34$ K', xy=(1.121, 6.2), color='#04A57F', fontsize=15)
 
 
 # ------- Label Features --------------------------

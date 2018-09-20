@@ -90,7 +90,7 @@ plt.tight_layout()
 # ------ Labeling Spectra and Photometric points --------
 ax1.annotate('TRAPPIST-1 (M7.5) $T_\mathrm{eff}: 2584 \pm 34$ K', xy=(2.5, 10**(-14)), color='k', fontsize=15)
 ax1.annotate('$L_\mathrm{bol}: -3.253 \pm 0.002$', xy=(8, 5.2*10**(-15)), color='k', fontsize=15)
-ax1.annotate('vb8 (M7)               $T_\mathrm{eff}: 2642 \pm 34$ K, $L_\mathrm{bol}: -3.192 \pm 0.002$',
+ax1.annotate('vB 8 (M7)              $T_\mathrm{eff}: 2642 \pm 34$ K, $L_\mathrm{bol}: -3.192 \pm 0.002$',
              xy=(0.32, 2*10**(-18)), color='#04A57F', fontsize=15)
 ax1.annotate('LHS 3003 (M7)      $T_\mathrm{eff}: 2618 \pm 34$ K, $L_\mathrm{bol}: -3.223 \pm 0.002$',
              xy=(0.32, 10**(-18)), color='#09D5D6', fontsize=15)
@@ -100,7 +100,7 @@ ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2615 \pm 34$ K, $L_\mathrm{bol}: 
 #              xy=(0.32, 2.5*10**(-19)), color='green', fontsize=15)
 # ax1.annotate('TRAPPIST-1 (M7.5) $T_\mathrm{eff}: 2584 \pm 34$ K, $L_\mathrm{bol}: -3.253 \pm 0.002$',
 #              xy=(0.32, 2.5*10**(-19)), color='k', fontsize=15)
-ax1.annotate('vb10 (M8)             $T_\mathrm{eff}: 2541 \pm 45$ K, $L_\mathrm{bol}: -3.298 \pm 0.002$',
+ax1.annotate('vB 10 (M8)            $T_\mathrm{eff}: 2541 \pm 45$ K, $L_\mathrm{bol}: -3.298 \pm 0.002$',
              xy=(0.32, 2.5*10**(-19)), color='#275202', fontsize=15)
 
 plt.savefig('Figures/comparison_FieldTeff.pdf', dpi=150)
@@ -111,10 +111,10 @@ plt.ylim([10**(-16), 2*10**(-14)])
 ax1.xaxis.set_minor_locator(plt.FixedLocator([0.65, 0.7, 0.8, 0.9]))
 fig.set_size_inches(11.32, 8.59)
 ax1.annotate('TRAPPIST-1 (M7.5)', xy=(0.9, 2.3*10**(-16)), color='k', fontsize=15)
-ax1.annotate('vb8 (M7)', xy=(0.9, 1.9*10**(-16)), color='#04A57F', fontsize=15)
+ax1.annotate('vB 8 (M7)', xy=(0.9, 1.9*10**(-16)), color='#04A57F', fontsize=15)
 ax1.annotate('LHS 3003 (M7)', xy=(0.9, 1.6*10**(-16)), color='#09D5D6', fontsize=15)
 ax1.annotate('J0320+1854 (M8)', xy=(0.9, 1.3*10**(-16)), color='#1EE801', fontsize=15)
-ax1.annotate('vb10 (M8)', xy=(0.9, 1.1*10**(-16)), color='#275202', fontsize=15)
+ax1.annotate('vB 10 (M8)', xy=(0.9, 1.1*10**(-16)), color='#275202', fontsize=15)
 plt.savefig('Figures/comparison_FieldTeff_zoom.pdf', dpi=150)
 
 
@@ -124,9 +124,9 @@ plt.ylim([5*10**(-15), 2*10**(-14)])
 ax1.xaxis.set_minor_locator(plt.FixedLocator([1.27, 1.42,1.70,1.80]))
 fig.set_size_inches(11.32, 8.59)
 ax1.annotate('TRAPPIST-1 (M7.5)', xy=(1.65, 1.9*10**(-14)), color='k', fontsize=15)
-ax1.annotate('vb8 (M7)', xy=(1.65, 1.8*10**(-14)), color='#04A57F', fontsize=15)
+ax1.annotate('vB 8 (M7)', xy=(1.65, 1.8*10**(-14)), color='#04A57F', fontsize=15)
 ax1.annotate('LHS 3003 (M7)', xy=(1.65, 1.7*10**(-14)), color='#09D5D6', fontsize=15)
 ax1.annotate('J0320+1854 (M8)', xy=(1.65, 1.6*10**(-14)), color='#1EE801', fontsize=15)
-ax1.annotate('vb10 (M8)', xy=(1.65, 1.52*10**(-14)), color='#275202', fontsize=15)
+ax1.annotate('vB 10 (M8)', xy=(1.65, 1.52*10**(-14)), color='#275202', fontsize=15)
 plt.tight_layout()
 plt.savefig('Figures/comparison_FieldTeffdepregion_zoom.pdf', dpi=150)

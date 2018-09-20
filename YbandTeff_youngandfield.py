@@ -87,7 +87,7 @@ ax1.annotate('J0608-2753 (L0 VL-G) $T_\mathrm{eff}: 2471 \pm 255$ K', xy=(0.951,
 ax1.plot(trap_bin[0], trap_bin[1] + 1.2, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 1.8, c='k')
 ax1.plot(df_vb10['w'], norm_df_vb10 + 1.2, c='#275202', alpha=0.75)
-ax1.annotate('vb10 (M8) $T_\mathrm{eff}: 2541 \pm 45$ K', xy=(0.951, 2.4), color='#275202', fontsize=15)
+ax1.annotate('vB 10 (M8) $T_\mathrm{eff}: 2541 \pm 45$ K', xy=(0.951, 2.4), color='#275202', fontsize=15)
 # 0436
 ax1.plot(trap_bin[0], trap_bin[1] + 2.2, c='k')
 ax1.plot(df_0436, norm_df_0436 + 2.2, c='#9B0132', alpha=0.75)
@@ -107,7 +107,7 @@ ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2615 \pm 34$ K', xy=(0.951, 5.5),
 ax1.plot(trap_bin[0], trap_bin[1] + 5.2, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 4.3, c='k')
 ax1.plot(df_vb8['w'], norm_df_vb8 + 5.2, c='#04A57F', alpha=0.8)
-ax1.annotate('vb8 (M7) $T_\mathrm{eff}: 2642 \pm 34$ K', xy=(0.951, 6.4), color='#04A57F', fontsize=15)
+ax1.annotate('vB 8 (M7) $T_\mathrm{eff}: 2642 \pm 34$ K', xy=(0.951, 6.4), color='#04A57F', fontsize=15)
 
 # --- To make lines for features ---------
 FeH1 = pd.DataFrame()

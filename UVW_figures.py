@@ -217,7 +217,7 @@ plt.xlabel('Total velocity (km/s)', fontsize=25)
 ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
 bins=np.linspace(10,100,10)
 
-plt.hist(df_beta_nogroup['Total'], bins=bins, color='#FF6B03', edgecolor='k', alpha=0.75, label="$\gamma$ not in Group")
+plt.hist(df_beta_nogroup['Total'], bins=bins, color='#FF6B03', edgecolor='k', alpha=0.75, label="$\\beta$ not in Group")
 plt.legend(fontsize=15)
 plt.tight_layout()
 plt.savefig('Figures/Total_UVW_velocity_hist_betaOut.pdf', dpi=150)

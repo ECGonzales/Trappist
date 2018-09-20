@@ -37,7 +37,7 @@ for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
 plt.ylabel('Number', fontsize=25)
 plt.xlabel('V$_\mathrm{tan}$ (km/s)', fontsize=25)
 ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
-plt.xlim([0,40])
+plt.xlim([0, 100])
 plt.ylim(0,8)
 
 # bins = np.linspace(0, 40, 50)

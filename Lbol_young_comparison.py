@@ -75,16 +75,16 @@ plt.tight_layout()
 
 # ------ Labeling Objects --------
 # Trappist  Age:500-10000 Myr
-ax1.annotate('TRAPPIST-1 (M7.5)        $L_\mathrm{bol}: -3.253 \pm 0.002$ ', xy=(0.63, 3.1*10**(-17)), color='k',
+ax1.annotate('TRAPPIST-1 (M7.5)   $L_\mathrm{bol}: -3.253 \pm 0.002$ ', xy=(0.63, 3.1*10**(-17)), color='k',
              fontsize=15)
 # J0443 Age:21-27 Myr ($\\beta$ Pic)
-ax1.annotate('J0443+0002 (L0 VL-G)  $L_\mathrm{bol}: -3.194\pm 0.003$ ', xy=(0.63, 1.1*10**(-17)), color='#E71BF8',
+ax1.annotate('J0443+0002 (L0 $\gamma$)  $L_\mathrm{bol}: -3.194\pm 0.003$ ', xy=(0.63, 1.1*10**(-17)), color='#E71BF8',
              fontsize=15)
 # J0518 Age:38-48 Myr (Columba)
-ax1.annotate('J0518-2756 (L1 VL-G)    $L_\mathrm{bol}: -3.328 \pm 0.041$', xy=(0.63, 1.6*10**(-17)), color='#5518C2',
+ax1.annotate('J0518-2756 (L1 $\gamma$)    $L_\mathrm{bol}: -3.328 \pm 0.041$', xy=(0.63, 1.6*10**(-17)), color='#5518C2',
              fontsize=15)
 # 1207 Age:7-13 Myr (TW Hydra)
-ax1.annotate('J1207-3900 (L1 VL-G)    $L_\mathrm{bol}: -3.336 \pm 0.053$', xy=(0.63, 2.3*10**(-17)), color='#1036CF',
+ax1.annotate('J1207-3900 (L1 $\gamma$)    $L_\mathrm{bol}: -3.336 \pm 0.053$', xy=(0.63, 2.3*10**(-17)), color='#1036CF',
              fontsize=15)
 
 plt.savefig('Figures/young_comp_lbol.pdf', dpi=150)

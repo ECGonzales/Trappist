@@ -72,9 +72,12 @@ trappist = plt.scatter(trap_V, trap_UW, color='k', s=700, marker='*')
 ax1.errorbar(trap_V, trap_UW, xerr=trap_dV,yerr=final_unc_toom_trap, c='k', fmt='o')
 
 circle=plt.Circle((0,0),50, color='k', fill=False, linestyle='--')
+circle2=plt.Circle((0,0),70, color='k', fill=False, linestyle='--')
 ax1.add_artist(circle)
+ax1.add_artist(circle2)
 
 plt.legend([gamma_in, gamma_out, beta_out, trappist], ['$\gamma$ in group', '$\gamma$ not in group',
-                                                       '$\\beta$ not in group', 'TRAPPIST-1'], frameon=False, fontsize=12)
+                                                       '$\\beta$ not in group', 'TRAPPIST-1'], frameon=False,
+           fontsize=12, loc=4)
 plt.tight_layout()
 plt.savefig('Figures/UW_vs_V.pdf')

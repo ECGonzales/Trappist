@@ -157,7 +157,7 @@ trappist = plt.scatter(trap_W, trap_V, color='k', s=700, marker='*')
 ax1.errorbar(trap_W, trap_V, xerr=trap_dW,yerr=trap_dV, c='k', fmt='o')
 
 plt.legend([gamma_in, gamma_out, beta_out, trappist], ['$\gamma$ in group', '$\gamma$ not in group',
-                                                       '$\\beta$ not in group', 'TRAPPIST-1'], frameon=False, fontsize=12)
+                                                       '$\\beta$ not in group', 'TRAPPIST-1'], frameon=False, fontsize=12, loc=2)
 plt.tight_layout()
 plt.savefig('Figures/V_vs_W.pdf')
 

@@ -216,8 +216,8 @@ db_fake.modify("Delete from photometry where source_id in (1371, 300, 320, 126, 
 413, 759, 475, 1928, 751, 91, 2107, 849, 415, 146, 669, 107, 1304, 1452, 1591, 1490)")
 
 # Renmae header info to match db input and add
-db_fake.add_data('Fake_phot_upper.txt','photometry', delimiter=',')
+db_fake.add_data('Fake_database/Fake_phot_upper.txt','photometry', delimiter=',')
 
 # Remove and add fake lowers
 db_fake.modify("Delete from photometry where comments='Fake Upper'")
-db_fake.add_data('Fake_phot_Lower.txt','photometry', delimiter=',')
+db_fake.add_data('Fake_database/Fake_phot_Lower.txt','photometry', delimiter=',')

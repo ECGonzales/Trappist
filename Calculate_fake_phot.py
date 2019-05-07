@@ -1,9 +1,10 @@
 # Code to determine the fake Photometry for the TRAPPIST-1 paper to fluff up the uncertainties.
 import pandas as pd
 from astrodbkit import astrodb
+import numpy as np
 
 # Load up the database ( a real and fake version)
-db= astrodb.Database('/Users/eileengonzales/Dropbox/BDNYC/BDNYCdb_copy/BDNYCdevdb/bdnycdev.db')
+db = astrodb.Database('/Users/eileengonzales/Dropbox/BDNYC/BDNYCdb_copy/BDNYCdevdb/bdnycdev.db')
 db_fake = astrodb.Database('bdnycdev_fake.db')
 
 # For the real database add the PS photometry for the objects of intrest Cross matching comes from Best+18
@@ -139,6 +140,7 @@ db.add_changelog('Eileen Gonzales', 'Photometry', 'Added PS photometry for TRAPP
 # Then query the real db to create individual dataframes of the photometry for each source
 x_1371 = db.query("Select source_id, band, magnitude, magnitude_unc from photometry where source_id=1371", fmt='pandas')
 x_300 = db.query("Select source_id, band, magnitude, magnitude_unc from photometry where source_id=300", fmt='pandas')
+x_300 = x_300.drop(15)
 x_320 = db.query("Select source_id, band, magnitude, magnitude_unc from photometry where source_id=320", fmt='pandas')
 x_320 = x_320.drop(16) # drop by index
 x_126 = db.query("Select source_id, band, magnitude, magnitude_unc from photometry where source_id=126", fmt='pandas')
@@ -148,11 +150,15 @@ x_130 = x_130.drop([3,4,5])
 x_355 = db.query("Select source_id, band, magnitude, magnitude_unc from photometry where source_id=355", fmt='pandas')
 x_355 = x_355.drop(14)
 x_1333 = db.query("Select source_id, band, magnitude, magnitude_unc from photometry where source_id=1333", fmt='pandas')
+x_1333 = x_1333.drop(6)
 x_1476 = db.query("Select source_id, band, magnitude, magnitude_unc from photometry where source_id=1476", fmt='pandas')
-x_1256 = db.query("Select source_id, band, magnitude, magnitude_unc from photometry where source_id=1256", fmt='pandas')
-x_1444 = db.query("Select source_id, band, magnitude, magnitude_unc from photometry where source_id=1444", fmt='pandas')
+x_1357 = db.query("Select source_id, band, magnitude, magnitude_unc from photometry where source_id=1357", fmt='pandas')
+x_1357 = x_1357.drop([5,8,9])
+x_1454 = db.query("Select source_id, band, magnitude, magnitude_unc from photometry where source_id=1454", fmt='pandas')
+x_1454 = x_1454.drop(6)
 x_1940 = db.query("Select source_id, band, magnitude, magnitude_unc from photometry where source_id=1940", fmt='pandas')
 x_413 = db.query("Select source_id, band, magnitude, magnitude_unc from photometry where source_id=413", fmt='pandas')
+x_413 = x_413.drop(6)
 x_759 = db.query("Select source_id, band, magnitude, magnitude_unc from photometry where source_id=759", fmt='pandas')
 x_475 = db.query("Select source_id, band, magnitude, magnitude_unc from photometry where source_id=475", fmt='pandas')
 x_1928 = db.query("Select source_id, band, magnitude, magnitude_unc from photometry where source_id=1928", fmt='pandas')
@@ -173,12 +179,14 @@ x_1591 = db.query("Select source_id, band, magnitude, magnitude_unc from photome
 x_1591 = x_1591.drop(9)
 x_1490 = db.query("Select source_id, band, magnitude, magnitude_unc from photometry where source_id=1490", fmt='pandas')
 
-# Concatinate queries into one dataframe
-df = pd.concat([x_1371, x_300, x_320, x_126, x_82, x_130, x_355, x_1333, x_1476, x_1256, x_1444, x_1940, x_413, x_759,
+# Concatenate queries into one dataframe
+df = pd.concat([x_1371, x_300, x_320, x_126, x_82, x_130, x_355, x_1333, x_1476, x_1357, x_1454, x_1940, x_413, x_759,
                x_475, x_1928, x_751, x_91, x_2107, x_849, x_415, x_146, x_669, x_107, x_1304, x_1452, x_1591, x_1490],
                ignore_index=True)
+# Drop the upper limits
+df = df.dropna()
 
-# Add columns for upper and lower limits and uncertainites
+# Add columns for upper and lower limits and uncertainites, make sure all are floats and round to 4 decimals
 df['Upper'] = df['magnitude'] + df['magnitude_unc']
 df['Upper_unc'] = df['magnitude_unc']
 df['Lower'] = df['magnitude'] - df['magnitude_unc']
@@ -187,17 +195,29 @@ df['pub'] = 'Missing'
 df['comment'] = 'Fake Upper'
 df['comment1'] = 'Fake lower'
 
+df.Upper.astype(float)
+df.Upper_unc.astype(float)
+df.Lower.astype(float)
+df.Lower_unc.astype(float)
+
+decimals = 4
+df['Upper'] = df['Upper'].apply(lambda x: round(x, decimals))
+df['Upper_unc'] = df['Upper_unc'].apply(lambda x: round(x, decimals))
+df['Lower'] = df['Lower'].apply(lambda x: round(x, decimals))
+df['Lower_unc'] = df['Lower_unc'].apply(lambda x: round(x, decimals))
+
+
 # write to two files for easy adding to the FAKE database to make the uppers and lowers one at a time
 df.to_csv('Fake_phot_upper.txt',columns=['source_id', 'band', 'Upper', 'Upper_unc', 'pub', 'comment'], index=False)
 df.to_csv('Fake_phot_lower.txt',columns=['source_id', 'band', 'Lower', 'Lower_unc', 'pub', 'comment1'], index=False)
 
 # Now remove orginial photometry from the FAKE db and add upper/lower to FAKE database
-db_fake.modify("Delete from photometry where source_id=1371 and version=1.0")
+db_fake.modify("Delete from photometry where source_id in (1371, 300, 320, 126, 82, 130, 355, 1476, 1357, 1454, 1940, \
+413, 759, 475, 1928, 751, 91, 2107, 849, 415, 146, 669, 107, 1304, 1452, 1591, 1490)")
 
-db_fake.inventory(300)
-db_fake.modify("Delete from photometry where source_id=1371 and version=1.0")  #TODO edit fake DB here down
-db_fake.modify("Delete from photometry where source_id=1371 and version=1.0")
-db_fake.modify("Delete from photometry where source_id=1371 and version=1.0")
-db_fake.modify("Delete from photometry where source_id=1371 and version=1.0")
-db_fake.modify("Delete from photometry where source_id=1371 and version=1.0")
-db_fake.modify("Delete from photometry where source_id=1371 and version=1.0")
+# Renmae header info to match db input and add
+db_fake.add_data('Fake_phot_upper.txt','photometry', delimiter=',')
+
+# Remove and add fake lowers
+db_fake.modify("Delete from photometry where comments='Fake Upper'")
+db_fake.add_data('Fake_phot_Lower.txt','photometry', delimiter=',')

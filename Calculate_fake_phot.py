@@ -218,6 +218,44 @@ db_fake.modify("Delete from photometry where source_id in (1371, 300, 320, 126, 
 # Renmae header info to match db input and add
 db_fake.add_data('Fake_database/Fake_phot_upper.txt','photometry', delimiter=',')
 
+# Add for Trappist list of fake Upper limits
+# Code to calculate upper and lower limits.
+up=10.296     +    0.023
+down = 10.296  -       0.023
+print up, down
+
+data  =list()
+data.append(['source_id', 'band', 'magnitude', 'magnitude_unc', 'publication_shortname', 'comments'])
+data.append([137, '2MASS_H', 10.739,0.021, 'Missing', 'Fake Upper'])
+data.append([137, '2MASS_J', 11.376,0.022, 'Missing', 'Fake Upper'])
+data.append([137, '2MASS_Ks', 10.319,0.023, 'Missing', 'Fake Upper'])
+data.append([137, 'PS_g', 19.3523,0.0189, 'Missing', 'Fake Upper'])
+data.append([137, 'PS_r', 17.8864,0.0061, 'Missing', 'Fake Upper'])
+data.append([137, 'PS_i', 15.1139,0.0017, 'Missing', 'Fake Upper'])
+data.append([137, 'PS_z', 13.7777,0.0126, 'Missing', 'Fake Upper'])
+data.append([137, 'PS_y', 12.9933,0.0067, 'Missing', 'Fake Upper'])
+data.append([137, 'WISE_W1', 10.065,0.023, 'Missing', 'Fake Upper'])
+data.append([137, 'WISE_W2', 9.819,0.02, 'Missing', 'Fake Upper'])
+data.append([137, 'WISE_W3', 9.569,0.041, 'Missing', 'Fake Upper'])
+db_fake.add_data(data, 'photometry')
+
 # Remove and add fake lowers
 db_fake.modify("Delete from photometry where comments='Fake Upper'")
+
 db_fake.add_data('Fake_database/Fake_phot_Lower.txt','photometry', delimiter=',')
+# Trapost fake lowers
+data=list()
+data.append(['source_id', 'band', 'magnitude', 'magnitude_unc', 'publication_shortname', 'comments'])
+data.append([137, '2MASS_H', 10.697,0.021, 'Missing', 'Fake lower'])
+data.append([137, '2MASS_J', 11.332,0.022, 'Missing', 'Fake lower'])
+data.append([137, '2MASS_Ks', 10.273,0.023, 'Missing', 'Fake lower'])
+data.append([137, 'PS_g', 19.3145,0.0189, 'Missing', 'Fake lower'])
+data.append([137, 'PS_r', 17.8742,0.0061, 'Missing', 'Fake lower'])
+data.append([137, 'PS_i', 15.1105,0.0017, 'Missing', 'Fake lower'])
+data.append([137, 'PS_z', 13.7525,0.0126, 'Missing', 'Fake lower'])
+data.append([137, 'PS_y', 12.9799,0.0067, 'Missing', 'Fake lower'])
+data.append([137, 'WISE_W1', 10.019,0.023, 'Missing', 'Fake lower'])
+data.append([137, 'WISE_W2', 9.779,0.02, 'Missing', 'Fake lower'])
+data.append([137, 'WISE_W3', 9.487,0.041, 'Missing', 'Fake lower'])
+db_fake.add_data(data, 'photometry')
+

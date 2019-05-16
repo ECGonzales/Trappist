@@ -242,7 +242,7 @@ db_fake.add_data(data, 'photometry')
 # Remove and add fake lowers
 db_fake.modify("Delete from photometry where comments='Fake Upper'")
 
-db_fake.add_data('Fake_database/Fake_phot_Lower.txt','photometry', delimiter=',')
+db_fake.add_data('Fake_database/Fake_phot_lower.txt','photometry', delimiter=',')
 # Trapost fake lowers
 data=list()
 data.append(['source_id', 'band', 'magnitude', 'magnitude_unc', 'publication_shortname', 'comments'])

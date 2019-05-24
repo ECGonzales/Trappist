@@ -7,9 +7,9 @@ from matplotlib.ticker import ScalarFormatter
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
 
-df_trap = pd.read_csv('Data/Smooth_output/Fieldoverall/Gaia2306-0502_(M7.5)_SED_spexify_spexified.txt', sep=" ",
+df_trap = pd.read_csv('Data/Smooth_output_PS/Fieldoverall/PS_2306-0502 (M7.5) SED_spexified.txt', sep=" ",
                       comment='#', header=None, names=["w", "f", "err"])
-df_trap_phot = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ", comment='#', header=None,
+df_trap_phot = pd.read_csv('Data/PS_2306-0502 (M7.5) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff ----------------------------------
@@ -18,24 +18,24 @@ df_trap_phot = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ", commen
 # df_0102_phot = pd.read_csv('Data/field_comp/Gaia0102-3737 (M8) phot.txt', sep=" ", comment='#', header=None,
 #                             names=["w", "f", "err"])
 # vb8
-df_vb8 = pd.read_csv('Data/Smooth_output/Fieldoverall/Gaia1655-0823_(M7)_SED_spexify_spexified.txt', sep=" ",
+df_vb8 = pd.read_csv('Data/Smooth_output_PS/Fieldoverall/PS_1655-0823 (M7) SED_spexified.txt', sep=" ",
                      comment='#', header=None, names=["w", "f", "err"])
-df_vb8_phot = pd.read_csv('Data/field_comp/Gaia1655-0823 (M7) phot.txt', sep=" ", comment='#', header=None,
+df_vb8_phot = pd.read_csv('Data/field_comp/PS_1655-0823 (M7) phot.txt', sep=" ", comment='#', header=None,
                           names=["w", "f", "err"])
 # vb10
-df_vb10 = pd.read_csv('Data/Smooth_output/Fieldoverall/Gaia1916+0508_(M8)_SED_spexify_spexified.txt', sep=" ",
+df_vb10 = pd.read_csv('Data/Smooth_output_PS/Fieldoverall/PS_1916+0508 (M8) SED_spexified.txt', sep=" ",
                       comment='#', header=None, names=["w", "f", "err"])
-df_vb10_phot = pd.read_csv('Data/field_comp/Gaia1916+0508 (M8) phot.txt', sep=" ", comment='#', header=None,
+df_vb10_phot = pd.read_csv('Data/field_comp/PS_1916+0508 (M8) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
 # 0320
-df_0320 = pd.read_csv('Data/Smooth_output/Fieldoverall/Gaia0320+1854_(M8)_SED_spexify_spexified.txt', sep=" ",
+df_0320 = pd.read_csv('Data/Smooth_output_PS/Fieldoverall/PS_0320+1854 (M8) SED_spexified.txt', sep=" ",
                       comment='#', header=None, names=["w", "f", "err"])
-df_0320_phot = pd.read_csv('Data/field_comp/Gaia0320+1854 (M8) phot.txt', sep=" ", comment='#', header=None,
+df_0320_phot = pd.read_csv('Data/field_comp/PS_0320+1854 (M8) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
 # LHS 3003
-df_LHS3003 = pd.read_csv('Data/Smooth_output/Fieldoverall/1456-2809_(M7)_SED_spexify_spexified.txt', sep=" ",
+df_LHS3003 = pd.read_csv('Data/Smooth_output_PS/Fieldoverall/PS_1456-2809 (M7) SED_spexified.txt', sep=" ",
                          comment='#', header=None, names=["w", "f", "err"])
-df_LHS3003_phot = pd.read_csv('Data/field_comp/1456-2809 (M7) phot.txt', sep=" ", comment='#', header=None,
+df_LHS3003_phot = pd.read_csv('Data/field_comp/PS_1456-2809 (M7) phot.txt', sep=" ", comment='#', header=None,
                               names=["w", "f", "err"])
 
 # -------------------------------------------------------------------------------------
@@ -88,19 +88,19 @@ plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 plt.tight_layout()
 
 # ------ Labeling Spectra and Photometric points --------
-ax1.annotate('TRAPPIST-1 (M7.5) $T_\mathrm{eff}: 2584 \pm 34$ K', xy=(2.5, 10**(-14)), color='k', fontsize=15)
-ax1.annotate('$L_\mathrm{bol}: -3.253 \pm 0.002$', xy=(8, 5.2*10**(-15)), color='k', fontsize=15)
-ax1.annotate('vB 8 (M7)              $T_\mathrm{eff}: 2642 \pm 34$ K, $L_\mathrm{bol}: -3.192 \pm 0.002$',
+ax1.annotate('TRAPPIST-1 (M7.5) $T_\mathrm{eff}: 2626 \pm 34$ K', xy=(2.5, 10**(-14)), color='k', fontsize=15)
+ax1.annotate('$L_\mathrm{bol}: -3.210 \pm 0.012$', xy=(8, 5.2*10**(-15)), color='k', fontsize=15)
+ax1.annotate('vB 8 (M7)              $T_\mathrm{eff}: 2652 \pm 34$ K, $L_\mathrm{bol}: -3.193 \pm 0.006$',
              xy=(0.32, 2*10**(-18)), color='#04A57F', fontsize=15)
-ax1.annotate('LHS 3003 (M7)      $T_\mathrm{eff}: 2618 \pm 34$ K, $L_\mathrm{bol}: -3.223 \pm 0.002$',
+ax1.annotate('LHS 3003 (M7)      $T_\mathrm{eff}: 2651 \pm 34$ K, $L_\mathrm{bol}: -3.194 \pm 0.003$',
              xy=(0.32, 10**(-18)), color='#09D5D6', fontsize=15)
-ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2615 \pm 34$ K, $L_\mathrm{bol}: -3.225 \pm 0.002$',
+ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2612 \pm 34$ K, $L_\mathrm{bol}: -3.227 \pm 0.007$',
              xy=(0.32, 5*10**(-19)), color='#1EE801', fontsize=15)
 # ax1.annotate('LHS 132 (M8)        $T_\mathrm{eff}: 2579 \pm 34$ K, $L_\mathrm{bol}: -3.264 \pm 0.002$',
 #              xy=(0.32, 2.5*10**(-19)), color='green', fontsize=15)
 # ax1.annotate('TRAPPIST-1 (M7.5) $T_\mathrm{eff}: 2584 \pm 34$ K, $L_\mathrm{bol}: -3.253 \pm 0.002$',
 #              xy=(0.32, 2.5*10**(-19)), color='k', fontsize=15)
-ax1.annotate('vB 10 (M8)            $T_\mathrm{eff}: 2541 \pm 45$ K, $L_\mathrm{bol}: -3.298 \pm 0.002$',
+ax1.annotate('vB 10 (M8)            $T_\mathrm{eff}: 2524 \pm 45$ K, $L_\mathrm{bol}: -3.309 \pm 0.017$',
              xy=(0.32, 2.5*10**(-19)), color='#275202', fontsize=15)
 
 plt.savefig('Figures/comparison_FieldTeff.pdf', dpi=150)

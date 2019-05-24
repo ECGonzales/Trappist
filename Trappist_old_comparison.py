@@ -7,25 +7,25 @@ from matplotlib.ticker import ScalarFormatter
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
 
-df_trap = pd.read_csv('Data/paper1_trappist/Subdwarfs_fig5/Gaia2306-0502 (M7.5) SED_spexified.txt', sep=" ",
+df_trap = pd.read_csv('Data/Smooth_output_PS/oldoverall/PS_2306-0502 (M7.5) SED_spexified.txt', sep=" ",
                       comment='#', header=None, names=["w", "f", "err"])
-df_trap_phot = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ",comment='#', header=None,
+df_trap_phot = pd.read_csv('Data/PS_2306-0502 (M7.5) phot.txt', sep=" ",comment='#', header=None,
                            names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff (old) ----------------------------------
-df_1013 = pd.read_csv('Data/paper1_trappist/Subdwarfs_fig5/Gaia1013-1356 (M9.5sd) SED_spexified.txt', sep=" ",
+df_1013 = pd.read_csv('Data/Smooth_output_PS/oldoverall/PS_1013-1356 (M9.5sd) SED_spexified.txt', sep=" ",
                       comment='#', header=None, names=["w", "f", "err"])
-df_1013_phot = pd.read_csv('../Atmospheres_paper/Data/Gaia1013-1356 (M9.5sd) phot.txt', sep=" ", comment='#',
+df_1013_phot = pd.read_csv('Data/old_comp/PS_1013-1356 (M9.5sd) phot.txt', sep=" ", comment='#',
                            header=None, names=["w", "f", "err"])
-df_GJ660 = pd.read_csv('Data/paper1_trappist/Subdwarfs_fig5/spectra_gj6601b_spexified.txt', sep=" ", comment='#',
-                       header=0,names=["w", "f", "err"])
-df_GJ660_phot = pd.read_csv('Data/old_comp/phot_gj6601b.txt', sep="\t", comment='#', header=0,
-                            names=["w", "f", "err"])
+# df_GJ660 = pd.read_csv('Data/Smooth_output_PS/oldoverall/PSspectra_gj6601b_est_spexified.txt', sep=" ", comment='#',
+#                        header=0,names=["w", "f", "err"])
+# df_GJ660_phot = pd.read_csv('Data/old_comp/PSphot_gj6601b_est.txt', sep=",", comment='#', header=0,
+#                             names=["w", "f", "err"])
 
 # -------------------------------------------------------------------------------------
 # ---------------------- Remove Tails ------------------------------------------------
 # -------------------------------------------------------------------------------------
-df_GJ660 = df_GJ660[(df_GJ660['w'] > 0.7) & (df_GJ660['w'] <= 3)]
+# df_GJ660 = df_GJ660[(df_GJ660['w'] > 0.7) & (df_GJ660['w'] <= 3)]
 
 # -------------------------------------------------------------------------------------
 # ------------------- Plotting: Old Comparison of same Teff -------------------------------
@@ -45,10 +45,10 @@ ax1.scatter(df_trap_phot['w'], df_trap_phot['f'], c='k', s=70, zorder=23)
 ax1.loglog(df_1013['w'], df_1013['f'], c='#0822FF')
 ax1.scatter(df_1013_phot['w'], df_1013_phot['f'], c='k', s=70)  # The ones with size 70 are to give the circles a
 ax1.scatter(df_1013_phot['w'], df_1013_phot['f'], c='#0822FF', s=50)        # black border
-
-ax1.loglog(df_GJ660['w'], df_GJ660['f'], c='#07D1E8')
-ax1.scatter(df_GJ660_phot['w'], df_GJ660_phot['f'], c='k', s=70)
-ax1.scatter(df_GJ660_phot['w'], df_GJ660_phot['f'], c='#07D1E8', s=50)
+#
+# ax1.loglog(df_GJ660['w'], df_GJ660['f'], c='#07D1E8')
+# ax1.scatter(df_GJ660_phot['w'], df_GJ660_phot['f'], c='k', s=70)
+# ax1.scatter(df_GJ660_phot['w'], df_GJ660_phot['f'], c='#07D1E8', s=50)
 
 # ----- Set axes limits, reformat ticks -----------
 plt.xlim([0.5, 13])
@@ -65,11 +65,11 @@ plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
 plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 
 # ------ Labeling Objects --------
-ax1.annotate('TRAPPIST-1 (M7.5)      $T_\mathrm{eff}: 2584 \pm 34$ K,  $L_\mathrm{bol}: -3.255 \pm 0.002$', xy=(0.52, 2.3*10**(-17)), color='k', fontsize=15)
+ax1.annotate('TRAPPIST-1 (M7.5)      $T_\mathrm{eff}: 2626 \pm 34$ K,  $L_\mathrm{bol}: -3.210 \pm 0.012$', xy=(0.52, 2.3*10**(-17)), color='k', fontsize=15)
 
-ax1.annotate('J1013-1356 (sdM9.5)  $T_\mathrm{eff}: 2621 \pm 32$ K,  $L_\mathrm{bol}: -3.334 \pm 0.019$', xy=(0.52, 1.6*10**(-17)), color='#0822FF', fontsize=15)
+ax1.annotate('J1013-1356 (sdM9.5)  $T_\mathrm{eff}: 2610 \pm 32$ K,  $L_\mathrm{bol}: -3.329 \pm 0.029$', xy=(0.52, 1.6*10**(-17)), color='#0822FF', fontsize=15)
 
-ax1.annotate('GJ 660.1B (d/sdM7)    $T_\mathrm{eff}: 2642 \pm 102$ K, $L_\mathrm{bol}: -3.286 \pm 0.063$', xy=(0.52, 1.1*10**(-17)), color='#07D1E8', fontsize=15)
+# ax1.annotate('GJ 660.1B (d/sdM7)    $T_\mathrm{eff}: 2642 \pm 102$ K, $L_\mathrm{bol}: -3.286 \pm 0.063$', xy=(0.52, 1.1*10**(-17)), color='#07D1E8', fontsize=15)
 
 
 

@@ -7,23 +7,23 @@ from matplotlib.ticker import ScalarFormatter
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
 
-df_trap = pd.read_csv('Data/Smooth_output/Fieldoverall/Gaia2306-0502_(M7.5)_SED_spexify_spexified.txt', sep=" ",
+df_trap = pd.read_csv('Data/Smooth_output_PS/Tefflowgoverall/PS_2306-0502 (M7.5) SED_spexified.txt', sep=" ",
                       comment='#', header=None, names=["w", "f", "err"])
-df_trap_phot = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ", comment='#', header=None,
+df_trap_phot = pd.read_csv('Data/PS_2306-0502 (M7.5) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff (young) ----------------------------------
-df_1247 = pd.read_csv('Data/Smooth_output/Tefflowgoverall/Gaia1247-3816 (M9gamma) SED_spexified.txt', sep=" ",
+df_1247 = pd.read_csv('Data/Smooth_output_PS/Tefflowgoverall/Gaia1247-3816 (M9gamma) SED_spexified.txt', sep=" ",
                       comment='#', header=None, names=["w", "f", "err"])
 df_1247_phot = pd.read_csv('Data/young_comp/Gaia1247-3816 (M9gamma) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
-df_0436 = pd.read_csv('Data/Smooth_output/Tefflowgoverall/0436-4114 (M8betagamma) SED_spexified.txt', sep=" ",
+df_0436 = pd.read_csv('Data/Smooth_output_PS/Tefflowgoverall/Gaia0436-4114 (M8betagamma) SED_spexified.txt', sep=" ",
                       comment='#', header=None, names=["w", "f", "err"])
 df_0436_phot = pd.read_csv('Data/young_comp/0436-4114 (M8betagamma) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
-df_0608 = pd.read_csv('Data/Smooth_output/Tefflowgoverall/Gaia0608-2753 (M8.5gamma) SED_spexified.txt', sep=" ",
+df_0608 = pd.read_csv('Data/Smooth_output_PS/Tefflowgoverall/PS_0608-2753 (M8.5gamma) SED_spexified.txt', sep=" ",
                       comment='#', header=None, names=["w", "f", "err"])
-df_0608_phot = pd.read_csv('Data/young_comp/Gaia0608-2753 (M8.5gamma) phot.txt', sep=" ", comment='#', header=None,
+df_0608_phot = pd.read_csv('Data/young_comp/PS_0608-2753 (M8.5gamma) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
 # -------------------------------------------------------------------------------------
 # ------------------- Plotting: Young Comparison of same Teff -------------------------
@@ -79,11 +79,11 @@ plt.tight_layout()
 # NIR SpT
 ax1.annotate('J1247-3816 (M9 $\gamma$)  $T_\mathrm{eff}: 2627 \pm 291$ K', xy=(2.9, 3*10**(-14)), color='#E80901',
              fontsize=15)
-ax1.annotate('J0436-4114 (M9 $\gamma$)  $T_\mathrm{eff}: 2565 \pm 257$ K', xy=(2.9, 2*10**(-14)), color='#9B0132',
+ax1.annotate('J0436-4114 (M9 $\gamma$)  $T_\mathrm{eff}: 2570 \pm 260$ K', xy=(2.9, 2*10**(-14)), color='#9B0132',
              fontsize=15)
-ax1.annotate('J0608-2753 (L0 $\gamma$)   $T_\mathrm{eff}: 2471 \pm 255$ K', xy=(2.9, 1.3*10**(-14)), color='#FF6B03',
+ax1.annotate('J0608-2753 (L0 $\gamma$)   $T_\mathrm{eff}: 2516 \pm 252$ K', xy=(2.9, 1.3*10**(-14)), color='#FF6B03',
              fontsize=15)
-ax1.annotate('TRAPPIST-1 (M7.5)  $T_\mathrm{eff}: 2584 \pm 34$ K', xy=(2.9, 8.5*10**(-15)), color='k', fontsize=15)
+ax1.annotate('TRAPPIST-1 (M7.5)  $T_\mathrm{eff}: 2626 \pm 34$ K', xy=(2.9, 8.5*10**(-15)), color='k', fontsize=15)
 
 plt.savefig('Figures/young_comp_teff.pdf', dpi=150)
 

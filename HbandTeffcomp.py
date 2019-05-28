@@ -7,21 +7,21 @@ from SEDkit.utilities import rebin_spec as rebin
 # ------------------- Read in Spectra and Photometry files ---------------------------
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
-df_trap = pd.read_csv('Data/Gaia2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
+df_trap = pd.read_csv('Data/PS_2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 
 # Comparison objects with same Teff
 # ----Field---
-df_vb8 = pd.read_csv('Data/field_comp/Gaia1655-0823 (M7) SED.txt', sep=" ", comment='#', header=None,
+df_vb8 = pd.read_csv('Data/field_comp/PS_1655-0823 (M7) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_vb10 = pd.read_csv('Data/field_comp/Gaia1916+0508 (M8) SED.txt', sep=" ", comment='#', header=None,
+df_vb10 = pd.read_csv('Data/field_comp/PS_1916+0508 (M8) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
-df_0320 = pd.read_csv('Data/field_comp/Gaia0320+1854 (M8) SED.txt', sep=" ", comment='#', header=None,
+df_0320 = pd.read_csv('Data/field_comp/PS_0320+1854 (M8) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 # ----Young----
 df_0436 = pd.read_csv('Data/young_comp/0436-4114 (M8betagamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
-df_0608 = pd.read_csv('Data/young_comp/Gaia0608-2753 (M8.5gamma) SED.txt', sep=" ", comment='#', header=None,
+df_0608 = pd.read_csv('Data/young_comp/PS_0608-2753 (M8.5gamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 
 
@@ -111,32 +111,32 @@ ax1.plot(trap_bin[0], trap_bin[1], c='k')
 ax1.plot(J0608_bin[0], J0608_bin[1], c='#FF6B03', alpha=0.75)
 # ax1.plot(df_trap['w'], norm_df_trap + 0.5, c='k')
 # ax1.plot(df_0608['w'], norm_df_0608 + 0.5, c='#FF6B03', alpha=0.75)
-ax1.annotate('J0608-2753 (L0 $\gamma$) $T_\mathrm{eff}: 2471 \pm 255$ K', xy=(1.421, 1.45), color='#FF6B03', fontsize=15)
+ax1.annotate('J0608-2753 (L0 $\gamma$) $T_\mathrm{eff}: 2520 \pm 250$ K', xy=(1.421, 1.45), color='#FF6B03', fontsize=15)
 # vb10
 ax1.plot(trap_bin[0], trap_bin[1] + 0.75, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 1.2, c='k')
 ax1.plot(df_vb10['w'], norm_df_vb10 + 0.75, c='#275202', alpha=0.75)
-ax1.annotate('vB 10 (M8) $T_\mathrm{eff}: 2541 \pm 45$ K', xy=(1.421, 2), color='#275202', fontsize=15)
+ax1.annotate('vB 10 (M8) $T_\mathrm{eff}: 2524 \pm 45$ K', xy=(1.421, 2), color='#275202', fontsize=15)
 # 0436
 ax1.plot(trap_bin[0], trap_bin[1] + 1.3, c='k')
 ax1.plot(J0436_bin[0], J0436_bin[1] +1.3, c='#9B0132', alpha=0.75)
 # ax1.plot(df_trap['w'], norm_df_trap , c='k')
 # ax1.plot(df_0436['w'], norm_df_0436, c='#9B0132', alpha=0.75)
-ax1.annotate('J0436-4114 (M9 $\gamma$) $T_\mathrm{eff}: 2430 \pm 255$ K', xy=(1.421, 2.55), color='#9B0132', fontsize=15)
-# Trappist
-ax1.plot(trap_bin[0], trap_bin[1] + 1.8, c='k')
-# ax1.plot(df_trap['w'], norm_df_trap + 1.7, c='k')
-ax1.annotate('Trappist-1 (M7.5) $T_\mathrm{eff}: 2584 \pm 34$ K', xy=(1.421, 3.05), color='k', fontsize=15)
+ax1.annotate('J0436-4114 (M9 $\gamma$) $T_\mathrm{eff}: 2570 \pm 260$ K', xy=(1.421, 2.55), color='#9B0132', fontsize=15)
 # 0320
-ax1.plot(trap_bin[0], trap_bin[1] + 2.3, c='k')
+ax1.plot(trap_bin[0], trap_bin[1] + 1.8, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 2.2, c='k')
-ax1.plot(df_0320['w'], norm_df_0320 + 2.3, c='#1EE801', alpha=0.75)
-ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2615 \pm 34$ K', xy=(1.421, 3.55), color='#1EE801', fontsize=15)
+ax1.plot(df_0320['w'], norm_df_0320 + 1.8, c='#1EE801', alpha=0.75)
+ax1.annotate('J0320+1854 (M8) $T_\mathrm{eff}: 2612 \pm 34$ K', xy=(1.421, 3.05), color='#1EE801', fontsize=15)
+# Trappist
+ax1.plot(trap_bin[0], trap_bin[1] + 2.3, c='k')
+# ax1.plot(df_trap['w'], norm_df_trap + 1.7, c='k')
+ax1.annotate('Trappist-1 (M7.5) $T_\mathrm{eff}: 2626 \pm 34$ K', xy=(1.421, 3.55), color='k', fontsize=15)
 # vb8
 ax1.plot(trap_bin[0], trap_bin[1] + 2.8, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 2.7, c='k')
 ax1.plot(df_vb8['w'], norm_df_vb8 + 2.8, c='#04A57F', alpha=0.8)
-ax1.annotate('vB 8 (M7) $T_\mathrm{eff}: 2642 \pm 34$ K', xy=(1.421, 4), color='#04A57F', fontsize=15)
+ax1.annotate('vB 8 (M7) $T_\mathrm{eff}: 2652 \pm 34$ K', xy=(1.421, 4), color='#04A57F', fontsize=15)
 
 # ------- Label Features --------------------------
 H2O1 = pd.DataFrame()

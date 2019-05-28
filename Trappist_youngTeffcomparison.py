@@ -77,11 +77,11 @@ plt.tight_layout()
 # ax1.annotate('J0608-2753 (M8.5 $\gamma$)  $T_\mathrm{eff}: 2493 \pm 253$ K', xy=(3, 1.05*10**(-14)), color='#FF6B03',
 # fontsize=15)
 # NIR SpT
-ax1.annotate('J1247-3816 (M9 $\gamma$)  $T_\mathrm{eff}: 2627 \pm 291$ K', xy=(2.9, 3*10**(-14)), color='#E80901',
+ax1.annotate('J1247-3816 (M9 $\gamma$)  $T_\mathrm{eff}: 2630 \pm 290$ K', xy=(2.9, 3*10**(-14)), color='#E80901',
              fontsize=15)
 ax1.annotate('J0436-4114 (M9 $\gamma$)  $T_\mathrm{eff}: 2570 \pm 260$ K', xy=(2.9, 2*10**(-14)), color='#9B0132',
              fontsize=15)
-ax1.annotate('J0608-2753 (L0 $\gamma$)   $T_\mathrm{eff}: 2516 \pm 252$ K', xy=(2.9, 1.3*10**(-14)), color='#FF6B03',
+ax1.annotate('J0608-2753 (L0 $\gamma$)   $T_\mathrm{eff}: 2520 \pm 250 $ K', xy=(2.9, 1.3*10**(-14)), color='#FF6B03',
              fontsize=15)
 ax1.annotate('TRAPPIST-1 (M7.5)  $T_\mathrm{eff}: 2626 \pm 34$ K', xy=(2.9, 8.5*10**(-15)), color='k', fontsize=15)
 

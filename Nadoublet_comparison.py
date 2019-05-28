@@ -52,15 +52,16 @@ plt.ylabel('Normalized Flux  ($F_\lambda$)', fontsize=25)
 # -------- Add data -----------
 ax1.plot(df_trap['w'], norm_df_trap, c="k")
 ax1.plot(df_LHS['w'], norm_df_LHS + 1, c='#01A1D6')                                 # sdM7 2775
-ax1.plot(df_1610['w'], norm_df_1610 + 2, c='#04A57F')                               # sdM7 2852
-ax1.plot(df_2036['w'], norm_df_2036 + 3, c='#F7BE0F')                               # sdM7.5 3049
+ax1.plot(df_1610['w'], norm_df_1610 + 3, c='#F7BE0F')                               # sdM7 2852
+ax1.plot(df_2036['w'], norm_df_2036 + 2, c='#04A57F')                               # sdM7.5 3049
 
 
 # ------- Label Sources -------------
-ax1.annotate('TRAPPIST-1 T$_\mathrm{eff}: 2584 \pm 34$ K', xy=(1.139, 1.2), color='k', fontsize=15)
-ax1.annotate('LHS 377 T$_\mathrm{eff}: 2739 \pm 6$ K', xy=(1.139, 2.2), color='#01A1D6', fontsize=15)
-ax1.annotate('J1610-0040 T$_\mathrm{eff}: 2890 \pm 20$ K', xy=(1.139, 3.2), color='#04A57F', fontsize=15)
-ax1.annotate('J2036+5059 T$_\mathrm{eff}: 2983 \pm 22$ K', xy=(1.139, 4.2), color='#F7BE0F', fontsize=15)
+ax1.annotate('TRAPPIST-1 T$_\mathrm{eff}: 2626 \pm 34$ K', xy=(1.139, 1.2), color='k', fontsize=15)
+ax1.annotate('LHS 377 T$_\mathrm{eff}: 2825 \pm 6$ K', xy=(1.139, 2.2), color='#01A1D6', fontsize=15)
+ax1.annotate('J2036+5059 T$_\mathrm{eff}: 2834 \pm 23$ K', xy=(1.139, 3.2), color='#04A57F', fontsize=15)
+ax1.annotate('J1610-0040 T$_\mathrm{eff}: 2885 \pm 20$ K', xy=(1.139, 4.2), color='#F7BE0F', fontsize=15)
+
 
 plt.tight_layout()
 plt.savefig('Figures/NaIdoublet_compwithsub.pdf', dpi=150)

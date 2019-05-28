@@ -72,17 +72,19 @@ ax1.plot(df_0532['w'], norm_df_0532, c='indigo')                                
 ax1.plot(df_1256['w'], norm_df_1256 + 1, c='blue')                                 # sdL4 2158
 ax1.plot(df_trap['w'], norm_df_trap + 2, c="k")
 ax1.plot(df_LHS['w'], norm_df_LHS + 3, c='#01A1D6')                                 # sdM7 2775
-ax1.plot(df_1610['w'], norm_df_1610 + 4, c='#04A57F')                               # sdM7 2852
-ax1.plot(df_2036['w'], norm_df_2036 + 5, c='#F7BE0F')                               # sdM7.5 3049
+ax1.plot(df_2036['w'], norm_df_2036 + 4, c='#04A57F')                               # sdM7.5 3049
+ax1.plot(df_1610['w'], norm_df_1610 + 5, c='#F7BE0F')                               # sdM7 2852
+
 
 
 # ------- Label Sources -------------
-ax1.annotate('J0532+8246 T$_\mathrm{eff}: 1664 \pm 24$ K ', xy=(1.21, 1.2), color='indigo', fontsize=15)
-ax1.annotate('J1256-0224 T$_\mathrm{eff}: 2307 \pm 71$ K', xy=(1.21, 2.2), color='blue', fontsize=15)
-ax1.annotate('TRAPPIST-1 T$_\mathrm{eff}: 2584 \pm 34$ K', xy=(1.21, 3.2), color='k', fontsize=15)
-ax1.annotate('LHS 377 T$_\mathrm{eff}: 2739 \pm 6$ K', xy=(1.21, 4.2), color='#01A1D6', fontsize=15)
-ax1.annotate('J1610-0040 T$_\mathrm{eff}: 2890 \pm 20$ K', xy=(1.21, 5.2), color='#04A57F', fontsize=15)
-ax1.annotate('J2036+5059 T$_\mathrm{eff}: 2983 \pm 22$ K', xy=(1.21, 6.2), color='#F7BE0F', fontsize=15)
+ax1.annotate('J0532+8246 T$_\mathrm{eff}: 1675 \pm 25$ K ', xy=(1.21, 1.2), color='indigo', fontsize=15)
+ax1.annotate('J1256-0224 T$_\mathrm{eff}: 2304 \pm 71$ K', xy=(1.21, 2.2), color='blue', fontsize=15)
+ax1.annotate('TRAPPIST-1 T$_\mathrm{eff}: 2626 \pm 34$ K', xy=(1.21, 3.2), color='k', fontsize=15)
+ax1.annotate('LHS 377 T$_\mathrm{eff}: 2825 \pm 6$ K', xy=(1.21, 4.2), color='#01A1D6', fontsize=15)
+ax1.annotate('J2036+5059 T$_\mathrm{eff}: 2834 \pm 23$ K', xy=(1.21, 5.2), color='#04A57F', fontsize=15)
+ax1.annotate('J1610-0040 T$_\mathrm{eff}: 2885 \pm 20$ K', xy=(1.21, 6.2), color='#F7BE0F', fontsize=15)
+
 
 plt.tight_layout()
 plt.savefig('Figures/KIdoublet_compwithsub.pdf', dpi=150)

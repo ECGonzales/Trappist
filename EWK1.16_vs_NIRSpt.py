@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 # ------------------- Read in Indices and polynomials ---------------------------
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
-df = pd.read_csv('Data/Indices/indices.tsv', sep="\t", comment='#', header=0)
+df = pd.read_csv('Data/Indices/indices_final.tsv', sep="\t", comment='#', header=0)
 # names=[Shortname, Spectra, Lit. OPT SPT,	opt grav, Lit NIR SpT, nir grav, Final Gravity low,	FInal gravity Med.,
 # FEH_Z, E_FEH_Z, VO_Z, E_VO_Z, FEH_J,	E_FEH_J, KI_J, E_KI_J, HCONT, E_HCONT, NAI,	E_NAI, KI_169, E_KI_169, KI_177,
 # E_KI_177, KI_244, E_KI_244, KI_253,	E_KI_253]
@@ -46,8 +46,8 @@ plt.ylabel('K I 1.169 EW ($\AA$)', fontsize=25)
 plt.xlabel('NIR Spectral Type', fontsize=25)
 ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
 plt.xticks([6, 7, 8, 9, 10, 11, 12], ['M6', "M7", 'M8', 'M9', 'L0', 'L1', 'L2'], fontsize=20)
-plt.xlim([5.8, 12.5])
-plt.ylim([-3.5, 12.5])
+plt.xlim([5.8, 12.2])
+plt.ylim([-4, 12])
 
 
 # ----- plot data ------

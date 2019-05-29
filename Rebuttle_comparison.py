@@ -6,26 +6,26 @@ from matplotlib.ticker import ScalarFormatter
 # ------------------- Read in Spectra and Photometry files ---------------------------
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
-df_trap = pd.read_csv('Data/Smooth_output/Fieldoverall/Gaia2306-0502_(M7.5)_SED_spexify_spexified.txt', sep=" ",
+df_trap = pd.read_csv('Data/Smooth_output_PS/rebuttle/PS_2306-0502 (M7.5) SED_spexified.txt', sep=" ",
                       comment='#', header=None, names=["w", "f", "err"])
 df_trap_phot = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ",comment='#', header=None,
                            names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff ----------------------------------
 # LHS 132. INT-G
-df_0102 = pd.read_csv('Data/Smooth_output/Rebuttal/Gaia0102-3737 (M8) SED_spexified.txt', sep=" ", comment='#',
+df_0102 = pd.read_csv('Data/Smooth_output_PS/rebuttle/Gaia0102-3737 (M8) SED_spexified.txt', sep=" ", comment='#',
                        header=None, names=["w", "f", "err"])
 df_0102_phot = pd.read_csv('Data/field_comp/Gaia0102-3737 (M8) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
 # M8 INT-G
-df_2341 = pd.read_csv('Data/Smooth_output/Rebuttal/2341-1133 (-) SED_spexified.txt', sep=" ", comment='#', header=None,
+df_2341 = pd.read_csv('Data/Smooth_output_PS/rebuttle/PS_2341-1133 (M8) SED_spexified.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_2341_phot = pd.read_csv('Data/RebuttleSources/2341-1133 (-) phot.txt', sep=" ", comment='#', header=None,
+df_2341_phot = pd.read_csv('Data/RebuttleSources/PS_2341-1133 (M8) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
 # Young AB Dor
-df_2352 = pd.read_csv('Data/Smooth_output/Rebuttal/2352-1100 (-) SED_spexified.txt', sep=" ", comment='#', header=None,
+df_2352 = pd.read_csv('Data/Smooth_output_PS/rebuttle/PS_2352-1100 (M7) SED_spexified.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_2352_phot = pd.read_csv('Data/RebuttleSources/2352-1100 (-) phot.txt', sep=" ", comment='#', header=None,
+df_2352_phot = pd.read_csv('Data/RebuttleSources/PS_2352-1100 (M7) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
 
 # -------------------------------------------------------------------------------------
@@ -69,13 +69,13 @@ plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 plt.tight_layout()
 
 # ------ Labeling Spectra and Photometric points -------- #TODO:Smooth and move labels
-ax1.annotate('LHS 132 (M8)         $T_\mathrm{eff}: 2579 \pm 34$ K, $L_\mathrm{bol}: -3.264 \pm 0.002$',
+ax1.annotate('LHS 132 (M8)         $T_\mathrm{eff}: 2579 \pm 34$ K, $L_\mathrm{bol}: -3.264 \pm 0.015$',
              xy=(0.32, 1.1*10**(-17)), color='#E08B11', fontsize=15)
-ax1.annotate('J2341-1133 (M8)    $T_\mathrm{eff}: 2878 \pm 37$ K, $L_\mathrm{bol}: -2.946 \pm 0.011$',
+ax1.annotate('J2341-1133 (M8)    $T_\mathrm{eff}: 2871 \pm 37$ K, $L_\mathrm{bol}: -2.944 \pm 0.011$',
              xy=(0.32, 1.8*10**(-17)), color='#E05714', fontsize=15)
-ax1.annotate('J2352-1100 (M8 $\\beta$) $T_\mathrm{eff}: 2901 \pm 56$ K, $L_\mathrm{bol}: -2.81 \pm 0.018$',
+ax1.annotate('J2352-1100 (M8 $\\beta$) $T_\mathrm{eff}: 2902 \pm 57$ K, $L_\mathrm{bol}: -2.815 \pm 0.018$',
              xy=(0.32, 2.75*10**(-17)), color='#CC2015', fontsize=15)
-ax1.annotate('TRAPPIST-1 (M7.5) $T_\mathrm{eff}: 2584 \pm 34$ K, $L_\mathrm{bol}: -3.253 \pm 0.002$',
+ax1.annotate('TRAPPIST-1 (M7.5) $T_\mathrm{eff}: 2626 \pm 34$ K, $L_\mathrm{bol}: -3.210 \pm 0.012$',
              xy=(0.32, 4.1*10**(-17)), color='k', fontsize=15)
 
 plt.savefig('Figures/comparison_Rebuttle.pdf', dpi=150)

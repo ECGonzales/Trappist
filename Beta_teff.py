@@ -7,18 +7,18 @@ from matplotlib.ticker import ScalarFormatter
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
 
-df_trap = pd.read_csv('Data/Smooth_output/Fieldoverall/Gaia2306-0502_(M7.5)_SED_spexify_spexified.txt', sep=" ",
+df_trap = pd.read_csv('Data/Smooth_output_PS/betateffoverall/PS_2306-0502 (M7.5) SED_spexified.txt', sep=" ",
                       comment='#', header=None, names=["w", "f", "err"])
-df_trap_phot = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ", comment='#', header=None,
+df_trap_phot = pd.read_csv('Data/PS_2306-0502 (M7.5) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
 # -------------- Comparison objects of the same Teff (betas) ----------------------------------
 # df_0253 = pd.read_csv('Data/beta_comp/Gaia0253+3206 (M7beta) SED.txt', sep=" ", comment='#', header=None,
 #                       names=["w", "f", "err"])
 # df_0253_phot = pd.read_csv('Data/beta_comp/Gaia0253+3206 (M7beta) phot.txt', sep=" ", comment='#', header=None,
 #                            names=["w", "f", "err"])
-df_0953 = pd.read_csv('Data/Smooth_output/BetaTeff/Gaia0953-1014 (L0gamma) SED_spexified.txt', sep=" ", comment='#',
+df_0953 = pd.read_csv('Data/Smooth_output_PS/betateffoverall/PS_0953-1014 (L0gamma) SED_spexified.txt', sep=" ", comment='#',
                       header=None, names=["w", "f", "err"])
-df_0953_phot = pd.read_csv('Data/beta_comp/Gaia0953-1014 (L0gamma) phot.txt', sep=" ", comment='#', header=None,
+df_0953_phot = pd.read_csv('Data/beta_comp/PS_0953-1014 (L0gamma) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
 
 # -------------------------------------------------------------------------------------
@@ -61,10 +61,10 @@ plt.ylabel('Flux ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 plt.tight_layout()
 
 # ------ Labeling Objects --------
-ax1.annotate('TRAPPIST-1 (M7.5) $T_\mathrm{eff}: 2581 \pm 34$ K', xy=(2.5, 2*10**(-14)), color='k', fontsize=15)
+ax1.annotate('TRAPPIST-1 (M7.5) $T_\mathrm{eff}: 2626 \pm 34$ K', xy=(2.5, 2*10**(-14)), color='k', fontsize=15)
 # ax1.annotate('J0253+3206 (M7$\\beta$), $T_\mathrm{eff}: 2581 \pm 265$ K', xy=(2, 2*10**(-14)), color='#D01810',
 # fontsize=15)
-ax1.annotate('J0953-1014 (M9 $\\beta$) $T_\mathrm{eff}: 2427 \pm 254$ K', xy=(2.5, 1.4*10**(-14)), color='#D01810',
+ax1.annotate('J0953-1014 (M9 $\\beta$) $T_\mathrm{eff}: 2450 \pm 260$ K', xy=(2.5, 1.4*10**(-14)), color='#D01810',
              fontsize=15)
 
 plt.savefig('Figures/beta_teff.pdf', dpi=150)

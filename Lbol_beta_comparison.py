@@ -7,13 +7,13 @@ from matplotlib.ticker import ScalarFormatter
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
 
-df_trap = pd.read_csv('Data/paper1_trappist/Lbol_comp/Gaia2306-0502 (M7.5) SED_spexified.txt', sep=" ", comment='#',
-                      header=None, names=["w", "f", "err"])
-df_trap_phot = pd.read_csv('Data/Gaia2306-0502 (M7.5) phot.txt', sep=" ", comment='#', header=None,
+df_trap = pd.read_csv('Data/Smooth_output_PS/betalboloverall/PS_2306-0502 (M7.5) SED_spexified.txt', sep=" ",
+                      comment='#', header=None, names=["w", "f", "err"])
+df_trap_phot = pd.read_csv('Data/PS_2306-0502 (M7.5) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff ----------------------------------
-df_2235 = pd.read_csv('Data/paper1_trappist/Lbol_comp/Gaia2235-5906 (M8.5beta) SED_spexified.txt', sep=" ", comment='#',
+df_2235 = pd.read_csv('Data/Smooth_output_PS/betalboloverall/Gaia2235-5906 (M8.5beta) SED_spexified.txt', sep=" ", comment='#',
                       header=None, names=["w", "f", "err"])
 df_2235_phot = pd.read_csv('Data/beta_comp/Gaia2235-5906 (M8.5beta) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
@@ -21,9 +21,9 @@ df_2235_phot = pd.read_csv('Data/beta_comp/Gaia2235-5906 (M8.5beta) phot.txt', s
 #                        comment='#', header=None, names=["w", "f", "err"])
 # df_2154_phot = pd.read_csv('Data/beta_comp/Gaia2154-7459 (M9.5beta) phot.txt', sep=" ", comment='#', header=None,
 #                             names=["w", "f", "err"])
-df_0714 = pd.read_csv('Data/paper1_trappist/Lbol_comp/Gaia0714+3702 (M8) SED_spexified.txt', sep=" ", comment='#',
+df_0714 = pd.read_csv('Data/Smooth_output_PS/betalboloverall/PS_0714+3702 (M8) SED_spexified.txt', sep=" ", comment='#',
                       header=None, names=["w", "f", "err"])
-df_0714_phot = pd.read_csv('Data/beta_comp/Gaia0714+3702 (M8) phot.txt', sep=" ", comment='#', header=None,
+df_0714_phot = pd.read_csv('Data/beta_comp/PS_0714+3702 (M8) phot.txt', sep=" ", comment='#', header=None,
                             names=["w", "f", "err"])
 
 
@@ -66,12 +66,12 @@ plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
 plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 
 # ------ Labeling Spectra and Photometric points --------
-# J2235 41-49 Myr (Tuc-Hor)
-ax1.annotate('J2235-5906 (M8.5 $\\beta$) $L_\mathrm{bol}: -3.214 \pm 0.014$', xy=(1.95, 9*10**(-15)), color='#8E01E8',fontsize=15)
 # 0714 Age: <500 Myr'
-ax1.annotate('J0714+3702 (M8)      $L_\mathrm{bol}: -3.254 \pm 0.004$', xy=(1.95, 1.4*10**(-14)), color='#E806B7', fontsize=15)
+ax1.annotate('J0714+3702 (M8)       $L_\mathrm{bol}: -3.29 \pm 0.006$', xy=(1.95, 9*10**(-15)), color='#E806B7', fontsize=15)
+# J2235 41-49 Myr (Tuc-Hor)
+ax1.annotate('J2235-5906 (M8.5 $\\beta$)  $L_\mathrm{bol}: -3.214 \pm 0.027$', xy=(1.95, 1.4*10**(-14)), color='#8E01E8',fontsize=15)
 # Trappist-1
-ax1.annotate('TRAPPIST-1 (M7.5)     $L_\mathrm{bol}: -3.255 \pm 0.002$', xy=(1.95, 2*10**(-14)), color='k', fontsize=15)
+ax1.annotate('TRAPPIST-1 (M7.5)     $L_\mathrm{bol}: -3.210 \pm 0.012$', xy=(1.95, 2*10**(-14)), color='k', fontsize=15)
 # J2154
 # ax1.annotate('J2154-7459 (M9.5 $\\beta$)', xy=(4, 2.3*10**(-15)), color='#E806B7', fontsize=15)
 # ax1.annotate('Age: 41-49 Myr (Tuc-Hor)', xy=(4, 1.5*10**(-15)), color='#E806B7', fontsize=15)

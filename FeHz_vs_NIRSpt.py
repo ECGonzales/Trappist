@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 # ------------------- Read in Indices and polynomials ---------------------------
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
-df = pd.read_csv('Data/Indices/indices.tsv', sep="\t", comment='#', header=0)
+df = pd.read_csv('Data/Indices/indices_final.tsv', sep="\t", comment='#', header=0)
 # names=[Shortname, Spectra, Lit. OPT SPT,	opt grav, Lit NIR SpT, nir grav, Final Gravity low,	FInal gravity Med.,	FEH_Z,
 # E_FEH_Z, VO_Z, E_VO_Z, FEH_J,	E_FEH_J, KI_J, E_KI_J, HCONT, E_HCONT, NAI,	E_NAI, KI_169, E_KI_169, KI_177, E_KI_177,
 # KI_244, E_KI_244, KI_253,	E_KI_253]
@@ -44,6 +44,7 @@ df_field = df[(df['nir grav'] == 'f')]
 df_field2 = df[(df['opt grav'] == 'f') & (df['nir grav'].isnull())]
 df_field_opt = df_field2[df_field2['Shortname'] != '2306-0502']
 df_subd = df[(df['opt grav'] == 'sd')]
+df_subd2 = df[(df['nir grav'] == 'sd')]
 
 
 # Create the polynomial shaded zones
@@ -65,8 +66,8 @@ plt.ylabel('FeH$_Z$ index', fontsize=25)
 plt.xlabel('NIR Spectral Type', fontsize=25)
 ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
 plt.xticks([6,7, 8, 9, 10,11, 12], ['M6', "M7", 'M8','M9', 'L0','L1', 'L2'], fontsize=20)
-plt.xlim([5.8, 12])
-plt.ylim([0.999, 1.26])
+plt.xlim([6, 12])
+plt.ylim([0.999, 1.3])
 
 # plot polynomials
 plt.plot(df_poly['spts'], df_poly['zfeh'])
@@ -89,6 +90,10 @@ ax1.errorbar(df_field_opt['SpT_used'], df_field_opt['FEH_Z'], yerr=df_field_opt[
 
 # sd = plt.scatter(df_subd['SpT_used'], df_subd['FEH_Z'], color='blue', s=70)
 # ax1.errorbar(df_subd['SpT_used'], df_subd['FEH_Z'], yerr=df_subd['E_FEH_Z'], c='blue', fmt='o')
+
+# sd_nir = plt.scatter(df_subd2['SpT_used'], df_subd2['FEH_Z'], color='mediumblue', s=70)
+# ax1.errorbar(df_subd2['SpT_used'], df_subd2['FEH_Z'], yerr=df_subd2['E_FEH_Z'], c='mediumblue', fmt='o')
+
 
 # --- Designate Trappist-1, error bars smaller than point size -----
 # Prism

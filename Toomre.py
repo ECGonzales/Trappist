@@ -24,12 +24,12 @@ df_gamma_nogroup = df_UVW[(df_UVW['Grav_use'] == 'gamma') & (df_UVW['Group'].isn
 df_beta_nogroup = df_UVW[(df_UVW['Grav_use'] == 'beta') & (df_UVW['Group'].isnull())]
 
 # Trappist UVW
-trap_U = -44.147
-trap_dU = 0.086
-trap_V = -67.192
-trap_dV = 0.095
-trap_W = 11.66
-trap_dW = 0.14
+trap_U = -44.1
+trap_dU = 0.1
+trap_V = -67.2
+trap_dV = 0.3
+trap_W = 11.7
+trap_dW = 0.4
 
 trap_UW = np.sqrt(trap_U**2 + trap_W**2)
 unc_trap_U2 = 2*(trap_dU/abs(trap_U))
@@ -50,7 +50,7 @@ plt.ylim([0, 80])
 
 # ------Tick size and Axes Labels --------
 ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
-plt.ylabel('$(U^2 + W^2)^(1/2)$ (km/s)', fontsize=25)
+plt.ylabel('$(U^2 + W^2)^{(1/2)}$ (km/s)', fontsize=25)
 plt.xlabel('$V$ (km/s)', fontsize=25)
 ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
 

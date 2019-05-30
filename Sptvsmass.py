@@ -6,7 +6,7 @@ import numpy as np
 df_trappist = pd.read_csv('Data/trappist_vsSptparams.txt', sep="\s+", comment='#', header=None,
                      names=["name", "SpT", "Teff", 'Teff_err', 'lbol', 'lbol_err', 'mass', 'mass_unc', 'MJ', 'MJ_unc',
                             'MH', 'MH_unc', 'MK', 'MK_unc', 'MW1', 'MW1_unc', 'MW2', 'MW2_unc'])
-df_sub = pd.read_csv('../Atmospheres_paper/Data/Subdwarf_Spt_vs_Teff_new.txt', sep="\s+", comment='#', header=None,
+df_sub = pd.read_csv('Data/Subdwarf_Spt_vs_Teff_PSupdate.txt', sep="\s+", comment='#', header=None,
                      names=["name", "SpT", "Teff", 'Teff_err', 'lbol', 'lbol_err', 'mass', 'mass_unc', 'MJ', 'MJ_unc',
                             'MH', 'MH_unc', 'MK', 'MK_unc', 'MW1', 'MW1_unc', 'MW2', 'MW2_unc'])
 df_young = pd.read_csv('Data/young_masses.txt', sep="\s+", comment='#', header=None,
@@ -24,7 +24,7 @@ fig.set_size_inches(10, 6.45)  # to make sure proper size run entire code at onc
 plt.gcf().subplots_adjust(bottom=0.15, left=0.15)
 for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
     ax1.spines[axis].set_linewidth(1.1)
-plt.xlim([5.5, 19.5]) # sample goes into T's keep all or only relavent to subs?
+plt.xlim([5.8, 19.2]) # sample goes into T's keep all or only relavent to subs?
 plt.ylim([0, 175])
 
 # ------ Axes Labels --------

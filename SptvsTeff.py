@@ -6,7 +6,7 @@ import numpy as np
 df_trappist = pd.read_csv('Data/trappist_vsSptparams.txt', sep="\s+", comment='#', header=None,
                           names=["name", "SpT", "Teff", 'Teff_err', 'lbol', 'lbol_err', 'mass', 'mass_unc', 'MJ',
                                  'MJ_unc', 'MH', 'MH_unc', 'MK', 'MK_unc', 'MW1', 'MW1_unc', 'MW2', 'MW2_unc'])
-df_sub = pd.read_csv('../Atmospheres_paper/Data/Subdwarf_Spt_vs_Teff_new.txt', sep="\s+", comment='#', header=None,
+df_sub = pd.read_csv('Data/Subdwarf_Spt_vs_Teff_PSupdate.txt', sep="\s+", comment='#', header=None,
                      names=["name", "SpT", "Teff", 'Teff_err', 'lbol', 'lbol_err', 'mass', 'mass_unc', 'MJ', 'MJ_unc',
                             'MH', 'MH_unc', 'MK', 'MK_unc', 'MW1', 'MW1_unc', 'MW2', 'MW2_unc'])
 df_comb = pd.read_csv('../Atmospheres_paper/Data/Lbol+Teff-February2017_updated.txt', sep="\s+", comment='#',

@@ -194,8 +194,8 @@ df['Upper_unc'] = df['magnitude_unc']
 df['Lower'] = df['magnitude'] - df['magnitude_unc']
 df['Lower_unc'] = df['magnitude_unc']
 df['pub'] = 'Missing'
-df['comment'] = 'Fake Upper'
-df['comment1'] = 'Fake lower'
+df['comments'] = 'Fake Upper'
+df['comments1'] = 'Fake lower'
 
 df.Upper.astype(float)
 df.Upper_unc.astype(float)
@@ -210,8 +210,8 @@ df['Lower_unc'] = df['Lower_unc'].apply(lambda x: round(x, decimals))
 
 
 # write to two files for easy adding to the FAKE database to make the uppers and lowers one at a time
-df.to_csv('Fake_phot_upper.txt',columns=['source_id', 'band', 'Upper', 'Upper_unc', 'pub', 'comment'], index=False)
-df.to_csv('Fake_phot_lower.txt',columns=['source_id', 'band', 'Lower', 'Lower_unc', 'pub', 'comment1'], index=False)
+df.to_csv('Fake_phot_upper.txt',columns=['source_id', 'band', 'Upper', 'Upper_unc', 'pub', 'comments'], index=False)
+df.to_csv('Fake_phot_lower.txt',columns=['source_id', 'band', 'Lower', 'Lower_unc', 'pub', 'comments1'], index=False)
 
 # Now remove orginial photometry from the FAKE db and add upper/lower to FAKE database
 db_fake.modify("Delete from photometry where source_id in (1371, 300, 320, 126, 82, 130, 355, 1476, 1357, 1454, 1940, \
@@ -222,8 +222,8 @@ db_fake.add_data('Fake_database/Fake_phot_upper.txt','photometry', delimiter=','
 
 # Add for Trappist list of fake Upper limits
 # Code to calculate upper and lower limits.
-up=10.296     +    0.023
-down = 10.296  -       0.023
+up=14.1     +    0.01
+down = 14.1  -       0.01
 print up, down
 
 data  =list()
@@ -231,6 +231,8 @@ data.append(['source_id', 'band', 'magnitude', 'magnitude_unc', 'publication_sho
 data.append([137, '2MASS_H', 10.739,0.021, 'Missing', 'Fake Upper'])
 data.append([137, '2MASS_J', 11.376,0.022, 'Missing', 'Fake Upper'])
 data.append([137, '2MASS_Ks', 10.319,0.023, 'Missing', 'Fake Upper'])
+data.append([137, 'Gaia_BP', 19.046,0.048, 'Missing', 'Fake Upper'])
+data.append([137, 'Gaia_RP', 14.11,0.01, 'Missing', 'Fake Upper'])
 data.append([137, 'PS_g', 19.35,0.01, 'Missing', 'Fake Upper'])
 data.append([137, 'PS_r', 17.8864,0.0061, 'Missing', 'Fake Upper'])
 data.append([137, 'PS_i', 15.1139,0.0017, 'Missing', 'Fake Upper'])
@@ -245,12 +247,14 @@ db_fake.add_data(data, 'photometry')
 db_fake.modify("Delete from photometry where comments='Fake Upper'")
 
 db_fake.add_data('Fake_database/Fake_phot_lower.txt','photometry', delimiter=',')
-# Trapost fake lowers
+# Trapist fake lowers
 data=list()
 data.append(['source_id', 'band', 'magnitude', 'magnitude_unc', 'publication_shortname', 'comments'])
 data.append([137, '2MASS_H', 10.697,0.021, 'Missing', 'Fake lower'])
 data.append([137, '2MASS_J', 11.332,0.022, 'Missing', 'Fake lower'])
 data.append([137, '2MASS_Ks', 10.273,0.023, 'Missing', 'Fake lower'])
+data.append([137, 'Gaia_BP', 18.95,0.048, 'Missing', 'Fake lower'])
+data.append([137, 'Gaia_RP', 14.09,0.01, 'Missing', 'Fake lower'])
 data.append([137, 'PS_g', 19.3145,0.0189, 'Missing', 'Fake lower'])
 data.append([137, 'PS_r', 17.8742,0.0061, 'Missing', 'Fake lower'])
 data.append([137, 'PS_i', 15.1105,0.0017, 'Missing', 'Fake lower'])
@@ -261,3 +265,4 @@ data.append([137, 'WISE_W2', 9.779,0.02, 'Missing', 'Fake lower'])
 data.append([137, 'WISE_W3', 9.487,0.041, 'Missing', 'Fake lower'])
 db_fake.add_data(data, 'photometry')
 
+db_fake.modify("Delete from photometry where comments='Fake lower' and source_id=137")

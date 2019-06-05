@@ -7,16 +7,16 @@ from SEDkit.utilities import rebin_spec as rebin
 # ------------------- Read in Spectra and Photometry files ---------------------------
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
-df_trap = pd.read_csv('Data/Gaia2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+df_trap = pd.read_csv('Data/PS_Gaia_2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
+                 names=["w", "f", "err"])
 # for smoothing purposes
-df_vb10 = pd.read_csv('Data/field_comp/Gaia1916+0508 (M8) SED.txt', sep=" ", comment='#', header=None,
+df_vb10 = pd.read_csv('Data/field_comp/PS_new_1916+0508 (M8) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 # ---- Teff ----
-df_0953 = pd.read_csv('Data/beta_comp/Gaia0953-1014 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
+df_0953 = pd.read_csv('Data/beta_comp/betateffoverall/PS_new_0953-1014 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 # ---- Lbol -----
-df_2235 = pd.read_csv('Data/beta_comp/Gaia2235-5906 (M8.5beta) SED.txt', sep=" ", comment='#', header=None,
+df_2235 = pd.read_csv('Data/beta_comp/BetaLboloverall/Gaia2235-5906 (M8.5beta) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 # df_2154 = pd.read_csv('Data/beta_comp/Gaia2154-7459 (M9.5beta) SED.txt', sep=" ", comment='#', header=None,
 #                       names=["w", "f", "err"])

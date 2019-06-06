@@ -7,15 +7,15 @@ from matplotlib.ticker import ScalarFormatter
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
 
-df_trap = pd.read_csv('Data/Smooth_output_PS/oldoverall/PS_2306-0502 (M7.5) SED_spexified.txt', sep=" ",
-                      comment='#', header=None, names=["w", "f", "err"])
-df_trap_phot = pd.read_csv('Data/PS_2306-0502 (M7.5) phot.txt', sep=" ",comment='#', header=None,
+df_trap = pd.read_csv('Data/Smooth_output_PS_new/oldoverall/PS_Gaia_2306-0502 (M7.5) SED_spexified.txt', sep=" ", comment='#',
+                      header=None, names=["w", "f", "err"])
+df_trap_phot = pd.read_csv('Data/PS_Gaia_2306-0502 (M7.5) phot.txt', sep=" ", comment='#', header=None,
                            names=["w", "f", "err"])
 
 # -------------- Comparison objects of the same Teff (old) ----------------------------------
-df_1013 = pd.read_csv('Data/Smooth_output_PS/oldoverall/PS_1013-1356 (M9.5sd) SED_spexified.txt', sep=" ",
+df_1013 = pd.read_csv('Data/Smooth_output_PS_new/oldoverall/PS_new_1013-1356 (M9.5sd) SED_spexified.txt', sep=" ",
                       comment='#', header=None, names=["w", "f", "err"])
-df_1013_phot = pd.read_csv('Data/old_comp/PS_1013-1356 (M9.5sd) phot.txt', sep=" ", comment='#',
+df_1013_phot = pd.read_csv('Data/old_comp/PS_new_1013-1356 (M9.5sd) phot.txt', sep=" ", comment='#',
                            header=None, names=["w", "f", "err"])
 # df_GJ660 = pd.read_csv('Data/Smooth_output_PS/oldoverall/PSspectra_gj6601b_est_spexified.txt', sep=" ", comment='#',
 #                        header=0,names=["w", "f", "err"])
@@ -65,9 +65,9 @@ plt.xlabel('Wavelength ($\mu m$)', fontsize=25)
 plt.ylabel('Flux  ($erg\ s^{-1} cm^{-2} A^{-1}$)', fontsize=25)
 
 # ------ Labeling Objects --------
-ax1.annotate('TRAPPIST-1 (M7.5)      $T_\mathrm{eff}: 2626 \pm 34$ K,  $L_\mathrm{bol}: -3.210 \pm 0.012$', xy=(0.52, 2.3*10**(-17)), color='k', fontsize=15)
+ax1.annotate('TRAPPIST-1 (M7.5)      $T_\mathrm{eff}: 2629 \pm 34$ K,  $L_\mathrm{bol}: -3.216 \pm 0.016$', xy=(0.52, 2.3*10**(-17)), color='k', fontsize=15)
 
-ax1.annotate('J1013-1356 (sdM9.5)  $T_\mathrm{eff}: 2628 \pm 22$ K,  $L_\mathrm{bol}: -3.303 \pm 0.026$', xy=(0.52, 1.6*10**(-17)), color='#0822FF', fontsize=15)
+ax1.annotate('J1013-1356 (sdM9.5)  $T_\mathrm{eff}: 2628 \pm 22$ K,  $L_\mathrm{bol}: -3.303 \pm 0.027$', xy=(0.52, 1.6*10**(-17)), color='#0822FF', fontsize=15)
 
 # ax1.annotate('GJ 660.1B (d/sdM7)    $T_\mathrm{eff}: 2642 \pm 102$ K, $L_\mathrm{bol}: -3.286 \pm 0.063$', xy=(0.52, 1.1*10**(-17)), color='#07D1E8', fontsize=15)
 

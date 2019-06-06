@@ -8,28 +8,28 @@ from SEDkit.utilities import rebin_spec as rebin
 # ------------------------------------------------------------------------------------
 # Read  all in as pandas dataframes
 
-df_trap = pd.read_csv('Data/PS_2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
+df_trap = pd.read_csv('Data/PS_Gaia_2306-0502 (M7.5) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 
 # ---- Field ----
-df_vb8 = pd.read_csv('Data/field_comp/PS_1655-0823 (M7) SED.txt', sep=" ", comment='#', header=None,
+df_vb8 = pd.read_csv('Data/field_comp/PS_new_1655-0823 (M7) SED.txt', sep=" ", comment='#', header=None,
                        names=["w", "f", "err"])
-df_vb10 = pd.read_csv('Data/field_comp/PS_1916+0508 (M8) SED.txt', sep=" ", comment='#', header=None,
+df_vb10 = pd.read_csv('Data/field_comp/PS_new_1916+0508 (M8) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
-df_0320 = pd.read_csv('Data/field_comp/PS_0320+1854 (M8) SED.txt', sep=" ", comment='#', header=None,
+df_0320 = pd.read_csv('Data/field_comp/PS_new_0320+1854 (M8) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 # --- Young ------
-df_1207 = pd.read_csv('Data/young_comp/Gaia1207-3900 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
+df_1207 = pd.read_csv('Data/young_comp/Young_Lbol/Gaia1207-3900 (L0gamma) SED.txt', sep=" ", comment='#', header=None,
                       names=["w", "f", "err"])
 # df_0443 = pd.read_csv('Data/young_comp/0443+0002 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
 #                       names=["w", "f", "err"])
 # df_0443_phot = pd.read_csv('Data/young_comp/0443+0002 (M9gamma) phot.txt', sep=" ", comment='#', header=None,
 #                            names=["w", "f", "err"])
 # Checking with the SXD to see differences
-df_0443 = pd.read_csv('Data/young_comp/PS_0443+0002 (M9gamma) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
-df_0518 = pd.read_csv('Data/young_comp/PS_0518-2756 (L1gamma) SED.txt', sep=" ", comment='#', header=None,
-                      names=["w", "f", "err"])
+df_0443 = pd.read_csv('Data/young_comp/Young_Lbol/PS_new_0443+0002 (M9gamma) SED.txt', sep=" ", comment='#',
+                      header=None, names=["w", "f", "err"])
+df_0518 = pd.read_csv('Data/young_comp/Young_Lbol/PS_new_0518-2756 (L1gamma) SED.txt', sep=" ", comment='#',
+                      header=None, names=["w", "f", "err"])
 
 # -------------------------------------------------------------------------------------
 # ------------------------- Normalize the spectra -------------------------------------
@@ -100,13 +100,13 @@ ax1.annotate('J1207-3900 (L1 $\gamma$) $L_\mathrm{bol}: -3.337 \pm 0.053$', xy=(
 ax1.plot(trap_bin[0], trap_bin[1] + 1.2, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 2.6, c='k')
 ax1.plot(df_vb10['w'], norm_df_vb10 + 1.2, c='#275202', alpha=0.8)
-ax1.annotate('vB 10 (M8) $L_\mathrm{bol}: -3.309 \pm 0.017$', xy=(0.951, 2.5), color='#275202', fontsize=14)
+ax1.annotate('vB 10 (M8) $L_\mathrm{bol}: -3.298 \pm 0.018$', xy=(0.951, 2.5), color='#275202', fontsize=14)
 # 0518
 ax1.plot(trap_bin[0], trap_bin[1] + 2.2, c='k')
 ax1.plot(J0518_bin[0], J0518_bin[1] + 2.2, c='#5518C2', alpha=0.75)
 # ax1.plot(df_trap['w'], norm_df_trap + 1.2, c='k')
 # ax1.plot(df_0518['w'], norm_df_0518 + 1.2, c='#5518C2', alpha=0.75)
-ax1.annotate('J0518-2756 (L1 $\gamma$) $L_\mathrm{bol}: -3.273 \pm 0.04$', xy=(0.951, 3.6), color='#5518C2', fontsize=14)
+ax1.annotate('J0518-2756 (L1 $\gamma$) $L_\mathrm{bol}: -3.273 \pm 0.041$', xy=(0.951, 3.6), color='#5518C2', fontsize=14)
 # 320
 ax1.plot(trap_bin[0], trap_bin[1] + 3.5, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 4.5, c='k')
@@ -121,7 +121,7 @@ ax1.plot(trap_bin[0], trap_bin[1] + 5.5, c='k')
 ax1.plot(J0443_bin[0], J0443_bin[1] + 5.5, c='#E71BF8', alpha=0.75)
 # ax1.plot(df_trap['w'], norm_df_trap + 5.5, c='k')
 # ax1.plot(df_0443['w'], norm_df_0443 + 5.5, c='#E71BF8', alpha=0.75)
-ax1.annotate('J0443+0002 (L0 $\gamma$) $L_\mathrm{bol}: -3.199\pm 0.006$', xy=(0.951, 6.9), color='#E71BF8', fontsize=14)
+ax1.annotate('J0443+0002 (L0 $\gamma$) $L_\mathrm{bol}: -3.194\pm 0.009$', xy=(0.951, 6.9), color='#E71BF8', fontsize=14)
 # vb8
 ax1.plot(trap_bin[0], trap_bin[1] + 6.5, c='k')
 # ax1.plot(df_trap['w'], norm_df_trap + 6.5, c='k')

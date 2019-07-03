@@ -37,6 +37,24 @@ unc_trap_W2 = 2*(trap_dW/abs(trap_W))
 unc_U2_plus_W2_trap = np.sqrt(unc_trap_U2**2+unc_trap_W2**2)
 final_unc_toom_trap = (1./2.)*(unc_U2_plus_W2_trap/abs(trap_UW))
 
+#Teegarden UVW
+# U [km/s] −69.46 ± 0.31 Cor16
+# V [km/s] −71.17 ± 0.15 Cor16
+# W [km/s] −58.68 ± 0.25 Cor16
+tee_U = -69.46
+tee_dU = 0.31
+tee_V = -71.17
+tee_dV = 0.15
+tee_W = -58.68
+tee_dW = 0.25
+
+tee_UW = np.sqrt(tee_U**2 + tee_W**2)
+unc_tee_U2 = 2*(tee_dU/abs(tee_U))
+unc_tee_W2 = 2*(tee_dW/abs(tee_W))
+unc_U2_plus_W2_tee = np.sqrt(unc_tee_U2**2+unc_tee_W2**2)
+final_unc_toom_tee = (1./2.)*(unc_U2_plus_W2_tee/abs(tee_UW))
+
+
 # ------------------------------------------------------------------------------------
 # -------------------------------- Plot: Toomre -------------------------------------
 # ------------------------------------------------------------------------------------
@@ -46,7 +64,7 @@ for axis in ['top', 'bottom', 'left', 'right']:  # Thicken the frame
     ax1.spines[axis].set_linewidth(1.1)
 fig.set_size_inches(10, 6.45)
 plt.xlim([-80, 40])
-plt.ylim([0, 80])
+plt.ylim([0, 100])
 
 # ------Tick size and Axes Labels --------
 ax1.tick_params(axis='both', labelsize=20, length=8, width=1.1)
@@ -68,16 +86,20 @@ beta_out = plt.scatter(df_beta_nogroup['V'], df_beta_nogroup['UW'],  color='#FF6
 ax1.errorbar( df_beta_nogroup['V'], df_beta_nogroup['UW'], xerr=df_beta_nogroup['dV'],yerr=df_beta_nogroup['UW_err'],
              c='#FF6B03', fmt='o')
 # TRAPPIST-1
-trappist = plt.scatter(trap_V, trap_UW, color='k', s=700, marker='*')
+trappist = plt.scatter(trap_V, trap_UW, color='k', s=600, marker='*')
 ax1.errorbar(trap_V, trap_UW, xerr=trap_dV,yerr=final_unc_toom_trap, c='k', fmt='o')
+
+# Teegarden's Star
+teegarden = plt.scatter(tee_V, tee_UW, color='k', s=150, marker='s')
+ax1.errorbar(tee_V, tee_UW, xerr=tee_dV,yerr=final_unc_toom_tee, c='k', fmt='o')
 
 circle=plt.Circle((0,0),50, color='k', fill=False, linestyle='--')
 circle2=plt.Circle((0,0),70, color='k', fill=False, linestyle='--')
 ax1.add_artist(circle)
 ax1.add_artist(circle2)
 
-plt.legend([gamma_in, gamma_out, beta_out, trappist], ['$\gamma$ in group', '$\gamma$ not in group',
-                                                       '$\\beta$ not in group', 'TRAPPIST-1'], frameon=False,
-           fontsize=12, loc=4)
+plt.legend([gamma_in, gamma_out, beta_out, trappist, teegarden], ['$\gamma$ in group', '$\gamma$ not in group',
+                                                       '$\\beta$ not in group', 'TRAPPIST-1', "Teegarden's Star"],
+           frameon=False,fontsize=12, loc=4)
 plt.tight_layout()
 plt.savefig('Figures/UW_vs_V.pdf')

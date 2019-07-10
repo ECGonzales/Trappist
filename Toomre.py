@@ -54,6 +54,20 @@ unc_tee_W2 = 2*(tee_dW/abs(tee_W))
 unc_U2_plus_W2_tee = np.sqrt(unc_tee_U2**2+unc_tee_W2**2)
 final_unc_toom_tee = (1./2.)*(unc_U2_plus_W2_tee/abs(tee_UW))
 
+#LHS 132 U,V,W, dU,dV,dW
+# -22.363629       37.042244      -68.081299       1.2497961       1.2475648      0.94968432
+LHS_U = -22.4
+LHS_dU = 1.2
+LHS_V = 37.
+LHS_dV = 1.2
+LHS_W = -68.08
+LHS_dW = 0.95
+
+LHS_UW = np.sqrt(LHS_U**2 + LHS_W**2)
+unc_LHS_U2 = 2*(LHS_dU/abs(LHS_U))
+unc_LHS_W2 = 2*(LHS_dW/abs(LHS_W))
+unc_U2_plus_W2_LHS = np.sqrt(unc_LHS_U2**2+unc_LHS_W2**2)
+final_unc_toom_LHS = (1./2.)*(unc_U2_plus_W2_LHS/abs(LHS_UW))
 
 # ------------------------------------------------------------------------------------
 # -------------------------------- Plot: Toomre -------------------------------------
@@ -93,13 +107,18 @@ ax1.errorbar(trap_V, trap_UW, xerr=trap_dV,yerr=final_unc_toom_trap, c='k', fmt=
 teegarden = plt.scatter(tee_V, tee_UW, color='k', s=150, marker='s')
 ax1.errorbar(tee_V, tee_UW, xerr=tee_dV,yerr=final_unc_toom_tee, c='k', fmt='o')
 
+# LHS132
+LHS_132 = plt.scatter(LHS_V, LHS_UW, color='k', s=150, marker='o')
+ax1.errorbar(LHS_V, LHS_UW, xerr=LHS_dV,yerr=final_unc_toom_LHS, c='k', fmt='o')
+
 circle=plt.Circle((0,0),50, color='k', fill=False, linestyle='--')
 circle2=plt.Circle((0,0),70, color='k', fill=False, linestyle='--')
 ax1.add_artist(circle)
 ax1.add_artist(circle2)
 
-plt.legend([gamma_in, gamma_out, beta_out, trappist, teegarden], ['$\gamma$ in group', '$\gamma$ not in group',
-                                                       '$\\beta$ not in group', 'TRAPPIST-1', "Teegarden's Star"],
+plt.legend([gamma_in, gamma_out, beta_out, trappist, teegarden, LHS_132], ['$\gamma$ in group', '$\gamma$ not in group',
+                                                       '$\\beta$ not in group', 'TRAPPIST-1', "Teegarden's Star",
+                                                        "LHS 132"],
            frameon=False,fontsize=12, loc=4)
 plt.tight_layout()
 plt.savefig('Figures/UW_vs_V.pdf')

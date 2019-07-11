@@ -100,25 +100,32 @@ beta_out = plt.scatter(df_beta_nogroup['V'], df_beta_nogroup['UW'],  color='#FF6
 ax1.errorbar( df_beta_nogroup['V'], df_beta_nogroup['UW'], xerr=df_beta_nogroup['dV'],yerr=df_beta_nogroup['UW_err'],
              c='#FF6B03', fmt='o')
 # TRAPPIST-1
-trappist = plt.scatter(trap_V, trap_UW, color='k', s=600, marker='*')
-ax1.errorbar(trap_V, trap_UW, xerr=trap_dV,yerr=final_unc_toom_trap, c='k', fmt='o')
+trappist = plt.scatter(trap_V, trap_UW, color='#FF6B03', s=600, marker='*')
+ax1.errorbar(trap_V, trap_UW, xerr=trap_dV,yerr=final_unc_toom_trap, c='#FF6B03', fmt='o')
 
 # Teegarden's Star
-teegarden = plt.scatter(tee_V, tee_UW, color='k', s=150, marker='s')
-ax1.errorbar(tee_V, tee_UW, xerr=tee_dV,yerr=final_unc_toom_tee, c='k', fmt='o')
+teegarden = plt.scatter(tee_V, tee_UW, color='#FF6B03', s=70, marker='o')
+ax1.errorbar(tee_V, tee_UW, xerr=tee_dV,yerr=final_unc_toom_tee, c='#FF6B03', fmt='o')
 
 # LHS132
-LHS_132 = plt.scatter(LHS_V, LHS_UW, color='k', s=150, marker='o')
-ax1.errorbar(LHS_V, LHS_UW, xerr=LHS_dV,yerr=final_unc_toom_LHS, c='k', fmt='o')
+LHS_132 = plt.scatter(LHS_V, LHS_UW, color='#FF6B03', s=70, marker='o')
+ax1.errorbar(LHS_V, LHS_UW, xerr=LHS_dV,yerr=final_unc_toom_LHS, c='#FF6B03', fmt='o')
 
+# Make circles of constant velocity
 circle=plt.Circle((0,0),50, color='k', fill=False, linestyle='--')
 circle2=plt.Circle((0,0),70, color='k', fill=False, linestyle='--')
 ax1.add_artist(circle)
 ax1.add_artist(circle2)
 
-plt.legend([gamma_in, gamma_out, beta_out, trappist, teegarden, LHS_132], ['$\gamma$ in group', '$\gamma$ not in group',
-                                                       '$\\beta$ not in group', 'TRAPPIST-1', "Teegarden's Star",
-                                                        "LHS 132"],
+# Label Intersting sources
+ax1.annotate("Teegarden's Star", xy=(-69, 91), color='k', fontsize=12)
+ax1.annotate("LHS 132", xy=(29, 75), color='k', fontsize=12)
+ax1.annotate("TRAPPIST-1", xy=(-79, 38), color='k', fontsize=12)
+ax1.annotate("2MASS J1022+5825", xy=(-72, 74), color='k', fontsize=12)
+ax1.annotate("2MASS J1022+0200", xy=(-68, 56), color='k', fontsize=12)
+
+plt.legend([gamma_in, gamma_out, beta_out, trappist], ['$\gamma$ in group', '$\gamma$ not in group',
+                                                       '$\\beta$ not in group', 'TRAPPIST-1'],
            frameon=False,fontsize=12, loc=4)
 plt.tight_layout()
 plt.savefig('Figures/UW_vs_V.pdf')

@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.legend_handler import HandlerTuple
 
 # ------------------------------------------------------------------------------------
 # ------------------- Read in Indices and polynomials ---------------------------
@@ -69,11 +70,11 @@ ax1.errorbar(df_field_opt['SpT_used'], df_field_opt['KI_253'], yerr=df_field_opt
 
 # --- Designate Trappist-1 -----
 # FIRE
-trap_f = plt.scatter(df_field2['SpT_used'][24], df_field2['KI_253'][24], color='k', s=400, zorder=2, marker="*")
+trap_f = plt.scatter(df_field2['SpT_used'][24], df_field2['KI_253'][24], color='k', s=900, zorder=2, marker="*")
 ax1.errorbar(df_field2['SpT_used'][24], df_field2['KI_253'][24], yerr=df_field2['E_KI_169'][24], c='k', zorder=2,
              fmt='o')
 # SXD
-trap_s = plt.scatter(df_field2['SpT_used'][25], df_field2['KI_253'][25], color='k', s=200, zorder=2, marker="o")
+trap_s = plt.scatter(df_field2['SpT_used'][25], df_field2['KI_253'][25], color='k', s=500, zorder=2, marker="o")
 ax1.errorbar(df_field2['SpT_used'][25], df_field2['KI_253'][25], yerr=df_field2['E_KI_253'][25], c='k', zorder=2,
              fmt='o')
 
@@ -88,14 +89,14 @@ fld_m = plt.scatter(df_comp_field['SpT_num'], df_comp_field['K1.2529'], color='#
 ax1.errorbar(df_comp_field['SpT_num'], df_comp_field['K1.2529'], yerr=df_comp_field['e_K1.2529'], c='#7C7D70', fmt='s', zorder=3)
 
 
-# Martin = plt.scatter(df_comp['SpT_num'], df_comp['K1.2529'], color='#E2D2E8', s=30, zorder=1, marker="s")
-# ax1.errorbar(df_comp['SpT_num'], df_comp['K1.2529'], yerr=df_comp['e_K1.2529'], c='#E2D2E8', fmt='o', zorder=1)
+# This is to make the multiple points on the legend that are smaller than the ones in the plot, therefore need to
+# run in python 3.
+trap_sm = plt.scatter([], [], color='k', s=200, zorder=1, marker="o")
+trap_fm = plt.scatter([], [], color='k', s=400, zorder=1, marker="*")
 
 # ---- Add Legend ----
-# plt.legend([fld, fld_opt, gamma, beta, trap_s, Martin], ["Field", "Field (opt Spt)", "$\gamma$", '$\\beta$',
-#                                                         'TRAPPIST-1', "Martin 2017"], frameon=False, fontsize=12)
+plt.legend([fld, fld_opt, gamma, beta, (trap_fm, trap_sm),fld_m], ["Field", "Field (opt Spt)", "$\gamma$", '$\\beta$', 'TRAPPIST-1', "Martin 2017"],
+           handler_map={tuple: HandlerTuple(ndivide=None, pad=1.5)}, frameon=False, fontsize=12)
 
-plt.legend([fld, fld_opt, gamma, beta, trap_s, fld_m], ["Field", "Field (opt Spt)", "$\gamma$", '$\\beta$',
-                                                        'TRAPPIST-1', "Martin 2017"], frameon=False, fontsize=12)
 plt.tight_layout()
 plt.savefig('Figures/KI_253_vs_NIRSpt.pdf', dpi=150)

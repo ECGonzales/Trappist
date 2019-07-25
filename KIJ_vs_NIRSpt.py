@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.legend_handler import HandlerTuple
 
 # ------------------------------------------------------------------------------------
 # ------------------- Read in Indices and polynomials ---------------------------
@@ -79,9 +80,13 @@ ax1.errorbar(df_field2['SpT_used'][24], df_field2['KI_J'][24], yerr=df_field2['E
 trap_s = plt.scatter(df_field2['SpT_used'][25], df_field2['KI_J'][25], color='k', s=200, zorder=2, marker="o")
 ax1.errorbar(df_field2['SpT_used'][25], df_field2['KI_J'][25], yerr=df_field2['E_KI_J'][25], c='k', zorder=2, fmt='o')
 
+# This is to make the multiple points on the legend, therefore need to run in python 3.
+trap_sm = plt.scatter([], [], color='k', s=70, zorder=1, marker="o")
+trap_fm = plt.scatter([], [], color='k', s=250, zorder=1, marker="*")
+trap_pm = plt.scatter([], [], color='k', s=70, zorder=1, marker="s")
 # ---- Add Legend ----
-plt.legend([fld, fld_opt, gamma, beta, trap_s], ["Field", "Field (opt Spt)", "$\gamma$", '$\\beta$', 'TRAPPIST-1'],
-           frameon=False, fontsize=12)
+plt.legend([fld, fld_opt, gamma, beta, (trap_fm, trap_sm, trap_pm)], ["Field", "Field (opt Spt)", "$\gamma$", '$\\beta$', 'TRAPPIST-1'],
+           handler_map={tuple: HandlerTuple(ndivide=None, pad=1.4)}, frameon=False, fontsize=12)
 
 plt.tight_layout()
 plt.savefig('Figures/KIJ_vs_NIRSpt.pdf', dpi=150)

@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.legend_handler import HandlerTuple
 # import scipy.io as sci
 
 # ------------------------------------------------------------------------------------
@@ -106,11 +107,18 @@ ax1.errorbar(df_field2['SpT_used'][24], df_field2['FEH_Z'][24], yerr=df_field2['
 trap_s = plt.scatter(df_field2['SpT_used'][25], df_field2['FEH_Z'][25], color='k', s=200, zorder=1, marker="o")
 ax1.errorbar(df_field2['SpT_used'][25], df_field2['FEH_Z'][25], yerr=df_field2['E_FEH_Z'][25], c='k', zorder=1, fmt='o')
 
-
-
+# This is to make the multiple points on the legend, therefore need to run in python 3.
+trap_sm = plt.scatter([], [], color='k', s=70, zorder=1, marker="o")
+trap_fm = plt.scatter([], [], color='k', s=250, zorder=1, marker="*")
+trap_pm = plt.scatter([], [], color='k', s=70, zorder=1, marker="s")
 # ---- Add Legend ----
-plt.legend([fld, fld_opt, gamma, beta, trap_s], ["Field", "Field (opt Spt)", "$\gamma$", '$\\beta$', 'TRAPPIST-1'],
-           frameon=False, fontsize=12)
+plt.legend([fld, fld_opt, gamma, beta, (trap_fm, trap_sm, trap_pm)], ["Field", "Field (opt Spt)", "$\gamma$", '$\\beta$', 'TRAPPIST-1'],
+           handler_map={tuple: HandlerTuple(ndivide=None, pad=1.4)}, frameon=False, fontsize=12)
+
+
+
+#plt.legend([fld, fld_opt, gamma, beta, trap_s], ["Field", "Field (opt Spt)", "$\gamma$", '$\\beta$', 'TRAPPIST-1'],
+          # frameon=False, fontsize=12)
 
 plt.tight_layout()
 

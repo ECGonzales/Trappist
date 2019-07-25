@@ -74,10 +74,10 @@ ax1.errorbar(df_field_opt['SpT_used'], df_field_opt['KI_J'], yerr=df_field_opt['
 trap_p = plt.scatter(df_field2['SpT_used'][23], df_field2['KI_J'][23], color='k', s=200, zorder=2, marker="s")
 ax1.errorbar(df_field2['SpT_used'][23], df_field2['KI_J'][23], yerr=df_field2['E_KI_J'][23], c='k', zorder=2, fmt='o')
 # FIRE
-trap_f = plt.scatter(df_field2['SpT_used'][24], df_field2['KI_J'][24], color='k', s=700, zorder=2, marker="*")
+trap_f = plt.scatter(df_field2['SpT_used'][24], df_field2['KI_J'][24], color='k', s=800, zorder=2, marker="*")
 ax1.errorbar(df_field2['SpT_used'][24], df_field2['KI_J'][24], yerr=df_field2['E_KI_J'][24], c='k', zorder=2, fmt='o')
 # SXD
-trap_s = plt.scatter(df_field2['SpT_used'][25], df_field2['KI_J'][25], color='k', s=200, zorder=2, marker="o")
+trap_s = plt.scatter(df_field2['SpT_used'][25], df_field2['KI_J'][25], color='k', s=300, zorder=2, marker="o")
 ax1.errorbar(df_field2['SpT_used'][25], df_field2['KI_J'][25], yerr=df_field2['E_KI_J'][25], c='k', zorder=2, fmt='o')
 
 # This is to make the multiple points on the legend, therefore need to run in python 3.

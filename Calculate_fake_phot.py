@@ -5,7 +5,7 @@ import numpy as np
 
 # Load up the database ( a real and fake version)
 db = astrodb.Database('/Users/eileengonzales/Dropbox/BDNYC/BDNYCdb_copy/BDNYCdevdb/bdnycdev.db')
-db_fake = astrodb.Database('Fake_database/bdnycdev_fake.db')
+db_fake = astrodb.Database('/Users/eileengonzales/Dropbox/BDNYC/BDNYCdb_copy/Fake_database/bdnycdev_fake.db')
 
 # For the real database add the PS photometry for the objects of intrest Cross matching comes from Best+18
 data = list()
@@ -210,8 +210,8 @@ df['Lower_unc'] = df['Lower_unc'].apply(lambda x: round(x, decimals))
 
 
 # write to two files for easy adding to the FAKE database to make the uppers and lowers one at a time
-df.to_csv('Fake_phot_upper.txt',columns=['source_id', 'band', 'Upper', 'Upper_unc', 'pub', 'comments'], index=False)
-df.to_csv('Fake_phot_lower.txt',columns=['source_id', 'band', 'Lower', 'Lower_unc', 'pub', 'comments1'], index=False)
+df.to_csv('/Users/eileengonzales/Dropbox/BDNYC/BDNYCdb_copy/Fake_database/Fake_phot_upper.txt',columns=['source_id', 'band', 'Upper', 'Upper_unc', 'pub', 'comments'], index=False)
+df.to_csv('/Users/eileengonzales/Dropbox/BDNYC/BDNYCdb_copy/Fake_database/Fake_phot_lower.txt',columns=['source_id', 'band', 'Lower', 'Lower_unc', 'pub', 'comments1'], index=False)
 
 # Now remove orginial photometry from the FAKE db and add upper/lower to FAKE database
 db_fake.modify("Delete from photometry where source_id in (1371, 300, 320, 126, 82, 130, 355, 1476, 1357, 1454, 1940, \

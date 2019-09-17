@@ -57,10 +57,10 @@ ax1.plot(df_2036['w'], norm_df_2036 + 0.75, c='#01A1D6')                        
 
 
 # ------- Label Sources -------------
-ax1.annotate('TRAPPIST-1 T$_\mathrm{eff}: 2629 \pm 34$ K', xy=(1.139, 1.2), color='k', fontsize=15)
-ax1.annotate('J2036+5059 T$_\mathrm{eff}: 2833 \pm 23$ K', xy=(1.139, 2), color='#01A1D6', fontsize=15)
-ax1.annotate('LHS 377 T$_\mathrm{eff}: 2834 \pm 6$ K', xy=(1.139, 3.2), color='#04A57F', fontsize=15)
-ax1.annotate('J1610-0040 T$_\mathrm{eff}: 2890 \pm 20$ K', xy=(1.139, 4.2), color='#F7BE0F', fontsize=15)
+ax1.annotate('TRAPPIST-1 T$_\mathrm{eff}: 2628 \pm 42$ K', xy=(1.139, 1.2), color='k', fontsize=15)
+ax1.annotate('J2036+5059 T$_\mathrm{eff}: 2832 \pm 58$ K', xy=(1.139, 2), color='#01A1D6', fontsize=15)
+ax1.annotate('LHS 377 T$_\mathrm{eff}: 2840 \pm 60$ K', xy=(1.139, 3.2), color='#04A57F', fontsize=15)
+ax1.annotate('J1610-0040 T$_\mathrm{eff}: 2880 \pm 20$ K', xy=(1.139, 4.2), color='#F7BE0F', fontsize=15)
 
 
 plt.tight_layout()

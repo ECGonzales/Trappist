@@ -70,9 +70,9 @@ plt.tight_layout()
 
 # ------ Labeling Spectra and Photometric points -------- #TODO:Smooth and move labels
 ax1.annotate('TRAPPIST-1 (M7.5) $T_\mathrm{eff}: 2310 \pm 230$ K', xy=(2.5, 1.2*10**(-14)), color='k', fontsize=15)
-ax1.annotate('J0853-0329 (M9)    $T_\mathrm{eff}: 2334 \pm 54$ K', xy=(2.5, 8.5*10**(-15)), color='#09BD8C', fontsize=15)
-ax1.annotate('J1048-3956 (M9)    $T_\mathrm{eff}: 2333 \pm 54$ K', xy=(2.5, 6*10**(-15)), color='#1CA844', fontsize=15)
-ax1.annotate('J1835+3295 (M9)  $T_\mathrm{eff}: 2321 \pm 54$ K', xy=(2.5, 4*10**(-15)), color='#7A7614', fontsize=15)
+ax1.annotate('J0853-0329 (M9)    $T_\mathrm{eff}: 2330 \pm 70$ K', xy=(2.5, 8.5*10**(-15)), color='#09BD8C', fontsize=15)
+ax1.annotate('J1048-3956 (M9)    $T_\mathrm{eff}: 2330 \pm 60$ K', xy=(2.5, 6*10**(-15)), color='#1CA844', fontsize=15)
+ax1.annotate('J1835+3295 (M9)  $T_\mathrm{eff}: 2321 \pm 58$ K', xy=(2.5, 4*10**(-15)), color='#7A7614', fontsize=15)
 
 
 plt.savefig('Figures/Young_Age_Field.pdf', dpi=150)

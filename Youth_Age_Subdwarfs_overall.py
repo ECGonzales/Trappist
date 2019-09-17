@@ -74,8 +74,8 @@ plt.tight_layout()
 
 # ------ Labeling Spectra and Photometric points -------- #TODO:Smooth and move labels
 ax1.annotate('TRAPPIST-1 (M7.5)   $T_\mathrm{eff}: 2310 \pm 230$ K', xy=(2.5, 1.2*10**(-14)), color='k', fontsize=15)
-ax1.annotate('J1256-0224 (sdL3.5)  $T_\mathrm{eff}: 2304 \pm 71 $ K', xy=(2.5, 8.5*10**(-15)), color='#5005BD',fontsize=15)
-ax1.annotate('GJ 660.1B (d/sdM7)    $T_\mathrm{eff}: 2408 \pm 91$ K', xy=(2.5, 6*10**(-15)), color='#07D1E8', fontsize=15)
-ax1.annotate('J1444-2019 (sdM9)    $T_\mathrm{eff}: 2443 \pm 12$ K', xy=(2.5, 4*10**(-15)), color='mediumblue', fontsize=15)
+ax1.annotate('J1256-0224 (sdL3.5)  $T_\mathrm{eff}: 2301 \pm 71 $ K', xy=(2.5, 8.5*10**(-15)), color='#5005BD',fontsize=15)
+ax1.annotate('GJ 660.1B (d/sdM7)    $T_\mathrm{eff}: 2409 \pm 91$ K', xy=(2.5, 6*10**(-15)), color='#07D1E8', fontsize=15)
+ax1.annotate('J1444-2019 (sdM9)    $T_\mathrm{eff}: 2442 \pm 68$ K', xy=(2.5, 4*10**(-15)), color='mediumblue', fontsize=15)
 
 plt.savefig('Figures/Young_Age_Subdwarfs.pdf', dpi=150)

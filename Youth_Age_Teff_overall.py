@@ -63,7 +63,7 @@ plt.tight_layout()
 # ------ Labeling Spectra and Photometric points -------- #TODO:Smooth and move labels
 ax1.annotate('TRAPPIST-1 (M7.5) $T_\mathrm{eff}: 2310 \pm 230$ K', xy=(2.5, 1.7*10**(-14)), color='k', fontsize=15)
 ax1.annotate('J0608-2753 (L0 $\gamma$)  $T_\mathrm{eff}: 2510 \pm 250 $ K', xy=(2.5, 1.2*10**(-14)), color='#D41304',fontsize=15)
-ax1.annotate('J2000-7523 (M9 $\gamma$)   $T_\mathrm{eff}: 2388 \pm 36$ K', xy=(2.5, 8.3*10**(-15)), color='#A85C05', fontsize=15)
+ax1.annotate('J2000-7523 (M9 $\gamma$)   $T_\mathrm{eff}: 2389 \pm 44$ K', xy=(2.5, 8.3*10**(-15)), color='#A85C05', fontsize=15)
 
 
 plt.savefig('Figures/Young_Age_Lowg.pdf', dpi=150)

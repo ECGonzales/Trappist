@@ -123,6 +123,8 @@ ax1.annotate("LHS 132", xy=(29, 75), color='k', fontsize=12)
 ax1.annotate("TRAPPIST-1", xy=(-79, 38), color='k', fontsize=12)
 ax1.annotate("2MASS J1022+5825", xy=(-72, 74), color='k', fontsize=12)
 ax1.annotate("2MASS J1022+0200", xy=(-68, 56), color='k', fontsize=12)
+ax1.annotate("2MASS J0033-1521", xy=(-26, 57), color='k', fontsize=12)
+ax1.annotate("2MASS J2322-3133", xy=(-53, 41), color='k', fontsize=12)
 
 plt.legend([gamma_in, gamma_out, beta_out, trappist], ['$\gamma$ in group', '$\gamma$ not in group',
                                                        '$\\beta$ not in group', 'TRAPPIST-1'],
